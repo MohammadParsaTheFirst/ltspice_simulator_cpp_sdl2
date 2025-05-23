@@ -1,0 +1,11 @@
+# ninja log v6
+45	429	7696994128652887	build.ninja	1ba364bf5c210529
+2024	2209	7696959489037501	proj_terminal.exe	ed5a0720df8510e0
+43	2611	7696991047929167	CMakeFiles/proj_terminal.dir/main.cpp.obj	ec1a40da185c43c0
+51	6446	7696991048005491	CMakeFiles/proj_terminal.dir/Circuit.cpp.obj	957f2185080ec37
+74	2284	7696994937844119	CMakeFiles/proj_terminal.dir/Component.cpp.obj	1203eac1cded5b12
+2285	5572	7696994959952422	proj_terminal.exe	803ed3421a67462f
+54	2617	7697013233860691	CMakeFiles/proj_terminal.dir/Component.cpp.obj	1203eac1cded5b12
+41	2651	7697013233733578	CMakeFiles/proj_terminal.dir/main.cpp.obj	ec1a40da185c43c0
+49	6156	7697013233805408	CMakeFiles/proj_terminal.dir/Circuit.cpp.obj	957f2185080ec37
+6156	9493	7697013294877527	proj_terminal.exe	803ed3421a67462f
