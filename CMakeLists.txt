@@ -6,4 +6,7 @@ add_executable(proj_terminal main.cpp
         Component.h
         Circuit.h
         Circuit.cpp
-        Component.cpp)
+        Component.cpp
+        Waveform.cpp
+        Waveform.h
+)

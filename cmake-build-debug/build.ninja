@@ -70,6 +70,13 @@ build CMakeFiles/proj_terminal.dir/Component.cpp.obj: CXX_COMPILER__proj_termina
   OBJECT_DIR = CMakeFiles\proj_terminal.dir
   OBJECT_FILE_DIR = CMakeFiles\proj_terminal.dir
 
+build CMakeFiles/proj_terminal.dir/Waveform.cpp.obj: CXX_COMPILER__proj_terminal_unscanned_Debug C$:/Users/USER/CLionProjects/proj_terminal/Waveform.cpp || cmake_object_order_depends_target_proj_terminal
+  DEP_FILE = CMakeFiles\proj_terminal.dir\Waveform.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/USER/CLionProjects/proj_terminal/eigen-3.4.0
+  OBJECT_DIR = CMakeFiles\proj_terminal.dir
+  OBJECT_FILE_DIR = CMakeFiles\proj_terminal.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target proj_terminal
@@ -78,7 +85,7 @@ build CMakeFiles/proj_terminal.dir/Component.cpp.obj: CXX_COMPILER__proj_termina
 #############################################
 # Link the executable proj_terminal.exe
 
-build proj_terminal.exe: CXX_EXECUTABLE_LINKER__proj_terminal_Debug CMakeFiles/proj_terminal.dir/main.cpp.obj CMakeFiles/proj_terminal.dir/Circuit.cpp.obj CMakeFiles/proj_terminal.dir/Component.cpp.obj
+build proj_terminal.exe: CXX_EXECUTABLE_LINKER__proj_terminal_Debug CMakeFiles/proj_terminal.dir/main.cpp.obj CMakeFiles/proj_terminal.dir/Circuit.cpp.obj CMakeFiles/proj_terminal.dir/Component.cpp.obj CMakeFiles/proj_terminal.dir/Waveform.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\proj_terminal.dir
