@@ -9,4 +9,13 @@ add_executable(proj_terminal main.cpp
         Component.cpp
         Waveform.cpp
         Waveform.h
+        ChartWindow.cpp
+        ChartWindow.h
+        ComponentFactory.cpp
+        ComponentFactory.h
+        SchematicWidget.cpp
+        SchematicWidget.h
+        main_cli.cpp
+        mainwindow.cpp
+        mainwindow.h
 )

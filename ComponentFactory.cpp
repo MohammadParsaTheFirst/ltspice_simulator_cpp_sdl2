@@ -1,0 +1,74 @@
+#include "ComponentFactory.h"
+
+#include "component.h"
+
+Component* ComponentFactory::createComponent(
+        const std::string& typeStr,
+        const std::string& name,
+        int n1_id,
+        int n2_id,
+        double value,
+        const std::vector<double>& numericParams,
+        const std::vector<std::string>& stringParams,
+        bool isSinusoidal,
+        Circuit* circuit)
+{
+    Component* newComp = nullptr;
+
+    if (typeStr == "R") {
+        if (value <= 0)
+            throw std::runtime_error("Resistance cannot be zero or negative");
+        newComp = new Resistor(name, n1_id, n2_id, value);
+    }
+    else if (typeStr == "C") {
+        if (value <= 0)
+            throw std::runtime_error("Capacitance cannot be zero or negative");
+        newComp = new Capacitor(name, n1_id, n2_id, value);
+    }
+    else if (typeStr == "L") {
+        if (value <= 0)
+            throw std::runtime_error("Inductance cannot be zero or negative");
+        newComp = new Inductor(name, n1_id, n2_id, value);
+    }
+    else if (typeStr == "V") {
+        std::unique_ptr<IWaveformStrategy> wf;
+        if (isSinusoidal)
+             wf = std::make_unique<SinusoidalWaveform>(numericParams[0], numericParams[1], numericParams[2]);
+        else
+             wf = std::make_unique<DCWaveform>(value);
+        newComp = new VoltageSource(name, n1_id, n2_id, std::move(wf));
+    }
+    else if (typeStr == "I") {
+        std::unique_ptr<IWaveformStrategy> wf;
+        if (isSinusoidal)
+            wf = std::make_unique<SinusoidalWaveform>(numericParams[0], numericParams[1], numericParams[2]);
+        else
+            wf = std::make_unique<DCWaveform>(value);
+        newComp = new CurrentSource(name, n1_id, n2_id, std::move(wf));
+    }
+    else if (typeStr == "D")
+        newComp = new Diode(name, n1_id, n2_id, 1e-12, 1.0, 0.026);
+
+    else if (typeStr == "E") { // VCVS
+        int ctrlN1 = circuit->getNodeId(stringParams[0]);
+        int ctrlN2 = circuit->getNodeId(stringParams[1]);
+        newComp = new VCVS(name, n1_id, n2_id, ctrlN1, ctrlN2, value);
+    }
+    else if (typeStr == "G") { // VCCS
+        int ctrlN1 = circuit->getNodeId(stringParams[0]);
+        int ctrlN2 = circuit->getNodeId(stringParams[1]);
+        newComp = new VCCS(name, n1_id, n2_id, ctrlN1, ctrlN2, value);
+    }
+    else if (typeStr == "H") // CCVS
+        newComp = new CCVS(name, n1_id, n2_id, stringParams[0], value);
+
+    else if (typeStr == "F") // CCCS
+        newComp = new CCCS(name, n1_id, n2_id, stringParams[0], value);
+
+    else {
+        std::string errorString = "Element " + name + " not found in library.";
+        throw std::runtime_error(errorString);
+    }
+
+    return newComp;
+}

@@ -1,15 +1,7 @@
 # ninja log v6
-45	429	7765953197142313	build.ninja	1ba364bf5c210529
-14280	45723	7697404957463871	proj_terminal.exe	803ed3421a67462f
-49	2952	7697404815159084	CMakeFiles/proj_terminal.dir/main.cpp.obj	ec1a40da185c43c0
-60	14280	7697404815273965	CMakeFiles/proj_terminal.dir/Circuit.cpp.obj	957f2185080ec37
-70	2829	7697404815377714	CMakeFiles/proj_terminal.dir/Component.cpp.obj	1203eac1cded5b12
-72	422	7765953828691078	CMakeFiles/proj_terminal.dir/Waveform.cpp.obj	cd8bb2403604e53f
-66	1962	7765953828639921	CMakeFiles/proj_terminal.dir/Component.cpp.obj	1203eac1cded5b12
-50	2221	7765953828485829	CMakeFiles/proj_terminal.dir/main.cpp.obj	ec1a40da185c43c0
-60	5496	7765953828578757	CMakeFiles/proj_terminal.dir/Circuit.cpp.obj	957f2185080ec37
-5496	9389	7765953882936281	proj_terminal.exe	8eccedfa01865cbb
-8	6104	7765959933189491	CMakeFiles/proj_terminal.dir/Circuit.cpp.obj	957f2185080ec37
-6105	10057	7765959994148582	proj_terminal.exe	8eccedfa01865cbb
-7	2447	7765976384609020	CMakeFiles/proj_terminal.dir/main.cpp.obj	ec1a40da185c43c0
+45	429	7766139506050046	build.ninja	1ba364bf5c210529
 2448	6402	7765976409008904	proj_terminal.exe	8eccedfa01865cbb
+7	2447	7765976384609020	CMakeFiles/proj_terminal.dir/main.cpp.obj	ec1a40da185c43c0
+8	6104	7765959933189491	CMakeFiles/proj_terminal.dir/Circuit.cpp.obj	957f2185080ec37
+66	1962	7765953828639921	CMakeFiles/proj_terminal.dir/Component.cpp.obj	1203eac1cded5b12
+72	422	7765953828691078	CMakeFiles/proj_terminal.dir/Waveform.cpp.obj	cd8bb2403604e53f
