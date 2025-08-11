@@ -357,19 +357,19 @@
 			"includes" : 
 			[
 				{
-					"path" : "C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/cmake-build-debug"
+					"path" : "C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cmake-build-debug"
 				},
 				{
-					"path" : "C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0"
+					"path" : "C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2"
 				},
 				{
 					"backtrace" : 45,
-					"path" : "C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/eigen-3.4.0"
+					"path" : "C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0"
 				},
 				{
 					"backtrace" : 0,
 					"isSystem" : true,
-					"path" : "C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/cmake-build-debug/LTspice_autogen/include"
+					"path" : "C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cmake-build-debug/LTspice_autogen/include"
 				},
 				{
 					"backtrace" : 2,
@@ -440,11 +440,11 @@
 	"dependencies" : 
 	[
 		{
-			"id" : "LTspice_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
-		},
-		{
 			"backtrace" : 0,
 			"id" : "LTspice_autogen::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "LTspice_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
 		}
 	],
 	"id" : "LTspice::@6890427a1f51a3e7e1df",

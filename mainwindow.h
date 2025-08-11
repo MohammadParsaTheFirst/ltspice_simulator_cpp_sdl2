@@ -19,41 +19,44 @@
 #include "Circuit.h"
 
 
-namespace Ui { class MainWindow; }
+namespace Ui {
+    class MainWindow;
+}
 
 class MainWindow : public QMainWindow {
     Q_OBJECT
+
 private:
     Ui::MainWindow* ui;
-    SchematicWidget *schematic;
+    SchematicWidget* schematic;
     Circuit circuit;
     void setupWelcomeState();
     void setupSchematicState();
 
     // Some items in menu bar to disable and enabling them
-    QAction *settingsAction;
-    QAction *newSchematicAction;
-    QAction *openAction;
-    QAction *configureAnalysisAction;
-    QAction *runAction;
-    QAction *wireAction;
-    QAction *groundAction;
-    QAction *voltageSourceAction;
-    QAction *resistorAction;
-    QAction *capacitorAction;
-    QAction *inductorAction;
-    QAction *diodeAction;
-    QAction *nodeLibraryAction;
-    QAction *textAction;
-    QAction *deleteModeAction;
-    QAction *quitAction;
+    QAction* settingsAction;
+    QAction* newSchematicAction;
+    QAction* openAction;
+    QAction* configureAnalysisAction;
+    QAction* runAction;
+    QAction* wireAction;
+    QAction* groundAction;
+    QAction* voltageSourceAction;
+    QAction* resistorAction;
+    QAction* capacitorAction;
+    QAction* inductorAction;
+    QAction* diodeAction;
+    QAction* nodeLibraryAction;
+    QAction* textAction;
+    QAction* deleteModeAction;
+    QAction* quitAction;
 
 private slots:
     void hNewSchematic();
     void hShowSettings();
 
 public:
-    MainWindow(QWidget *parent = Q_NULLPTR);
+    MainWindow(QWidget* parent = Q_NULLPTR);
     ~MainWindow();
 
     void starterWindow();

@@ -1,6 +1,6 @@
 CMakeFiles/LTspice.dir/ChartWindow.cpp.obj: \
- C:\Users\parsa\Documents\university\Programming\ and\ linux\403101518-403101683.0\ChartWindow.cpp \
- C:\Users\parsa\Documents\university\Programming\ and\ linux\403101518-403101683.0\ChartWindow.h \
+ C:\Users\parsa\Documents\university\Programming\ and\ linux\ltspice_simulator_cpp_sdl2\ChartWindow.cpp \
+ C:\Users\parsa\Documents\university\Programming\ and\ linux\ltspice_simulator_cpp_sdl2\ChartWindow.h \
  C:/Qt/6.7.3/mingw_64/include/QtWidgets/QWidget \
  C:/Qt/6.7.3/mingw_64/include/QtWidgets/qwidget.h \
  C:/Qt/6.7.3/mingw_64/include/QtWidgets/qtwidgetsglobal.h \

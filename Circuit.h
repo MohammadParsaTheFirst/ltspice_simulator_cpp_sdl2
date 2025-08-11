@@ -37,6 +37,7 @@ public:
     void clearSchematic();
     Component* getComponent(const std::string& name) const;
     int getNodeId(const std::string&, bool create = true);
+    void connectNodes(const std::string&, const std::string&);
 
     // Analysis
     void performDCAnalysis(const std::string& , double , double , double );

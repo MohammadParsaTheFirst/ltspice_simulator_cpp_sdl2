@@ -52,10 +52,10 @@ RM = "C:\Program Files\JetBrains\CLion 2024.2.1\bin\cmake\win\x64\bin\cmake.exe"
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0"
+CMAKE_SOURCE_DIR = "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\cmake-build-debug"
+CMAKE_BINARY_DIR = "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug"
 
 # Utility rule file for LTspice_autogen_timestamp_deps.
 
@@ -77,6 +77,6 @@ CMakeFiles/LTspice_autogen_timestamp_deps.dir/clean:
 .PHONY : CMakeFiles/LTspice_autogen_timestamp_deps.dir/clean
 
 CMakeFiles/LTspice_autogen_timestamp_deps.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0" "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0" "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\cmake-build-debug" "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\cmake-build-debug" "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\cmake-build-debug\CMakeFiles\LTspice_autogen_timestamp_deps.dir\DependInfo.cmake" "--color=$(COLOR)"
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2" "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2" "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug" "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug" "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\CMakeFiles\LTspice_autogen_timestamp_deps.dir\DependInfo.cmake" "--color=$(COLOR)"
 .PHONY : CMakeFiles/LTspice_autogen_timestamp_deps.dir/depend
 

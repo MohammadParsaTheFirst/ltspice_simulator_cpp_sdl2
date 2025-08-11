@@ -1,5 +1,5 @@
-C:/Users/parsa/Documents/university/Programming\ and\ linux/403101518-403101683.0/cmake-build-debug/LTspice_autogen/EWIEGA46WW/moc_ChartWindow.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/403101518-403101683.0/ChartWindow.h \
-  C:/Users/parsa/Documents/university/Programming\ and\ linux/403101518-403101683.0/cmake-build-debug/LTspice_autogen/moc_predefs.h \
+C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cmake-build-debug/LTspice_autogen/EWIEGA46WW/moc_ChartWindow.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/ChartWindow.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cmake-build-debug/LTspice_autogen/moc_predefs.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/q20functional.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/q20memory.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/q20type_traits.h \

@@ -13,7 +13,7 @@ double parseSpiceValue(const std::string& valueStr) {
 
     std::string s_lower = valueStr;
     std::transform(s_lower.begin(), s_lower.end(), s_lower.begin(),
-                   [](unsigned char c){ return std::tolower(c); });
+                   [](unsigned char c) { return std::tolower(c); });
 
     std::string numPart;
     double multiplier = 1.0;
@@ -26,12 +26,16 @@ double parseSpiceValue(const std::string& valueStr) {
         char suffix = s_lower.back();
         bool found_suffix = true;
         switch (suffix) {
-            case 'k': multiplier = 1e3; break;
-            case 'u': multiplier = 1e-6; break;
-            case 'n': multiplier = 1e-9; break;
-            case 'm': multiplier = 1e-3; break;
-            default:
-                found_suffix = false;
+        case 'k': multiplier = 1e3;
+            break;
+        case 'u': multiplier = 1e-6;
+            break;
+        case 'n': multiplier = 1e-9;
+            break;
+        case 'm': multiplier = 1e-3;
+            break;
+        default:
+            found_suffix = false;
             break;
         }
 
@@ -40,22 +44,24 @@ double parseSpiceValue(const std::string& valueStr) {
 
         else
             numPart = valueStr;
-
     }
     else
         numPart = valueStr;
 
     return std::stod(numPart) * multiplier;
 }
+
 // -------------------------------- Helper for parsing values --------------------------------
 
 
 // -------------------------------- Constructors and Destructors --------------------------------
 Circuit::Circuit() : nextNodeId(0), numCurrentUnknowns(0),
-                     currentFilePath("C:\\Users\\parsa\\Documents\\university\\Programming and linux\\403101518-403101683.0\\Schematics\\draft.txt"),
+                     currentFilePath(
+                         "C:\\Users\\parsa\\Documents\\university\\Programming and linux\\403101518-403101683.0\\Schematics\\draft.txt"),
                      hasNonlinearComponents(false),
                      groundNodeId(-1) {
-    allFiles.push_back("C:\\Users\\parsa\\Documents\\university\\Programming and linux\\403101518-403101683.0\\Schematics\\draft.txt");
+    allFiles.push_back(
+        "C:\\Users\\parsa\\Documents\\university\\Programming and linux\\403101518-403101683.0\\Schematics\\draft.txt");
 }
 
 Circuit::~Circuit() {
@@ -63,6 +69,7 @@ Circuit::~Circuit() {
         delete comp;
     }
 }
+
 // -------------------------------- Constructors and Destructors --------------------------------
 
 
@@ -102,7 +109,7 @@ void Circuit::saveCircuitToFile() {
     std::ofstream outFile(currentFilePath);
     outFile.close();
 
-    for (std::string & lineToAddToFile : circuitNetList) {
+    for (std::string& lineToAddToFile : circuitNetList) {
         if (!saveLineToFile(lineToAddToFile)) {
             std::cout << "Something bad happened!" << std::endl;
             return;
@@ -161,7 +168,7 @@ bool Circuit::loadCircuitFromFile() {
                 ss >> amplitude_str;
                 ss >> next_token;
                 if (next_token.back() == ')')
-                    freq_str =next_token.substr(0, next_token.size() - 1);
+                    freq_str = next_token.substr(0, next_token.size() - 1);
 
                 double offset = parseSpiceValue(offset_str);
                 double amplitude = parseSpiceValue(amplitude_str);
@@ -199,7 +206,8 @@ bool Circuit::loadCircuitFromFile() {
             std::string errorString = "Element " + comp_name + " not found in library.";
             throw std::runtime_error(errorString);
         }
-        addComponent(std::string(1, type_char), comp_name, node1_str, node2_str, value, numericParams, stringParams, isSinusoidal);
+        addComponent(std::string(1, type_char), comp_name, node1_str, node2_str, value, numericParams, stringParams,
+                     isSinusoidal);
         circuitNetList.push_back(line);
     }
     inFile.close();
@@ -236,7 +244,7 @@ void Circuit::showExistingFiles() {
     for (int i = 0; i < allFiles.size(); i++) {
         std::string filename = allFiles[i];
         filename = filename.substr(filename.find_last_of("\\") + 1);
-        std::cout << i+1 << "-" << filename << std::endl;
+        std::cout << i + 1 << "-" << filename << std::endl;
     }
 
     std::string line, path;
@@ -293,7 +301,7 @@ void Circuit::showExistingFiles() {
             for (int i = 0; i < allFiles.size(); i++) {
                 filename = allFiles[i];
                 filename = filename.substr(filename.find_last_of("\\") + 1);
-                std::cout << i+1 << "-" << filename << std::endl;
+                std::cout << i + 1 << "-" << filename << std::endl;
             }
         }
     }
@@ -309,6 +317,7 @@ void Circuit::showExistingFiles() {
         }
     }
 }
+
 // -------------------------------- File Management --------------------------------
 
 
@@ -334,9 +343,9 @@ bool Circuit::hasNode(const std::string& nodeName) const {
 }
 
 void Circuit::addComponent(const std::string& typeStr, const std::string& name,
-                            const std::string& node1Str, const std::string& node2Str,
-                            double value, const std::vector<double>& numericParams,
-                            const std::vector<std::string>& stringParams, bool isSinusoidal) {
+                           const std::string& node1Str, const std::string& node2Str,
+                           double value, const std::vector<double>& numericParams,
+                           const std::vector<std::string>& stringParams, bool isSinusoidal) {
     for (const auto& comp : components) {
         if (comp->name == name) {
             std::string errorMsg;
@@ -364,7 +373,8 @@ void Circuit::addComponent(const std::string& typeStr, const std::string& name,
     int n2_id = getNodeId(node2Str);
 
     try {
-        Component* newComp = ComponentFactory::createComponent(typeStr, name, n1_id, n2_id, value, numericParams, stringParams, isSinusoidal, this);
+        Component* newComp = ComponentFactory::createComponent(typeStr, name, n1_id, n2_id, value, numericParams,
+                                                               stringParams, isSinusoidal, this);
 
         if (newComp) {
             components.push_back(newComp);
@@ -438,7 +448,7 @@ void Circuit::deleteGround(const std::string& ground_node_name) {
 
 void Circuit::listNodes() const {
     std::cout << "Available nodes:" << std::endl;
-    for (int i = 0;i < idToNodeName.size();i++) {
+    for (int i = 0; i < idToNodeName.size(); i++) {
         if (i == idToNodeName.size() - 1) {
             std::cout << idToNodeName.at(i);
             break;
@@ -451,12 +461,14 @@ void Circuit::listNodes() const {
 void Circuit::listComponents(char typeFilter) const {
     if (!typeFilter)
         for (Component* component : components)
-            std::cout << component->name << " " << idToNodeName.at(component->node1) << " " << idToNodeName.at(component->node2) << " " << component->value << std::endl;
+            std::cout << component->name << " " << idToNodeName.at(component->node1) << " " << idToNodeName.
+                at(component->node2) << " " << component->value << std::endl;
 
     else
         for (Component* component : components)
             if (component->name[0] == typeFilter)
-                std::cout << component->name << " " << idToNodeName.at(component->node1) << " " << idToNodeName.at(component->node2) << " " << component->value << std::endl;
+                std::cout << component->name << " " << idToNodeName.at(component->node1) << " " << idToNodeName.
+                    at(component->node2) << " " << component->value << std::endl;
 }
 
 void Circuit::renameNode(const std::string& oldName, const std::string& newName) {
@@ -479,11 +491,25 @@ void Circuit::renameNode(const std::string& oldName, const std::string& newName)
     for (auto it = circuitNetList.begin(); it != circuitNetList.end(); it++) {
         size_t i = 0;
         if ((i = it->find(oldName)) != std::string::npos) {
-            it->erase(i,oldName.size());
+            it->erase(i, oldName.size());
             it->insert(i, newName);
         }
     }
 }
+
+void Circuit::connectNodes(const std::string& nowNode, const std::string& prevNode) {
+    for (auto& comp: components) {
+        if (comp->node1 == nodeNameToId[nowNode])
+            comp->node1 = nodeNameToId[prevNode];
+        if (comp->node2 == nodeNameToId[nowNode])
+            comp->node2 = nodeNameToId[prevNode];
+    }
+
+    int x = nodeNameToId[nowNode];
+    nodeNameToId.erase(nodeNameToId.find(nowNode));
+    idToNodeName.erase(idToNodeName.find(x));
+}
+
 // -------------------------------- Component and Node Management --------------------------------
 
 
@@ -550,6 +576,7 @@ void Circuit::updateNonlinearComponentStates(const Eigen::VectorXd& solution) {
         }
     }
 }
+
 // -------------------------------- MNA and Solver --------------------------------
 
 
@@ -568,10 +595,10 @@ void Circuit::performDCAnalysis(const std::string& sourceName, double startValue
     std::cout << "Start: " << startValue << ", Stop: " << endValue << ", Increment: " << increment << std::endl;
 
     dcSweepSolutions.clear();
-    for (Component * component: components)
+    for (Component* component : components)
         component->reset();
 
-    for (double sweepValue = startValue; sweepValue <= endValue; sweepValue+=increment) {
+    for (double sweepValue = startValue; sweepValue <= endValue; sweepValue += increment) {
         if (auto vs = dynamic_cast<VoltageSource*>(sweepSource))
             vs->setValue(sweepValue);
         if (auto cs = dynamic_cast<CurrentSource*>(sweepSource))
@@ -625,10 +652,11 @@ void Circuit::performDCAnalysis(const std::string& sourceName, double startValue
 
 void Circuit::performTransientAnalysis(double stopTime, double startTime, double maxTimeStep) {
     if (maxTimeStep == 0.0) {
-        maxTimeStep = (stopTime - startTime)/100;
+        maxTimeStep = (stopTime - startTime) / 100;
     }
     std::cout << "\n\t---------- Performing Transient Analysis ----------" << std::endl;
-    std::cout << "Time Start: " << startTime << "s, Stop Time: " << stopTime << "s, Maximum Time Step: " << maxTimeStep << "s" << std::endl;
+    std::cout << "Time Start: " << startTime << "s, Stop Time: " << stopTime << "s, Maximum Time Step: " << maxTimeStep
+        << "s" << std::endl;
     if (groundNodeId < 0)
         throw std::runtime_error("No ground node detected.");
 
@@ -679,6 +707,7 @@ void Circuit::performTransientAnalysis(double stopTime, double startTime, double
     std::cout << "Transient analysis complete. " << transientSolutions.size() << " time points stored." << std::endl;
     std::cout << "Use .print to view results." << std::endl;
 }
+
 // -------------------------------- Analysis Methods --------------------------------
 
 
@@ -692,7 +721,9 @@ void Circuit::printTransientResults(const std::vector<std::string>& variablesToP
 
     struct PrintJob {
         std::string header;
+
         enum class Type { VOLTAGE, MNA_CURRENT, RESISTOR_CURRENT, CAPACITOR_CURRENT } type;
+
         int index = -1;
         Component* component_ptr = nullptr;
     };
@@ -725,7 +756,8 @@ void Circuit::printTransientResults(const std::vector<std::string>& variablesToP
                     else if (dynamic_cast<Capacitor*>(comp))
                         printJobs.push_back({var, PrintJob::Type::CAPACITOR_CURRENT, -1, comp});
                     else
-                        std::cout << "Warning: Current for component type of '" << name << "' cannot be calculated. Skipping." << std::endl;
+                        std::cout << "Warning: Current for component type of '" << name <<
+                            "' cannot be calculated. Skipping." << std::endl;
                 }
                 else {
                     std::string errorMsg = "Component " + name + " not found in circuit.";
@@ -738,7 +770,7 @@ void Circuit::printTransientResults(const std::vector<std::string>& variablesToP
         throw std::runtime_error("No valid variables to print.");
 
     std::cout << std::left << std::setw(14) << "Time";
-    for(const auto& job : printJobs)
+    for (const auto& job : printJobs)
         std::cout << std::setw(14) << job.header;
     std::cout << std::endl;
 
@@ -786,10 +818,11 @@ void Circuit::printTransientResults(const std::vector<std::string>& variablesToP
 }
 
 void Circuit::printDcSweepResults(const std::string& sourceName, const std::string& variable) const {
-     if (dcSweepSolutions.empty())
-         throw std::runtime_error("No DC sweep results found. Run a .DC analysis first via the .print command.");
+    if (dcSweepSolutions.empty())
+        throw std::runtime_error("No DC sweep results found. Run a .DC analysis first via the .print command.");
 
-    if (variable.length() < 4 || (variable.front() != 'V' && variable.front() != 'I') || variable[1] != '(' || variable.back() != ')')
+    if (variable.length() < 4 || (variable.front() != 'V' && variable.front() != 'I') || variable[1] != '(' || variable.
+        back() != ')')
         throw std::runtime_error("Invalid variable format. Expected V(node) or I(component).");
 
     char varType = variable.front();
@@ -831,12 +864,13 @@ void Circuit::printDcSweepResults(const std::string& sourceName, const std::stri
                 if (componentCurrentIndices.count(varName))
                     result = solution(componentCurrentIndices.at(varName));
                 else {
-                    std::cout << "Warning: Could not find current index for '" << varName << "'. Skipping." << std::endl;
+                    std::cout << "Warning: Could not find current index for '" << varName << "'. Skipping." <<
+                        std::endl;
                     continue;
                 }
             }
             else {
-                 if (dynamic_cast<Resistor*>(comp)) {
+                if (dynamic_cast<Resistor*>(comp)) {
                     int node1 = comp->node1;
                     int node2 = comp->node2;
 
@@ -847,17 +881,18 @@ void Circuit::printDcSweepResults(const std::string& sourceName, const std::stri
                     }
                     double v2 = 0.0;
                     if (node2 != groundNodeId) {
-                         int index2 = (groundNodeId != -1 && node2 > groundNodeId) ? node2 - 1 : node2;
-                         v2 = solution(index2);
+                        int index2 = (groundNodeId != -1 && node2 > groundNodeId) ? node2 - 1 : node2;
+                        v2 = solution(index2);
                     }
                     result = (v1 - v2) / comp->value;
-                 }
-                 else if (dynamic_cast<Capacitor*>(comp))
+                }
+                else if (dynamic_cast<Capacitor*>(comp))
                     result = 0.0;
-                 else {
-                    std::cout << "Warning: Current printing for this component type ('" << varName << "') is not supported. Skipping." << std::endl;
+                else {
+                    std::cout << "Warning: Current printing for this component type ('" << varName <<
+                        "') is not supported. Skipping." << std::endl;
                     continue;
-                 }
+                }
             }
         }
 

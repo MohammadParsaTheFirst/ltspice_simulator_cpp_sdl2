@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/cmake-build-debug"
+			"value" : "c:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -559,7 +559,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cmake-build-debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -643,7 +643,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0"
+			"value" : "C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2"
 		},
 		{
 			"name" : "CMAKE_INSTALL_BINDIR",
@@ -6315,7 +6315,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/cmake-build-debug"
+			"value" : "C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cmake-build-debug"
 		},
 		{
 			"name" : "ltspice_simulator_cpp_sdl2_IS_TOP_LEVEL",
@@ -6339,7 +6339,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0"
+			"value" : "C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2"
 		}
 	],
 	"kind" : "cache",

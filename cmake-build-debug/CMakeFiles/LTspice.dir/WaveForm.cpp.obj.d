@@ -1,6 +1,6 @@
 CMakeFiles/LTspice.dir/WaveForm.cpp.obj: \
- C:\Users\parsa\Documents\university\Programming\ and\ linux\403101518-403101683.0\WaveForm.cpp \
- C:\Users\parsa\Documents\university\Programming\ and\ linux\403101518-403101683.0\WaveForm.h \
+ C:\Users\parsa\Documents\university\Programming\ and\ linux\ltspice_simulator_cpp_sdl2\WaveForm.cpp \
+ C:\Users\parsa\Documents\university\Programming\ and\ linux\ltspice_simulator_cpp_sdl2\WaveForm.h \
  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cmath \
  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/os_defines.h \

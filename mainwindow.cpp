@@ -1,9 +1,9 @@
 #include "mainwindow.h"
 
-MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
+MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
     ui->setupUi(this);
     this->setWindowTitle("LTspice");
-    this->resize(900,600);
+    this->resize(900, 600);
     starterWindow();
     setupWelcomeState();
 }
@@ -12,11 +12,10 @@ MainWindow::~MainWindow() {
     delete ui;
 }
 
-void MainWindow::setupWelcomeState()
-{
+void MainWindow::setupWelcomeState() {
     this->setWindowTitle("LTspice Simulator");
 
-    QLabel *backgroundLabel = new QLabel(this);
+    QLabel* backgroundLabel = new QLabel(this);
     QPixmap backgroundImage(":/background.jpg");
     backgroundLabel->setPixmap(backgroundImage);
     backgroundLabel->setScaledContents(true);
@@ -36,12 +35,12 @@ void MainWindow::setupWelcomeState()
     deleteModeAction->setEnabled(false);
 }
 
-void MainWindow::setupSchematicState()
-{
+void MainWindow::setupSchematicState() {
     this->setWindowTitle("LTspice - Draft.asc");
     schematic = new SchematicWidget(&circuit, this);
     setCentralWidget(schematic);
 
+    connect(wireAction, &QAction::triggered, schematic, &SchematicWidget::startPlacingWire);
     connect(resistorAction, &QAction::triggered, schematic, &SchematicWidget::startPlacingResistor);
     connect(capacitorAction, &QAction::triggered, schematic, &SchematicWidget::startPlacingCapacitor);
     connect(inductorAction, &QAction::triggered, schematic, &SchematicWidget::startPlacingInductor);
@@ -70,30 +69,26 @@ void MainWindow::setupSchematicState()
 //     chartWin->show();
 // }
 
-void MainWindow::hShowSettings()
-{
+void MainWindow::hShowSettings() {
     QMessageBox::information(this, "Settings", "Buy premium!");
 }
 
-void MainWindow::hNewSchematic()
-{
+void MainWindow::hNewSchematic() {
     setupSchematicState();
 }
 
-void MainWindow::starterWindow()
-{
+void MainWindow::starterWindow() {
     initializeActions();
 
     connect(newSchematicAction, &QAction::triggered, this, &MainWindow::hNewSchematic);
     connect(quitAction, &QAction::triggered, this, &QApplication::quit);
-    connect(settingsAction, &QAction::triggered, this , &MainWindow::hShowSettings);
+    connect(settingsAction, &QAction::triggered, this, &MainWindow::hShowSettings);
 
     implementMenuBar();
     implementToolBar();
 }
 
-void MainWindow::initializeActions()
-{
+void MainWindow::initializeActions() {
     settingsAction = new QAction(QIcon(":/icon/icons/settings.png"), "Settings", this);
     newSchematicAction = new QAction(QIcon(":/icon/icons/newSchematic.png"), "New Schematic", this);
     openAction = new QAction(QIcon(":/icon/icons/open.png"), "Open", this);
@@ -101,7 +96,7 @@ void MainWindow::initializeActions()
     runAction = new QAction(QIcon(":/icon/icons/run.png"), "Run", this);
     wireAction = new QAction(QIcon(":/icon/icons/wire.png"), "Wire", this);
     groundAction = new QAction(QIcon(":/icon/icons/ground.png"), "Ground", this);
-    voltageSourceAction = new QAction(QIcon(":/icon/icons/voltageSource.png"), "Voltage Source",this);
+    voltageSourceAction = new QAction(QIcon(":/icon/icons/voltageSource.png"), "Voltage Source", this);
     resistorAction = new QAction(QIcon(":/icon/icons/resistor.png"), "Resistor", this);
     capacitorAction = new QAction(QIcon(":/icon/icons/Capacitor.png"), "Capacitor", this);
     inductorAction = new QAction(QIcon(":/icon/icons/inductor.png"), "Inductor", this);
@@ -112,15 +107,14 @@ void MainWindow::initializeActions()
     quitAction = new QAction("Exit", this);
 }
 
-void MainWindow::implementMenuBar()
-{
-    QMenu *file = menuBar()->addMenu(tr("&File"));
+void MainWindow::implementMenuBar() {
+    QMenu* file = menuBar()->addMenu(tr("&File"));
     file->addAction(newSchematicAction);
     file->addAction(openAction);
     file->addSeparator();
     file->addAction(quitAction);
 
-    QMenu *edit = menuBar()->addMenu(tr("&Edit"));
+    QMenu* edit = menuBar()->addMenu(tr("&Edit"));
     edit->addAction(textAction);
     edit->addAction(configureAnalysisAction);
     edit->addAction(resistorAction);
@@ -132,29 +126,28 @@ void MainWindow::implementMenuBar()
     edit->addAction(groundAction);
     edit->addAction(deleteModeAction);
 
-    QMenu *Hierarchy = menuBar()->addMenu(tr("&Hierarchy"));
+    QMenu* Hierarchy = menuBar()->addMenu(tr("&Hierarchy"));
 
-    QMenu *view = menuBar()->addMenu(tr("&View"));
+    QMenu* view = menuBar()->addMenu(tr("&View"));
 
-    QMenu *simulate = menuBar()->addMenu(tr("&Simulate"));
+    QMenu* simulate = menuBar()->addMenu(tr("&Simulate"));
     simulate->addAction(runAction);
     simulate->addSeparator();
     simulate->addAction(settingsAction);
     simulate->addSeparator();
     simulate->addAction(configureAnalysisAction);
 
-    QMenu *tools = menuBar()->addMenu(tr("&Tools"));
+    QMenu* tools = menuBar()->addMenu(tr("&Tools"));
     tools->addAction(settingsAction);
 
-    QMenu *window = menuBar()->addMenu(tr("&Window"));
+    QMenu* window = menuBar()->addMenu(tr("&Window"));
 
-    QMenu *help = menuBar()->addMenu("&Help");
+    QMenu* help = menuBar()->addMenu("&Help");
     help->addAction("About the program");
 }
 
-void MainWindow::implementToolBar()
-{
-    QToolBar *mainToolBar = addToolBar("Main Toolbar");
+void MainWindow::implementToolBar() {
+    QToolBar* mainToolBar = addToolBar("Main Toolbar");
     mainToolBar->setMovable(false);
 
     mainToolBar->addAction(settingsAction);

@@ -43,7 +43,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "LTspice::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-LTspice-Debug-07609d5ad655658c9d53.json",
+					"jsonFile" : "target-LTspice-Debug-b10e65251513a76bdb1a.json",
 					"name" : "LTspice",
 					"projectIndex" : 0
 				},
@@ -67,8 +67,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/cmake-build-debug",
-		"source" : "C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0"
+		"build" : "C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cmake-build-debug",
+		"source" : "C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2"
 	},
 	"version" : 
 	{

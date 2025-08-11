@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0
+# Install script for directory: C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
