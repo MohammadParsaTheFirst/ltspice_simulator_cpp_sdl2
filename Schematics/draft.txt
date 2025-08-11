@@ -1,0 +1,4 @@
+V V1 in GND SIN(0 10 50)
+D D1 in out D
+R R1 out GND 1k
+C C1 out GND 100u

@@ -1,5 +1,3 @@
-#include <iostream>
-
 #include "component.h"
 
 // -------------------------------- Constructor impementation --------------------------------
@@ -13,7 +11,7 @@ Inductor::Inductor(const std::string& n, int n1, int n2, double v)
     : Component(Type::INDUCTOR, n, n1, n2, v), I_prev(0.0) {}
 
 Diode::Diode(const std::string& n, int n1, int n2, double is, double et, double vt)
-    : Component(Type::DIODE, n, n1, n2, 0.0), Is(is), eta(et), Vt(vt), V_prev(0.7) {} // Start with a reasonable guess for Vd
+    : Component(Type::DIODE, n, n1, n2, 0.0), Is(is), eta(et), Vt(vt), V_prev(0.7) {}
 
 VoltageSource::VoltageSource(const std::string& n, int n1, int n2, std::unique_ptr<IWaveformStrategy> wf)
     : Component(Type::VOLTAGE_SOURCE, n, n1, n2, 0.0), waveForm(std::move(wf)) {}
@@ -59,9 +57,16 @@ void Inductor::updateState(const Eigen::VectorXd& solution, const std::map<std::
 }
 
 void Diode::updateState(const Eigen::VectorXd& solution, const std::map<std::string, int>& ci, int groundNodeID) {
-    // Newton-Raphson method
-    double v1 = (node1 == 0) ? 0.0 : solution(node1 - 1);
-    double v2 = (node2 == 0) ? 0.0 : solution(node2 - 1);
+    double v1 = 0.0, v2 = 0.0;
+
+    if (node1 != groundNodeID) {
+        int n1_idx = (node1 > groundNodeID) ? node1 - 1 : node1;
+        v1 = solution(n1_idx);
+    }
+    if (node2 != groundNodeID) {
+        int n2_idx = (node2 > groundNodeID) ? node2 - 1 : node2;
+        v2 = solution(n2_idx);
+    }
     V_prev = v1 - v2;
 }
 // -------------------------------- Update state implementation --------------------------------
@@ -75,27 +80,32 @@ void Capacitor::reset() {
 void Inductor::reset() {
     I_prev = 0.0;
 }
+
+void Diode::reset() {
+    V_prev = 0.0;
+}
 // -------------------------------- Reset initial values --------------------------------
+
 
 // -------------------------------- MNA Stamping Implementations --------------------------------
 void Resistor::stampMNA(Eigen::MatrixXd& A, Eigen::VectorXd& b, const std::map<std::string, int>& ci, double time, double h, int groundNodeID, int idx) {
     double conductance = 1.0 / value;
-    if (node1 == groundNodeID || node2 == groundNodeID) {
-        if (node1 != groundNodeID) {
-            int n1_idx = (node1 > groundNodeID) ? node1 - 1 : node1;
-            A(n1_idx, n1_idx) += conductance;
-        }
-        else if (node2 != groundNodeID) {
-            int n2_idx = (node2 > groundNodeID) ? node2 - 1 : node2;
-            A(n2_idx, n2_idx) += conductance;
-        }
-    }
-    else {
-        int n1_idx = (node1 > groundNodeID) ? node1 - 1 : node1;
-        int n2_idx = (node2 > groundNodeID) ? node2 - 1 : node2;
+    int n1_idx = -1, n2_idx = -1;
 
+    if (node1 != groundNodeID) {
+        n1_idx = (node1 > groundNodeID) ? node1 - 1 : node1;
+    }
+    if (node2 != groundNodeID) {
+        n2_idx = (node2 > groundNodeID) ? node2 - 1 : node2;
+    }
+    if (n1_idx != -1) {
         A(n1_idx, n1_idx) += conductance;
+    }
+    if (n2_idx != -1) {
         A(n2_idx, n2_idx) += conductance;
+    }
+
+    if (n1_idx != -1 && n2_idx != -1) {
         A(n1_idx, n2_idx) -= conductance;
         A(n2_idx, n1_idx) -= conductance;
     }
@@ -106,8 +116,6 @@ void Capacitor::stampMNA(Eigen::MatrixXd& A, Eigen::VectorXd& b, const std::map<
     if (h == 0.0)
         return;
 
-    // In a time step for backward euler method the capacitor becomes a resistor
-    // parallel with a current source
     double G_eq = value / h;
     double I_eq = G_eq * V_prev;
 
@@ -153,32 +161,29 @@ void Inductor::stampMNA(Eigen::MatrixXd& A, Eigen::VectorXd& b, const std::map<s
 }
 
 void Diode::stampMNA(Eigen::MatrixXd& A, Eigen::VectorXd& b, const std::map<std::string, int>& ci, double time, double h, int groundNodeID, int idx) {
-    // Linearize the diode equation I = Is*(exp(Vd/(n*Vt)) - 1) using Newton-Raphson.
-    // The diode is modeled as an equivalent conductance (Gd) in parallel with a current source (Ieq).
+    const double Gmin = 1e-12;
 
-    // Diode current based on the voltage from the previous iteration
     const double I = Is * (exp(V_prev / (eta * Vt)) - 1.0);
-    // Diode equivalent conductance (derivative of I-V equation)
-    const double Gd = (Is / (eta * Vt)) * exp(V_prev / (eta * Vt));
-    // Equivalent current source to account for the linearization offset
+    const double Gd = (Is / (eta * Vt)) * exp(V_prev / (eta * Vt)) + Gmin;
     const double Ieq = I - Gd * V_prev;
 
-    // Stamp the equivalent conductance Gd
-    if (node1 != groundNodeID) {
-        int n1_idx = (node1 > groundNodeID) ? node1 - 1 : node1;
+    int n1_idx = (node1 != groundNodeID) ? ((node1 > groundNodeID) ? node1 - 1 : node1) : -1;
+    int n2_idx = (node2 != groundNodeID) ? ((node2 > groundNodeID) ? node2 - 1 : node2) : -1;
+
+    if (n1_idx != -1)
         A(n1_idx, n1_idx) += Gd;
-        b(n1_idx) -= Ieq;
-    }
-    if (node2 != groundNodeID) {
-        int n2_idx = (node2 > groundNodeID) ? node2 - 1 : node2;
+    if (n2_idx != -1)
         A(n2_idx, n2_idx) += Gd;
-        b(n2_idx) += Ieq;
-    }
-    if (node1 != groundNodeID && node2 != groundNodeID) {
-        int n1_idx = (node1 > groundNodeID) ? node1 - 1 : node1;
-        int n2_idx = (node2 > groundNodeID) ? node2 - 1 : node2;
+    if (n1_idx != -1 && n2_idx != -1) {
         A(n1_idx, n2_idx) -= Gd;
         A(n2_idx, n1_idx) -= Gd;
+    }
+
+    if (n1_idx != -1) {
+        b(n1_idx) -= Ieq;
+    }
+    if (n2_idx != -1) {
+        b(n2_idx) += Ieq;
     }
 }
 
@@ -331,3 +336,4 @@ void CurrentSource::setValue(double v) {
     else
         std::cout << "Cannot perform DC Sweep on non-dc source: " << name << std::endl;
 }
+// -------------------------------- Set Values for DC Sweep --------------------------------

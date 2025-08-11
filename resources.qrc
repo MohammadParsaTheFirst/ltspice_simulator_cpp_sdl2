@@ -1,0 +1,23 @@
+<RCC>
+    <qresource prefix="/">
+        <file>background.jpg</file>
+    </qresource>
+    <qresource prefix="/icon">
+        <file>icons/Capacitor.png</file>
+        <file>icons/configureAnalysis.png</file>
+        <file>icons/ground.png</file>
+        <file>icons/inductor.png</file>
+        <file>icons/labelNet.png</file>
+        <file>icons/newSchematic.png</file>
+        <file>icons/nodeLibrary.png</file>
+        <file>icons/open.png</file>
+        <file>icons/resistor.png</file>
+        <file>icons/run.png</file>
+        <file>icons/settings.png</file>
+        <file>icons/text.png</file>
+        <file>icons/voltageSource.png</file>
+        <file>icons/wire.png</file>
+        <file>icons/diode.png</file>
+        <file>icons/deleteMode.png</file>
+    </qresource>
+</RCC>
