@@ -7,6 +7,7 @@
 #include <QMouseEvent>
 #include <vector>
 #include <QKeyEvent>
+#include <QMessageBox>
 #include <map>
 #include "Circuit.h"
 
@@ -36,11 +37,11 @@ struct ComponentGraphicalInfo {
 
 class SchematicWidget : public QWidget {
     Q_OBJECT
-
 public:
     SchematicWidget(Circuit* circuit, QWidget* parent = Q_NULLPTR);
 
 public slots:
+    void startRunAnalysis();
     void startPlacingResistor();
     void startPlacingCapacitor();
     void startPlacingInductor();
@@ -62,6 +63,9 @@ private:
     QString getNodeNameFromPoint(const QPoint& pos) const;
     QString getNextComponentName(const QString& type);
     QString findNodeAt(const QPoint& nodePos);
+    void placingWireMouseEvent(QMouseEvent* event);
+    void placingComponentMouseEvent(QMouseEvent* event);
+    void deletingComponentMouseEvent(QMouseEvent* event);
 
     const int gridSize = 30; // Pixels
     const int componentLength = 3 * gridSize;

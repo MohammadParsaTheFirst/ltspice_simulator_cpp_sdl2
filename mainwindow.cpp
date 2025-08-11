@@ -40,6 +40,7 @@ void MainWindow::setupSchematicState() {
     schematic = new SchematicWidget(&circuit, this);
     setCentralWidget(schematic);
 
+    connect(runAction, &QAction::triggered, schematic, &SchematicWidget::startRunAnalysis);
     connect(wireAction, &QAction::triggered, schematic, &SchematicWidget::startPlacingWire);
     connect(resistorAction, &QAction::triggered, schematic, &SchematicWidget::startPlacingResistor);
     connect(capacitorAction, &QAction::triggered, schematic, &SchematicWidget::startPlacingCapacitor);
@@ -60,6 +61,19 @@ void MainWindow::setupSchematicState() {
     nodeLibraryAction->setEnabled(true);
     textAction->setEnabled(true);
     deleteModeAction->setEnabled(true);
+
+    configureAnalysisAction->setShortcut(QKeySequence(Qt::Key_A));
+    runAction->setShortcut(QKeySequence(Qt::ALT | Qt::Key_R));
+    wireAction->setShortcut(QKeySequence(Qt::Key_W));
+    groundAction->setShortcut(QKeySequence(Qt::Key_G));
+    voltageSourceAction->setShortcut(QKeySequence(Qt::Key_V));
+    resistorAction->setShortcut(QKeySequence(Qt::Key_R));
+    capacitorAction->setShortcut(QKeySequence(Qt::Key_C));
+    inductorAction->setShortcut(QKeySequence(Qt::Key_L));
+    diodeAction->setShortcut(QKeySequence(Qt::Key_D));
+    nodeLibraryAction->setShortcut(QKeySequence(Qt::Key_P));
+    textAction->setShortcut(QKeySequence(Qt::Key_T));
+    deleteModeAction->setShortcuts({QKeySequence(Qt::Key_Backspace), QKeySequence(Qt::Key_Delete)});
 }
 
 // void MainWindow::openChartWindow()

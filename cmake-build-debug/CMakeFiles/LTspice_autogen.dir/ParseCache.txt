@@ -1211,7 +1211,11 @@ C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_
  mdp:C:/Qt/6.7.3/mingw_64/include/QtGui/qvectornd.h
  mdp:C:/Qt/6.7.3/mingw_64/include/QtGui/qwindowdefs.h
  mdp:C:/Qt/6.7.3/mingw_64/include/QtGui/qwindowdefs_win.h
+ mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/QMessageBox
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/QWidget
+ mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/qdialog.h
+ mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/qdialogbuttonbox.h
+ mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/qmessagebox.h
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/qsizepolicy.h
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/qtwidgets-config.h
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/qtwidgetsexports.h

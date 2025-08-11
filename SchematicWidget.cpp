@@ -62,9 +62,14 @@ void SchematicWidget::paintEvent(QPaintEvent* event) {
         painter.drawLine(wire.startPoint, wire.endPoint);
     }
 
+    // Preview nefore placingres
     if (isWiring) {
         painter.drawLine(wireStartPoint, stickToGrid(currentMousePos));
     }
+}
+
+void SchematicWidget::startRunAnalysis() {
+    QMessageBox::information(this, "Settings", "Buy premium!");
 }
 
 void SchematicWidget::startPlacingResistor() {
@@ -72,6 +77,7 @@ void SchematicWidget::startPlacingResistor() {
     placementIsHorizontal = true;
     setCursor(Qt::CrossCursor);
     currentCompType = "R";
+    setFocus();
 }
 
 void SchematicWidget::startPlacingCapacitor() {
@@ -79,6 +85,7 @@ void SchematicWidget::startPlacingCapacitor() {
     placementIsHorizontal = true;
     setCursor(Qt::CrossCursor);
     currentCompType = "C";
+    setFocus();
 }
 
 void SchematicWidget::startPlacingInductor() {
@@ -86,6 +93,7 @@ void SchematicWidget::startPlacingInductor() {
     placementIsHorizontal = true;
     setCursor(Qt::CrossCursor);
     currentCompType = "L";
+    setFocus();
 }
 
 void SchematicWidget::startPlacingVoltageSource() {
@@ -93,6 +101,7 @@ void SchematicWidget::startPlacingVoltageSource() {
     placementIsHorizontal = true;
     setCursor(Qt::CrossCursor);
     currentCompType = "V";
+    setFocus();
 }
 
 void SchematicWidget::startPlacingDiode() {
@@ -100,6 +109,7 @@ void SchematicWidget::startPlacingDiode() {
     placementIsHorizontal = true;
     setCursor(Qt::CrossCursor);
     currentCompType = "D";
+    setFocus();
 }
 
 void SchematicWidget::startDeleteComponent() {
@@ -114,19 +124,22 @@ void SchematicWidget::startPlacingWire() {
 }
 
 void SchematicWidget::keyPressEvent(QKeyEvent* event) {
-    if (currentMode != InteractionMode::Normal && event->key() == Qt::Key_Control) {
-        placementIsHorizontal = !placementIsHorizontal;
-        update();
-    }
-    else if (currentMode != InteractionMode::Normal && event->key() == Qt::Key_Escape) {
-        currentMode = InteractionMode::Normal;
-        currentCompType = "NF";
-        setCursor(Qt::ArrowCursor);
-        isWiring = false;
-        update();
+    if (currentMode != InteractionMode::Normal) {
+        if ((event->modifiers() & Qt::ControlModifier) && event->key() == Qt::Key_R) {
+            placementIsHorizontal = !placementIsHorizontal;
+            return;
+        }
+        else if (event->key() == Qt::Key_Escape) {
+            currentMode = InteractionMode::Normal;
+            currentCompType = "NF";
+            setCursor(Qt::ArrowCursor);
+            isWiring = false;
+            return;
+        }
     }
     else
         QWidget::keyPressEvent(event);
+    update();
 }
 
 QPoint SchematicWidget::stickToGrid(const QPoint& pos) {
@@ -156,6 +169,63 @@ void SchematicWidget::mouseMoveEvent(QMouseEvent* event) {
     update();
 }
 
+void SchematicWidget::placingWireMouseEvent(QMouseEvent* event) {
+    QPoint currentPoint = stickToGrid(event->pos());
+    QString currentNodeName = findNodeAt(currentPoint);
+
+    if (!isWiring) {
+        isWiring = true;
+        wireStartPoint = currentPoint;
+        wires.push_back({currentPoint, currentPoint, currentNodeName});
+    }
+    else {
+        QString prevNodeName = findNodeAt(wireStartPoint);
+        if (currentNodeName != prevNodeName)
+            circuit_ptr->connectNodes(currentNodeName.toStdString(), prevNodeName.toStdString());
+        wires.push_back({wireStartPoint, currentPoint, prevNodeName});
+        wireStartPoint = currentPoint;
+    }
+}
+
+void SchematicWidget::placingComponentMouseEvent(QMouseEvent* event) {
+    QPoint startPoint = stickToGrid(event->pos());
+    QPoint endPoint = placementIsHorizontal
+                          ? startPoint + QPoint(componentLength, 0)
+                          : startPoint + QPoint(0, componentLength);
+
+    QString componentName = getNextComponentName(currentCompType);
+    QString node1Name = getNodeNameFromPoint(startPoint);
+    QString node2Name = getNodeNameFromPoint(endPoint);
+
+    components.push_back({startPoint, placementIsHorizontal, componentName});
+
+    circuit_ptr->addComponent(currentCompType.toStdString(), componentName.toStdString(),
+                              node1Name.toStdString(), node2Name.toStdString(), 1000.0, {}, {}, false);
+}
+
+void SchematicWidget::deletingComponentMouseEvent(QMouseEvent* event) {
+    QPoint clickPos = event->pos();
+
+    for (auto it = components.rbegin(); it != components.rend(); it++) {
+        QPoint start = it->startPoint;
+        QPoint end;
+        if (it->isHorizontal)
+            end = start + QPoint(componentLength, 0);
+        else
+            end = start + QPoint(0, componentLength);
+
+        QRect componentRect(start, end);
+        componentRect = componentRect.normalized();
+        componentRect.adjust(-7, -7, 7, 7);
+
+        if (componentRect.contains(clickPos)) {
+            components.erase(std::next(it).base());
+            // TODO: delete from circuit netlist
+            return;
+        }
+    }
+}
+
 void SchematicWidget::mousePressEvent(QMouseEvent* event) {
     if (currentMode == InteractionMode::Normal)
         return;
@@ -163,67 +233,20 @@ void SchematicWidget::mousePressEvent(QMouseEvent* event) {
     if (event->button() == Qt::RightButton) {
         currentMode = InteractionMode::Normal;
         setCursor(Qt::ArrowCursor);
+        isWiring = false;
         update();
         return;
     }
 
     if (event->button() == Qt::LeftButton) {
         if (currentMode == InteractionMode::placingWire) {
-            QPoint currentPoint = stickToGrid(event->pos());
-            QString currentNodeName = findNodeAt(currentPoint);
-
-            if (!isWiring) {
-                isWiring = true;
-                wireStartPoint = currentPoint;
-                wires.push_back({currentPoint, currentPoint, currentNodeName});
-            }
-            else {
-                QString prevNodeName = findNodeAt(wireStartPoint);
-
-                if (currentNodeName != prevNodeName)
-                    circuit_ptr->connectNodes(currentNodeName.toStdString(), prevNodeName.toStdString());
-
-                wires.push_back({wireStartPoint, currentPoint, prevNodeName});
-                wireStartPoint = currentPoint;
-            }
+            placingWireMouseEvent(event);
         }
         else if (currentMode != InteractionMode::Normal && currentMode != InteractionMode::deleteMode) {
-            QPoint startPoint = stickToGrid(event->pos());
-            QPoint endPoint = placementIsHorizontal
-                                  ? startPoint + QPoint(componentLength, 0)
-                                  : startPoint + QPoint(0, componentLength);
-
-            QString componentName = getNextComponentName(currentCompType);
-            QString node1Name = getNodeNameFromPoint(startPoint);
-            QString node2Name = getNodeNameFromPoint(endPoint);
-
-            components.push_back({startPoint, placementIsHorizontal, componentName});
-
-            circuit_ptr->addComponent(currentCompType.toStdString(), componentName.toStdString(),
-                                      node1Name.toStdString(), node2Name.toStdString(), 1000.0, {}, {}, false);
-            update();
+            placingComponentMouseEvent(event);
         }
         else if (currentMode == InteractionMode::deleteMode) {
-            QPoint clickPos = event->pos();
-
-            for (auto it = components.rbegin(); it != components.rend(); it++) {
-                QPoint start = it->startPoint;
-                QPoint end;
-                if (it->isHorizontal)
-                    end = start + QPoint(componentLength, 0);
-                else
-                    end = start + QPoint(0, componentLength);
-
-                QRect componentRect(start, end);
-                componentRect = componentRect.normalized();
-                componentRect.adjust(-7, -7, 7, 7);
-
-                if (componentRect.contains(clickPos)) {
-                    components.erase(std::next(it).base());
-                    // TODO: delete from circuit netlist
-                    return;
-                }
-            }
+            deletingComponentMouseEvent(event);
         }
         update();
     }
