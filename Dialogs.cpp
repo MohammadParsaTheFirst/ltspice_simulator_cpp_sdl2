@@ -1,4 +1,4 @@
-#include "ValueDialog.h"
+#include "Dialogs.h"
 
 ValueDialog::ValueDialog(QWidget* parent) : QDialog(parent) {
     setWindowTitle("Enter component value");
@@ -80,3 +80,23 @@ QString SourceValueDialog::getDCValue() const { return dcInput->text(); }
 QString SourceValueDialog::getSinOffset() const { return sinOffset->text(); }
 QString SourceValueDialog::getSinAmplitude() const { return sinAmplitude->text(); }
 QString SourceValueDialog::getSinFrequency() const { return sinFrequency->text(); }
+
+NodeLibraryDialog::NodeLibraryDialog(QWidget* parent) : QDialog(parent) {
+    setWindowTitle("Node library");
+    setMinimumSize(250, 400);
+
+    listWidget = new QListWidget(this);
+    connect(listWidget, &QListWidget::itemDoubleClicked, this, &NodeLibraryDialog::doubleClickedOnItem);
+    QListWidgetItem* resistorItem = new QListWidgetItem("Resistor");
+    resistorItem->setData(Qt::UserRole, "R");
+    listWidget->addItem(resistorItem);
+
+    QVBoxLayout* layout = new QVBoxLayout(this);
+    layout->addWidget(listWidget);
+}
+
+void NodeLibraryDialog::doubleClickedOnItem(QListWidgetItem* item) {
+    QString componentType = item->data(Qt::UserRole).toString();
+    emit componentSelected(componentType);
+    accept();
+}

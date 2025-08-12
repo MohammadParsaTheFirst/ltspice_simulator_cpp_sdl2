@@ -24,7 +24,7 @@ add_executable (LTspice Circuit.cpp Circuit.h Component.h Component.cpp WaveForm
         resources.qrc
         SchematicWidget.cpp
         SchematicWidget.h
-        ValueDialog.cpp
-        ValueDialog.h
+        Dialogs.cpp
+        Dialogs.h
 )
 target_link_libraries(LTspice Qt6::Widgets Qt6::Charts)

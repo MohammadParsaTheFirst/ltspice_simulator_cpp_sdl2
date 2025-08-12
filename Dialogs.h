@@ -11,6 +11,7 @@
 #include <QVBoxLayout>
 #include <QDialogButtonBox>
 #include <QFormLayout>
+#include <QListWidget>
 
 class ValueDialog : public QDialog {
     Q_OBJECT
@@ -51,6 +52,21 @@ private:
     QLineEdit* sinFrequency;
 
     QDialogButtonBox *buttonBox;
+};
+
+class NodeLibraryDialog : public QDialog {
+    Q_OBJECT
+public:
+    explicit NodeLibraryDialog(QWidget *parent = Q_NULLPTR);
+
+signals:
+    void componentSelected(const QString& componentType);
+
+private slots:
+    void doubleClickedOnItem(QListWidgetItem* item);
+
+private:
+    QListWidget* listWidget;
 };
 
 #endif //VALUEDIALOG_H

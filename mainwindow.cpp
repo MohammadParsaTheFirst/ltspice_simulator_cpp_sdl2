@@ -47,6 +47,7 @@ void MainWindow::setupSchematicState() {
     connect(inductorAction, &QAction::triggered, schematic, &SchematicWidget::startPlacingInductor);
     connect(voltageSourceAction, &QAction::triggered, schematic, &SchematicWidget::startPlacingVoltageSource);
     connect(diodeAction, &QAction::triggered, schematic, &SchematicWidget::startPlacingDiode);
+    connect(nodeLibraryAction, &QAction::triggered, schematic, &SchematicWidget::startOpenNodeLibrary);
     connect(deleteModeAction, &QAction::triggered, schematic, &SchematicWidget::startDeleteComponent);
 
     configureAnalysisAction->setEnabled(true);

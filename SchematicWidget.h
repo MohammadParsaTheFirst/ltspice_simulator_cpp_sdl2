@@ -8,7 +8,7 @@
 #include <QKeyEvent>
 #include <QMessageBox>
 #include "Circuit.h"
-#include "ValueDialog.h"
+#include "Dialogs.h"
 
 enum class InteractionMode {
     Normal,
@@ -20,6 +20,8 @@ enum class InteractionMode {
     placingDiode,
     deleteMode,
     placingWire
+    //TODO: add ground
+    //TODO: add E,F,G,H and current source
 };
 
 struct WireInfo {
@@ -48,6 +50,10 @@ public slots:
     void startPlacingDiode();
     void startDeleteComponent();
     void startPlacingWire();
+    void startOpenNodeLibrary();
+
+private slots:
+    void handleNodeLibraryItemSelection(const QString& compType);
 
 protected:
     void paintEvent(QPaintEvent* event) override;
@@ -68,6 +74,7 @@ private:
     void showSimpleValueDialog(QMouseEvent* event);
     void showSourceValueDialog(QMouseEvent* event);
 
+
     const int gridSize = 30; // Pixels
     const int componentLength = 3 * gridSize;
     InteractionMode currentMode = InteractionMode::Normal;
@@ -87,5 +94,6 @@ private:
     bool isWiring = false;
     QPoint wireStartPoint;
 };
+
 
 #endif //SCHEMATICWIDGET_H

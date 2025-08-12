@@ -123,13 +123,20 @@ void SchematicWidget::startPlacingWire() {
     setCursor(Qt::CrossCursor);
 }
 
+void SchematicWidget::startOpenNodeLibrary() {
+    NodeLibraryDialog dialog(this);
+    connect(&dialog, &NodeLibraryDialog::componentSelected, this, &SchematicWidget::handleNodeLibraryItemSelection);
+    dialog.exec();
+}
+
 void SchematicWidget::keyPressEvent(QKeyEvent* event) {
     if (currentMode != InteractionMode::Normal) {
-            if (event->key() == Qt::Key_M) {
+        if ((event->modifiers() & Qt::ControlModifier) && event->key() == Qt::Key_R) {
             placementIsHorizontal = !placementIsHorizontal;
+            update();
             return;
         }
-        else if (event->key() == Qt::Key_Escape) {
+        if (event->key() == Qt::Key_Escape) {
             currentMode = InteractionMode::Normal;
             currentCompType = "NF";
             setCursor(Qt::ArrowCursor);
@@ -344,4 +351,17 @@ QString SchematicWidget::findNodeAt(const QPoint& nodePos) {
     }
 
     return getNodeNameFromPoint(nodePos);
+}
+
+void SchematicWidget::handleNodeLibraryItemSelection(const QString& compType) {
+    if (compType == "R")
+        startPlacingResistor();
+    else if (compType == "C")
+        startPlacingCapacitor();
+    else if (compType == "L")
+        startPlacingInductor();
+    else if (compType == "V")
+        startPlacingVoltageSource();
+    else if (compType == "D")
+        startPlacingDiode();
 }
