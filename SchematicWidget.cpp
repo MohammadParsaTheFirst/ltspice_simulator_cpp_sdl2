@@ -62,7 +62,7 @@ void SchematicWidget::paintEvent(QPaintEvent* event) {
         painter.drawLine(wire.startPoint, wire.endPoint);
     }
 
-    // Preview nefore placingres
+    // Preview before placing wires
     if (isWiring) {
         painter.drawLine(wireStartPoint, stickToGrid(currentMousePos));
     }
@@ -125,7 +125,7 @@ void SchematicWidget::startPlacingWire() {
 
 void SchematicWidget::keyPressEvent(QKeyEvent* event) {
     if (currentMode != InteractionMode::Normal) {
-        if ((event->modifiers() & Qt::ControlModifier) && event->key() == Qt::Key_R) {
+            if (event->key() == Qt::Key_M) {
             placementIsHorizontal = !placementIsHorizontal;
             return;
         }
@@ -187,20 +187,76 @@ void SchematicWidget::placingWireMouseEvent(QMouseEvent* event) {
     }
 }
 
+void SchematicWidget::showSimpleValueDialog(QMouseEvent* event) {
+    ValueDialog dialog(this);
+    if (dialog.exec() == QDialog::Accepted) {
+        QString valueStr = dialog.getValue();
+        if (valueStr.isEmpty())
+            return;
+
+        double value = parseSpiceValue(valueStr.toStdString());
+
+        QPoint startPoint = stickToGrid(event->pos());
+        QPoint endPoint = placementIsHorizontal
+                              ? startPoint + QPoint(componentLength, 0)
+                              : startPoint + QPoint(0, componentLength);
+
+        QString componentName = getNextComponentName(currentCompType);
+        QString node1Name = getNodeNameFromPoint(startPoint);
+        QString node2Name = getNodeNameFromPoint(endPoint);
+
+        components.push_back({startPoint, placementIsHorizontal, componentName});
+
+        circuit_ptr->addComponent(currentCompType.toStdString(), componentName.toStdString(),
+                                  node1Name.toStdString(), node2Name.toStdString(), value, {}, {}, false);
+    }
+}
+
+void SchematicWidget::showSourceValueDialog(QMouseEvent* event) {
+    SourceValueDialog dialog(this);
+    if (dialog.exec() == QDialog::Accepted) {
+        QPoint startPoint = stickToGrid(event->pos());
+        QPoint endPoint = placementIsHorizontal
+                              ? startPoint + QPoint(componentLength, 0)
+                              : startPoint + QPoint(0, componentLength);
+        QString componentName = getNextComponentName(currentCompType);
+        QString node1Name = getNodeNameFromPoint(startPoint);
+        QString node2Name = getNodeNameFromPoint(endPoint);
+
+        components.push_back({startPoint, placementIsHorizontal, componentName});
+
+        if (dialog.isSinusoidal()) {
+            QString offsetStr = dialog.getSinOffset();
+            QString amplitudeStr = dialog.getSinAmplitude();
+            QString frequencyStr = dialog.getSinFrequency();
+
+            if (offsetStr.isEmpty() || amplitudeStr.isEmpty() || frequencyStr.isEmpty())
+                return;
+
+            std::vector<double> sinParams = {
+                parseSpiceValue(offsetStr.toStdString()), parseSpiceValue(amplitudeStr.toStdString()),
+                parseSpiceValue(frequencyStr.toStdString())
+            };
+
+            circuit_ptr->addComponent(currentCompType.toStdString(), componentName.toStdString(),
+                                      node1Name.toStdString(), node2Name.toStdString(), 0.0, sinParams, {}, true);
+        }
+        else {
+            QString dcValue = dialog.getDCValue();
+            if (dcValue.isEmpty())
+                return;
+            double value = parseSpiceValue(dcValue.toStdString());
+            circuit_ptr->addComponent(currentCompType.toStdString(), componentName.toStdString(),
+                                      node1Name.toStdString(), node2Name.toStdString(), value, {}, {}, false);
+        }
+    }
+}
+
 void SchematicWidget::placingComponentMouseEvent(QMouseEvent* event) {
-    QPoint startPoint = stickToGrid(event->pos());
-    QPoint endPoint = placementIsHorizontal
-                          ? startPoint + QPoint(componentLength, 0)
-                          : startPoint + QPoint(0, componentLength);
-
-    QString componentName = getNextComponentName(currentCompType);
-    QString node1Name = getNodeNameFromPoint(startPoint);
-    QString node2Name = getNodeNameFromPoint(endPoint);
-
-    components.push_back({startPoint, placementIsHorizontal, componentName});
-
-    circuit_ptr->addComponent(currentCompType.toStdString(), componentName.toStdString(),
-                              node1Name.toStdString(), node2Name.toStdString(), 1000.0, {}, {}, false);
+    if (currentCompType == "R" || currentCompType == "C" || currentCompType == "L")
+        showSimpleValueDialog(event);
+    else if (currentCompType == "V" || currentCompType == "I")
+        showSourceValueDialog(event);
 }
 
 void SchematicWidget::deletingComponentMouseEvent(QMouseEvent* event) {

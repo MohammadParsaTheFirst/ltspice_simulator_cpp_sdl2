@@ -63,6 +63,7 @@ public:
     void initializeActions();
     void implementMenuBar();
     void implementToolBar();
+    void shortcutRunner();
 };
 
 

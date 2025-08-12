@@ -5,11 +5,10 @@
 #include <QPainter>
 #include <QPaintEvent>
 #include <QMouseEvent>
-#include <vector>
 #include <QKeyEvent>
 #include <QMessageBox>
-#include <map>
 #include "Circuit.h"
+#include "ValueDialog.h"
 
 enum class InteractionMode {
     Normal,
@@ -66,6 +65,8 @@ private:
     void placingWireMouseEvent(QMouseEvent* event);
     void placingComponentMouseEvent(QMouseEvent* event);
     void deletingComponentMouseEvent(QMouseEvent* event);
+    void showSimpleValueDialog(QMouseEvent* event);
+    void showSourceValueDialog(QMouseEvent* event);
 
     const int gridSize = 30; // Pixels
     const int componentLength = 3 * gridSize;

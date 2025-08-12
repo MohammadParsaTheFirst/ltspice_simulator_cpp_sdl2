@@ -322,6 +322,30 @@ SchematicWidget.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/SchematicWidget.cpp.s
 .PHONY : SchematicWidget.cpp.s
 
+ValueDialog.obj: ValueDialog.cpp.obj
+.PHONY : ValueDialog.obj
+
+# target to build an object file
+ValueDialog.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/ValueDialog.cpp.obj
+.PHONY : ValueDialog.cpp.obj
+
+ValueDialog.i: ValueDialog.cpp.i
+.PHONY : ValueDialog.i
+
+# target to preprocess a source file
+ValueDialog.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/ValueDialog.cpp.i
+.PHONY : ValueDialog.cpp.i
+
+ValueDialog.s: ValueDialog.cpp.s
+.PHONY : ValueDialog.s
+
+# target to generate assembly for a file
+ValueDialog.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/ValueDialog.cpp.s
+.PHONY : ValueDialog.cpp.s
+
 WaveForm.obj: WaveForm.cpp.obj
 .PHONY : WaveForm.obj
 
@@ -426,6 +450,9 @@ help:
 	@echo ... SchematicWidget.obj
 	@echo ... SchematicWidget.i
 	@echo ... SchematicWidget.s
+	@echo ... ValueDialog.obj
+	@echo ... ValueDialog.i
+	@echo ... ValueDialog.s
 	@echo ... WaveForm.obj
 	@echo ... WaveForm.i
 	@echo ... WaveForm.s

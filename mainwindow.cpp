@@ -61,19 +61,6 @@ void MainWindow::setupSchematicState() {
     nodeLibraryAction->setEnabled(true);
     textAction->setEnabled(true);
     deleteModeAction->setEnabled(true);
-
-    configureAnalysisAction->setShortcut(QKeySequence(Qt::Key_A));
-    runAction->setShortcut(QKeySequence(Qt::ALT | Qt::Key_R));
-    wireAction->setShortcut(QKeySequence(Qt::Key_W));
-    groundAction->setShortcut(QKeySequence(Qt::Key_G));
-    voltageSourceAction->setShortcut(QKeySequence(Qt::Key_V));
-    resistorAction->setShortcut(QKeySequence(Qt::Key_R));
-    capacitorAction->setShortcut(QKeySequence(Qt::Key_C));
-    inductorAction->setShortcut(QKeySequence(Qt::Key_L));
-    diodeAction->setShortcut(QKeySequence(Qt::Key_D));
-    nodeLibraryAction->setShortcut(QKeySequence(Qt::Key_P));
-    textAction->setShortcut(QKeySequence(Qt::Key_T));
-    deleteModeAction->setShortcuts({QKeySequence(Qt::Key_Backspace), QKeySequence(Qt::Key_Delete)});
 }
 
 // void MainWindow::openChartWindow()
@@ -98,26 +85,27 @@ void MainWindow::starterWindow() {
     connect(quitAction, &QAction::triggered, this, &QApplication::quit);
     connect(settingsAction, &QAction::triggered, this, &MainWindow::hShowSettings);
 
+    shortcutRunner();
     implementMenuBar();
     implementToolBar();
 }
 
 void MainWindow::initializeActions() {
     settingsAction = new QAction(QIcon(":/icon/icons/settings.png"), "Settings", this);
-    newSchematicAction = new QAction(QIcon(":/icon/icons/newSchematic.png"), "New Schematic", this);
-    openAction = new QAction(QIcon(":/icon/icons/open.png"), "Open", this);
-    configureAnalysisAction = new QAction(QIcon(":/icon/icons/configureAnalysis.png"), "Configure Analysis", this);
-    runAction = new QAction(QIcon(":/icon/icons/run.png"), "Run", this);
-    wireAction = new QAction(QIcon(":/icon/icons/wire.png"), "Wire", this);
-    groundAction = new QAction(QIcon(":/icon/icons/ground.png"), "Ground", this);
-    voltageSourceAction = new QAction(QIcon(":/icon/icons/voltageSource.png"), "Voltage Source", this);
-    resistorAction = new QAction(QIcon(":/icon/icons/resistor.png"), "Resistor", this);
-    capacitorAction = new QAction(QIcon(":/icon/icons/Capacitor.png"), "Capacitor", this);
-    inductorAction = new QAction(QIcon(":/icon/icons/inductor.png"), "Inductor", this);
-    diodeAction = new QAction(QIcon(":/icon/icons/diode.png"), "Diode", this);
-    nodeLibraryAction = new QAction(QIcon(":/icon/icons/nodeLibrary.png"), "Node Library", this);
-    textAction = new QAction(QIcon(":/icon/icons/text.png"), "Text", this);
-    deleteModeAction = new QAction(QIcon(":/icon/icons/deleteMode.png"), "Delete Mode", this);
+    newSchematicAction = new QAction(QIcon(":/icon/icons/newSchematic.png"), "New Schematic (CTRL+N)", this);
+    openAction = new QAction(QIcon(":/icon/icons/open.png"), "Open (CTRL+O)", this);
+    configureAnalysisAction = new QAction(QIcon(":/icon/icons/configureAnalysis.png"), "Configure Analysis (A)", this);
+    runAction = new QAction(QIcon(":/icon/icons/run.png"), "Run (ALT+R)", this);
+    wireAction = new QAction(QIcon(":/icon/icons/wire.png"), "Wire (W)", this);
+    groundAction = new QAction(QIcon(":/icon/icons/ground.png"), "Ground (G)", this);
+    voltageSourceAction = new QAction(QIcon(":/icon/icons/voltageSource.png"), "Voltage Source (V)", this);
+    resistorAction = new QAction(QIcon(":/icon/icons/resistor.png"), "Resistor (R)", this);
+    capacitorAction = new QAction(QIcon(":/icon/icons/Capacitor.png"), "Capacitor (C)", this);
+    inductorAction = new QAction(QIcon(":/icon/icons/inductor.png"), "Inductor (L)", this);
+    diodeAction = new QAction(QIcon(":/icon/icons/diode.png"), "Diode (D)", this);
+    nodeLibraryAction = new QAction(QIcon(":/icon/icons/nodeLibrary.png"), "Node Library (P)", this);
+    textAction = new QAction(QIcon(":/icon/icons/text.png"), "Text (T)", this);
+    deleteModeAction = new QAction(QIcon(":/icon/icons/deleteMode.png"), "Delete Mode (Backspace or Del)", this);
     quitAction = new QAction("Exit", this);
 }
 
@@ -181,4 +169,21 @@ void MainWindow::implementToolBar() {
     mainToolBar->addAction(deleteModeAction);
 
     mainToolBar->setIconSize(QSize(40, 40));
+}
+
+void MainWindow::shortcutRunner() {
+    newSchematicAction->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_N));
+    openAction->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_O));
+    configureAnalysisAction->setShortcut(QKeySequence(Qt::Key_A));
+    runAction->setShortcut(QKeySequence(Qt::ALT | Qt::Key_R));
+    wireAction->setShortcut(QKeySequence(Qt::Key_W));
+    groundAction->setShortcut(QKeySequence(Qt::Key_G));
+    voltageSourceAction->setShortcut(QKeySequence(Qt::Key_V));
+    resistorAction->setShortcut(QKeySequence(Qt::Key_R));
+    capacitorAction->setShortcut(QKeySequence(Qt::Key_C));
+    inductorAction->setShortcut(QKeySequence(Qt::Key_L));
+    diodeAction->setShortcut(QKeySequence(Qt::Key_D));
+    nodeLibraryAction->setShortcut(QKeySequence(Qt::Key_P));
+    textAction->setShortcut(QKeySequence(Qt::Key_T));
+    deleteModeAction->setShortcuts({QKeySequence(Qt::Key_Backspace), QKeySequence(Qt::Key_Delete)});
 }

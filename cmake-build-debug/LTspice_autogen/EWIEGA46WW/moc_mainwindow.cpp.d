@@ -171,7 +171,9 @@ C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cp
   C:/Qt/6.7.3/mingw_64/include/QtGui/qrgba64.h \
   C:/Qt/6.7.3/mingw_64/include/QtGui/qscreen.h \
   C:/Qt/6.7.3/mingw_64/include/QtGui/qscreen_platform.h \
+  C:/Qt/6.7.3/mingw_64/include/QtGui/qtextcursor.h \
   C:/Qt/6.7.3/mingw_64/include/QtGui/qtextdocument.h \
+  C:/Qt/6.7.3/mingw_64/include/QtGui/qtextformat.h \
   C:/Qt/6.7.3/mingw_64/include/QtGui/qtextoption.h \
   C:/Qt/6.7.3/mingw_64/include/QtGui/qtgui-config.h \
   C:/Qt/6.7.3/mingw_64/include/QtGui/qtguiexports.h \
@@ -182,22 +184,41 @@ C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cp
   C:/Qt/6.7.3/mingw_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.7.3/mingw_64/include/QtGui/qwindowdefs_win.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QApplication \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/QDialog \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/QDialogButtonBox \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/QFormLayout \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/QGroupBox \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QLabel \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/QLayout \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/QLineEdit \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QMainWindow \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QMenu \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QMenuBar \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QMessageBox \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/QPushButton \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/QRadioButton \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QToolBar \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/QVBoxLayout \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QWidget \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/qabstractbutton.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qapplication.h \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/qboxlayout.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qdialog.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/qformlayout.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qframe.h \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/qgridlayout.h \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/qgroupbox.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qlabel.h \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/qlayout.h \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/qlayoutitem.h \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/qlineedit.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qmainwindow.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qmenu.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qmenubar.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qmessagebox.h \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/qpushbutton.h \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/qradiobutton.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qsizepolicy.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qtabwidget.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qtoolbar.h \
@@ -465,6 +486,7 @@ C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cp
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Component.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/ComponentFactory.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/SchematicWidget.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/ValueDialog.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/WaveForm.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/component.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/Cholesky \

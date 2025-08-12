@@ -678,6 +678,32 @@ CMakeFiles/LTspice.dir/mainwindow.cpp.obj: \
  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/codecvt \
  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/fs_dir.h \
  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/fs_ops.h \
+ C:\Users\parsa\Documents\university\Programming\ and\ linux\ltspice_simulator_cpp_sdl2\ValueDialog.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/QDialog \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qdialog.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/QLineEdit \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qlineedit.h \
+ C:/Qt/6.7.3/mingw_64/include/QtGui/qtextcursor.h \
+ C:/Qt/6.7.3/mingw_64/include/QtGui/qtextformat.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/QRadioButton \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qradiobutton.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qabstractbutton.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/QPushButton \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qpushbutton.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/QGroupBox \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qgroupbox.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/QVBoxLayout \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qboxlayout.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qlayout.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qlayoutitem.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qboxlayout.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qgridlayout.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/QDialogButtonBox \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/QFormLayout \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qformlayout.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/QLayout \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qlayout.h \
  C:/Users/parsa/DOCUME~1/UNIVER~1/PROGRA~1/LTSPIC~1/CMAKE-~1/LTSPIC~1/include/ui_mainwindow.h \
  C:/Qt/6.7.3/mingw_64/include/QtCore/QVariant \
  C:/Qt/6.7.3/mingw_64/include/QtCore/qvariant.h \

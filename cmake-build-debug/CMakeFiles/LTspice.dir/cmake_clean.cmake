@@ -16,6 +16,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/LTspice.dir/LTspice_autogen/mocs_compilation.cpp.obj.d"
   "CMakeFiles/LTspice.dir/SchematicWidget.cpp.obj"
   "CMakeFiles/LTspice.dir/SchematicWidget.cpp.obj.d"
+  "CMakeFiles/LTspice.dir/ValueDialog.cpp.obj"
+  "CMakeFiles/LTspice.dir/ValueDialog.cpp.obj.d"
   "CMakeFiles/LTspice.dir/WaveForm.cpp.obj"
   "CMakeFiles/LTspice.dir/WaveForm.cpp.obj.d"
   "CMakeFiles/LTspice.dir/main.cpp.obj"
