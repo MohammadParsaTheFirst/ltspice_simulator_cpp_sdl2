@@ -387,17 +387,69 @@ CMakeFiles/LTspice.dir/LTspice_autogen/mocs_compilation.cpp.obj: \
  C:/Qt/6.7.3/mingw_64/include/QtGui/qcursor.h \
  C:/Qt/6.7.3/mingw_64/include/QtGui/qbitmap.h \
  C:/Qt/6.7.3/mingw_64/include/QtCore/qtmochelpers.h \
+ C:\Users\parsa\Documents\university\Programming\ and\ linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\LTspice_autogen\EWIEGA46WW/moc_Dialogs.cpp \
+ C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Dialogs.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/QDialog \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qdialog.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qwidget.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/QLineEdit \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qlineedit.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qframe.h \
+ C:/Qt/6.7.3/mingw_64/include/QtGui/qtextcursor.h \
+ C:/Qt/6.7.3/mingw_64/include/QtGui/qtextdocument.h \
+ C:/Qt/6.7.3/mingw_64/include/QtCore/qurl.h \
+ C:/Qt/6.7.3/mingw_64/include/QtGui/qtextformat.h \
+ C:/Qt/6.7.3/mingw_64/include/QtGui/qpen.h \
+ C:/Qt/6.7.3/mingw_64/include/QtGui/qtextoption.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/QLabel \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qlabel.h \
+ C:/Qt/6.7.3/mingw_64/include/QtGui/qpicture.h \
+ C:/Qt/6.7.3/mingw_64/include/QtCore/qiodevice.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/QRadioButton \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qradiobutton.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qabstractbutton.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/QPushButton \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qpushbutton.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/QGroupBox \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qgroupbox.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/QVBoxLayout \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qboxlayout.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qlayout.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qlayoutitem.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qboxlayout.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qgridlayout.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/QDialogButtonBox \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/QFormLayout \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qformlayout.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/QLayout \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qlayout.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/QListWidget \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qlistwidget.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qlistview.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qabstractitemview.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+ C:/Qt/6.7.3/mingw_64/include/QtCore/qabstractitemmodel.h \
+ C:/Qt/6.7.3/mingw_64/include/QtCore/qitemselectionmodel.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qstyleoption.h \
+ C:/Qt/6.7.3/mingw_64/include/QtCore/qlocale.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qabstractspinbox.h \
+ C:/Qt/6.7.3/mingw_64/include/QtGui/qvalidator.h \
+ C:/Qt/6.7.3/mingw_64/include/QtCore/qregularexpression.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qslider.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qabstractslider.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qstyle.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qtabbar.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qtabwidget.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qrubberband.h \
  C:\Users\parsa\Documents\university\Programming\ and\ linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\LTspice_autogen\EWIEGA46WW/moc_SchematicWidget.cpp \
  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/SchematicWidget.h \
  C:/Qt/6.7.3/mingw_64/include/QtGui/QPainter \
  C:/Qt/6.7.3/mingw_64/include/QtGui/qpainter.h \
- C:/Qt/6.7.3/mingw_64/include/QtGui/qtextoption.h \
- C:/Qt/6.7.3/mingw_64/include/QtGui/qpen.h \
  C:/Qt/6.7.3/mingw_64/include/QtGui/QPaintEvent \
  C:/Qt/6.7.3/mingw_64/include/QtGui/qevent.h \
  C:/Qt/6.7.3/mingw_64/include/QtCore/qcoreevent.h \
- C:/Qt/6.7.3/mingw_64/include/QtCore/qiodevice.h \
- C:/Qt/6.7.3/mingw_64/include/QtCore/qurl.h \
  C:/Qt/6.7.3/mingw_64/include/QtGui/qeventpoint.h \
  C:/Qt/6.7.3/mingw_64/include/QtGui/qvector2d.h \
  C:/Qt/6.7.3/mingw_64/include/QtGui/qvectornd.h \
@@ -424,14 +476,12 @@ CMakeFiles/LTspice.dir/LTspice_autogen/mocs_compilation.cpp.obj: \
  C:/Qt/6.7.3/mingw_64/include/QtCore/qeventloop.h \
  C:/Qt/6.7.3/mingw_64/include/QtCore/qcoreapplication_platform.h \
  C:/Qt/6.7.3/mingw_64/include/QtGui/qinputmethod.h \
- C:/Qt/6.7.3/mingw_64/include/QtCore/qlocale.h \
  C:/Qt/6.7.3/mingw_64/include/QtGui/qguiapplication_platform.h \
  C:/Qt/6.7.3/mingw_64/include/QtGui/QMouseEvent \
  C:/Qt/6.7.3/mingw_64/include/QtGui/QKeyEvent \
  C:/Qt/6.7.3/mingw_64/include/QtWidgets/QMessageBox \
  C:/Qt/6.7.3/mingw_64/include/QtWidgets/qmessagebox.h \
  C:/Qt/6.7.3/mingw_64/include/QtWidgets/qdialog.h \
- C:/Qt/6.7.3/mingw_64/include/QtWidgets/qwidget.h \
  C:/Qt/6.7.3/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Circuit.h \
  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/component.h \
@@ -658,44 +708,11 @@ CMakeFiles/LTspice.dir/LTspice_autogen/mocs_compilation.cpp.obj: \
  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/codecvt \
  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/fs_dir.h \
  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/fs_ops.h \
- C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/ValueDialog.h \
- C:/Qt/6.7.3/mingw_64/include/QtWidgets/QDialog \
- C:/Qt/6.7.3/mingw_64/include/QtWidgets/qdialog.h \
- C:/Qt/6.7.3/mingw_64/include/QtWidgets/QLineEdit \
- C:/Qt/6.7.3/mingw_64/include/QtWidgets/qlineedit.h \
- C:/Qt/6.7.3/mingw_64/include/QtWidgets/qframe.h \
- C:/Qt/6.7.3/mingw_64/include/QtGui/qtextcursor.h \
- C:/Qt/6.7.3/mingw_64/include/QtGui/qtextdocument.h \
- C:/Qt/6.7.3/mingw_64/include/QtGui/qtextformat.h \
- C:/Qt/6.7.3/mingw_64/include/QtWidgets/QLabel \
- C:/Qt/6.7.3/mingw_64/include/QtWidgets/qlabel.h \
- C:/Qt/6.7.3/mingw_64/include/QtGui/qpicture.h \
- C:/Qt/6.7.3/mingw_64/include/QtWidgets/QRadioButton \
- C:/Qt/6.7.3/mingw_64/include/QtWidgets/qradiobutton.h \
- C:/Qt/6.7.3/mingw_64/include/QtWidgets/qabstractbutton.h \
- C:/Qt/6.7.3/mingw_64/include/QtWidgets/QPushButton \
- C:/Qt/6.7.3/mingw_64/include/QtWidgets/qpushbutton.h \
- C:/Qt/6.7.3/mingw_64/include/QtWidgets/QGroupBox \
- C:/Qt/6.7.3/mingw_64/include/QtWidgets/qgroupbox.h \
- C:/Qt/6.7.3/mingw_64/include/QtWidgets/QVBoxLayout \
- C:/Qt/6.7.3/mingw_64/include/QtWidgets/qboxlayout.h \
- C:/Qt/6.7.3/mingw_64/include/QtWidgets/qlayout.h \
- C:/Qt/6.7.3/mingw_64/include/QtWidgets/qlayoutitem.h \
- C:/Qt/6.7.3/mingw_64/include/QtWidgets/qboxlayout.h \
- C:/Qt/6.7.3/mingw_64/include/QtWidgets/qgridlayout.h \
- C:/Qt/6.7.3/mingw_64/include/QtWidgets/QDialogButtonBox \
- C:/Qt/6.7.3/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
- C:/Qt/6.7.3/mingw_64/include/QtWidgets/QFormLayout \
- C:/Qt/6.7.3/mingw_64/include/QtWidgets/qformlayout.h \
- C:/Qt/6.7.3/mingw_64/include/QtWidgets/QLayout \
- C:/Qt/6.7.3/mingw_64/include/QtWidgets/qlayout.h \
- C:\Users\parsa\Documents\university\Programming\ and\ linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\LTspice_autogen\EWIEGA46WW/moc_ValueDialog.cpp \
- C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/ValueDialog.h \
+ C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Dialogs.h \
  C:\Users\parsa\Documents\university\Programming\ and\ linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\LTspice_autogen\EWIEGA46WW/moc_mainwindow.cpp \
  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/mainwindow.h \
  C:/Qt/6.7.3/mingw_64/include/QtWidgets/QMainWindow \
  C:/Qt/6.7.3/mingw_64/include/QtWidgets/qmainwindow.h \
- C:/Qt/6.7.3/mingw_64/include/QtWidgets/qtabwidget.h \
  C:/Qt/6.7.3/mingw_64/include/QtGui/QAction \
  C:/Qt/6.7.3/mingw_64/include/QtGui/qaction.h \
  C:/Qt/6.7.3/mingw_64/include/QtWidgets/QMenu \

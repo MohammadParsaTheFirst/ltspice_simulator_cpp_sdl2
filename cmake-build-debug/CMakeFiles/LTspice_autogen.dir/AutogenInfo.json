@@ -324,15 +324,15 @@
 			null
 		],
 		[
-			"C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/SchematicWidget.h",
+			"C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/Dialogs.h",
 			"MU",
-			"EWIEGA46WW/moc_SchematicWidget.cpp",
+			"EWIEGA46WW/moc_Dialogs.cpp",
 			null
 		],
 		[
-			"C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/ValueDialog.h",
+			"C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/SchematicWidget.h",
 			"MU",
-			"EWIEGA46WW/moc_ValueDialog.cpp",
+			"EWIEGA46WW/moc_SchematicWidget.cpp",
 			null
 		],
 		[
@@ -448,12 +448,12 @@
 			null
 		],
 		[
-			"C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/SchematicWidget.cpp",
+			"C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/Dialogs.cpp",
 			"MU",
 			null
 		],
 		[
-			"C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/ValueDialog.cpp",
+			"C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/SchematicWidget.cpp",
 			"MU",
 			null
 		],

@@ -9,6 +9,7 @@ C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cp
   C:/Qt/6.7.3/mingw_64/include/QtCore/q20memory.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/q20type_traits.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/q23utility.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qabstractitemmodel.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qalgorithms.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qanystringview.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qarraydata.h \
@@ -57,6 +58,7 @@ C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cp
   C:/Qt/6.7.3/mingw_64/include/QtCore/qhashfunctions.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qiodevice.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qiodevicebase.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qitemselectionmodel.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qiterable.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qiterator.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qlatin1stringview.h \
@@ -84,6 +86,7 @@ C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cp
   C:/Qt/6.7.3/mingw_64/include/QtCore/qprocessordetection.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qrect.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qrefcount.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qregularexpression.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qscopedpointer.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qscopeguard.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qset.h \
@@ -176,6 +179,7 @@ C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cp
   C:/Qt/6.7.3/mingw_64/include/QtGui/qtguiexports.h \
   C:/Qt/6.7.3/mingw_64/include/QtGui/qtguiglobal.h \
   C:/Qt/6.7.3/mingw_64/include/QtGui/qtransform.h \
+  C:/Qt/6.7.3/mingw_64/include/QtGui/qvalidator.h \
   C:/Qt/6.7.3/mingw_64/include/QtGui/qvector2d.h \
   C:/Qt/6.7.3/mingw_64/include/QtGui/qvectornd.h \
   C:/Qt/6.7.3/mingw_64/include/QtGui/qwindowdefs.h \
@@ -187,12 +191,18 @@ C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cp
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QLabel \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QLayout \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QLineEdit \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/QListWidget \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QMessageBox \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QPushButton \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QRadioButton \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QVBoxLayout \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QWidget \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qabstractbutton.h \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/qabstractitemview.h \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/qabstractslider.h \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/qabstractspinbox.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qboxlayout.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qdialog.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
@@ -204,10 +214,18 @@ C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cp
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qlayout.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qlayoutitem.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qlineedit.h \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/qlistview.h \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/qlistwidget.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qmessagebox.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qpushbutton.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qradiobutton.h \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/qrubberband.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qsizepolicy.h \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/qslider.h \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/qstyle.h \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/qstyleoption.h \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/qtabbar.h \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/qtabwidget.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qtwidgets-config.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qtwidgetsexports.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -470,7 +488,7 @@ C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cp
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Circuit.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Component.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/ComponentFactory.h \
-  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/ValueDialog.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Dialogs.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/WaveForm.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/component.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/Cholesky \

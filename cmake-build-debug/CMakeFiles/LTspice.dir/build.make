@@ -227,20 +227,20 @@ CMakeFiles/LTspice.dir/SchematicWidget.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/LTspice.dir/SchematicWidget.cpp.s"
 	C:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\SchematicWidget.cpp" -o CMakeFiles\LTspice.dir\SchematicWidget.cpp.s
 
-CMakeFiles/LTspice.dir/ValueDialog.cpp.obj: CMakeFiles/LTspice.dir/flags.make
-CMakeFiles/LTspice.dir/ValueDialog.cpp.obj: CMakeFiles/LTspice.dir/includes_CXX.rsp
-CMakeFiles/LTspice.dir/ValueDialog.cpp.obj: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/ValueDialog.cpp
-CMakeFiles/LTspice.dir/ValueDialog.cpp.obj: CMakeFiles/LTspice.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/LTspice.dir/ValueDialog.cpp.obj"
-	C:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LTspice.dir/ValueDialog.cpp.obj -MF CMakeFiles\LTspice.dir\ValueDialog.cpp.obj.d -o CMakeFiles\LTspice.dir\ValueDialog.cpp.obj -c "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\ValueDialog.cpp"
+CMakeFiles/LTspice.dir/Dialogs.cpp.obj: CMakeFiles/LTspice.dir/flags.make
+CMakeFiles/LTspice.dir/Dialogs.cpp.obj: CMakeFiles/LTspice.dir/includes_CXX.rsp
+CMakeFiles/LTspice.dir/Dialogs.cpp.obj: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Dialogs.cpp
+CMakeFiles/LTspice.dir/Dialogs.cpp.obj: CMakeFiles/LTspice.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/LTspice.dir/Dialogs.cpp.obj"
+	C:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LTspice.dir/Dialogs.cpp.obj -MF CMakeFiles\LTspice.dir\Dialogs.cpp.obj.d -o CMakeFiles\LTspice.dir\Dialogs.cpp.obj -c "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\Dialogs.cpp"
 
-CMakeFiles/LTspice.dir/ValueDialog.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/LTspice.dir/ValueDialog.cpp.i"
-	C:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\ValueDialog.cpp" > CMakeFiles\LTspice.dir\ValueDialog.cpp.i
+CMakeFiles/LTspice.dir/Dialogs.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/LTspice.dir/Dialogs.cpp.i"
+	C:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\Dialogs.cpp" > CMakeFiles\LTspice.dir\Dialogs.cpp.i
 
-CMakeFiles/LTspice.dir/ValueDialog.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/LTspice.dir/ValueDialog.cpp.s"
-	C:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\ValueDialog.cpp" -o CMakeFiles\LTspice.dir\ValueDialog.cpp.s
+CMakeFiles/LTspice.dir/Dialogs.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/LTspice.dir/Dialogs.cpp.s"
+	C:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\Dialogs.cpp" -o CMakeFiles\LTspice.dir\Dialogs.cpp.s
 
 CMakeFiles/LTspice.dir/LTspice_autogen/EWIEGA46WW/qrc_resources.cpp.obj: CMakeFiles/LTspice.dir/flags.make
 CMakeFiles/LTspice.dir/LTspice_autogen/EWIEGA46WW/qrc_resources.cpp.obj: CMakeFiles/LTspice.dir/includes_CXX.rsp
@@ -268,7 +268,7 @@ LTspice_OBJECTS = \
 "CMakeFiles/LTspice.dir/main.cpp.obj" \
 "CMakeFiles/LTspice.dir/ChartWindow.cpp.obj" \
 "CMakeFiles/LTspice.dir/SchematicWidget.cpp.obj" \
-"CMakeFiles/LTspice.dir/ValueDialog.cpp.obj" \
+"CMakeFiles/LTspice.dir/Dialogs.cpp.obj" \
 "CMakeFiles/LTspice.dir/LTspice_autogen/EWIEGA46WW/qrc_resources.cpp.obj"
 
 # External object files for target LTspice
@@ -283,7 +283,7 @@ LTspice.exe: CMakeFiles/LTspice.dir/mainwindow.cpp.obj
 LTspice.exe: CMakeFiles/LTspice.dir/main.cpp.obj
 LTspice.exe: CMakeFiles/LTspice.dir/ChartWindow.cpp.obj
 LTspice.exe: CMakeFiles/LTspice.dir/SchematicWidget.cpp.obj
-LTspice.exe: CMakeFiles/LTspice.dir/ValueDialog.cpp.obj
+LTspice.exe: CMakeFiles/LTspice.dir/Dialogs.cpp.obj
 LTspice.exe: CMakeFiles/LTspice.dir/LTspice_autogen/EWIEGA46WW/qrc_resources.cpp.obj
 LTspice.exe: CMakeFiles/LTspice.dir/build.make
 LTspice.exe: C:/Qt/6.7.3/mingw_64/lib/libQt6Charts.a

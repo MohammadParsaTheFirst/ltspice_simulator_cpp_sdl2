@@ -250,6 +250,30 @@ ComponentFactory.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/ComponentFactory.cpp.s
 .PHONY : ComponentFactory.cpp.s
 
+Dialogs.obj: Dialogs.cpp.obj
+.PHONY : Dialogs.obj
+
+# target to build an object file
+Dialogs.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/Dialogs.cpp.obj
+.PHONY : Dialogs.cpp.obj
+
+Dialogs.i: Dialogs.cpp.i
+.PHONY : Dialogs.i
+
+# target to preprocess a source file
+Dialogs.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/Dialogs.cpp.i
+.PHONY : Dialogs.cpp.i
+
+Dialogs.s: Dialogs.cpp.s
+.PHONY : Dialogs.s
+
+# target to generate assembly for a file
+Dialogs.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/Dialogs.cpp.s
+.PHONY : Dialogs.cpp.s
+
 LTspice_autogen/EWIEGA46WW/qrc_resources.obj: LTspice_autogen/EWIEGA46WW/qrc_resources.cpp.obj
 .PHONY : LTspice_autogen/EWIEGA46WW/qrc_resources.obj
 
@@ -321,30 +345,6 @@ SchematicWidget.s: SchematicWidget.cpp.s
 SchematicWidget.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/SchematicWidget.cpp.s
 .PHONY : SchematicWidget.cpp.s
-
-ValueDialog.obj: ValueDialog.cpp.obj
-.PHONY : ValueDialog.obj
-
-# target to build an object file
-ValueDialog.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/ValueDialog.cpp.obj
-.PHONY : ValueDialog.cpp.obj
-
-ValueDialog.i: ValueDialog.cpp.i
-.PHONY : ValueDialog.i
-
-# target to preprocess a source file
-ValueDialog.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/ValueDialog.cpp.i
-.PHONY : ValueDialog.cpp.i
-
-ValueDialog.s: ValueDialog.cpp.s
-.PHONY : ValueDialog.s
-
-# target to generate assembly for a file
-ValueDialog.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/ValueDialog.cpp.s
-.PHONY : ValueDialog.cpp.s
 
 WaveForm.obj: WaveForm.cpp.obj
 .PHONY : WaveForm.obj
@@ -441,6 +441,9 @@ help:
 	@echo ... ComponentFactory.obj
 	@echo ... ComponentFactory.i
 	@echo ... ComponentFactory.s
+	@echo ... Dialogs.obj
+	@echo ... Dialogs.i
+	@echo ... Dialogs.s
 	@echo ... LTspice_autogen/EWIEGA46WW/qrc_resources.obj
 	@echo ... LTspice_autogen/EWIEGA46WW/qrc_resources.i
 	@echo ... LTspice_autogen/EWIEGA46WW/qrc_resources.s
@@ -450,9 +453,6 @@ help:
 	@echo ... SchematicWidget.obj
 	@echo ... SchematicWidget.i
 	@echo ... SchematicWidget.s
-	@echo ... ValueDialog.obj
-	@echo ... ValueDialog.i
-	@echo ... ValueDialog.s
 	@echo ... WaveForm.obj
 	@echo ... WaveForm.i
 	@echo ... WaveForm.s

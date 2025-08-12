@@ -654,7 +654,7 @@ CMakeFiles/LTspice.dir/SchematicWidget.cpp.obj: \
  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/codecvt \
  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/fs_dir.h \
  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/fs_ops.h \
- C:\Users\parsa\Documents\university\Programming\ and\ linux\ltspice_simulator_cpp_sdl2\ValueDialog.h \
+ C:\Users\parsa\Documents\university\Programming\ and\ linux\ltspice_simulator_cpp_sdl2\Dialogs.h \
  C:/Qt/6.7.3/mingw_64/include/QtWidgets/QDialog \
  C:/Qt/6.7.3/mingw_64/include/QtWidgets/qdialog.h \
  C:/Qt/6.7.3/mingw_64/include/QtWidgets/QLineEdit \
@@ -684,4 +684,22 @@ CMakeFiles/LTspice.dir/SchematicWidget.cpp.obj: \
  C:/Qt/6.7.3/mingw_64/include/QtWidgets/QFormLayout \
  C:/Qt/6.7.3/mingw_64/include/QtWidgets/qformlayout.h \
  C:/Qt/6.7.3/mingw_64/include/QtWidgets/QLayout \
- C:/Qt/6.7.3/mingw_64/include/QtWidgets/qlayout.h
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qlayout.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/QListWidget \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qlistwidget.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qlistview.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qabstractitemview.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+ C:/Qt/6.7.3/mingw_64/include/QtCore/qabstractitemmodel.h \
+ C:/Qt/6.7.3/mingw_64/include/QtCore/qitemselectionmodel.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qstyleoption.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qabstractspinbox.h \
+ C:/Qt/6.7.3/mingw_64/include/QtGui/qvalidator.h \
+ C:/Qt/6.7.3/mingw_64/include/QtCore/qregularexpression.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qslider.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qabstractslider.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qstyle.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qtabbar.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qtabwidget.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qrubberband.h
