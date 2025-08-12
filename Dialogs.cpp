@@ -24,7 +24,6 @@ QString ValueDialog::getValue() const {
     return valueEdit->text();
 }
 
-
 SourceValueDialog::SourceValueDialog(QWidget* parent) : QDialog(parent) {
     setWindowTitle("Enter source value");
     QVBoxLayout* layout = new QVBoxLayout(this);
@@ -83,7 +82,7 @@ QString SourceValueDialog::getSinFrequency() const { return sinFrequency->text()
 
 NodeLibraryDialog::NodeLibraryDialog(QWidget* parent) : QDialog(parent) {
     setWindowTitle("Node library");
-    setMinimumSize(250, 400);
+    setMinimumSize(300,400);
 
     listWidget = new QListWidget(this);
     connect(listWidget, &QListWidget::itemDoubleClicked, this, &NodeLibraryDialog::doubleClickedOnItem);
@@ -94,6 +93,10 @@ NodeLibraryDialog::NodeLibraryDialog(QWidget* parent) : QDialog(parent) {
     QListWidgetItem* diodeItem = new QListWidgetItem("Diode");
     QListWidgetItem* voltageSourceItem = new QListWidgetItem("Independent voltage source");
     QListWidgetItem* currentSourceItem = new QListWidgetItem("Independent current source");
+    QListWidgetItem* vcvsItem = new QListWidgetItem("Voltage dependent voltage source");
+    QListWidgetItem* vccsItem = new QListWidgetItem("Voltage dependent current source");
+    QListWidgetItem* ccvsItem = new QListWidgetItem("Current dependent voltage source");
+    QListWidgetItem* cccsItem = new QListWidgetItem("Current dependent current source");
 
     resistorItem->setData(Qt::UserRole, "R");
     capacitorItem->setData(Qt::UserRole, "C");
@@ -101,6 +104,10 @@ NodeLibraryDialog::NodeLibraryDialog(QWidget* parent) : QDialog(parent) {
     diodeItem->setData(Qt::UserRole, "D");
     voltageSourceItem->setData(Qt::UserRole, "V");
     currentSourceItem->setData(Qt::UserRole, "I");
+    vcvsItem->setData(Qt::UserRole, "E");
+    vccsItem->setData(Qt::UserRole, "G");
+    ccvsItem->setData(Qt::UserRole, "H");
+    cccsItem->setData(Qt::UserRole, "F");
 
     listWidget->addItem(resistorItem);
     listWidget->addItem(capacitorItem);
@@ -108,6 +115,10 @@ NodeLibraryDialog::NodeLibraryDialog(QWidget* parent) : QDialog(parent) {
     listWidget->addItem(diodeItem);
     listWidget->addItem(voltageSourceItem);
     listWidget->addItem(currentSourceItem);
+    listWidget->addItem(vcvsItem);
+    listWidget->addItem(vccsItem);
+    listWidget->addItem(ccvsItem);
+    listWidget->addItem(cccsItem);
 
     QVBoxLayout* layout = new QVBoxLayout(this);
     layout->addWidget(listWidget);
@@ -117,4 +128,25 @@ void NodeLibraryDialog::doubleClickedOnItem(QListWidgetItem* item) {
     QString componentType = item->data(Qt::UserRole).toString();
     emit componentSelected(componentType);
     accept();
+}
+
+LabelDialog::LabelDialog(QWidget* parent) : QDialog(parent) {
+    setWindowTitle("Node label");
+    QVBoxLayout* layout = new QVBoxLayout(this);
+    QLabel* label = new QLabel("Enter node label:", this);
+    labelLineEdit = new QLineEdit(this);
+    labelButtonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+
+    layout->addWidget(label);
+    layout->addWidget(labelLineEdit);
+    layout->addWidget(labelButtonBox);
+
+    connect(labelButtonBox, &QDialogButtonBox::accepted, this, &LabelDialog::accept);
+    connect(labelButtonBox, &QDialogButtonBox::rejected, this, &LabelDialog::reject);
+
+    labelLineEdit->setFocus();
+}
+
+QString LabelDialog::getLabel() const {
+    return labelLineEdit->text();
 }

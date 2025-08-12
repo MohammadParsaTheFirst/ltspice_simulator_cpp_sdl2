@@ -20,7 +20,7 @@ public:
 
     QString getValue() const;
 
-protected:
+private:
     QLineEdit *valueEdit;
     QDialogButtonBox *buttonBox;
 };
@@ -68,5 +68,16 @@ private slots:
 private:
     QListWidget* listWidget;
 };
+
+class LabelDialog : public QDialog {
+    Q_OBJECT
+public:
+    explicit LabelDialog(QWidget *parent = Q_NULLPTR);
+    QString getLabel() const;
+
+private:
+    QLineEdit* labelLineEdit;
+    QDialogButtonBox *labelButtonBox;
+}
 
 #endif //VALUEDIALOG_H

@@ -20,9 +20,10 @@ enum class InteractionMode {
     placingDiode,
     deleteMode,
     placingWire,
-    placingCurrentSource
+    placingCurrentSource,
+    placingLabel
     //TODO: add ground
-    //TODO: add E,F,G,H and current source
+    //TODO: add E,F,G,H
 };
 
 struct WireInfo {
@@ -35,6 +36,12 @@ struct ComponentGraphicalInfo {
     QPoint startPoint;
     bool isHorizontal;
     QString name;
+};
+
+struct LabelInfo {
+    QPoint position;
+    QString name;
+    QString connectedNodeName;
 };
 
 class SchematicWidget : public QWidget {
@@ -53,6 +60,7 @@ public slots:
     void startDeleteComponent();
     void startPlacingWire();
     void startOpenNodeLibrary();
+    void startPlacingLabel();
 
 private slots:
     void handleNodeLibraryItemSelection(const QString& compType);
@@ -73,6 +81,7 @@ private:
     void placingWireMouseEvent(QMouseEvent* event);
     void placingComponentMouseEvent(QMouseEvent* event);
     void deletingComponentMouseEvent(QMouseEvent* event);
+    void placingLabelMouseEvent(QMouseEvent* event);
     void showSimpleValueDialog(QMouseEvent* event);
     void showSourceValueDialog(QMouseEvent* event);
 
@@ -95,6 +104,8 @@ private:
     std::vector<WireInfo> wires;
     bool isWiring = false;
     QPoint wireStartPoint;
+
+    std::vector<LabelInfo> labels;
 };
 
 

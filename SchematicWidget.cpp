@@ -33,6 +33,7 @@ void SchematicWidget::paintEvent(QPaintEvent* event) {
     QWidget::paintEvent(event);
     QPainter painter(this);
 
+    // Grid dots
     QPen gridPen;
     gridPen.setColor(Qt::black);
     gridPen.setWidth(1);
@@ -45,27 +46,33 @@ void SchematicWidget::paintEvent(QPaintEvent* event) {
         }
     }
 
+    // Components
     for (int i = 0; i < components.size(); i++) {
         bool isHovered = (i == hoveredComponentIndex && currentMode == InteractionMode::deleteMode);
         drawComponent(painter, components[i].startPoint, components[i].isHorizontal, components[i].name, isHovered);
     }
-
-    // Draw the preview before placing the component
     if (currentMode != InteractionMode::Normal && currentMode != InteractionMode::deleteMode && currentMode !=
         InteractionMode::placingWire) {
         QPoint startPos = stickToGrid(currentMousePos);
         drawComponent(painter, startPos, placementIsHorizontal, currentCompType);
     }
 
+    // Wires
     QPen wirePen(Qt::blue, 2);
     painter.setPen(wirePen);
     for (const auto& wire : wires)
         painter.drawLine(wire.startPoint, wire.endPoint);
-
-
-    // Preview before placing wires
     if (isWiring)
         painter.drawLine(wireStartPoint, stickToGrid(currentMousePos));
+
+    // Labels
+    QPen labelPen(Qt::blue, 2);
+    painter.setPen(labelPen);
+    painter.setFont(QFont("Arial", 12, QFont::Bold));
+    for (const auto& label : labels) {
+        painter.drawLine(label.position, label.position + QPoint(15, 0));
+        painter.drawText(label.position + QPoint(20, 5), label.name);
+    }
 }
 
 void SchematicWidget::startRunAnalysis() {
@@ -135,6 +142,12 @@ void SchematicWidget::startOpenNodeLibrary() {
     NodeLibraryDialog dialog(this);
     connect(&dialog, &NodeLibraryDialog::componentSelected, this, &SchematicWidget::handleNodeLibraryItemSelection);
     dialog.exec();
+}
+
+void SchematicWidget::startPlacingLabel() {
+    currentMode = InteractionMode::placingLabel;
+    setCursor(Qt::IBeamCursor);
+    setFocus();
 }
 
 void SchematicWidget::keyPressEvent(QKeyEvent* event) {
@@ -279,21 +292,32 @@ void SchematicWidget::deletingComponentMouseEvent(QMouseEvent* event) {
 
     for (auto it = components.rbegin(); it != components.rend(); it++) {
         QPoint start = it->startPoint;
-        QPoint end;
-        if (it->isHorizontal)
-            end = start + QPoint(componentLength, 0);
-        else
-            end = start + QPoint(0, componentLength);
+        QPoint end = placementIsHorizontal ? start + QPoint(componentLength, 0) : start + QPoint(0, componentLength);
 
         QRect componentRect(start, end);
         componentRect = componentRect.normalized();
         componentRect.adjust(-7, -7, 7, 7);
 
         if (componentRect.contains(clickPos)) {
+            circuit_ptr->deleteComponent(it->name.toStdString(), it->name[0].toLatin1());
             components.erase(std::next(it).base());
-            // TODO: delete from circuit netlist
             return;
         }
+    }
+}
+
+void SchematicWidget::placingLabelMouseEvent(QMouseEvent* event) {
+    QPoint clickPos = stickToGrid(event->pos());
+    QString nodeName = findNodeAt(clickPos);
+
+    LabelDialog dialog(this);
+    if (dialog.exec() == QDialog::Accepted) {
+        QString valueString = dialog.getLabel();
+        if (valueString.isEmpty())
+            return;
+
+        labels.push_back({clickPos, valueString, nodeName});
+        circuit_ptr->addLabel(valueString.toStdString(), nodeName.toStdString());
     }
 }
 
@@ -313,11 +337,14 @@ void SchematicWidget::mousePressEvent(QMouseEvent* event) {
         if (currentMode == InteractionMode::placingWire) {
             placingWireMouseEvent(event);
         }
-        else if (currentMode != InteractionMode::Normal && currentMode != InteractionMode::deleteMode) {
-            placingComponentMouseEvent(event);
+        else if (currentMode == InteractionMode::placingLabel) {
+            placingLabelMouseEvent(event);
         }
         else if (currentMode == InteractionMode::deleteMode) {
             deletingComponentMouseEvent(event);
+        }
+        else {
+            placingComponentMouseEvent(event);
         }
         update();
     }
@@ -374,4 +401,6 @@ void SchematicWidget::handleNodeLibraryItemSelection(const QString& compType) {
         startPlacingDiode();
     else if (compType == "I")
         startPlacingCurrentSource();
+    else
+        QMessageBox::information(this, "Dependent source", "Buy premium to access this element!");
 }

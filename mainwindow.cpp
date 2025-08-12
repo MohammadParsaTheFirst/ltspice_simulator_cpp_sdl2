@@ -31,7 +31,7 @@ void MainWindow::setupWelcomeState() {
     inductorAction->setEnabled(false);
     diodeAction->setEnabled(false);
     nodeLibraryAction->setEnabled(false);
-    textAction->setEnabled(false);
+    labelAction->setEnabled(false);
     deleteModeAction->setEnabled(false);
 }
 
@@ -48,6 +48,7 @@ void MainWindow::setupSchematicState() {
     connect(voltageSourceAction, &QAction::triggered, schematic, &SchematicWidget::startPlacingVoltageSource);
     connect(diodeAction, &QAction::triggered, schematic, &SchematicWidget::startPlacingDiode);
     connect(nodeLibraryAction, &QAction::triggered, schematic, &SchematicWidget::startOpenNodeLibrary);
+    connect(labelAction, &QAction::triggered, schematic, &SchematicWidget::startPlacingLabel);
     connect(deleteModeAction, &QAction::triggered, schematic, &SchematicWidget::startDeleteComponent);
 
     configureAnalysisAction->setEnabled(true);
@@ -60,7 +61,7 @@ void MainWindow::setupSchematicState() {
     inductorAction->setEnabled(true);
     diodeAction->setEnabled(true);
     nodeLibraryAction->setEnabled(true);
-    textAction->setEnabled(true);
+    labelAction->setEnabled(true);
     deleteModeAction->setEnabled(true);
 }
 
@@ -105,7 +106,7 @@ void MainWindow::initializeActions() {
     inductorAction = new QAction(QIcon(":/icon/icons/inductor.png"), "Inductor (L)", this);
     diodeAction = new QAction(QIcon(":/icon/icons/diode.png"), "Diode (D)", this);
     nodeLibraryAction = new QAction(QIcon(":/icon/icons/nodeLibrary.png"), "Node Library (P)", this);
-    textAction = new QAction(QIcon(":/icon/icons/text.png"), "Text (T)", this);
+    labelAction = new QAction(QIcon(":/icon/icons/text.png"), "Text (T)", this);
     deleteModeAction = new QAction(QIcon(":/icon/icons/deleteMode.png"), "Delete Mode (Backspace or Del)", this);
     quitAction = new QAction("Exit", this);
 }
@@ -118,7 +119,7 @@ void MainWindow::implementMenuBar() {
     file->addAction(quitAction);
 
     QMenu* edit = menuBar()->addMenu(tr("&Edit"));
-    edit->addAction(textAction);
+    edit->addAction(labelAction);
     edit->addAction(configureAnalysisAction);
     edit->addAction(resistorAction);
     edit->addAction(capacitorAction);
@@ -166,7 +167,7 @@ void MainWindow::implementToolBar() {
     mainToolBar->addAction(inductorAction);
     mainToolBar->addAction(diodeAction);
     mainToolBar->addAction(nodeLibraryAction);
-    mainToolBar->addAction(textAction);
+    mainToolBar->addAction(labelAction);
     mainToolBar->addAction(deleteModeAction);
 
     mainToolBar->setIconSize(QSize(40, 40));
@@ -185,6 +186,6 @@ void MainWindow::shortcutRunner() {
     inductorAction->setShortcut(QKeySequence(Qt::Key_L));
     diodeAction->setShortcut(QKeySequence(Qt::Key_D));
     nodeLibraryAction->setShortcut(QKeySequence(Qt::Key_P));
-    textAction->setShortcut(QKeySequence(Qt::Key_T));
+    labelAction->setShortcut(QKeySequence(Qt::Key_T));
     deleteModeAction->setShortcuts({QKeySequence(Qt::Key_Backspace), QKeySequence(Qt::Key_Delete)});
 }

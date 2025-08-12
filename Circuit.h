@@ -1,11 +1,12 @@
 #ifndef CIRCUIT_H
 #define CIRCUIT_H
 
-#include "component.h"
-#include "ComponentFactory.h"
 #include <vector>
 #include <fstream>
 #include <filesystem>
+#include <set>
+#include "component.h"
+#include "ComponentFactory.h"
 
 double parseSpiceValue(const std::string& valueStr);
 
@@ -45,6 +46,8 @@ public:
     void printTransientResults(const std::vector<std::string>&) const;
     void printDcSweepResults(const std::string&, const std::string&) const;
 
+    void addLabel(const std::string&, const std::string&);
+
 private:
     void buildMNAMatrix(double, double);
     Eigen::VectorXd solveMNASystem();
@@ -70,6 +73,8 @@ private:
     // State and file management
     std::string currentFilePath;
     bool hasNonlinearComponents; // Diode
+
+    std::map<std::string, std::set<int>> labelToNodes;
 };
 
 #endif // CIRCUIT_H

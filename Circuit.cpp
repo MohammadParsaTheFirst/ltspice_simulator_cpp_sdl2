@@ -510,11 +510,36 @@ void Circuit::connectNodes(const std::string& nowNode, const std::string& prevNo
     idToNodeName.erase(idToNodeName.find(x));
 }
 
+void Circuit::addLabel(const std::string& labelName, const std::string& nodeName) {
+    int nodeId = getNodeId(nodeName);
+    if (nodeId != -1) {
+        labelToNodes[labelName].insert(nodeId);
+        std::cout << "Label '" << labelName << "' added to node " << nodeName << std::endl;
+    }
+}
+
 // -------------------------------- Component and Node Management --------------------------------
 
 
 // -------------------------------- MNA and Solver --------------------------------
 void Circuit::buildMNAMatrix(double time, double h) {
+    for (auto const& [labelName, nodeSet]: labelToNodes) {
+        if (nodeSet.size() > 1) {
+            int firstNode = *nodeSet.begin();
+            for (int nodeIdToMerge : nodeSet) {
+                if (firstNode == nodeIdToMerge)
+                    continue;
+
+                for (auto* comp : components) {
+                    if (comp->node1 == nodeIdToMerge)
+                        comp->node1 = firstNode;
+                    if (comp->node2 == nodeIdToMerge)
+                        comp->node2 == firstNode;
+                }
+            }
+        }
+    }
+
     numCurrentUnknowns = 0;
     componentCurrentIndices.clear();
     int node_count = groundNodeId == -1 ? nodeNameToId.size() : nodeNameToId.size() - 1;

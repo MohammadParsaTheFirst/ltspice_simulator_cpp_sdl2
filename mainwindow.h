@@ -47,7 +47,7 @@ private:
     QAction* inductorAction;
     QAction* diodeAction;
     QAction* nodeLibraryAction;
-    QAction* textAction;
+    QAction* labelAction;
     QAction* deleteModeAction;
     QAction* quitAction;
 
