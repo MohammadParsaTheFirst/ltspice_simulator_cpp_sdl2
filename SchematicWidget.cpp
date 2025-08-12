@@ -15,6 +15,7 @@ SchematicWidget::SchematicWidget(Circuit* circuit, QWidget* parent) : circuit_pt
     componentCounters["L"] = 0;
     componentCounters["V"] = 0;
     componentCounters["D"] = 0;
+    componentCounters["I"] = 0;
 }
 
 QString SchematicWidget::getNodeNameFromPoint(const QPoint& pos) const {
@@ -58,14 +59,13 @@ void SchematicWidget::paintEvent(QPaintEvent* event) {
 
     QPen wirePen(Qt::blue, 2);
     painter.setPen(wirePen);
-    for (const auto& wire : wires) {
+    for (const auto& wire : wires)
         painter.drawLine(wire.startPoint, wire.endPoint);
-    }
+
 
     // Preview before placing wires
-    if (isWiring) {
+    if (isWiring)
         painter.drawLine(wireStartPoint, stickToGrid(currentMousePos));
-    }
 }
 
 void SchematicWidget::startRunAnalysis() {
@@ -112,6 +112,14 @@ void SchematicWidget::startPlacingDiode() {
     setFocus();
 }
 
+void SchematicWidget::startPlacingCurrentSource() {
+    currentMode = InteractionMode::placingCurrentSource;
+    placementIsHorizontal = true;
+    setCursor(Qt::CrossCursor);
+    currentCompType = "I";
+    setFocus();
+}
+
 void SchematicWidget::startDeleteComponent() {
     currentMode = InteractionMode::deleteMode;
     setCursor(Qt::OpenHandCursor);
@@ -141,12 +149,12 @@ void SchematicWidget::keyPressEvent(QKeyEvent* event) {
             currentCompType = "NF";
             setCursor(Qt::ArrowCursor);
             isWiring = false;
+            update();
             return;
         }
     }
     else
         QWidget::keyPressEvent(event);
-    update();
 }
 
 QPoint SchematicWidget::stickToGrid(const QPoint& pos) {
@@ -364,4 +372,6 @@ void SchematicWidget::handleNodeLibraryItemSelection(const QString& compType) {
         startPlacingVoltageSource();
     else if (compType == "D")
         startPlacingDiode();
+    else if (compType == "I")
+        startPlacingCurrentSource();
 }

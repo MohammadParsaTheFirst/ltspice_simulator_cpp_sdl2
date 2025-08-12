@@ -87,9 +87,27 @@ NodeLibraryDialog::NodeLibraryDialog(QWidget* parent) : QDialog(parent) {
 
     listWidget = new QListWidget(this);
     connect(listWidget, &QListWidget::itemDoubleClicked, this, &NodeLibraryDialog::doubleClickedOnItem);
+
     QListWidgetItem* resistorItem = new QListWidgetItem("Resistor");
+    QListWidgetItem* capacitorItem = new QListWidgetItem("Capacitor");
+    QListWidgetItem* inductorItem = new QListWidgetItem("Inductor");
+    QListWidgetItem* diodeItem = new QListWidgetItem("Diode");
+    QListWidgetItem* voltageSourceItem = new QListWidgetItem("Independent voltage source");
+    QListWidgetItem* currentSourceItem = new QListWidgetItem("Independent current source");
+
     resistorItem->setData(Qt::UserRole, "R");
+    capacitorItem->setData(Qt::UserRole, "C");
+    inductorItem->setData(Qt::UserRole, "L");
+    diodeItem->setData(Qt::UserRole, "D");
+    voltageSourceItem->setData(Qt::UserRole, "V");
+    currentSourceItem->setData(Qt::UserRole, "I");
+
     listWidget->addItem(resistorItem);
+    listWidget->addItem(capacitorItem);
+    listWidget->addItem(inductorItem);
+    listWidget->addItem(diodeItem);
+    listWidget->addItem(voltageSourceItem);
+    listWidget->addItem(currentSourceItem);
 
     QVBoxLayout* layout = new QVBoxLayout(this);
     layout->addWidget(listWidget);

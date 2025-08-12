@@ -19,7 +19,8 @@ enum class InteractionMode {
     placingGround,
     placingDiode,
     deleteMode,
-    placingWire
+    placingWire,
+    placingCurrentSource
     //TODO: add ground
     //TODO: add E,F,G,H and current source
 };
@@ -47,6 +48,7 @@ public slots:
     void startPlacingCapacitor();
     void startPlacingInductor();
     void startPlacingVoltageSource();
+    void startPlacingCurrentSource();
     void startPlacingDiode();
     void startDeleteComponent();
     void startPlacingWire();
