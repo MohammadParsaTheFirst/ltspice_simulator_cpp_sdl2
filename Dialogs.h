@@ -29,14 +29,13 @@ class SourceValueDialog : public QDialog {
     Q_OBJECT
 public:
     explicit SourceValueDialog(QWidget *parent = Q_NULLPTR);
-
     bool isSinusoidal() const;
     QString getDCValue() const;
     QString getSinOffset() const;
     QString getSinAmplitude() const;
     QString getSinFrequency() const;
 
-    private slots:
+private slots:
         void showSinOrNot(bool isSin);
 
 private:
@@ -78,6 +77,29 @@ public:
 private:
     QLineEdit* labelLineEdit;
     QDialogButtonBox *labelButtonBox;
+};
+
+class ConfigurationAnalysisDialog : public QDialog {
+    Q_OBJECT
+public:
+    explicit ConfigurationAnalysisDialog(QWidget *parent = Q_NULLPTR);
+    int getSelectedAnalysisType() const;
+    QString getTransientTstop() const;
+    QString getTransientTstart() const;
+    QString getTransientTstep() const;
+
+private:
+    QTabWidget* tabWidget;
+
+    // Storing the transient analysis type variables
+    QLineEdit* tStopEdit;
+    QLineEdit* tStartEdit;
+    QLineEdit* tStepEdit;
+
+    // TODO: store the AC Sweep analysis type variables
+    // ACSweep
+
+    QDialogButtonBox *buttonBox;
 };
 
 #endif //VALUEDIALOG_H
