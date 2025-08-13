@@ -253,6 +253,13 @@ int Circuit::getNodeId(const std::string& nodeName, bool create) {
     return nodeNameToId[nodeName];
 }
 
+int Circuit::getNodeId(const std::string& nodeName) const {
+    auto it =  nodeNameToId.find(nodeName);
+    if (it != nodeNameToId.end())
+        return it->second;
+    return -1;
+}
+
 bool Circuit::hasNode(const std::string& nodeName) const {
     return nodeNameToId.count(nodeName);
 }
@@ -697,15 +704,20 @@ void Circuit::performTransientAnalysis(double stopTime, double startTime, double
 void Circuit::printTransientResults(const std::vector<std::string>& variablesToPrint) const {
     if (transientSolutions.empty())
         throw std::runtime_error("No analysis results found. Run .TRAN or .DC first.");
-
-    if (groundNodeId == -1)
+    if (groundNodeIds.empty())
         throw std::runtime_error("No ground node detected.");
+
+    std::map<int, int> nodeIdToMnaIndex;
+    int currentMnaIndex = 0;
+    for (int i = 0; i < nextNodeId; ++i) {
+        if (idToNodeName.count(i) && !isGround(i)) {
+            nodeIdToMnaIndex.at(i) = currentMnaIndex++;
+        }
+    }
 
     struct PrintJob {
         std::string header;
-
         enum class Type { VOLTAGE, MNA_CURRENT, RESISTOR_CURRENT, CAPACITOR_CURRENT } type;
-
         int index = -1;
         Component* component_ptr = nullptr;
     };
@@ -718,32 +730,25 @@ void Circuit::printTransientResults(const std::vector<std::string>& variablesToP
         std::string name = var.substr(2, var.length() - 3);
 
         if (type == "V") {
-            if (!nodeNameToId.count(name)) {
-                std::string errorMsg = "Node " + name + " not found in circuit.";
-                throw std::runtime_error(errorMsg);
-            }
+            if (!hasNode(name)) throw std::runtime_error("Node " + name + " not found.");
             int nodeID = nodeNameToId.at(name);
-            int solutionIndex = (nodeID == groundNodeId) ? -1 : ((nodeID > groundNodeId) ? nodeID - 1 : nodeID);
+            int solutionIndex = isGround(nodeID) ? -1 : nodeIdToMnaIndex.at(nodeID);
             printJobs.push_back({var, PrintJob::Type::VOLTAGE, solutionIndex, nullptr});
+
         }
         else if (type == "I") {
             if (componentCurrentIndices.count(name))
                 printJobs.push_back({var, PrintJob::Type::MNA_CURRENT, componentCurrentIndices.at(name), nullptr});
 
             else {
-                Component* comp = getComponent(name);
-                if (comp) {
-                    if (dynamic_cast<Resistor*>(comp))
-                        printJobs.push_back({var, PrintJob::Type::RESISTOR_CURRENT, -1, comp});
-                    else if (dynamic_cast<Capacitor*>(comp))
-                        printJobs.push_back({var, PrintJob::Type::CAPACITOR_CURRENT, -1, comp});
-                    else
-                        std::cout << "Warning: Current for component type of '" << name <<
-                            "' cannot be calculated. Skipping." << std::endl;
-                }
+                if (componentCurrentIndices.count(name))
+                    printJobs.push_back({var, PrintJob::Type::MNA_CURRENT, componentCurrentIndices.at(name), nullptr});
                 else {
-                    std::string errorMsg = "Component " + name + " not found in circuit.";
-                    throw std::runtime_error(errorMsg);
+                    Component* comp = getComponent(name);
+                    if (!comp) throw std::runtime_error("Component " + name + " not found.");
+                    if (dynamic_cast<Resistor*>(comp)) printJobs.push_back({var, PrintJob::Type::RESISTOR_CURRENT, -1, comp});
+                    else if (dynamic_cast<Capacitor*>(comp)) printJobs.push_back({var, PrintJob::Type::CAPACITOR_CURRENT, -1, comp});
+                    else std::cout << "Warning: Current for component type of '" << name << "' cannot be calculated." << std::endl;
                 }
             }
         }
@@ -770,10 +775,8 @@ void Circuit::printTransientResults(const std::vector<std::string>& variablesToP
             else {
                 int node1 = job.component_ptr->node1;
                 int node2 = job.component_ptr->node2;
-                int index1 = (node1 == groundNodeId) ? -1 : ((node1 > groundNodeId) ? node1 - 1 : node1);
-                int index2 = (node2 == groundNodeId) ? -1 : ((node2 > groundNodeId) ? node2 - 1 : node2);
-                double v1 = (index1 == -1) ? 0.0 : solution(index1);
-                double v2 = (index2 == -1) ? 0.0 : solution(index2);
+                double v1 = isGround(node1) ? 0.0 : solution(nodeIdToMnaIndex.at(node1));
+                double v2 = isGround(node2) ? 0.0 : solution(nodeIdToMnaIndex.at(node2));
 
                 if (job.type == PrintJob::Type::RESISTOR_CURRENT)
                     result = (v1 - v2) / job.component_ptr->value;
@@ -782,13 +785,12 @@ void Circuit::printTransientResults(const std::vector<std::string>& variablesToP
                         result = 0.0;
                     else {
                         const Eigen::VectorXd& prevSolution = itPrev->second;
-                        double vNode1Prev = (index1 == -1) ? 0.0 : prevSolution(index1);
-                        double vNode2Prev = (index2 == -1) ? 0.0 : prevSolution(index2);
-                        double vCapacitorPrev = vNode1Prev - vNode2Prev;
-                        double vCapacitorNow = v1 - v2;
+                        double v1_prev = isGround(node1) ? 0.0 : prevSolution(nodeIdToMnaIndex.at(node1));
+                        double v2_prev = isGround(node2) ? 0.0 : prevSolution(nodeIdToMnaIndex.at(node2));
+                        double vCap_prev = v1_prev - v2_prev;
+                        double vCap_now = v1 - v2;
                         double h = t - itPrev->first;
-                        if (h > 0)
-                            result = job.component_ptr->value * (vCapacitorNow - vCapacitorPrev) / h;
+                        if (h > 0) result = job.component_ptr->value * (vCap_now - vCap_prev) / h;
                     }
                 }
             }
@@ -803,12 +805,16 @@ void Circuit::printDcSweepResults(const std::string& sourceName, const std::stri
     if (dcSweepSolutions.empty())
         throw std::runtime_error("No DC sweep results found. Run a .DC analysis first via the .print command.");
 
-    if (variable.length() < 4 || (variable.front() != 'V' && variable.front() != 'I') || variable[1] != '(' || variable.
-        back() != ')')
-        throw std::runtime_error("Invalid variable format. Expected V(node) or I(component).");
-
     char varType = variable.front();
     std::string varName = variable.substr(2, variable.length() - 3);
+
+    std::map<int, int> nodeIdToMnaIndex;
+    int currentMnaIndex = 0;
+    for (int i = 0; i < nextNodeId; ++i) {
+        if (idToNodeName.count(i) && !isGround(i)) {
+            nodeIdToMnaIndex[i] = currentMnaIndex++;
+        }
+    }
 
     std::cout << "\n---- DC Sweep Results ----" << std::endl;
     std::cout << std::left << std::setw(14) << sourceName;
@@ -821,19 +827,9 @@ void Circuit::printDcSweepResults(const std::string& sourceName, const std::stri
         double result = 0.0;
 
         if (varType == 'V') {
-            if (!hasNode(varName)) {
-                std::string errorMsg = "Node " + varName + " not found in circuit.";
-                throw std::runtime_error(errorMsg);
-            }
-
-            int nodeID = nodeNameToId.at(varName);
-
-            if (nodeID == groundNodeId)
-                result = 0.0;
-            else {
-                int solutionIndex = (groundNodeId != -1 && nodeID > groundNodeId) ? nodeID - 1 : nodeID;
-                result = solution(solutionIndex);
-            }
+            int nodeID = getNodeId(varName);
+            if(nodeID == -1) throw std::runtime_error("Node not found.");
+            result = isGround(nodeID) ? 0.0 : solution(nodeIdToMnaIndex.at(nodeID));
         }
         else {
             Component* comp = getComponent(varName);
@@ -841,7 +837,6 @@ void Circuit::printDcSweepResults(const std::string& sourceName, const std::stri
                 std::string errorMsg = "Component " + varName + " not found in circuit.";
                 throw std::runtime_error(errorMsg);
             }
-
             if (comp->needsCurrentUnknown()) {
                 if (componentCurrentIndices.count(varName))
                     result = solution(componentCurrentIndices.at(varName));
@@ -857,13 +852,13 @@ void Circuit::printDcSweepResults(const std::string& sourceName, const std::stri
                     int node2 = comp->node2;
 
                     double v1 = 0.0;
-                    if (node1 != groundNodeId) {
-                        int index1 = (groundNodeId != -1 && node1 > groundNodeId) ? node1 - 1 : node1;
+                    if (nodeIdToMnaIndex.count(node1)) {
+                        int index1 = nodeIdToMnaIndex.at(node1);
                         v1 = solution(index1);
                     }
                     double v2 = 0.0;
-                    if (node2 != groundNodeId) {
-                        int index2 = (groundNodeId != -1 && node2 > groundNodeId) ? node2 - 1 : node2;
+                    if (nodeIdToMnaIndex.count(node2)) {
+                        int index2 = nodeIdToMnaIndex.at(node2);
                         v2 = solution(index2);
                     }
                     result = (v1 - v2) / comp->value;
