@@ -38,6 +38,7 @@ public:
     void clearSchematic();
     Component* getComponent(const std::string& name) const;
     int getNodeId(const std::string&, bool create = true);
+    int getNodeId(const std::string&) const;
     void connectNodes(const std::string&, const std::string&);
 
     // Analysis
@@ -45,7 +46,6 @@ public:
     void performTransientAnalysis(double, double, double);
     void printTransientResults(const std::vector<std::string>&) const;
     void printDcSweepResults(const std::string&, const std::string&) const;
-
     void addLabel(const std::string&, const std::string&);
 
 private:
