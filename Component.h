@@ -33,8 +33,8 @@ public:
     virtual ~Component() {}
     virtual void reset() {}
     virtual void stampMNA(Eigen::MatrixXd& A, Eigen::VectorXd& b, const std::map<std::string, int> &ci,
-        double time, double h, int groundNodeID, int idx) = 0;
-    virtual void updateState(const Eigen::VectorXd& solution, const std::map<std::string, int>& ci, int groundNodeID) {}
+        const std::map<int, int>& nodeIdToMnaIndex, double time, double h, int idx) = 0;
+    virtual void updateState(const Eigen::VectorXd& solution, const std::map<std::string, int>& ci, const std::map<int, int>& nodeIdToMnaIndex) {}
     virtual bool isNonlinear() const { return false; }
     virtual bool needsCurrentUnknown() const { return false; }
 
@@ -43,21 +43,24 @@ public:
     }
 };
 
+
 class Resistor : public Component {
 public:
     Resistor(const std::string& n, int n1, int n2, double v);
-    void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &, double, double, int, int) override;
+    void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &,const std::map<int, int>& nodeIdToMnaIndex,  double, double, int) override;
 };
+
 
 class Capacitor : public Component {
 private:
     double V_prev;
 public:
     Capacitor(const std::string& n, int n1, int n2, double v);
-    void updateState(const Eigen::VectorXd& solution, const std::map<std::string, int>& ci, int groundNodeID) override;
+    void updateState(const Eigen::VectorXd& solution, const std::map<std::string, int>& ci, const std::map<int, int>& nodeIdToMnaIndex) override;
     void reset() override;
-    void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &, double, double, int, int) override;
+    void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &, const std::map<int, int>& nodeIdToMnaIndex, double, double, int) override;
 };
+
 
 class Inductor : public Component {
 private:
@@ -65,10 +68,11 @@ private:
 public:
     Inductor(const std::string& n, int n1, int n2, double v);
     bool needsCurrentUnknown() const override { return true; }
-    void updateState(const Eigen::VectorXd& solution, const std::map<std::string, int>& ci, int groundNodeID) override;
+    void updateState(const Eigen::VectorXd& solution, const std::map<std::string, int>& ci, const std::map<int, int>& nodeIdToMnaIndex) override;
     void reset() override;
-    void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &, double, double, int, int) override;
+    void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &,const std::map<int, int>& nodeIdToMnaIndex,  double, double, int) override;
 };
+
 
 class Diode : public Component {
 private:
@@ -76,15 +80,15 @@ private:
     double Vt;
     double eta;
     double V_prev;
-
 public:
     Diode(const std::string& n, int n1, int n2, double Is = 1e-12, double eta = 1.0, double Vt = 0.026);
     bool isNonlinear() const override { return true; }
-    void updateState(const Eigen::VectorXd& solution, const std::map<std::string, int>& ci, int groundNodeID) override;
-    void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &, double, double, int, int) override;
+    void updateState(const Eigen::VectorXd& solution, const std::map<std::string, int>& ci, const std::map<int, int>& nodeIdToMnaIndex) override;
+    void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &, const std::map<int, int>& nodeIdToMnaIndex, double, double, int) override;
     void setPreviousVoltage(double v) { V_prev = v; }
     void reset() override;
 };
+
 
 class VoltageSource : public Component {
 private:
@@ -92,18 +96,20 @@ private:
 public:
     VoltageSource(const std::string& name, int node1, int node2, std::unique_ptr<IWaveformStrategy> wf);
     bool needsCurrentUnknown() const override { return true; }
-    void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &, double, double, int, int) override;
+    void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &, const std::map<int, int>& nodeIdToMnaIndex, double, double, int) override;
     void setValue(double v);
 };
+
 
 class CurrentSource : public Component {
 private:
     std::unique_ptr<IWaveformStrategy> waveForm;
 public:
     CurrentSource(const std::string& n, int n1, int n2, std::unique_ptr<IWaveformStrategy> wf);
-    void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &, double, double, int, int) override;
+    void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &, const std::map<int, int>& nodeIdToMnaIndex, double, double, int) override;
     void setValue(double v);
 };
+
 
 // VCVS - Type E
 class VCVS : public Component {
@@ -113,8 +119,9 @@ private:
 public:
     VCVS(const std::string& n, int n1, int n2, int ctrlN1, int ctrlN2, double gain);
     bool needsCurrentUnknown() const override { return true; }
-    void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &, double, double, int, int) override;
+    void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &, const std::map<int, int>& nodeIdToMnaIndex, double, double, int) override;
 };
+
 
 // VCCS - Type G
 class VCCS : public Component {
@@ -123,9 +130,9 @@ private:
     double gain;
 public:
     VCCS(const std::string& n, int n1, int n2, int ctrlN1, int ctrlN2, double gain);
-    void stampMNA(Eigen::MatrixXd& A, Eigen::VectorXd& b, const std::map<std::string, int> &ci,
-        double time, double h, int groundNodeID, int idx) override;
+    void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int>&, const std::map<int, int>& nodeIdToMnaIndex, double, double , int) override;
 };
+
 
 // CCVS - Type H
 class CCVS : public Component {
@@ -136,8 +143,9 @@ private:
 public:
     CCVS(const std::string& n, int n1, int n2, const std::string& ctrlComp, double gain);
     bool needsCurrentUnknown() const override { return true; }
-    void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &, double, double, int, int) override;
+    void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &, const std::map<int, int>& nodeIdToMnaIndex, double, double, int) override;
 };
+
 
 // CCCS - Type F
 class CCCS : public Component {
@@ -146,7 +154,7 @@ private:
     double gain;
 public:
     CCCS(const std::string& n, int n1, int n2, const std::string& ctrlComp, double gain);
-    void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &, double, double, int, int) override;
+    void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &, const std::map<int, int>& nodeIdToMnaIndex, double, double, int) override;
 };
 // -------------------------------- Component Class and Its Implementations --------------------------------
 

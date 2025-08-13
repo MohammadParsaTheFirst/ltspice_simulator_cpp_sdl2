@@ -17,4 +17,5 @@ private:
     void setupChart();
 };
 
+
 #endif //CHARTWINDOW_H

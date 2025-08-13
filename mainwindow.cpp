@@ -1,9 +1,9 @@
 #include "mainwindow.h"
 
-MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
+MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
     ui->setupUi(this);
     this->setWindowTitle("LTspice");
-    this->resize(900,600);
+    this->resize(900, 600);
     starterWindow();
     setupWelcomeState();
 }
@@ -12,11 +12,10 @@ MainWindow::~MainWindow() {
     delete ui;
 }
 
-void MainWindow::setupWelcomeState()
-{
+void MainWindow::setupWelcomeState() {
     this->setWindowTitle("LTspice Simulator");
 
-    QLabel *backgroundLabel = new QLabel(this);
+    QLabel* backgroundLabel = new QLabel(this);
     QPixmap backgroundImage(":/background.jpg");
     backgroundLabel->setPixmap(backgroundImage);
     backgroundLabel->setScaledContents(true);
@@ -32,21 +31,25 @@ void MainWindow::setupWelcomeState()
     inductorAction->setEnabled(false);
     diodeAction->setEnabled(false);
     nodeLibraryAction->setEnabled(false);
-    textAction->setEnabled(false);
+    labelAction->setEnabled(false);
     deleteModeAction->setEnabled(false);
 }
 
-void MainWindow::setupSchematicState()
-{
+void MainWindow::setupSchematicState() {
     this->setWindowTitle("LTspice - Draft.asc");
     schematic = new SchematicWidget(&circuit, this);
     setCentralWidget(schematic);
 
+    connect(runAction, &QAction::triggered, schematic, &SchematicWidget::startRunAnalysis);
+    connect(wireAction, &QAction::triggered, schematic, &SchematicWidget::startPlacingWire);
+    connect(groundAction, &QAction::triggered, schematic, &SchematicWidget::startPlacingGround);
     connect(resistorAction, &QAction::triggered, schematic, &SchematicWidget::startPlacingResistor);
     connect(capacitorAction, &QAction::triggered, schematic, &SchematicWidget::startPlacingCapacitor);
     connect(inductorAction, &QAction::triggered, schematic, &SchematicWidget::startPlacingInductor);
     connect(voltageSourceAction, &QAction::triggered, schematic, &SchematicWidget::startPlacingVoltageSource);
     connect(diodeAction, &QAction::triggered, schematic, &SchematicWidget::startPlacingDiode);
+    connect(nodeLibraryAction, &QAction::triggered, schematic, &SchematicWidget::startOpenNodeLibrary);
+    connect(labelAction, &QAction::triggered, schematic, &SchematicWidget::startPlacingLabel);
     connect(deleteModeAction, &QAction::triggered, schematic, &SchematicWidget::startDeleteComponent);
 
     configureAnalysisAction->setEnabled(true);
@@ -59,7 +62,7 @@ void MainWindow::setupSchematicState()
     inductorAction->setEnabled(true);
     diodeAction->setEnabled(true);
     nodeLibraryAction->setEnabled(true);
-    textAction->setEnabled(true);
+    labelAction->setEnabled(true);
     deleteModeAction->setEnabled(true);
 }
 
@@ -70,58 +73,54 @@ void MainWindow::setupSchematicState()
 //     chartWin->show();
 // }
 
-void MainWindow::hShowSettings()
-{
+void MainWindow::hShowSettings() {
     QMessageBox::information(this, "Settings", "Buy premium!");
 }
 
-void MainWindow::hNewSchematic()
-{
+void MainWindow::hNewSchematic() {
     setupSchematicState();
 }
 
-void MainWindow::starterWindow()
-{
+void MainWindow::starterWindow() {
     initializeActions();
 
     connect(newSchematicAction, &QAction::triggered, this, &MainWindow::hNewSchematic);
     connect(quitAction, &QAction::triggered, this, &QApplication::quit);
-    connect(settingsAction, &QAction::triggered, this , &MainWindow::hShowSettings);
+    connect(settingsAction, &QAction::triggered, this, &MainWindow::hShowSettings);
 
+    shortcutRunner();
     implementMenuBar();
     implementToolBar();
 }
 
-void MainWindow::initializeActions()
-{
+void MainWindow::initializeActions() {
     settingsAction = new QAction(QIcon(":/icon/icons/settings.png"), "Settings", this);
-    newSchematicAction = new QAction(QIcon(":/icon/icons/newSchematic.png"), "New Schematic", this);
-    openAction = new QAction(QIcon(":/icon/icons/open.png"), "Open", this);
-    configureAnalysisAction = new QAction(QIcon(":/icon/icons/configureAnalysis.png"), "Configure Analysis", this);
-    runAction = new QAction(QIcon(":/icon/icons/run.png"), "Run", this);
-    wireAction = new QAction(QIcon(":/icon/icons/wire.png"), "Wire", this);
-    groundAction = new QAction(QIcon(":/icon/icons/ground.png"), "Ground", this);
-    voltageSourceAction = new QAction(QIcon(":/icon/icons/voltageSource.png"), "Voltage Source",this);
-    resistorAction = new QAction(QIcon(":/icon/icons/resistor.png"), "Resistor", this);
-    capacitorAction = new QAction(QIcon(":/icon/icons/Capacitor.png"), "Capacitor", this);
-    inductorAction = new QAction(QIcon(":/icon/icons/inductor.png"), "Inductor", this);
-    diodeAction = new QAction(QIcon(":/icon/icons/diode.png"), "Diode", this);
-    nodeLibraryAction = new QAction(QIcon(":/icon/icons/nodeLibrary.png"), "Node Library", this);
-    textAction = new QAction(QIcon(":/icon/icons/text.png"), "Text", this);
-    deleteModeAction = new QAction(QIcon(":/icon/icons/deleteMode.png"), "Delete Mode", this);
+    newSchematicAction = new QAction(QIcon(":/icon/icons/newSchematic.png"), "New Schematic (CTRL+N)", this);
+    openAction = new QAction(QIcon(":/icon/icons/open.png"), "Open (CTRL+O)", this);
+    configureAnalysisAction = new QAction(QIcon(":/icon/icons/configureAnalysis.png"), "Configure Analysis (A)", this);
+    runAction = new QAction(QIcon(":/icon/icons/run.png"), "Run (ALT+R)", this);
+    wireAction = new QAction(QIcon(":/icon/icons/wire.png"), "Wire (W)", this);
+    groundAction = new QAction(QIcon(":/icon/icons/ground.png"), "Ground (G)", this);
+    voltageSourceAction = new QAction(QIcon(":/icon/icons/voltageSource.png"), "Voltage Source (V)", this);
+    resistorAction = new QAction(QIcon(":/icon/icons/resistor.png"), "Resistor (R)", this);
+    capacitorAction = new QAction(QIcon(":/icon/icons/Capacitor.png"), "Capacitor (C)", this);
+    inductorAction = new QAction(QIcon(":/icon/icons/inductor.png"), "Inductor (L)", this);
+    diodeAction = new QAction(QIcon(":/icon/icons/diode.png"), "Diode (D)", this);
+    nodeLibraryAction = new QAction(QIcon(":/icon/icons/nodeLibrary.png"), "Node Library (P)", this);
+    labelAction = new QAction(QIcon(":/icon/icons/text.png"), "Text (T)", this);
+    deleteModeAction = new QAction(QIcon(":/icon/icons/deleteMode.png"), "Delete Mode (Backspace or Del)", this);
     quitAction = new QAction("Exit", this);
 }
 
-void MainWindow::implementMenuBar()
-{
-    QMenu *file = menuBar()->addMenu(tr("&File"));
+void MainWindow::implementMenuBar() {
+    QMenu* file = menuBar()->addMenu(tr("&File"));
     file->addAction(newSchematicAction);
     file->addAction(openAction);
     file->addSeparator();
     file->addAction(quitAction);
 
-    QMenu *edit = menuBar()->addMenu(tr("&Edit"));
-    edit->addAction(textAction);
+    QMenu* edit = menuBar()->addMenu(tr("&Edit"));
+    edit->addAction(labelAction);
     edit->addAction(configureAnalysisAction);
     edit->addAction(resistorAction);
     edit->addAction(capacitorAction);
@@ -132,29 +131,28 @@ void MainWindow::implementMenuBar()
     edit->addAction(groundAction);
     edit->addAction(deleteModeAction);
 
-    QMenu *Hierarchy = menuBar()->addMenu(tr("&Hierarchy"));
+    QMenu* Hierarchy = menuBar()->addMenu(tr("&Hierarchy"));
 
-    QMenu *view = menuBar()->addMenu(tr("&View"));
+    QMenu* view = menuBar()->addMenu(tr("&View"));
 
-    QMenu *simulate = menuBar()->addMenu(tr("&Simulate"));
+    QMenu* simulate = menuBar()->addMenu(tr("&Simulate"));
     simulate->addAction(runAction);
     simulate->addSeparator();
     simulate->addAction(settingsAction);
     simulate->addSeparator();
     simulate->addAction(configureAnalysisAction);
 
-    QMenu *tools = menuBar()->addMenu(tr("&Tools"));
+    QMenu* tools = menuBar()->addMenu(tr("&Tools"));
     tools->addAction(settingsAction);
 
-    QMenu *window = menuBar()->addMenu(tr("&Window"));
+    QMenu* window = menuBar()->addMenu(tr("&Window"));
 
-    QMenu *help = menuBar()->addMenu("&Help");
+    QMenu* help = menuBar()->addMenu("&Help");
     help->addAction("About the program");
 }
 
-void MainWindow::implementToolBar()
-{
-    QToolBar *mainToolBar = addToolBar("Main Toolbar");
+void MainWindow::implementToolBar() {
+    QToolBar* mainToolBar = addToolBar("Main Toolbar");
     mainToolBar->setMovable(false);
 
     mainToolBar->addAction(settingsAction);
@@ -170,8 +168,25 @@ void MainWindow::implementToolBar()
     mainToolBar->addAction(inductorAction);
     mainToolBar->addAction(diodeAction);
     mainToolBar->addAction(nodeLibraryAction);
-    mainToolBar->addAction(textAction);
+    mainToolBar->addAction(labelAction);
     mainToolBar->addAction(deleteModeAction);
 
     mainToolBar->setIconSize(QSize(40, 40));
+}
+
+void MainWindow::shortcutRunner() {
+    newSchematicAction->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_N));
+    openAction->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_O));
+    configureAnalysisAction->setShortcut(QKeySequence(Qt::Key_A));
+    runAction->setShortcut(QKeySequence(Qt::ALT | Qt::Key_R));
+    wireAction->setShortcut(QKeySequence(Qt::Key_W));
+    groundAction->setShortcut(QKeySequence(Qt::Key_G));
+    voltageSourceAction->setShortcut(QKeySequence(Qt::Key_V));
+    resistorAction->setShortcut(QKeySequence(Qt::Key_R));
+    capacitorAction->setShortcut(QKeySequence(Qt::Key_C));
+    inductorAction->setShortcut(QKeySequence(Qt::Key_L));
+    diodeAction->setShortcut(QKeySequence(Qt::Key_D));
+    nodeLibraryAction->setShortcut(QKeySequence(Qt::Key_P));
+    labelAction->setShortcut(QKeySequence(Qt::Key_T));
+    deleteModeAction->setShortcuts({QKeySequence(Qt::Key_Backspace), QKeySequence(Qt::Key_Delete)});
 }

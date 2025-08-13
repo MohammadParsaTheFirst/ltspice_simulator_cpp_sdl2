@@ -1,6 +1,8 @@
-#include "ComponentFactory.h"
+//
+// Created by parsa on 8/5/2025.
+//
 
-#include "component.h"
+#include "ComponentFactory.h"
 
 Component* ComponentFactory::createComponent(
         const std::string& typeStr,

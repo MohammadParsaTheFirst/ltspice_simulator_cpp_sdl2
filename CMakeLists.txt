@@ -53,6 +53,8 @@ set(SOURCES
         ComponentFactory.cpp ComponentFactory.h
         SchematicWidget.cpp SchematicWidget.h
         mainwindow.cpp mainwindow.h
+        Dialogs.cpp
+        Dialogs.h
 )
 
 # Build executable

@@ -1,11 +1,12 @@
 #ifndef CIRCUIT_H
 #define CIRCUIT_H
 
-#include "component.h"
-#include "ComponentFactory.h"
 #include <vector>
 #include <fstream>
 #include <filesystem>
+#include <set>
+#include "component.h"
+#include "ComponentFactory.h"
 
 double parseSpiceValue(const std::string& valueStr);
 
@@ -37,6 +38,7 @@ public:
     void clearSchematic();
     Component* getComponent(const std::string& name) const;
     int getNodeId(const std::string&, bool create = true);
+    int getNodeId(const std::string&) const;
     void connectNodes(const std::string&, const std::string&);
 
     // Analysis
@@ -44,20 +46,22 @@ public:
     void performTransientAnalysis(double, double, double);
     void printTransientResults(const std::vector<std::string>&) const;
     void printDcSweepResults(const std::string&, const std::string&) const;
+    void addLabel(const std::string&, const std::string&);
 
 private:
     void buildMNAMatrix(double, double);
     Eigen::VectorXd solveMNASystem();
-    void updateComponentStates(const Eigen::VectorXd&);
-    void updateNonlinearComponentStates(const Eigen::VectorXd&);
+    void updateComponentStates(const Eigen::VectorXd&, const std::map<int, int>&);
+    void updateNonlinearComponentStates(const Eigen::VectorXd&, const std::map<int, int>&);
+    void mergeNodes(int sourceNodeI, int destNodeId);
+    bool isGround(int nodeId) const;
 
     // circuit datas
     std::vector<Component*> components;
     std::map<std::string, int> nodeNameToId;
     std::map<int, std::string> idToNodeName;
     int nextNodeId;
-    std::string groundNodeName;
-    int groundNodeId;
+    std::set<int> groundNodeIds;
 
     // MNA Matrix data
     Eigen::MatrixXd A_mna;
@@ -70,6 +74,8 @@ private:
     // State and file management
     std::string currentFilePath;
     bool hasNonlinearComponents; // Diode
+
+    std::map<std::string, std::set<int>> labelToNodes;
 };
 
 #endif // CIRCUIT_H

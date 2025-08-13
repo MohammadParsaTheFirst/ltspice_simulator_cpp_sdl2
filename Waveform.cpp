@@ -1,5 +1,3 @@
-//
-
 #include "WaveForm.h"
 
 // -------------------------------- Constructor impementation --------------------------------
