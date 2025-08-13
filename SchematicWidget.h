@@ -52,6 +52,7 @@ public:
     SchematicWidget(Circuit* circuit, QWidget* parent = Q_NULLPTR);
 
 public slots:
+    void startOpenConfigureAnalysis();
     void startRunAnalysis();
     void startPlacingGround();
     void startPlacingResistor();
@@ -114,6 +115,10 @@ private:
 
     std::vector<LabelInfo> labels;
     std::vector<GroundInfo> grounds;
+
+    double transientTStop = 0.0;
+    double transientTStart = 0.0;
+    double transientTStep = 0.0;
 };
 
 

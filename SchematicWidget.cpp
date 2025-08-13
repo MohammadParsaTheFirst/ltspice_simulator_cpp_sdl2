@@ -111,9 +111,21 @@ void SchematicWidget::drawLabels(QPainter& painter) {
     }
 }
 
+void SchematicWidget::startOpenConfigureAnalysis() {
+    ConfigureAnalysisDialog dialog(this);
+    if (dialog.exec() == QDialog::Accepted) {
+        if (dialog.getSelectedAnalysisType() == 0) {
+            transientTStop = parseSpiceValue(dialog.getTransientTstop().toStdString());
+            transientTStart = parseSpiceValue(dialog.getTransientTstart().toStdString());
+            transientTStep = parseSpiceValue(dialog.getTransientTstep().toStdString());
+
+            QMessageBox::information(this, "Info", "Transient Analysis varibles updated.");
+        }
+    }
+}
+
 void SchematicWidget::startRunAnalysis() {
-    circuit_ptr->performTransientAnalysis(5e-3, 0.0, 1e-4);
-    circuit_ptr->printTransientResults({"V(N_6_3)"});
+    circuit_ptr->performTransientAnalysis(transientTStop, transientTStart, transientTStep);
 }
 
 void SchematicWidget::startPlacingResistor() {

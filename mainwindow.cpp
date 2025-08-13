@@ -41,6 +41,7 @@ void MainWindow::setupSchematicState() {
     setCentralWidget(schematic);
 
     connect(runAction, &QAction::triggered, schematic, &SchematicWidget::startRunAnalysis);
+    connect(configureAnalysisAction, &QAction::triggered, schematic, &SchematicWidget::startOpenConfigureAnalysis);
     connect(wireAction, &QAction::triggered, schematic, &SchematicWidget::startPlacingWire);
     connect(groundAction, &QAction::triggered, schematic, &SchematicWidget::startPlacingGround);
     connect(resistorAction, &QAction::triggered, schematic, &SchematicWidget::startPlacingResistor);
