@@ -10,6 +10,8 @@ SchematicWidget::SchematicWidget(Circuit* circuit, QWidget* parent) : circuit_pt
 
     setFocusPolicy(Qt::StrongFocus); // Keyboard Events
 
+    circuit_ptr->clearSchematic();
+
     componentCounters["R"] = 0;
     componentCounters["C"] = 0;
     componentCounters["L"] = 0;
@@ -110,9 +112,8 @@ void SchematicWidget::drawLabels(QPainter& painter) {
 }
 
 void SchematicWidget::startRunAnalysis() {
-    // QMessageBox::information(this, "Settings", "Buy premium!");
-    circuit_ptr->performTransientAnalysis(1, 0, 1e-1);
-    circuit_ptr->printTransientResults({"I(R1)"});
+    circuit_ptr->performTransientAnalysis(5e-3, 0.0, 1e-4);
+    circuit_ptr->printTransientResults({"I(C1)"});
 }
 
 void SchematicWidget::startPlacingResistor() {

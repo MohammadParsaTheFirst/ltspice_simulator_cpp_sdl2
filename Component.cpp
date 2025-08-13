@@ -177,7 +177,7 @@ void Diode::stampMNA(Eigen::MatrixXd& A, Eigen::VectorXd& b, const std::map<std:
         A(nodeIdToMnaIndex.at(node2), nodeIdToMnaIndex.at(node1)) -= Gd;
     }
 
-    if (!n1_is_ground != -1) {
+    if (!n1_is_ground) {
         b(nodeIdToMnaIndex.at(node1)) -= Ieq;
     }
     if (!n2_is_ground) {
@@ -246,7 +246,7 @@ void VCVS::stampMNA(Eigen::MatrixXd& A, Eigen::VectorXd& b, const std::map<std::
         A(idx, nodeIdToMnaIndex.at(ctrlNode1)) -= gain;
     }
     if (nodeIdToMnaIndex.count(ctrlNode2)) {
-        A(idx, nodeIdToMnaIndex.at(ctrlNode1)) += gain;
+        A(idx, nodeIdToMnaIndex.at(ctrlNode2)) += gain;
     }
 }
 

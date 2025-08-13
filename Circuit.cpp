@@ -68,7 +68,6 @@ Circuit::~Circuit() {
         delete comp;
     }
 }
-
 // -------------------------------- Constructors and Destructors --------------------------------
 
 
@@ -291,8 +290,8 @@ void Circuit::addComponent(const std::string& typeStr, const std::string& name,
         }
     }
 
-    int n1_id = getNodeId(node1Str);
-    int n2_id = getNodeId(node2Str);
+    int n1_id = getNodeId(node1Str, true);
+    int n2_id = getNodeId(node2Str, true);
 
     try {
         Component* newComp = ComponentFactory::createComponent(typeStr, name, n1_id, n2_id, value, numericParams,
@@ -601,55 +600,18 @@ void Circuit::performDCAnalysis(const std::string& sourceName, double startValue
 void Circuit::performTransientAnalysis(double stopTime, double startTime, double maxTimeStep) {
     if (maxTimeStep == 0.0)
         maxTimeStep = (stopTime - startTime) / 100;
-
     std::cout << "\n\t---------- Performing Transient Analysis ----------" << std::endl;
     std::cout << "Time Start: " << startTime << "s, Stop Time: " << stopTime << "s, Maximum Time Step: " << maxTimeStep
         << "s" << std::endl;
+
     if (groundNodeIds.empty())
         throw std::runtime_error("No ground node detected.");
-
     for (Component* comp : components)
         comp->reset();
-
     transientSolutions.clear();
 
-    std::cout << "Calculating DC operating point at t=0..." << std::endl;
     std::map<int, int> nodeIdToMnaIndex;
     Eigen::VectorXd solution;
-
-    if (hasNonlinearComponents) {
-        const int MAX_ITERATIONS = 100;
-        const double TOLERANCE = 1e-6;
-        bool converged = false;
-        Eigen::VectorXd lastSolution;
-        for (int i = 0; i < MAX_ITERATIONS; ++i) {
-            buildMNAMatrix(0.0, 0.0);
-            solution = solveMNASystem();
-            if (solution.size() == 0) break;
-            if (i > 0 && (solution - lastSolution).norm() < TOLERANCE) {
-                converged = true;
-                break;
-            }
-            lastSolution = solution;
-            std::map<int, int> nodeIdToMnaIndex;
-            int currentMnaIndex = 0;
-            for (int k = 0; k < nextNodeId; ++k) {
-                if (idToNodeName.count(k) && !isGround(k)) {
-                    nodeIdToMnaIndex[k] = currentMnaIndex++;
-                }
-            }
-            updateNonlinearComponentStates(solution, nodeIdToMnaIndex);
-        }
-        if(!converged) std::cout << "Warning: DC operating point did not fully converge." << std::endl;
-    }
-    else {
-        buildMNAMatrix(0.0, 0.0);
-        solution = solveMNASystem();
-    }
-
-    if (solution.size() == 0) {
-        throw std::runtime_error("ERROR: DC operating point failed to solve. Simulation stopped.");
-    }
 
     int currentMnaIndex = 0;
     for (int i = 0; i < nextNodeId; ++i) {
@@ -657,11 +619,8 @@ void Circuit::performTransientAnalysis(double stopTime, double startTime, double
             nodeIdToMnaIndex[i] = currentMnaIndex++;
         }
     }
-    updateComponentStates(solution, nodeIdToMnaIndex);
-    transientSolutions[startTime] = solution;
-    std::cout << "DC operating point calculated." << std::endl;
 
-    for (double t = startTime + maxTimeStep; t <= stopTime + 1e-9; t += maxTimeStep) {
+    for (double t = startTime; t <= stopTime; t += maxTimeStep) {
         if (!hasNonlinearComponents) {
             buildMNAMatrix(t, maxTimeStep);
             solution = solveMNASystem();
@@ -687,13 +646,11 @@ void Circuit::performTransientAnalysis(double stopTime, double startTime, double
             if (!converged)
                 std::cout << "Warning: Transient analysis did not converge at t = " << t << "s" << std::endl;
         }
-
         if (solution.size() == 0)
             throw std::runtime_error("ERROR at t = " + std::to_string(t) + "s: Simulation stopped.");
         updateComponentStates(solution, nodeIdToMnaIndex);
         transientSolutions[t] = solution;
     }
-
     std::cout << "Transient analysis complete. " << transientSolutions.size() << " time points stored." << std::endl;
     std::cout << "Use .print to view results." << std::endl;
 }
@@ -711,7 +668,7 @@ void Circuit::printTransientResults(const std::vector<std::string>& variablesToP
     int currentMnaIndex = 0;
     for (int i = 0; i < nextNodeId; ++i) {
         if (idToNodeName.count(i) && !isGround(i)) {
-            nodeIdToMnaIndex.at(i) = currentMnaIndex++;
+            nodeIdToMnaIndex[i] = currentMnaIndex++;
         }
     }
 
@@ -745,9 +702,12 @@ void Circuit::printTransientResults(const std::vector<std::string>& variablesToP
                     printJobs.push_back({var, PrintJob::Type::MNA_CURRENT, componentCurrentIndices.at(name), nullptr});
                 else {
                     Component* comp = getComponent(name);
-                    if (!comp) throw std::runtime_error("Component " + name + " not found.");
-                    if (dynamic_cast<Resistor*>(comp)) printJobs.push_back({var, PrintJob::Type::RESISTOR_CURRENT, -1, comp});
-                    else if (dynamic_cast<Capacitor*>(comp)) printJobs.push_back({var, PrintJob::Type::CAPACITOR_CURRENT, -1, comp});
+                    if (!comp)
+                        throw std::runtime_error("Component " + name + " not found.");
+                    if (dynamic_cast<Resistor*>(comp))
+                        printJobs.push_back({var, PrintJob::Type::RESISTOR_CURRENT, -1, comp});
+                    else if (dynamic_cast<Capacitor*>(comp))
+                        printJobs.push_back({var, PrintJob::Type::CAPACITOR_CURRENT, -1, comp});
                     else std::cout << "Warning: Current for component type of '" << name << "' cannot be calculated." << std::endl;
                 }
             }
@@ -790,7 +750,8 @@ void Circuit::printTransientResults(const std::vector<std::string>& variablesToP
                         double vCap_prev = v1_prev - v2_prev;
                         double vCap_now = v1 - v2;
                         double h = t - itPrev->first;
-                        if (h > 0) result = job.component_ptr->value * (vCap_now - vCap_prev) / h;
+                        if (h > 0)
+                            result = job.component_ptr->value * (vCap_now - vCap_prev) / h;
                     }
                 }
             }

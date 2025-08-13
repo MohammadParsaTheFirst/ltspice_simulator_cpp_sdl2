@@ -96,8 +96,7 @@ private:
     void drawGroundSymbol(QPainter& painer, const QPoint& pos);
     QString findOrCreateNodeAtPoint(const QPoint& point);
 
-
-    const int gridSize = 30; // Pixels
+    const int gridSize = 35;
     InteractionMode currentMode = InteractionMode::Normal;
 
     const int componentLength = 3 * gridSize;
