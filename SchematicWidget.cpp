@@ -8,7 +8,7 @@ SchematicWidget::SchematicWidget(Circuit* circuit, QWidget* parent) : circuit_pt
     setAutoFillBackground(true);
     setPalette(pal);
 
-    setFocusPolicy(Qt::StrongFocus); // KEyboard Events
+    setFocusPolicy(Qt::StrongFocus); // Keyboard Events
 
     componentCounters["R"] = 0;
     componentCounters["C"] = 0;
@@ -16,6 +16,10 @@ SchematicWidget::SchematicWidget(Circuit* circuit, QWidget* parent) : circuit_pt
     componentCounters["V"] = 0;
     componentCounters["D"] = 0;
     componentCounters["I"] = 0;
+    componentCounters["E"] = 0;
+    componentCounters["F"] = 0;
+    componentCounters["G"] = 0;
+    componentCounters["H"] = 0;
 }
 
 QString SchematicWidget::getNodeNameFromPoint(const QPoint& pos) const {
@@ -33,7 +37,14 @@ void SchematicWidget::paintEvent(QPaintEvent* event) {
     QWidget::paintEvent(event);
     QPainter painter(this);
 
-    // Grid dots
+    drawGridDots(painter);
+    drawComponents(painter);
+    drawWires(painter);
+    drawLabels(painter);
+    drawGrounds(painter);
+}
+
+void SchematicWidget::drawGridDots(QPainter& painter) {
     QPen gridPen;
     gridPen.setColor(Qt::black);
     gridPen.setWidth(1);
@@ -45,38 +56,63 @@ void SchematicWidget::paintEvent(QPaintEvent* event) {
             painter.drawPoint(x, y);
         }
     }
+}
 
-    // Components
+void SchematicWidget::drawComponents(QPainter& painter) {
     for (int i = 0; i < components.size(); i++) {
         bool isHovered = (i == hoveredComponentIndex && currentMode == InteractionMode::deleteMode);
         drawComponent(painter, components[i].startPoint, components[i].isHorizontal, components[i].name, isHovered);
     }
     if (currentMode != InteractionMode::Normal && currentMode != InteractionMode::deleteMode && currentMode !=
-        InteractionMode::placingWire) {
+        InteractionMode::placingWire && currentMode != InteractionMode::placingLabel && currentMode != InteractionMode::placingGround) {
         QPoint startPos = stickToGrid(currentMousePos);
         drawComponent(painter, startPos, placementIsHorizontal, currentCompType);
-    }
+        }
+}
 
-    // Wires
-    QPen wirePen(Qt::blue, 2);
+void SchematicWidget::drawWires(QPainter& painter) {
+    QPen wirePen(Qt::yellow, 2);
     painter.setPen(wirePen);
     for (const auto& wire : wires)
         painter.drawLine(wire.startPoint, wire.endPoint);
     if (isWiring)
         painter.drawLine(wireStartPoint, stickToGrid(currentMousePos));
+}
 
-    // Labels
+void SchematicWidget::drawGrounds(QPainter& painter) {
+    QPen groundPen(Qt::darkGreen, 2);
+    painter.setPen(groundPen);
+
+    for (const auto& ground : grounds) {
+        drawGroundSymbol(painter, ground.position);
+    }
+
+    if (currentMode == InteractionMode::placingGround) {
+        drawGroundSymbol(painter, stickToGrid(currentMousePos));
+    }
+}
+
+void SchematicWidget::drawGroundSymbol(QPainter& painter, const QPoint& pos) {
+    painter.drawLine(pos, pos + QPoint(0, 15));
+    painter.drawLine(pos + QPoint(-15, 15), pos + QPoint(15, 15));
+    painter.drawLine(pos + QPoint(-10, 20), pos + QPoint(10, 20));
+    painter.drawLine(pos + QPoint(-5, 25), pos + QPoint(5, 25));
+}
+
+void SchematicWidget::drawLabels(QPainter& painter) {
     QPen labelPen(Qt::blue, 2);
     painter.setPen(labelPen);
-    painter.setFont(QFont("Arial", 12, QFont::Bold));
+    painter.setFont(QFont("Arial", 10, QFont::Bold));
     for (const auto& label : labels) {
-        painter.drawLine(label.position, label.position + QPoint(15, 0));
-        painter.drawText(label.position + QPoint(20, 5), label.name);
+        painter.drawEllipse(label.position, 2, 2);
+        painter.drawText(label.position + QPoint(10, 3), label.name);
     }
 }
 
 void SchematicWidget::startRunAnalysis() {
-    QMessageBox::information(this, "Settings", "Buy premium!");
+    // QMessageBox::information(this, "Settings", "Buy premium!");
+    circuit_ptr->performTransientAnalysis(1, 0, 1e-1);
+    circuit_ptr->printTransientResults({"I(R1)"});
 }
 
 void SchematicWidget::startPlacingResistor() {
@@ -136,6 +172,12 @@ void SchematicWidget::startPlacingWire() {
     currentMode = InteractionMode::placingWire;
     isWiring = false;
     setCursor(Qt::CrossCursor);
+}
+
+void SchematicWidget::startPlacingGround() {
+    currentMode = InteractionMode::placingGround;
+    setCursor(Qt::PointingHandCursor);
+    setFocus();
 }
 
 void SchematicWidget::startOpenNodeLibrary() {
@@ -199,18 +241,17 @@ void SchematicWidget::mouseMoveEvent(QMouseEvent* event) {
 
 void SchematicWidget::placingWireMouseEvent(QMouseEvent* event) {
     QPoint currentPoint = stickToGrid(event->pos());
-    QString currentNodeName = findNodeAt(currentPoint);
 
     if (!isWiring) {
         isWiring = true;
         wireStartPoint = currentPoint;
-        wires.push_back({currentPoint, currentPoint, currentNodeName});
     }
     else {
-        QString prevNodeName = findNodeAt(wireStartPoint);
-        if (currentNodeName != prevNodeName)
-            circuit_ptr->connectNodes(currentNodeName.toStdString(), prevNodeName.toStdString());
-        wires.push_back({wireStartPoint, currentPoint, prevNodeName});
+        QString startNodeName = findOrCreateNodeAtPoint(wireStartPoint);
+        QString endNodeName = findOrCreateNodeAtPoint(currentPoint);
+
+        circuit_ptr->connectNodes(startNodeName.toStdString(), endNodeName.toStdString());
+        wires.push_back({wireStartPoint, currentPoint, startNodeName});
         wireStartPoint = currentPoint;
     }
 }
@@ -321,6 +362,14 @@ void SchematicWidget::placingLabelMouseEvent(QMouseEvent* event) {
     }
 }
 
+void SchematicWidget::placingGroundMouseEvent(QMouseEvent* event) {
+    QPoint clickPos = stickToGrid(event->pos());
+    QString nodeName = getNodeNameFromPoint(clickPos);
+
+    grounds.push_back({clickPos});
+    circuit_ptr->addGround(nodeName.toStdString());
+}
+
 void SchematicWidget::mousePressEvent(QMouseEvent* event) {
     if (currentMode == InteractionMode::Normal)
         return;
@@ -342,6 +391,9 @@ void SchematicWidget::mousePressEvent(QMouseEvent* event) {
         }
         else if (currentMode == InteractionMode::deleteMode) {
             deletingComponentMouseEvent(event);
+        }
+        else if (currentMode == InteractionMode::placingGround) {
+            placingGroundMouseEvent(event);
         }
         else {
             placingComponentMouseEvent(event);
@@ -403,4 +455,19 @@ void SchematicWidget::handleNodeLibraryItemSelection(const QString& compType) {
         startPlacingCurrentSource();
     else
         QMessageBox::information(this, "Dependent source", "Buy premium to access this element!");
+}
+
+QString SchematicWidget::findOrCreateNodeAtPoint(const QPoint& point) {
+    for (const auto& compInfo : components) {
+        QPoint start = compInfo.startPoint;
+        QPoint end = compInfo.isHorizontal
+                         ? start + QPoint(componentLength, 0)
+                         : start + QPoint(0, componentLength);
+        if (point == start)
+            return getNodeNameFromPoint(start);
+        if (point == end)
+            return getNodeNameFromPoint(end);
+    }
+
+    return getNodeNameFromPoint(point);
 }

@@ -51,16 +51,17 @@ public:
 private:
     void buildMNAMatrix(double, double);
     Eigen::VectorXd solveMNASystem();
-    void updateComponentStates(const Eigen::VectorXd&);
-    void updateNonlinearComponentStates(const Eigen::VectorXd&);
+    void updateComponentStates(const Eigen::VectorXd&, const std::map<int, int>&);
+    void updateNonlinearComponentStates(const Eigen::VectorXd&, const std::map<int, int>&);
+    void mergeNodes(int sourceNodeI, int destNodeId);
+    bool isGround(int nodeId) const;
 
     // circuit datas
     std::vector<Component*> components;
     std::map<std::string, int> nodeNameToId;
     std::map<int, std::string> idToNodeName;
     int nextNodeId;
-    std::string groundNodeName;
-    int groundNodeId;
+    std::set<int> groundNodeIds;
 
     // MNA Matrix data
     Eigen::MatrixXd A_mna;

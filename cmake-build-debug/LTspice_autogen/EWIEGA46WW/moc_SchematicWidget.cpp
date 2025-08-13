@@ -39,6 +39,7 @@ constexpr auto qt_meta_stringdata_CLASSSchematicWidgetENDCLASS = QtMocHelpers::s
     "SchematicWidget",
     "startRunAnalysis",
     "",
+    "startPlacingGround",
     "startPlacingResistor",
     "startPlacingCapacitor",
     "startPlacingInductor",
@@ -48,6 +49,7 @@ constexpr auto qt_meta_stringdata_CLASSSchematicWidgetENDCLASS = QtMocHelpers::s
     "startDeleteComponent",
     "startPlacingWire",
     "startOpenNodeLibrary",
+    "startPlacingLabel",
     "handleNodeLibraryItemSelection",
     "compType"
 );
@@ -62,7 +64,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSSchematicWidgetENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-      11,   14, // methods
+      13,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -70,17 +72,19 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSSchematicWidgetENDCLASS[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   80,    2, 0x0a,    1 /* Public */,
-       3,    0,   81,    2, 0x0a,    2 /* Public */,
-       4,    0,   82,    2, 0x0a,    3 /* Public */,
-       5,    0,   83,    2, 0x0a,    4 /* Public */,
-       6,    0,   84,    2, 0x0a,    5 /* Public */,
-       7,    0,   85,    2, 0x0a,    6 /* Public */,
-       8,    0,   86,    2, 0x0a,    7 /* Public */,
-       9,    0,   87,    2, 0x0a,    8 /* Public */,
-      10,    0,   88,    2, 0x0a,    9 /* Public */,
-      11,    0,   89,    2, 0x0a,   10 /* Public */,
-      12,    1,   90,    2, 0x08,   11 /* Private */,
+       1,    0,   92,    2, 0x0a,    1 /* Public */,
+       3,    0,   93,    2, 0x0a,    2 /* Public */,
+       4,    0,   94,    2, 0x0a,    3 /* Public */,
+       5,    0,   95,    2, 0x0a,    4 /* Public */,
+       6,    0,   96,    2, 0x0a,    5 /* Public */,
+       7,    0,   97,    2, 0x0a,    6 /* Public */,
+       8,    0,   98,    2, 0x0a,    7 /* Public */,
+       9,    0,   99,    2, 0x0a,    8 /* Public */,
+      10,    0,  100,    2, 0x0a,    9 /* Public */,
+      11,    0,  101,    2, 0x0a,   10 /* Public */,
+      12,    0,  102,    2, 0x0a,   11 /* Public */,
+      13,    0,  103,    2, 0x0a,   12 /* Public */,
+      14,    1,  104,    2, 0x08,   13 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -93,7 +97,9 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSSchematicWidgetENDCLASS[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString,   13,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,   15,
 
        0        // eod
 };
@@ -108,6 +114,8 @@ Q_CONSTINIT const QMetaObject SchematicWidget::staticMetaObject = { {
         // Q_OBJECT / Q_GADGET
         QtPrivate::TypeAndForceComplete<SchematicWidget, std::true_type>,
         // method 'startRunAnalysis'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'startPlacingGround'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'startPlacingResistor'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
@@ -127,6 +135,8 @@ Q_CONSTINIT const QMetaObject SchematicWidget::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'startOpenNodeLibrary'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'startPlacingLabel'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'handleNodeLibraryItemSelection'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<const QString &, std::false_type>
@@ -141,16 +151,18 @@ void SchematicWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int 
         (void)_t;
         switch (_id) {
         case 0: _t->startRunAnalysis(); break;
-        case 1: _t->startPlacingResistor(); break;
-        case 2: _t->startPlacingCapacitor(); break;
-        case 3: _t->startPlacingInductor(); break;
-        case 4: _t->startPlacingVoltageSource(); break;
-        case 5: _t->startPlacingCurrentSource(); break;
-        case 6: _t->startPlacingDiode(); break;
-        case 7: _t->startDeleteComponent(); break;
-        case 8: _t->startPlacingWire(); break;
-        case 9: _t->startOpenNodeLibrary(); break;
-        case 10: _t->handleNodeLibraryItemSelection((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 1: _t->startPlacingGround(); break;
+        case 2: _t->startPlacingResistor(); break;
+        case 3: _t->startPlacingCapacitor(); break;
+        case 4: _t->startPlacingInductor(); break;
+        case 5: _t->startPlacingVoltageSource(); break;
+        case 6: _t->startPlacingCurrentSource(); break;
+        case 7: _t->startPlacingDiode(); break;
+        case 8: _t->startDeleteComponent(); break;
+        case 9: _t->startPlacingWire(); break;
+        case 10: _t->startOpenNodeLibrary(); break;
+        case 11: _t->startPlacingLabel(); break;
+        case 12: _t->handleNodeLibraryItemSelection((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
         default: ;
         }
     }
@@ -175,13 +187,13 @@ int SchematicWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 11)
+        if (_id < 13)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 11;
+        _id -= 13;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 11)
+        if (_id < 13)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 11;
+        _id -= 13;
     }
     return _id;
 }

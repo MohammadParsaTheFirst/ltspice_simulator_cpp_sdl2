@@ -78,6 +78,6 @@ public:
 private:
     QLineEdit* labelLineEdit;
     QDialogButtonBox *labelButtonBox;
-}
+};
 
 #endif //VALUEDIALOG_H

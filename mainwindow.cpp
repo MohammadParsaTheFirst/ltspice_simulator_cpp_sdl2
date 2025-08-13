@@ -42,6 +42,7 @@ void MainWindow::setupSchematicState() {
 
     connect(runAction, &QAction::triggered, schematic, &SchematicWidget::startRunAnalysis);
     connect(wireAction, &QAction::triggered, schematic, &SchematicWidget::startPlacingWire);
+    connect(groundAction, &QAction::triggered, schematic, &SchematicWidget::startPlacingGround);
     connect(resistorAction, &QAction::triggered, schematic, &SchematicWidget::startPlacingResistor);
     connect(capacitorAction, &QAction::triggered, schematic, &SchematicWidget::startPlacingCapacitor);
     connect(inductorAction, &QAction::triggered, schematic, &SchematicWidget::startPlacingInductor);

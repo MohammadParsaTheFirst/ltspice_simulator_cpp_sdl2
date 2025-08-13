@@ -58,8 +58,7 @@ double parseSpiceValue(const std::string& valueStr) {
 Circuit::Circuit() : nextNodeId(0), numCurrentUnknowns(0),
                      currentFilePath(
                          "C:\\Users\\parsa\\Documents\\university\\Programming and linux\\403101518-403101683.0\\Schematics\\draft.txt"),
-                     hasNonlinearComponents(false),
-                     groundNodeId(-1) {
+                     hasNonlinearComponents(false){
     allFiles.push_back(
         "C:\\Users\\parsa\\Documents\\university\\Programming and linux\\403101518-403101683.0\\Schematics\\draft.txt");
 }
@@ -86,8 +85,8 @@ void Circuit::newCircuit(const std::string& path) {
     numCurrentUnknowns = 0;
     hasNonlinearComponents = false;
     circuitNetList.clear();
-    groundNodeId = -1;
-    groundNodeName = "";
+    groundNodeIds.clear();
+    labelToNodes.clear();
 
     currentFilePath = path;
 }
@@ -98,9 +97,7 @@ bool Circuit::saveLineToFile(const std::string& line) const {
         std::cout << "Error: Could not open file '" << currentFilePath << "' for writing." << std::endl;
         return false;
     }
-
     outFile << line << std::endl;
-
     outFile.close();
     return true;
 }
@@ -108,7 +105,6 @@ bool Circuit::saveLineToFile(const std::string& line) const {
 void Circuit::saveCircuitToFile() {
     std::ofstream outFile(currentFilePath);
     outFile.close();
-
     for (std::string& lineToAddToFile : circuitNetList) {
         if (!saveLineToFile(lineToAddToFile)) {
             std::cout << "Something bad happened!" << std::endl;
@@ -213,115 +209,34 @@ bool Circuit::loadCircuitFromFile() {
     inFile.close();
     return true;
 }
-
-bool isStringAllNumbers(const std::string& str) {
-    if (str.empty())
-        return false;
-
-    for (char c : str)
-        if (!std::isdigit(c))
-            return false;
-
-    return true;
-}
-
-bool makeNewFile(const std::string& path) {
-    std::ofstream newFile(path);
-    if (!newFile.is_open()) {
-        return false;
-    }
-    newFile.close();
-    return true;
-}
-
-void Circuit::showExistingFiles() {
-    std::cout << "------------ Welcome to File Menu ------------" << std::endl;
-    std::cout << "Commands:" << std::endl;
-    std::cout << "    return         - Back to the main menu" << std::endl;
-    std::cout << "    NewFile <path> - Make a new file" << std::endl;
-    std::cout << "    Or enter a number for open the file" << std::endl;
-
-    for (int i = 0; i < allFiles.size(); i++) {
-        std::string filename = allFiles[i];
-        filename = filename.substr(filename.find_last_of("\\") + 1);
-        std::cout << i + 1 << "-" << filename << std::endl;
-    }
-
-    std::string line, path;
-    int index = -1;
-    bool newFile = false;
-    while (std::getline(std::cin, line)) {
-        std::stringstream ss(line);
-        std::string firstParam, secondParam;
-        ss >> firstParam;
-
-        if (firstParam == "return") {
-            break;
-        }
-
-        else if (firstParam == "NewFile") {
-            if (!(ss >> secondParam)) {
-                std::cout << "Error: You should add the file path." << std::endl;
-                continue;
-            }
-            path = secondParam;
-            newFile = true;
-            break;
-        }
-
-        else {
-            if (!isStringAllNumbers(firstParam)) {
-                std::cout << "Error : Inappropriate input" << std::endl;
-                continue;
-            }
-            index = stoi(firstParam);
-            if (index > allFiles.size()) {
-                std::cout << "Error : Inappropriate input" << std::endl;
-                continue;
-            }
-            std::string filename;
-            index = stoi(firstParam) - 1;
-            path = allFiles[index];
-            std::ifstream input(path);
-            if (!input.is_open()) {
-                std::cout << "Something went wrong try again!" << std::endl;
-                return;
-            }
-            filename = allFiles[index];
-            filename = filename.substr(filename.find_last_of("\\") + 1);
-            filename.erase(filename.find("."));
-            std::cout << filename << ":" << std::endl;
-            while (std::getline(input, line)) {
-                std::cout << "\t" << line << std::endl;
-            }
-            input.close();
-            saveCircuitToFile();
-            newCircuit(path);
-            loadCircuitFromFile();
-            for (int i = 0; i < allFiles.size(); i++) {
-                filename = allFiles[i];
-                filename = filename.substr(filename.find_last_of("\\") + 1);
-                std::cout << i + 1 << "-" << filename << std::endl;
-            }
-        }
-    }
-
-    if (newFile) {
-        if (!makeNewFile(path))
-            std::cout << "Something went wrong in opening or finding this file." << std::endl;
-        else {
-            allFiles.push_back(path);
-            saveCircuitToFile();
-            newCircuit(path);
-            loadCircuitFromFile();
-        }
-    }
-}
-
 // -------------------------------- File Management --------------------------------
 
 
 // -------------------------------- Component and Node Management --------------------------------
+void Circuit::mergeNodes(int sourceNodeId, int destNodeId) {
+    if (sourceNodeId == destNodeId)
+        return;
+
+    for (auto* comp : components) {
+        if (comp->node1 == sourceNodeId)
+            comp->node1 = destNodeId;
+        if (comp->node2 == sourceNodeId)
+            comp->node2 = destNodeId;
+    }
+
+    std::string sourceName = idToNodeName[sourceNodeId];
+    nodeNameToId[sourceName] = destNodeId;
+
+    for (auto& pair : labelToNodes) {
+        if (pair.second.count(sourceNodeId)) {
+            pair.second.erase(sourceNodeId);
+            pair.second.insert(destNodeId);
+        }
+    }
+
+    idToNodeName.erase(sourceNodeId);
+}
+
 void Circuit::clearSchematic() {
     newCircuit(currentFilePath);
 }
@@ -375,7 +290,6 @@ void Circuit::addComponent(const std::string& typeStr, const std::string& name,
     try {
         Component* newComp = ComponentFactory::createComponent(typeStr, name, n1_id, n2_id, value, numericParams,
                                                                stringParams, isSinusoidal, this);
-
         if (newComp) {
             components.push_back(newComp);
             if (newComp->isNonlinear())
@@ -397,13 +311,16 @@ Component* Circuit::getComponent(const std::string& name) const {
     return nullptr;
 }
 
+bool Circuit::isGround(int nodeId) const {
+    return groundNodeIds.count(nodeId);
+}
+
 void Circuit::addGround(const std::string& nodeName) {
-    if (hasNode(nodeName)) {
-        groundNodeName = nodeName;
-        groundNodeId = nodeNameToId[nodeName];
+    int nodeId = getNodeId(nodeName, true);
+    if (!isGround(nodeId)) {
+        groundNodeIds.insert(nodeId);
+        std::cout << "Ground added." << std::endl;
     }
-    else
-        std::cout << "Node does not exist!" << std::endl;
 }
 
 void Circuit::deleteComponent(const std::string& componentName, char typeChar) {
@@ -432,16 +349,17 @@ void Circuit::deleteComponent(const std::string& componentName, char typeChar) {
         throw std::runtime_error("Cannot delete diode; component not found.");
     else if (typeChar == 'V')
         throw std::runtime_error("Cannot delete voltage source; component not found.");
+    else if (typeChar == 'I')
+        throw std::runtime_error("Cannot delete current source; component not found.");
 }
 
 void Circuit::deleteGround(const std::string& ground_node_name) {
     if (!hasNode(ground_node_name))
         std::cout << "Node does not exist." << std::endl;
-    else if (nodeNameToId[ground_node_name] != groundNodeId)
+    else if (!isGround(nodeNameToId[ground_node_name]))
         std::cout << "This node isn't ground!" << std::endl;
     else {
-        groundNodeName.clear();
-        groundNodeId = -1;
+        groundNodeIds.erase(nodeNameToId[ground_node_name]);
         std::cout << "Ground deleted." << std::endl;
     }
 }
@@ -497,53 +415,44 @@ void Circuit::renameNode(const std::string& oldName, const std::string& newName)
     }
 }
 
-void Circuit::connectNodes(const std::string& nowNode, const std::string& prevNode) {
-    for (auto& comp: components) {
-        if (comp->node1 == nodeNameToId[nowNode])
-            comp->node1 = nodeNameToId[prevNode];
-        if (comp->node2 == nodeNameToId[nowNode])
-            comp->node2 = nodeNameToId[prevNode];
+void Circuit::connectNodes(const std::string& nodeAStr, const std::string& nodeBStr) {
+    int nodeAInt = getNodeId(nodeAStr, true);
+    int nodeBInt = getNodeId(nodeBStr, true);
+
+    int sourceNodeId = std::max(nodeAInt, nodeBInt);
+    int destNodeId = std::min(nodeAInt, nodeBInt);
+
+    if (sourceNodeId != destNodeId) {
+        mergeNodes(sourceNodeId, destNodeId);
     }
 
-    int x = nodeNameToId[nowNode];
-    nodeNameToId.erase(nodeNameToId.find(nowNode));
-    idToNodeName.erase(idToNodeName.find(x));
+    std::cout << "Node '" << nodeAStr << "' successfully connected to '" << nodeBStr << "'." << std::endl;
 }
 
 void Circuit::addLabel(const std::string& labelName, const std::string& nodeName) {
-    int nodeId = getNodeId(nodeName);
+    int nodeId = getNodeId(nodeName, true);
     if (nodeId != -1) {
         labelToNodes[labelName].insert(nodeId);
         std::cout << "Label '" << labelName << "' added to node " << nodeName << std::endl;
     }
 }
-
 // -------------------------------- Component and Node Management --------------------------------
 
 
 // -------------------------------- MNA and Solver --------------------------------
 void Circuit::buildMNAMatrix(double time, double h) {
-    for (auto const& [labelName, nodeSet]: labelToNodes) {
-        if (nodeSet.size() > 1) {
-            int firstNode = *nodeSet.begin();
-            for (int nodeIdToMerge : nodeSet) {
-                if (firstNode == nodeIdToMerge)
-                    continue;
-
-                for (auto* comp : components) {
-                    if (comp->node1 == nodeIdToMerge)
-                        comp->node1 = firstNode;
-                    if (comp->node2 == nodeIdToMerge)
-                        comp->node2 == firstNode;
-                }
-            }
+    std::map<int, int> nodeIdToMnaIndex;
+    int currentMnaIndex = 0;
+    for (int i = 0; i < nextNodeId; ++i) {
+        if (!isGround(i) && idToNodeName.count(i)) {
+            nodeIdToMnaIndex[i] = currentMnaIndex++;
         }
     }
 
+    int node_count = nodeIdToMnaIndex.size();
+
     numCurrentUnknowns = 0;
     componentCurrentIndices.clear();
-    int node_count = groundNodeId == -1 ? nodeNameToId.size() : nodeNameToId.size() - 1;
-
     for (Component* comp : components) {
         if (comp->needsCurrentUnknown()) {
             componentCurrentIndices[comp->name] = node_count + numCurrentUnknowns;
@@ -569,7 +478,7 @@ void Circuit::buildMNAMatrix(double time, double h) {
         if (comp->needsCurrentUnknown()) {
             idx = componentCurrentIndices.at(comp->name);
         }
-        comp->stampMNA(A_mna, b_mna, componentCurrentIndices, time, h, groundNodeId, idx);
+        comp->stampMNA(A_mna, b_mna, componentCurrentIndices, nodeIdToMnaIndex, time, h, idx);
     }
 }
 
@@ -588,20 +497,19 @@ Eigen::VectorXd Circuit::solveMNASystem() {
     return lu.solve(b_mna);
 }
 
-void Circuit::updateComponentStates(const Eigen::VectorXd& solution) {
+void Circuit::updateComponentStates(const Eigen::VectorXd& solution, const std::map<int, int>& nodeIdToMnaIndex) {
     for (Component* comp : components) {
-        comp->updateState(solution, componentCurrentIndices, groundNodeId);
+        comp->updateState(solution, componentCurrentIndices, nodeIdToMnaIndex);
     }
 }
 
-void Circuit::updateNonlinearComponentStates(const Eigen::VectorXd& solution) {
+void Circuit::updateNonlinearComponentStates(const Eigen::VectorXd& solution, const std::map<int, int>& nodeIdToMnaIndex) {
     for (Component* comp : components) {
         if (comp->isNonlinear()) {
-            comp->updateState(solution, componentCurrentIndices, groundNodeId);
+            comp->updateState(solution, componentCurrentIndices, nodeIdToMnaIndex);
         }
     }
 }
-
 // -------------------------------- MNA and Solver --------------------------------
 
 
@@ -611,9 +519,7 @@ void Circuit::performDCAnalysis(const std::string& sourceName, double startValue
 
     if (!sweepSource)
         throw std::runtime_error("Source '" + sourceName + "' for DC sweep not found.");
-    if (!dynamic_cast<VoltageSource*>(sweepSource) && !dynamic_cast<CurrentSource*>(sweepSource))
-        throw std::runtime_error("Component '" + sourceName + "' is not a sweepable source.");
-    if (groundNodeId < 0)
+    if (groundNodeIds.empty())
         throw std::runtime_error("No ground node detected.");
 
     std::cout << "\n--- Performing DC Sweep Analysis on " << sourceName << " ---" << std::endl;
@@ -623,16 +529,27 @@ void Circuit::performDCAnalysis(const std::string& sourceName, double startValue
     for (Component* component : components)
         component->reset();
 
+    std::map<int, int> nodeIdToMnaIndex;
+
     for (double sweepValue = startValue; sweepValue <= endValue; sweepValue += increment) {
         if (auto vs = dynamic_cast<VoltageSource*>(sweepSource))
             vs->setValue(sweepValue);
-        if (auto cs = dynamic_cast<CurrentSource*>(sweepSource))
+        else if (auto cs = dynamic_cast<CurrentSource*>(sweepSource))
             cs->setValue(sweepValue);
+        else
+            throw std::runtime_error("Component '" + sourceName + "' is not a sweepable source.");
 
         Eigen::VectorXd solution;
+        buildMNAMatrix(0.0, 0.0);
+        nodeIdToMnaIndex.clear();
+        int currentMnaIndex = 0;
+        for (int i = 0; i < nextNodeId; ++i) {
+            if (idToNodeName.count(i) && !isGround(i)) {
+                nodeIdToMnaIndex[i] = currentMnaIndex++;
+            }
+        }
 
         if (!hasNonlinearComponents) {
-            buildMNAMatrix(0.0, 0.0);
             solution = solveMNASystem();
         }
         else {
@@ -660,15 +577,14 @@ void Circuit::performDCAnalysis(const std::string& sourceName, double startValue
                     break;
                 }
                 lastSolution = solution;
-                updateNonlinearComponentStates(solution);
+                updateNonlinearComponentStates(solution, nodeIdToMnaIndex);
             }
 
             if (!converged)
                 std::cout << "Warning: DC analysis did not converge at sweep value " << sweepValue << std::endl;
         }
-        if (solution.size() == 0) {
-            std::cout << "DC sweep failed to solve at " << sourceName << " = " << sweepValue << std::endl;
-            continue;
+        if (solution.size() > 0) {
+            dcSweepSolutions[sweepValue] = solution;
         }
         dcSweepSolutions[sweepValue] = solution;
     }
@@ -676,23 +592,69 @@ void Circuit::performDCAnalysis(const std::string& sourceName, double startValue
 }
 
 void Circuit::performTransientAnalysis(double stopTime, double startTime, double maxTimeStep) {
-    if (maxTimeStep == 0.0) {
+    if (maxTimeStep == 0.0)
         maxTimeStep = (stopTime - startTime) / 100;
-    }
+
     std::cout << "\n\t---------- Performing Transient Analysis ----------" << std::endl;
     std::cout << "Time Start: " << startTime << "s, Stop Time: " << stopTime << "s, Maximum Time Step: " << maxTimeStep
         << "s" << std::endl;
-    if (groundNodeId < 0)
+    if (groundNodeIds.empty())
         throw std::runtime_error("No ground node detected.");
 
-    for (Component* comp : components) {
+    for (Component* comp : components)
         comp->reset();
-    }
 
     transientSolutions.clear();
-    for (double t = startTime; t <= stopTime; t += maxTimeStep) {
-        Eigen::VectorXd solution;
 
+    std::cout << "Calculating DC operating point at t=0..." << std::endl;
+    std::map<int, int> nodeIdToMnaIndex;
+    Eigen::VectorXd solution;
+
+    if (hasNonlinearComponents) {
+        const int MAX_ITERATIONS = 100;
+        const double TOLERANCE = 1e-6;
+        bool converged = false;
+        Eigen::VectorXd lastSolution;
+        for (int i = 0; i < MAX_ITERATIONS; ++i) {
+            buildMNAMatrix(0.0, 0.0);
+            solution = solveMNASystem();
+            if (solution.size() == 0) break;
+            if (i > 0 && (solution - lastSolution).norm() < TOLERANCE) {
+                converged = true;
+                break;
+            }
+            lastSolution = solution;
+            std::map<int, int> nodeIdToMnaIndex;
+            int currentMnaIndex = 0;
+            for (int k = 0; k < nextNodeId; ++k) {
+                if (idToNodeName.count(k) && !isGround(k)) {
+                    nodeIdToMnaIndex[k] = currentMnaIndex++;
+                }
+            }
+            updateNonlinearComponentStates(solution, nodeIdToMnaIndex);
+        }
+        if(!converged) std::cout << "Warning: DC operating point did not fully converge." << std::endl;
+    }
+    else {
+        buildMNAMatrix(0.0, 0.0);
+        solution = solveMNASystem();
+    }
+
+    if (solution.size() == 0) {
+        throw std::runtime_error("ERROR: DC operating point failed to solve. Simulation stopped.");
+    }
+
+    int currentMnaIndex = 0;
+    for (int i = 0; i < nextNodeId; ++i) {
+        if (idToNodeName.count(i) && !isGround(i)) {
+            nodeIdToMnaIndex[i] = currentMnaIndex++;
+        }
+    }
+    updateComponentStates(solution, nodeIdToMnaIndex);
+    transientSolutions[startTime] = solution;
+    std::cout << "DC operating point calculated." << std::endl;
+
+    for (double t = startTime + maxTimeStep; t <= stopTime + 1e-9; t += maxTimeStep) {
         if (!hasNonlinearComponents) {
             buildMNAMatrix(t, maxTimeStep);
             solution = solveMNASystem();
@@ -706,33 +668,28 @@ void Circuit::performTransientAnalysis(double stopTime, double startTime, double
             for (int i = 0; i < MAX_ITERATIONS; ++i) {
                 buildMNAMatrix(t, maxTimeStep);
                 solution = solveMNASystem();
-
-                if (solution.size() == 0)
-                    break;
+                if (solution.size() == 0) break;
 
                 if (i > 0 && (solution - lastSolution).norm() < TOLERANCE) {
                     converged = true;
                     break;
                 }
                 lastSolution = solution;
-                updateNonlinearComponentStates(solution);
+                updateNonlinearComponentStates(solution, nodeIdToMnaIndex);
             }
-            if (!converged) {
+            if (!converged)
                 std::cout << "Warning: Transient analysis did not converge at t = " << t << "s" << std::endl;
-            }
         }
 
         if (solution.size() == 0)
             throw std::runtime_error("ERROR at t = " + std::to_string(t) + "s: Simulation stopped.");
-
+        updateComponentStates(solution, nodeIdToMnaIndex);
         transientSolutions[t] = solution;
-        updateComponentStates(solution);
     }
 
     std::cout << "Transient analysis complete. " << transientSolutions.size() << " time points stored." << std::endl;
     std::cout << "Use .print to view results." << std::endl;
 }
-
 // -------------------------------- Analysis Methods --------------------------------
 
 

@@ -22,8 +22,10 @@ enum class InteractionMode {
     placingWire,
     placingCurrentSource,
     placingLabel
-    //TODO: add ground
-    //TODO: add E,F,G,H
+};
+
+struct GroundInfo {
+    QPoint position;
 };
 
 struct WireInfo {
@@ -51,6 +53,7 @@ public:
 
 public slots:
     void startRunAnalysis();
+    void startPlacingGround();
     void startPlacingResistor();
     void startPlacingCapacitor();
     void startPlacingInductor();
@@ -82,23 +85,28 @@ private:
     void placingComponentMouseEvent(QMouseEvent* event);
     void deletingComponentMouseEvent(QMouseEvent* event);
     void placingLabelMouseEvent(QMouseEvent* event);
+    void placingGroundMouseEvent(QMouseEvent* event);
     void showSimpleValueDialog(QMouseEvent* event);
     void showSourceValueDialog(QMouseEvent* event);
+    void drawGridDots(QPainter& painter);
+    void drawComponents(QPainter& painter);
+    void drawLabels(QPainter& painter);
+    void drawWires(QPainter& painter);
+    void drawGrounds(QPainter& painter);
+    void drawGroundSymbol(QPainter& painer, const QPoint& pos);
+    QString findOrCreateNodeAtPoint(const QPoint& point);
 
 
     const int gridSize = 30; // Pixels
-    const int componentLength = 3 * gridSize;
     InteractionMode currentMode = InteractionMode::Normal;
 
+    const int componentLength = 3 * gridSize;
     bool placementIsHorizontal = true;
     QPoint currentMousePos;
     QString currentCompType = "NF";
-
     std::vector<ComponentGraphicalInfo> components;
-
     int hoveredComponentIndex = -1;
     Circuit* circuit_ptr;
-
     std::map<QString, int> componentCounters;
 
     std::vector<WireInfo> wires;
@@ -106,6 +114,7 @@ private:
     QPoint wireStartPoint;
 
     std::vector<LabelInfo> labels;
+    std::vector<GroundInfo> grounds;
 };
 
 
