@@ -113,7 +113,7 @@ void SchematicWidget::drawLabels(QPainter& painter) {
 
 void SchematicWidget::startRunAnalysis() {
     circuit_ptr->performTransientAnalysis(5e-3, 0.0, 1e-4);
-    circuit_ptr->printTransientResults({"I(C1)"});
+    circuit_ptr->printTransientResults({"V(N_6_3)"});
 }
 
 void SchematicWidget::startPlacingResistor() {
@@ -332,17 +332,17 @@ void SchematicWidget::placingComponentMouseEvent(QMouseEvent* event) {
 void SchematicWidget::deletingComponentMouseEvent(QMouseEvent* event) {
     QPoint clickPos = event->pos();
 
-    for (auto it = components.rbegin(); it != components.rend(); it++) {
+    for (auto it = components.begin(); it != components.end(); it++) {
         QPoint start = it->startPoint;
         QPoint end = placementIsHorizontal ? start + QPoint(componentLength, 0) : start + QPoint(0, componentLength);
 
         QRect componentRect(start, end);
         componentRect = componentRect.normalized();
-        componentRect.adjust(-7, -7, 7, 7);
+        componentRect.adjust(-5, -5, 5, 5);
 
         if (componentRect.contains(clickPos)) {
             circuit_ptr->deleteComponent(it->name.toStdString(), it->name[0].toLatin1());
-            components.erase(std::next(it).base());
+            components.erase(it);
             return;
         }
     }

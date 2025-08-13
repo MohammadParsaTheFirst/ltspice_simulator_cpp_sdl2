@@ -27,8 +27,9 @@ public:
     std::string getPathRightNow() { return currentFilePath; }
 
     // Component and Node Management
-    void addComponent(const std::string&, const std::string&, const std::string&, const std::string&, double, const std::vector<double>&, const std::vector<std::string>&, bool);
-    void addGround(const std::string& );
+    void addComponent(const std::string&, const std::string&, const std::string&, const std::string&, double,
+                      const std::vector<double>&, const std::vector<std::string>&, bool);
+    void addGround(const std::string&);
     void deleteComponent(const std::string&, char);
     void deleteGround(const std::string&);
     void listNodes() const;
@@ -42,7 +43,7 @@ public:
     void connectNodes(const std::string&, const std::string&);
 
     // Analysis
-    void performDCAnalysis(const std::string& , double , double , double );
+    void performDCAnalysis(const std::string&, double, double, double);
     void performTransientAnalysis(double, double, double);
     void printTransientResults(const std::vector<std::string>&) const;
     void printDcSweepResults(const std::string&, const std::string&) const;

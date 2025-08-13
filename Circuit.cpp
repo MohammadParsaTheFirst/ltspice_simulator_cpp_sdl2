@@ -58,7 +58,7 @@ double parseSpiceValue(const std::string& valueStr) {
 Circuit::Circuit() : nextNodeId(0), numCurrentUnknowns(0),
                      currentFilePath(
                          "C:\\Users\\parsa\\Documents\\university\\Programming and linux\\403101518-403101683.0\\Schematics\\draft.txt"),
-                     hasNonlinearComponents(false){
+                     hasNonlinearComponents(false) {
     allFiles.push_back(
         "C:\\Users\\parsa\\Documents\\university\\Programming and linux\\403101518-403101683.0\\Schematics\\draft.txt");
 }
@@ -68,6 +68,7 @@ Circuit::~Circuit() {
         delete comp;
     }
 }
+
 // -------------------------------- Constructors and Destructors --------------------------------
 
 
@@ -208,6 +209,7 @@ bool Circuit::loadCircuitFromFile() {
     inFile.close();
     return true;
 }
+
 // -------------------------------- File Management --------------------------------
 
 
@@ -253,7 +255,7 @@ int Circuit::getNodeId(const std::string& nodeName, bool create) {
 }
 
 int Circuit::getNodeId(const std::string& nodeName) const {
-    auto it =  nodeNameToId.find(nodeName);
+    auto it = nodeNameToId.find(nodeName);
     if (it != nodeNameToId.end())
         return it->second;
     return -1;
@@ -442,6 +444,7 @@ void Circuit::addLabel(const std::string& labelName, const std::string& nodeName
         std::cout << "Label '" << labelName << "' added to node " << nodeName << std::endl;
     }
 }
+
 // -------------------------------- Component and Node Management --------------------------------
 
 
@@ -509,13 +512,15 @@ void Circuit::updateComponentStates(const Eigen::VectorXd& solution, const std::
     }
 }
 
-void Circuit::updateNonlinearComponentStates(const Eigen::VectorXd& solution, const std::map<int, int>& nodeIdToMnaIndex) {
+void Circuit::updateNonlinearComponentStates(const Eigen::VectorXd& solution,
+                                             const std::map<int, int>& nodeIdToMnaIndex) {
     for (Component* comp : components) {
         if (comp->isNonlinear()) {
             comp->updateState(solution, componentCurrentIndices, nodeIdToMnaIndex);
         }
     }
 }
+
 // -------------------------------- MNA and Solver --------------------------------
 
 
@@ -606,6 +611,7 @@ void Circuit::performTransientAnalysis(double stopTime, double startTime, double
 
     if (groundNodeIds.empty())
         throw std::runtime_error("No ground node detected.");
+
     for (Component* comp : components)
         comp->reset();
     transientSolutions.clear();
@@ -654,6 +660,7 @@ void Circuit::performTransientAnalysis(double stopTime, double startTime, double
     std::cout << "Transient analysis complete. " << transientSolutions.size() << " time points stored." << std::endl;
     std::cout << "Use .print to view results." << std::endl;
 }
+
 // -------------------------------- Analysis Methods --------------------------------
 
 
@@ -674,7 +681,9 @@ void Circuit::printTransientResults(const std::vector<std::string>& variablesToP
 
     struct PrintJob {
         std::string header;
+
         enum class Type { VOLTAGE, MNA_CURRENT, RESISTOR_CURRENT, CAPACITOR_CURRENT } type;
+
         int index = -1;
         Component* component_ptr = nullptr;
     };
@@ -691,7 +700,6 @@ void Circuit::printTransientResults(const std::vector<std::string>& variablesToP
             int nodeID = nodeNameToId.at(name);
             int solutionIndex = isGround(nodeID) ? -1 : nodeIdToMnaIndex.at(nodeID);
             printJobs.push_back({var, PrintJob::Type::VOLTAGE, solutionIndex, nullptr});
-
         }
         else if (type == "I") {
             if (componentCurrentIndices.count(name))
@@ -708,7 +716,9 @@ void Circuit::printTransientResults(const std::vector<std::string>& variablesToP
                         printJobs.push_back({var, PrintJob::Type::RESISTOR_CURRENT, -1, comp});
                     else if (dynamic_cast<Capacitor*>(comp))
                         printJobs.push_back({var, PrintJob::Type::CAPACITOR_CURRENT, -1, comp});
-                    else std::cout << "Warning: Current for component type of '" << name << "' cannot be calculated." << std::endl;
+                    else
+                        std::cout << "Warning: Current for component type of '" << name << "' cannot be calculated." <<
+                            std::endl;
                 }
             }
         }
@@ -789,7 +799,7 @@ void Circuit::printDcSweepResults(const std::string& sourceName, const std::stri
 
         if (varType == 'V') {
             int nodeID = getNodeId(varName);
-            if(nodeID == -1) throw std::runtime_error("Node not found.");
+            if (nodeID == -1) throw std::runtime_error("Node not found.");
             result = isGround(nodeID) ? 0.0 : solution(nodeIdToMnaIndex.at(nodeID));
         }
         else {
@@ -839,4 +849,5 @@ void Circuit::printDcSweepResults(const std::string& sourceName, const std::stri
         std::cout << std::setw(14) << result << std::endl;
     }
 }
+
 // -------------------------------- Output Results --------------------------------
