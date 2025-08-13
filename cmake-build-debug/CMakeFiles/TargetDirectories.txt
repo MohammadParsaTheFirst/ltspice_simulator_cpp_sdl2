@@ -1,3 +1,5 @@
 C:/Users/USER/CLionProjects/proj_terminal/cmake-build-debug/CMakeFiles/proj_terminal.dir
 C:/Users/USER/CLionProjects/proj_terminal/cmake-build-debug/CMakeFiles/edit_cache.dir
 C:/Users/USER/CLionProjects/proj_terminal/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/USER/CLionProjects/proj_terminal/cmake-build-debug/CMakeFiles/proj_terminal_autogen_timestamp_deps.dir
+C:/Users/USER/CLionProjects/proj_terminal/cmake-build-debug/CMakeFiles/proj_terminal_autogen.dir
