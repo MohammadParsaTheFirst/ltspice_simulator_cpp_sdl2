@@ -1,5 +1,6 @@
 #include "Dialogs.h"
 
+
 ValueDialog::ValueDialog(QWidget* parent) : QDialog(parent) {
     setWindowTitle("Enter component value");
 
@@ -23,6 +24,7 @@ ValueDialog::ValueDialog(QWidget* parent) : QDialog(parent) {
 QString ValueDialog::getValue() const {
     return valueEdit->text();
 }
+
 
 SourceValueDialog::SourceValueDialog(QWidget* parent) : QDialog(parent) {
     setWindowTitle("Enter source value");
@@ -70,6 +72,7 @@ void SourceValueDialog::showSinOrNot(bool isSinusoidal) {
     sinGroupBox->setEnabled(isSinusoidal);
     dcGroupBox->setEnabled(!isSinusoidal);
 }
+
 
 bool SourceValueDialog::isSinusoidal() const {
     return sinForm->isChecked();
@@ -130,8 +133,9 @@ void NodeLibraryDialog::doubleClickedOnItem(QListWidgetItem* item) {
     accept();
 }
 
+
 LabelDialog::LabelDialog(QWidget* parent) : QDialog(parent) {
-    setWindowTitle("Node label");
+    setWindowTitle("Node Label");
     QVBoxLayout* layout = new QVBoxLayout(this);
     QLabel* label = new QLabel("Enter node label:", this);
     labelLineEdit = new QLineEdit(this);
@@ -150,3 +154,34 @@ LabelDialog::LabelDialog(QWidget* parent) : QDialog(parent) {
 QString LabelDialog::getLabel() const {
     return labelLineEdit->text();
 }
+
+
+ConfigureAnalysisDialog::ConfigureAnalysisDialog(QWidget* parent) : QDialog(parent) {
+    setWindowTitle("Configure Analysis");
+    tabWidget = new QTabWidget(this);
+
+    // Transient Tab
+    QWidget* transientTab = new QWidget(this);
+    QFormLayout* transientLayout = new QFormLayout(transientTab);
+    tStopEdit = new QLineEdit(this);
+    tStartEdit = new QLineEdit(this);
+    tStepEdit = new QLineEdit(this);
+    transientLayout->addRow(new QLabel("Stop time:"), tStopEdit);
+    transientLayout->addRow(new QLabel("Time to start saving data:"), tStartEdit);
+    transientLayout->addRow(new QLabel("Maximum Timestep:"), tStepEdit);
+    tabWidget->addTab(transientTab, "Transient");
+
+    // AC Sweep Tab
+    QWidget* ACSweepTab = new QWidget(this);
+    ACSweepTab->setEnabled(false); // TODO: complete the AC Sweep tab later
+    tabWidget->addTab(ACSweepTab, "AC Analysis");
+
+    QVBoxLayout* layout = new QVBoxLayout(this);
+    layout->addWidget(tabWidget);
+    layout->addWidget(buttonBox);
+}
+
+int ConfigureAnalysisDialog::getSelectedAnalysisType() const {return tabWidget->currentIndex();}
+QString ConfigureAnalysisDialog::getTransientTstop() const {return tStopEdit->text();}
+QString ConfigureAnalysisDialog::getTransientTstart() const {return tStartEdit->text();}
+QString ConfigureAnalysisDialog::getTransientTstep() const {return tStepEdit->text();}

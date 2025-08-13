@@ -12,6 +12,7 @@
 #include <QDialogButtonBox>
 #include <QFormLayout>
 #include <QListWidget>
+#include <QTabWidget>
 
 class ValueDialog : public QDialog {
     Q_OBJECT
@@ -79,10 +80,10 @@ private:
     QDialogButtonBox *labelButtonBox;
 };
 
-class ConfigurationAnalysisDialog : public QDialog {
+class ConfigureAnalysisDialog : public QDialog {
     Q_OBJECT
 public:
-    explicit ConfigurationAnalysisDialog(QWidget *parent = Q_NULLPTR);
+    explicit ConfigureAnalysisDialog(QWidget *parent = Q_NULLPTR);
     int getSelectedAnalysisType() const;
     QString getTransientTstop() const;
     QString getTransientTstart() const;
