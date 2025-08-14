@@ -11,14 +11,11 @@ double parseSpiceValue(const std::string& valueStr) {
     if (valueStr.empty()) {
         throw std::runtime_error("Empty value");
     }
-
     std::string s_lower = valueStr;
     std::transform(s_lower.begin(), s_lower.end(), s_lower.begin(),
                    [](unsigned char c) { return std::tolower(c); });
-
     std::string numPart;
     double multiplier = 1.0;
-
     if (s_lower.length() > 3 && s_lower.rfind("meg") == s_lower.length() - 3) {
         multiplier = 1e6;
         numPart = valueStr.substr(0, valueStr.length() - 3);
@@ -39,16 +36,13 @@ double parseSpiceValue(const std::string& valueStr) {
             found_suffix = false;
             break;
         }
-
         if (found_suffix)
             numPart = valueStr.substr(0, valueStr.length() - 1);
-
         else
             numPart = valueStr;
     }
     else
         numPart = valueStr;
-
     return std::stod(numPart) * multiplier;
 }
 // -------------------------------- Helper for parsing values --------------------------------
@@ -317,7 +311,6 @@ void Circuit::addComponent(const std::string& typeStr, const std::string& name,
             makeComponentFromLine(line);
         return;
     }
-
     int n1_id = getNodeId(node1Str, true);
     int n2_id = getNodeId(node2Str, true);
     try {
@@ -371,7 +364,6 @@ void Circuit::deleteComponent(const std::string& componentName, char typeChar) {
             return;
         }
     }
-
     if (typeChar == 'R')
         throw std::runtime_error("Cannot delete resistor; component not found.");
     else if (typeChar == 'C')
@@ -414,7 +406,6 @@ void Circuit::listComponents(char typeFilter) const {
         for (Component* component : components)
             std::cout << component->name << " " << idToNodeName.at(component->node1) << " " << idToNodeName.
                 at(component->node2) << " " << component->value << std::endl;
-
     else
         for (Component* component : components)
             if (component->name[0] == typeFilter)
@@ -431,14 +422,11 @@ void Circuit::renameNode(const std::string& oldName, const std::string& newName)
         std::cout << "ERROR: Node " << newName << " already exists." << std::endl;
         return;
     }
-
     int nodeId = nodeNameToId[oldName];
     nodeNameToId.erase(oldName);
     nodeNameToId[newName] = nodeId;
     idToNodeName[nodeId] = newName;
-
     std::cout << "SUCCESS: Node renamed from " << oldName << " to " << newName << std::endl;
-
     for (auto it = circuitNetList.begin(); it != circuitNetList.end(); it++) {
         size_t i = 0;
         if ((i = it->find(oldName)) != std::string::npos) {
@@ -451,14 +439,11 @@ void Circuit::renameNode(const std::string& oldName, const std::string& newName)
 void Circuit::connectNodes(const std::string& nodeAStr, const std::string& nodeBStr) {
     int nodeAInt = getNodeId(nodeAStr, true);
     int nodeBInt = getNodeId(nodeBStr, true);
-
     int sourceNodeId = std::max(nodeAInt, nodeBInt);
     int destNodeId = std::min(nodeAInt, nodeBInt);
-
     if (sourceNodeId != destNodeId) {
         mergeNodes(sourceNodeId, destNodeId);
     }
-
     std::cout << "Node '" << nodeAStr << "' successfully connected to '" << nodeBStr << "'." << std::endl;
 }
 
@@ -483,7 +468,6 @@ void Circuit::createSubcircuitDefinition(const std::string& name, const std::str
     subcircuitDefinitions[name] = newSubcircuit;
     saveSubcircuit(newSubcircuit);
 }
-
 // -------------------------------- Component and Node Management --------------------------------
 
 
