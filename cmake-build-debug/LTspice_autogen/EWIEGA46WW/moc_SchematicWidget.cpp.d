@@ -195,6 +195,7 @@ C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cp
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QMessageBox \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QPushButton \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QRadioButton \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/QTabWidget \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QVBoxLayout \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QWidget \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qabstractbutton.h \

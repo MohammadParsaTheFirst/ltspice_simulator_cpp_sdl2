@@ -443,6 +443,8 @@ CMakeFiles/LTspice.dir/LTspice_autogen/mocs_compilation.cpp.obj: \
  C:/Qt/6.7.3/mingw_64/include/QtWidgets/qtabbar.h \
  C:/Qt/6.7.3/mingw_64/include/QtWidgets/qtabwidget.h \
  C:/Qt/6.7.3/mingw_64/include/QtWidgets/qrubberband.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/QTabWidget \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qtabwidget.h \
  C:\Users\parsa\Documents\university\Programming\ and\ linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\LTspice_autogen\EWIEGA46WW/moc_SchematicWidget.cpp \
  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/SchematicWidget.h \
  C:/Qt/6.7.3/mingw_64/include/QtGui/QPainter \

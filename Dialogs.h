@@ -13,6 +13,7 @@
 #include <QFormLayout>
 #include <QListWidget>
 #include <QTabWidget>
+#include <QComboBox>
 
 class ValueDialog : public QDialog {
     Q_OBJECT
@@ -88,6 +89,13 @@ public:
     QString getTransientTstop() const;
     QString getTransientTstart() const;
     QString getTransientTstep() const;
+    QString getACOmegaStart() const;
+    QString getACOmegaStop() const;
+    QString getACNPoints() const;
+    QString getPhaseBaseFrequency() const;
+    QString getPhaseStart() const;
+    QString getPhaseStop() const;
+    QString getPhaseNPoints() const;
 
 private:
     QTabWidget* tabWidget;
@@ -97,8 +105,17 @@ private:
     QLineEdit* tStartEdit;
     QLineEdit* tStepEdit;
 
-    // TODO: store the AC Sweep analysis type variables
-    // ACSweep
+    // AC Sweep
+    QComboBox* typeOfSweepComboBox;
+    QLineEdit* ACOmegaStart;
+    QLineEdit* ACOmegaStop;
+    QLineEdit* ACNPoint;
+
+    // Phase Sweep - menu should be in the project but its analyze not
+    QLineEdit* phaseBaseFrequency;
+    QLineEdit* phaseStart;
+    QLineEdit* phaseStop;
+    QLineEdit* phaseNPoints;
 
     QDialogButtonBox *buttonBox;
 };

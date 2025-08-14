@@ -1933,6 +1933,7 @@ CMakeFiles/LTspice.dir/Dialogs.cpp.obj: C:/Users/parsa/Documents/university/Prog
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QListWidget \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QPushButton \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QRadioButton \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/QTabWidget \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QVBoxLayout \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qabstractbutton.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
@@ -2412,6 +2413,7 @@ CMakeFiles/LTspice.dir/LTspice_autogen/mocs_compilation.cpp.obj: LTspice_autogen
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QPushButton \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QRadioButton \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QStatusBar \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/QTabWidget \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QToolBar \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QVBoxLayout \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QWidget \
@@ -3117,6 +3119,7 @@ CMakeFiles/LTspice.dir/SchematicWidget.cpp.obj: C:/Users/parsa/Documents/univers
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QMessageBox \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QPushButton \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QRadioButton \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/QTabWidget \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QVBoxLayout \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QWidget \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qabstractbutton.h \
@@ -3881,6 +3884,7 @@ CMakeFiles/LTspice.dir/main.cpp.obj: C:/Users/parsa/Documents/university/Program
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QPushButton \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QRadioButton \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QStatusBar \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/QTabWidget \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QToolBar \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QVBoxLayout \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QWidget \
@@ -4591,6 +4595,7 @@ CMakeFiles/LTspice.dir/mainwindow.cpp.obj: C:/Users/parsa/Documents/university/P
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QPushButton \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QRadioButton \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QStatusBar \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/QTabWidget \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QToolBar \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QVBoxLayout \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QWidget \
@@ -6552,6 +6557,8 @@ C:/Qt/6.7.3/mingw_64/include/QtWidgets/QLayout:
 C:/Qt/6.7.3/mingw_64/include/QtWidgets/QLineEdit:
 
 C:/Qt/6.7.3/mingw_64/include/QtWidgets/QPushButton:
+
+C:/Qt/6.7.3/mingw_64/include/QtWidgets/QTabWidget:
 
 C:/Qt/6.7.3/mingw_64/include/QtWidgets/qabstractbutton.h:
 

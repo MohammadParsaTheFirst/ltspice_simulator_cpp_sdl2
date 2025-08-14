@@ -724,6 +724,8 @@ CMakeFiles/LTspice.dir/mainwindow.cpp.obj: \
  C:/Qt/6.7.3/mingw_64/include/QtWidgets/qstyle.h \
  C:/Qt/6.7.3/mingw_64/include/QtWidgets/qtabbar.h \
  C:/Qt/6.7.3/mingw_64/include/QtWidgets/qrubberband.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/QTabWidget \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qtabwidget.h \
  C:/Users/parsa/DOCUME~1/UNIVER~1/PROGRA~1/LTSPIC~1/CMAKE-~1/LTSPIC~1/include/ui_mainwindow.h \
  C:/Qt/6.7.3/mingw_64/include/QtCore/QVariant \
  C:/Qt/6.7.3/mingw_64/include/QtCore/qvariant.h \

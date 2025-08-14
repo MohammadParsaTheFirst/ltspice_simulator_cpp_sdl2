@@ -375,6 +375,7 @@ C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_
  mdp:C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wctype.h
  mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/ChartWindow.h
  mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cmake-build-debug/LTspice_autogen/moc_predefs.h
+C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/Circuit.h
 C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/mainwindow.h
  mmc:Q_OBJECT
  mdp:C:/Qt/6.7.3/mingw_64/include/QtCore/QList
@@ -579,6 +580,7 @@ C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/QMessageBox
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/QPushButton
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/QRadioButton
+ mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/QTabWidget
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/QToolBar
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/QVBoxLayout
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/QWidget
@@ -1072,8 +1074,8 @@ C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_
  mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/plugins/ReshapedMethods.h
  mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/mainwindow.h
  uic:ui_mainwindow.h
-C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/Circuit.h
 C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/Component.h
+C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/ComponentFactory.h
 C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/SchematicWidget.h
  mmc:Q_OBJECT
  mdp:C:/Qt/6.7.3/mingw_64/include/QtCore/QList
@@ -1271,6 +1273,7 @@ C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/QMessageBox
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/QPushButton
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/QRadioButton
+ mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/QTabWidget
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/QVBoxLayout
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/QWidget
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/qabstractbutton.h
@@ -1755,9 +1758,8 @@ C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_
  mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/plugins/MatrixCwiseBinaryOps.h
  mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/plugins/MatrixCwiseUnaryOps.h
  mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/plugins/ReshapedMethods.h
-C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/ComponentFactory.h
-C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/ChartWindow.cpp
 C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/WaveForm.h
+C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/ChartWindow.cpp
 C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/Circuit.cpp
 C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/Component.cpp
 C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/ComponentFactory.cpp
@@ -2340,6 +2342,7 @@ C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/QListWidget
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/QPushButton
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/QRadioButton
+ mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/QTabWidget
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/QVBoxLayout
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/qabstractbutton.h
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/qabstractitemdelegate.h

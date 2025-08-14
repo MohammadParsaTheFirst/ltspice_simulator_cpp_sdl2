@@ -159,6 +159,7 @@ QString LabelDialog::getLabel() const {
 ConfigureAnalysisDialog::ConfigureAnalysisDialog(QWidget* parent) : QDialog(parent) {
     setWindowTitle("Configure Analysis");
     tabWidget = new QTabWidget(this);
+    buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
 
     // Transient Tab
     QWidget* transientTab = new QWidget(this);
@@ -173,8 +174,37 @@ ConfigureAnalysisDialog::ConfigureAnalysisDialog(QWidget* parent) : QDialog(pare
 
     // AC Sweep Tab
     QWidget* ACSweepTab = new QWidget(this);
-    ACSweepTab->setEnabled(false); // TODO: complete the AC Sweep tab later
+    QFormLayout* acSweepLayout = new QFormLayout(ACSweepTab);
+    typeOfSweepComboBox = new QComboBox(ACSweepTab);
+    typeOfSweepComboBox->addItem("Octave");
+    typeOfSweepComboBox->addItem("Decade");
+    typeOfSweepComboBox->addItem("Linear");
+    ACOmegaStart = new QLineEdit(this);
+    ACOmegaStop = new QLineEdit(this);
+    ACNPoint = new QLineEdit(this);
+    acSweepLayout->addRow(new QLabel("Start frequency:"), ACOmegaStart);
+    acSweepLayout->addRow(new QLabel("Stop frequency:"), ACOmegaStop);
+    acSweepLayout->addRow(new QLabel("Number of points:"), ACNPoint);
+    acSweepLayout->addRow(new QLabel("Type of sweep:"), typeOfSweepComboBox);
+    ACSweepTab->setEnabled(false);
     tabWidget->addTab(ACSweepTab, "AC Analysis");
+
+    // Phase Sweep
+    QWidget* phaseSweepTab = new QWidget(this);
+    QFormLayout* phaseSweepLayout = new QFormLayout(phaseSweepTab);
+    phaseBaseFrequency = new QLineEdit(this);
+    phaseStart = new QLineEdit(this);
+    phaseStop = new QLineEdit(this);
+    phaseNPoints = new QLineEdit(this);
+    phaseSweepLayout->addRow(new QLabel("Base frequency:"), phaseBaseFrequency);
+    phaseSweepLayout->addRow(new QLabel("Start phase:"), phaseStart);
+    phaseSweepLayout->addRow(new QLabel("Stop phase:"), phaseStop);
+    phaseSweepLayout->addRow(new QLabel("Number of points:"), phaseNPoints);
+    phaseSweepTab->setEnabled(false);
+    tabWidget->addTab(phaseSweepTab, "Phase Sweep");
+
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &ConfigureAnalysisDialog::accept);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &ConfigureAnalysisDialog::reject);
 
     QVBoxLayout* layout = new QVBoxLayout(this);
     layout->addWidget(tabWidget);
