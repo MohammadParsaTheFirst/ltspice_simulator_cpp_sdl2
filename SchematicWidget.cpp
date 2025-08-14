@@ -66,7 +66,8 @@ void SchematicWidget::drawComponents(QPainter& painter) {
         drawComponent(painter, components[i].startPoint, components[i].isHorizontal, components[i].name, isHovered);
     }
     if (currentMode != InteractionMode::Normal && currentMode != InteractionMode::deleteMode && currentMode !=
-        InteractionMode::placingWire && currentMode != InteractionMode::placingLabel && currentMode != InteractionMode::placingGround) {
+        InteractionMode::placingWire && currentMode != InteractionMode::placingLabel && currentMode != InteractionMode::placingGround &&
+        currentMode != InteractionMode::placingSubcircuitNodes) {
         QPoint startPos = stickToGrid(currentMousePos);
         drawComponent(painter, startPos, placementIsHorizontal, currentCompType);
         }
@@ -205,6 +206,14 @@ void SchematicWidget::startPlacingLabel() {
     setFocus();
 }
 
+void SchematicWidget::startCreateSubcircuit() {
+    currentMode = InteractionMode::placingSubcircuitNodes;
+    subcircuitNodes.clear();
+    setCursor(Qt::PointingHandCursor);
+    QMessageBox::information(this, "Create Subcircuit", "Please select the first node.");
+    update();
+}
+
 void SchematicWidget::keyPressEvent(QKeyEvent* event) {
     if (currentMode != InteractionMode::Normal) {
         if ((event->modifiers() & Qt::ControlModifier) && event->key() == Qt::Key_R) {
@@ -217,6 +226,7 @@ void SchematicWidget::keyPressEvent(QKeyEvent* event) {
             currentCompType = "NF";
             setCursor(Qt::ArrowCursor);
             isWiring = false;
+            subcircuitNodes.clear();
             update();
             return;
         }
@@ -483,4 +493,28 @@ QString SchematicWidget::findOrCreateNodeAtPoint(const QPoint& point) {
     }
 
     return getNodeNameFromPoint(point);
+}
+
+void SchematicWidget::selectingSubcircuitNodesMouseEvent(QMouseEvent* event) {
+    QPoint clickPos = stickToGrid(event->pos());
+    QString nodeName = findNodeAt(clickPos);
+
+    if (nodeName.isEmpty()) {
+        QMessageBox::warning(this, "Node Selection Error", "No node found at this position. Please click on a valid node.");
+        return;
+    }
+    subcircuitNodes.push_back(nodeName);
+    if (subcircuitNodes.size() == 1) {
+        QMessageBox::information(this, "Create Subcircuit", QString("First node '%1' selected. Please select the second node.").arg(nodeName));
+    }
+    else if (subcircuitNodes.size() == 2) {
+        bool ok;
+        QString subcircuitName = QInputDialog::getText(this, "Subcircuit Name", "Enter a name for the new subcircuit:", QLineEdit::Normal, "", &ok);
+        if (ok && !subcircuitName.isEmpty()) {
+            circuit_ptr->createSubcircuitDefinition(subcircuitName.toStdString(), subcircuitNodes[0].toStdString(), subcircuitNodes[1].toStdString());
+            QMessageBox(this, "Success", QString("Subcircuit '%1' created successfully.").arg(subcircuitName));
+        }
+        currentMode = InteractionMode::Normal;
+        setCursor(Qt::ArrowCursor);
+    }
 }

@@ -18,7 +18,6 @@
 #include "ChartWindow.h"
 #include "Circuit.h"
 
-
 namespace Ui {
     class MainWindow;
 }
@@ -49,6 +48,7 @@ private:
     QAction* nodeLibraryAction;
     QAction* labelAction;
     QAction* deleteModeAction;
+    QAction* createSubcircuitAction;
     QAction* quitAction;
 
 private slots:

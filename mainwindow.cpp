@@ -33,6 +33,7 @@ void MainWindow::setupWelcomeState() {
     nodeLibraryAction->setEnabled(false);
     labelAction->setEnabled(false);
     deleteModeAction->setEnabled(false);
+    createSubcircuitAction->setEnabled(false);
 }
 
 void MainWindow::setupSchematicState() {
@@ -52,6 +53,7 @@ void MainWindow::setupSchematicState() {
     connect(nodeLibraryAction, &QAction::triggered, schematic, &SchematicWidget::startOpenNodeLibrary);
     connect(labelAction, &QAction::triggered, schematic, &SchematicWidget::startPlacingLabel);
     connect(deleteModeAction, &QAction::triggered, schematic, &SchematicWidget::startDeleteComponent);
+    connect(createSubcircuitAction, &QAction::triggered, schematic, &SchematicWidget::startCreateSubcircuit);
 
     configureAnalysisAction->setEnabled(true);
     runAction->setEnabled(true);
@@ -65,6 +67,7 @@ void MainWindow::setupSchematicState() {
     nodeLibraryAction->setEnabled(true);
     labelAction->setEnabled(true);
     deleteModeAction->setEnabled(true);
+    createSubcircuitAction->setEnabled(true);
 }
 
 // void MainWindow::openChartWindow()
@@ -110,6 +113,7 @@ void MainWindow::initializeActions() {
     nodeLibraryAction = new QAction(QIcon(":/icon/icons/nodeLibrary.png"), "Node Library (P)", this);
     labelAction = new QAction(QIcon(":/icon/icons/text.png"), "Text (T)", this);
     deleteModeAction = new QAction(QIcon(":/icon/icons/deleteMode.png"), "Delete Mode (Backspace or Del)", this);
+    createSubcircuitAction = new QAction("Create Subcircuit", this);
     quitAction = new QAction("Exit", this);
 }
 
@@ -131,8 +135,10 @@ void MainWindow::implementMenuBar() {
     edit->addAction(wireAction);
     edit->addAction(groundAction);
     edit->addAction(deleteModeAction);
+    edit->addAction(createSubcircuitAction);
 
-    QMenu* Hierarchy = menuBar()->addMenu(tr("&Hierarchy"));
+    QMenu* hierarchy = menuBar()->addMenu(tr("&Hierarchy"));
+    hierarchy->addAction(createSubcircuitAction);
 
     QMenu* view = menuBar()->addMenu(tr("&View"));
 

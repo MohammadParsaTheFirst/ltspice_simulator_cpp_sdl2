@@ -7,6 +7,7 @@
 #include <QMouseEvent>
 #include <QKeyEvent>
 #include <QMessageBox>
+#include <QInputDialog>
 #include "Circuit.h"
 #include "Dialogs.h"
 
@@ -21,7 +22,8 @@ enum class InteractionMode {
     deleteMode,
     placingWire,
     placingCurrentSource,
-    placingLabel
+    placingLabel,
+    placingSubcircuitNodes
 };
 
 struct GroundInfo {
@@ -65,6 +67,7 @@ public slots:
     void startPlacingWire();
     void startOpenNodeLibrary();
     void startPlacingLabel();
+    void startCreateSubcircuit();
 
 private slots:
     void handleNodeLibraryItemSelection(const QString& compType);
@@ -96,6 +99,7 @@ private:
     void drawGrounds(QPainter& painter);
     void drawGroundSymbol(QPainter& painer, const QPoint& pos);
     QString findOrCreateNodeAtPoint(const QPoint& point);
+    void selectingSubcircuitNodesMouseEvent(QMouseEvent* event);
 
     const int gridSize = 35;
     InteractionMode currentMode = InteractionMode::Normal;
@@ -119,6 +123,8 @@ private:
     double transientTStop = 0.0;
     double transientTStart = 0.0;
     double transientTStep = 0.0;
+
+    std::vector<QString> subcircuitNodes;
 };
 
 
