@@ -399,8 +399,10 @@ void SchematicWidget::mousePressEvent(QMouseEvent* event) {
 
     if (event->button() == Qt::RightButton) {
         currentMode = InteractionMode::Normal;
+        currentCompType = "NF";
         setCursor(Qt::ArrowCursor);
         isWiring = false;
+        subcircuitNodes.clear();
         update();
         return;
     }
@@ -417,6 +419,9 @@ void SchematicWidget::mousePressEvent(QMouseEvent* event) {
         }
         else if (currentMode == InteractionMode::placingGround) {
             placingGroundMouseEvent(event);
+        }
+        else if (currentMode == InteractionMode::placingSubcircuitNodes) {
+            selectingSubcircuitNodesMouseEvent(event);
         }
         else {
             placingComponentMouseEvent(event);
@@ -512,7 +517,7 @@ void SchematicWidget::selectingSubcircuitNodesMouseEvent(QMouseEvent* event) {
         QString subcircuitName = QInputDialog::getText(this, "Subcircuit Name", "Enter a name for the new subcircuit:", QLineEdit::Normal, "", &ok);
         if (ok && !subcircuitName.isEmpty()) {
             circuit_ptr->createSubcircuitDefinition(subcircuitName.toStdString(), subcircuitNodes[0].toStdString(), subcircuitNodes[1].toStdString());
-            QMessageBox(this, "Success", QString("Subcircuit '%1' created successfully.").arg(subcircuitName));
+            QMessageBox::information(this, "Success", QString("Subcircuit '%1' created successfully.").arg(subcircuitName));
         }
         currentMode = InteractionMode::Normal;
         setCursor(Qt::ArrowCursor);

@@ -10,6 +10,13 @@
 
 double parseSpiceValue(const std::string& valueStr);
 
+struct SubcircuitDefinition {
+    std::string name;
+    std::vector<std::string> netlist;
+    std::string port1NodeName;
+    std::string port2NodeName;
+};
+
 class Circuit {
 public:
     Circuit();
@@ -41,6 +48,7 @@ public:
     int getNodeId(const std::string&, bool create = true);
     int getNodeId(const std::string&) const;
     void connectNodes(const std::string&, const std::string&);
+    void createSubcorcuitDefinition(const std::string&, const std::string&, const std::string&);
 
     // Analysis
     void performDCAnalysis(const std::string&, double, double, double);
@@ -77,6 +85,8 @@ private:
     bool hasNonlinearComponents; // Diode
 
     std::map<std::string, std::set<int>> labelToNodes;
+
+    std::map<std::string, SubcircuitDefinition> subcircuitDefinitions;
 };
 
 #endif // CIRCUIT_H

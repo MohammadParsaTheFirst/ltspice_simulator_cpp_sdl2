@@ -445,6 +445,20 @@ void Circuit::addLabel(const std::string& labelName, const std::string& nodeName
     }
 }
 
+void Circuit::createSubcorcuitDefinition(const std::string& name, const std::string& node1, const std::string& node2) {
+    if (subcircuitDefinitions.count(name)) {
+        std::cout << "Error: A subcircuit with this name exist." << std::endl;
+        return;
+    }
+
+    SubcircuitDefinition newSubcircuit;
+    newSubcircuit.name = name;
+    newSubcircuit.port1NodeName = node1;
+    newSubcircuit.port2NodeName = node2;
+    newSubcircuit.netlist = circuitNetList;
+    subcircuitDefinitions[name] = newSubcircuit;
+}
+
 // -------------------------------- Component and Node Management --------------------------------
 
 
