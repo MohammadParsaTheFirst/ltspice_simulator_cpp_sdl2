@@ -124,14 +124,14 @@ NodeLibraryDialog::NodeLibraryDialog(Circuit* circuit, QWidget* parent) : QDialo
     listWidget->addItem(ccvsItem);
     listWidget->addItem(cccsItem);
 
-    QListWidgetItem* separator = new QListWidgetItem("--- Subcircuits ---");
+    QListWidgetItem* separator = new QListWidgetItem("------- Subcircuits -------");
     separator->setFlags(separator->flags() & ~Qt::ItemIsSelectable);
     listWidget->addItem(separator);
     if (circuit) {
         for (const auto& pair: circuit->subcircuitDefinitions) {
             QString subcircuitName = QString::fromStdString(pair.first);
             QListWidgetItem* subcircuitItem = new QListWidgetItem(subcircuitName);
-            subcircuitItem->setData(Qt::UserRole, "U: " + subcircuitName);
+            subcircuitItem->setData(Qt::UserRole, "U:" + subcircuitName);
             listWidget->addItem(subcircuitItem);
         }
     }

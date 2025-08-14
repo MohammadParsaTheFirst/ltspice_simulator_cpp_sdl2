@@ -79,8 +79,8 @@ clean: CMakeFiles/LTspice_autogen.dir/clean
 # Target rules for target CMakeFiles/LTspice.dir
 
 # All Build rule for target.
-CMakeFiles/LTspice.dir/all: CMakeFiles/LTspice_autogen_timestamp_deps.dir/all
 CMakeFiles/LTspice.dir/all: CMakeFiles/LTspice_autogen.dir/all
+CMakeFiles/LTspice.dir/all: CMakeFiles/LTspice_autogen_timestamp_deps.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\CMakeFiles" --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13 "Built target LTspice"

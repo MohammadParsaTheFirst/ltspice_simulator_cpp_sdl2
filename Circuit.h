@@ -8,6 +8,8 @@
 #include <cereal/types/vector.hpp>
 #include <cereal/types/string.hpp>
 #include <cereal/types/map.hpp>
+#include <QCoreApplication>
+#include <QDir>
 #include "component.h"
 #include "ComponentFactory.h"
 
@@ -35,13 +37,12 @@ public:
 
     // File Operations
     void newCircuit(const std::string&);
-    bool saveLineToFile(const std::string&) const;
     bool loadCircuitFromFile();
     void showExistingFiles();
     void saveCircuitToFile();
     std::string getPathRightNow() { return currentFilePath; }
-    void saveSubcircuitsToFile(const std::string& filePath) const;
-    void loadSubcircuitFromFile(const std::string& filePath);
+    void saveSubcircuit(const SubcircuitDefinition& subDef) const;
+    void loadSubcircuits();
 
     // Component and Node Management
     void addComponent(const std::string&, const std::string&, const std::string&, const std::string&, double,
@@ -67,6 +68,8 @@ public:
     void printDcSweepResults(const std::string&, const std::string&) const;
     void addLabel(const std::string&, const std::string&);
 
+    std::map<std::string, SubcircuitDefinition> subcircuitDefinitions;
+
 private:
     void buildMNAMatrix(double, double);
     Eigen::VectorXd solveMNASystem();
@@ -74,6 +77,7 @@ private:
     void updateNonlinearComponentStates(const Eigen::VectorXd&, const std::map<int, int>&);
     void mergeNodes(int sourceNodeI, int destNodeId);
     bool isGround(int nodeId) const;
+    void makeComponentFromLine(const std::string& netListLine);
 
     // circuit datas
     std::vector<Component*> components;
@@ -95,8 +99,6 @@ private:
     bool hasNonlinearComponents; // Diode
 
     std::map<std::string, std::set<int>> labelToNodes;
-
-    std::map<std::string, SubcircuitDefinition> subcircuitDefinitions;
 };
 
 #endif // CIRCUIT_H

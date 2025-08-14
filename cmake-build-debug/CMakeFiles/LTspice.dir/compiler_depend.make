@@ -461,6 +461,135 @@ CMakeFiles/LTspice.dir/ChartWindow.cpp.obj: C:/Users/parsa/Documents/university/
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/ChartWindow.h
 
 CMakeFiles/LTspice.dir/Circuit.cpp.obj: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Circuit.cpp \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/QCoreApplication \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/QDir \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/q20functional.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/q20memory.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/q20type_traits.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/q23utility.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qalgorithms.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qanystringview.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qarraydata.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qarraydataops.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qarraydatapointer.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qassert.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qatomic.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qatomic_cxx11.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qbasicatomic.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qbindingstorage.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qbytearray.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qbytearrayalgorithms.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qbytearraylist.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qbytearrayview.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qcalendar.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qchar.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qcompare.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qcompare_impl.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qcomparehelpers.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qcompilerdetection.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qconfig.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qconstructormacros.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qcontainerfwd.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qcontainerinfo.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qcontainertools_impl.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qcontiguouscache.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qcoreapplication.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qcoreapplication_platform.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qcoreevent.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qdarwinhelpers.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qdatastream.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qdatetime.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qdeadlinetimer.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qdebug.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qdir.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qelapsedtimer.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qeventloop.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qexceptionhandling.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qfile.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qfiledevice.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qfileinfo.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qflags.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qfloat16.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qforeach.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qfunctionaltools_impl.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qfunctionpointer.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qgenericatomic.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qglobal.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qglobalstatic.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qhash.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qhashfunctions.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qiodevice.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qiodevicebase.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qiterable.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qiterator.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qlatin1stringview.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qlist.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qlocale.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qlogging.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qmalloc.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qmap.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qmath.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qmetacontainer.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qmetatype.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qminmax.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qnamespace.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qnativeinterface.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qnumeric.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qobject.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qobject_impl.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qobjectdefs.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qobjectdefs_impl.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qoverload.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qpair.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qprocessordetection.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qrefcount.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qscopedpointer.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qscopeguard.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qset.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qshareddata.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qshareddata_impl.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qsharedpointer.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qsharedpointer_impl.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qstring.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qstringalgorithms.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qstringbuilder.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qstringconverter.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qstringconverter_base.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qstringfwd.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qstringlist.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qstringliteral.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qstringmatcher.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qstringtokenizer.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qstringview.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qswap.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qsysinfo.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qsystemdetection.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qtaggedpointer.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qtclasshelpermacros.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qtconfiginclude.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qtconfigmacros.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qtcore-config.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qtcoreexports.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qtdeprecationmarkers.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qtenvironmentvariables.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qtextstream.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qtimezone.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qtmetamacros.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qtnoop.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qtpreprocessorsupport.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qtresource.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qttranslation.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qttypetraits.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qtversion.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qtversionchecks.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qtypeinfo.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qtypes.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qutf8stringview.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qvariant.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qvarlengtharray.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qversiontagging.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qxptype_traits.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qyieldcpu.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed/limits.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed/syslimits.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/algorithm \
@@ -488,6 +617,7 @@ CMakeFiles/LTspice.dir/Circuit.cpp.obj: C:/Users/parsa/Documents/university/Prog
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/cpp_type_traits.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/cxxabi_forced.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/cxxabi_init_exception.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/enable_special_members.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/erase_if.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/exception.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/exception_defines.h \
@@ -506,6 +636,7 @@ CMakeFiles/LTspice.dir/Circuit.cpp.obj: C:/Users/parsa/Documents/university/Prog
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/ios_base.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/istream.tcc \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/iterator_concepts.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/list.tcc \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/locale_classes.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/locale_classes.tcc \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/locale_conv.h \
@@ -551,9 +682,11 @@ CMakeFiles/LTspice.dir/Circuit.cpp.obj: C:/Users/parsa/Documents/university/Prog
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_iterator.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_iterator_base_funcs.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_iterator_base_types.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_list.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_map.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_multimap.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_multiset.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_numeric.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_pair.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_raw_storage_iter.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_relops.h \
@@ -570,6 +703,7 @@ CMakeFiles/LTspice.dir/Circuit.cpp.obj: C:/Users/parsa/Documents/university/Prog
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/uniform_int_dist.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/unique_ptr.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/unordered_map.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/unordered_set.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/uses_allocator.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/uses_allocator_args.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/vector.tcc \
@@ -614,15 +748,19 @@ CMakeFiles/LTspice.dir/Circuit.cpp.obj: C:/Users/parsa/Documents/university/Prog
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/istream \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/iterator \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/limits \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/list \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/locale \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/map \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/memory \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/new \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/numbers \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/numeric \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/optional \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ostream \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/execution_defs.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/glue_algorithm_defs.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/glue_memory_defs.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/glue_numeric_defs.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/pstl_config.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ratio \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/set \
@@ -647,10 +785,14 @@ CMakeFiles/LTspice.dir/Circuit.cpp.obj: C:/Users/parsa/Documents/university/Prog
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/tr1/special_function_util.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/tuple \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/type_traits \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/typeindex \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/typeinfo \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/unordered_map \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/unordered_set \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/utility \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/variant \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/vector \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/version \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/atomic_word.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/basic_file.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/c++allocator.h \
@@ -670,6 +812,8 @@ CMakeFiles/LTspice.dir/Circuit.cpp.obj: C:/Users/parsa/Documents/university/Prog
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/mm_malloc.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/mmintrin.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/pmmintrin.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stdarg.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stdbool.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stddef.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stdint.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/xmmintrin.h \
@@ -678,6 +822,7 @@ CMakeFiles/LTspice.dir/Circuit.cpp.obj: C:/Users/parsa/Documents/university/Prog
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/_mingw_off_t.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/_mingw_secapi.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/_mingw_stat64.h \
+  C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/_mingw_stdarg.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/_timeval.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/assert.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/corecrt.h \
@@ -704,6 +849,7 @@ CMakeFiles/LTspice.dir/Circuit.cpp.obj: C:/Users/parsa/Documents/university/Prog
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/sec_api/sys/timeb_s.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/sec_api/wchar_s.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/signal.h \
+  C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/stdarg.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/stddef.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/stdint.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/stdio.h \
@@ -899,10 +1045,25 @@ CMakeFiles/LTspice.dir/Circuit.cpp.obj: C:/Users/parsa/Documents/university/Prog
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/plugins/MatrixCwiseBinaryOps.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/plugins/MatrixCwiseUnaryOps.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/plugins/ReshapedMethods.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/access.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/archives/binary.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/cereal.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/details/helpers.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/details/polymorphic_impl_fwd.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/details/static_object.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/details/traits.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/macros.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/specialize.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/types/base_class.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/types/common.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/types/concepts/pair_associative_container.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/types/map.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/types/string.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/types/vector.hpp \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Circuit.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Component.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/ComponentFactory.h \
-  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/WaveForm.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Waveform.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Circuit.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Component.h
 
@@ -1319,10 +1480,139 @@ CMakeFiles/LTspice.dir/Component.cpp.obj: C:/Users/parsa/Documents/university/Pr
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/plugins/MatrixCwiseBinaryOps.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/plugins/MatrixCwiseUnaryOps.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/plugins/ReshapedMethods.h \
-  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/WaveForm.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Waveform.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Component.h
 
 CMakeFiles/LTspice.dir/ComponentFactory.cpp.obj: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/ComponentFactory.cpp \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/QCoreApplication \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/QDir \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/q20functional.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/q20memory.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/q20type_traits.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/q23utility.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qalgorithms.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qanystringview.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qarraydata.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qarraydataops.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qarraydatapointer.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qassert.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qatomic.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qatomic_cxx11.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qbasicatomic.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qbindingstorage.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qbytearray.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qbytearrayalgorithms.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qbytearraylist.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qbytearrayview.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qcalendar.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qchar.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qcompare.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qcompare_impl.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qcomparehelpers.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qcompilerdetection.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qconfig.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qconstructormacros.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qcontainerfwd.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qcontainerinfo.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qcontainertools_impl.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qcontiguouscache.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qcoreapplication.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qcoreapplication_platform.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qcoreevent.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qdarwinhelpers.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qdatastream.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qdatetime.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qdeadlinetimer.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qdebug.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qdir.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qelapsedtimer.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qeventloop.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qexceptionhandling.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qfile.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qfiledevice.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qfileinfo.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qflags.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qfloat16.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qforeach.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qfunctionaltools_impl.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qfunctionpointer.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qgenericatomic.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qglobal.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qglobalstatic.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qhash.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qhashfunctions.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qiodevice.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qiodevicebase.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qiterable.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qiterator.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qlatin1stringview.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qlist.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qlocale.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qlogging.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qmalloc.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qmap.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qmath.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qmetacontainer.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qmetatype.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qminmax.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qnamespace.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qnativeinterface.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qnumeric.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qobject.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qobject_impl.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qobjectdefs.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qobjectdefs_impl.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qoverload.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qpair.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qprocessordetection.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qrefcount.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qscopedpointer.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qscopeguard.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qset.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qshareddata.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qshareddata_impl.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qsharedpointer.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qsharedpointer_impl.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qstring.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qstringalgorithms.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qstringbuilder.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qstringconverter.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qstringconverter_base.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qstringfwd.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qstringlist.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qstringliteral.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qstringmatcher.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qstringtokenizer.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qstringview.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qswap.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qsysinfo.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qsystemdetection.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qtaggedpointer.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qtclasshelpermacros.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qtconfiginclude.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qtconfigmacros.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qtcore-config.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qtcoreexports.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qtdeprecationmarkers.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qtenvironmentvariables.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qtextstream.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qtimezone.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qtmetamacros.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qtnoop.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qtpreprocessorsupport.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qtresource.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qttranslation.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qttypetraits.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qtversion.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qtversionchecks.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qtypeinfo.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qtypes.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qutf8stringview.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qvariant.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qvarlengtharray.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qversiontagging.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qxptype_traits.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qyieldcpu.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed/limits.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed/syslimits.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/algorithm \
@@ -1350,6 +1640,7 @@ CMakeFiles/LTspice.dir/ComponentFactory.cpp.obj: C:/Users/parsa/Documents/univer
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/cpp_type_traits.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/cxxabi_forced.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/cxxabi_init_exception.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/enable_special_members.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/erase_if.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/exception.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/exception_defines.h \
@@ -1368,6 +1659,7 @@ CMakeFiles/LTspice.dir/ComponentFactory.cpp.obj: C:/Users/parsa/Documents/univer
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/ios_base.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/istream.tcc \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/iterator_concepts.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/list.tcc \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/locale_classes.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/locale_classes.tcc \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/locale_conv.h \
@@ -1413,9 +1705,11 @@ CMakeFiles/LTspice.dir/ComponentFactory.cpp.obj: C:/Users/parsa/Documents/univer
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_iterator.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_iterator_base_funcs.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_iterator_base_types.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_list.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_map.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_multimap.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_multiset.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_numeric.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_pair.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_raw_storage_iter.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_relops.h \
@@ -1432,6 +1726,7 @@ CMakeFiles/LTspice.dir/ComponentFactory.cpp.obj: C:/Users/parsa/Documents/univer
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/uniform_int_dist.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/unique_ptr.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/unordered_map.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/unordered_set.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/uses_allocator.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/uses_allocator_args.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/vector.tcc \
@@ -1476,15 +1771,19 @@ CMakeFiles/LTspice.dir/ComponentFactory.cpp.obj: C:/Users/parsa/Documents/univer
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/istream \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/iterator \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/limits \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/list \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/locale \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/map \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/memory \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/new \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/numbers \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/numeric \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/optional \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ostream \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/execution_defs.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/glue_algorithm_defs.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/glue_memory_defs.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/glue_numeric_defs.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/pstl_config.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ratio \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/set \
@@ -1509,10 +1808,14 @@ CMakeFiles/LTspice.dir/ComponentFactory.cpp.obj: C:/Users/parsa/Documents/univer
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/tr1/special_function_util.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/tuple \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/type_traits \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/typeindex \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/typeinfo \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/unordered_map \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/unordered_set \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/utility \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/variant \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/vector \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/version \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/atomic_word.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/basic_file.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/c++allocator.h \
@@ -1532,6 +1835,8 @@ CMakeFiles/LTspice.dir/ComponentFactory.cpp.obj: C:/Users/parsa/Documents/univer
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/mm_malloc.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/mmintrin.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/pmmintrin.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stdarg.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stdbool.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stddef.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stdint.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/xmmintrin.h \
@@ -1540,6 +1845,7 @@ CMakeFiles/LTspice.dir/ComponentFactory.cpp.obj: C:/Users/parsa/Documents/univer
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/_mingw_off_t.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/_mingw_secapi.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/_mingw_stat64.h \
+  C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/_mingw_stdarg.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/_timeval.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/assert.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/corecrt.h \
@@ -1566,6 +1872,7 @@ CMakeFiles/LTspice.dir/ComponentFactory.cpp.obj: C:/Users/parsa/Documents/univer
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/sec_api/sys/timeb_s.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/sec_api/wchar_s.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/signal.h \
+  C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/stdarg.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/stddef.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/stdint.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/stdio.h \
@@ -1761,13 +2068,29 @@ CMakeFiles/LTspice.dir/ComponentFactory.cpp.obj: C:/Users/parsa/Documents/univer
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/plugins/MatrixCwiseBinaryOps.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/plugins/MatrixCwiseUnaryOps.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/plugins/ReshapedMethods.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/access.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/cereal.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/details/helpers.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/details/polymorphic_impl_fwd.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/details/static_object.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/details/traits.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/macros.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/specialize.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/types/base_class.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/types/common.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/types/concepts/pair_associative_container.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/types/map.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/types/string.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/types/vector.hpp \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Circuit.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Component.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/ComponentFactory.h \
-  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/WaveForm.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Waveform.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Component.h
 
 CMakeFiles/LTspice.dir/Dialogs.cpp.obj: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Dialogs.cpp \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/QCoreApplication \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/QDir \
   C:/Qt/6.7.3/mingw_64/include/QtCore/q20functional.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/q20memory.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/q20type_traits.h \
@@ -1787,6 +2110,7 @@ CMakeFiles/LTspice.dir/Dialogs.cpp.obj: C:/Users/parsa/Documents/university/Prog
   C:/Qt/6.7.3/mingw_64/include/QtCore/qbytearrayalgorithms.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qbytearraylist.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qbytearrayview.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qcalendar.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qchar.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qcompare.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qcompare_impl.h \
@@ -1798,11 +2122,22 @@ CMakeFiles/LTspice.dir/Dialogs.cpp.obj: C:/Users/parsa/Documents/university/Prog
   C:/Qt/6.7.3/mingw_64/include/QtCore/qcontainerinfo.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qcontainertools_impl.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qcontiguouscache.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qcoreapplication.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qcoreapplication_platform.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qcoreevent.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qdarwinhelpers.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qdatastream.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qdatetime.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qdeadlinetimer.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qdebug.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qdir.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qelapsedtimer.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qendian.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qeventloop.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qexceptionhandling.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qfile.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qfiledevice.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qfileinfo.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qflags.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qfloat16.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qforeach.h \
@@ -1831,6 +2166,7 @@ CMakeFiles/LTspice.dir/Dialogs.cpp.obj: C:/Users/parsa/Documents/university/Prog
   C:/Qt/6.7.3/mingw_64/include/QtCore/qmetatype.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qminmax.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qnamespace.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qnativeinterface.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qnumeric.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qobject.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qobject_impl.h \
@@ -1874,6 +2210,7 @@ CMakeFiles/LTspice.dir/Dialogs.cpp.obj: C:/Users/parsa/Documents/university/Prog
   C:/Qt/6.7.3/mingw_64/include/QtCore/qtdeprecationmarkers.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qtenvironmentvariables.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qtextstream.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qtimezone.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qtmetamacros.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qtnoop.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qtpreprocessorsupport.h \
@@ -1991,6 +2328,7 @@ CMakeFiles/LTspice.dir/Dialogs.cpp.obj: C:/Users/parsa/Documents/university/Prog
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/basic_string.tcc \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/char_traits.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/charconv.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/codecvt.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/concept_check.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/cpp_type_traits.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/cxxabi_forced.h \
@@ -2000,6 +2338,11 @@ CMakeFiles/LTspice.dir/Dialogs.cpp.obj: C:/Users/parsa/Documents/university/Prog
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/exception.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/exception_defines.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/exception_ptr.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/fs_dir.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/fs_fwd.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/fs_ops.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/fs_path.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/fstream.tcc \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/functexcept.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/functional_hash.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/hash_bytes.h \
@@ -2007,12 +2350,16 @@ CMakeFiles/LTspice.dir/Dialogs.cpp.obj: C:/Users/parsa/Documents/university/Prog
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/hashtable_policy.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/invoke.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/ios_base.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/istream.tcc \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/iterator_concepts.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/list.tcc \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/locale_classes.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/locale_classes.tcc \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/locale_conv.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/locale_facets.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/locale_facets.tcc \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/locale_facets_nonio.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/locale_facets_nonio.tcc \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/localefwd.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/max_size_type.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/memoryfwd.h \
@@ -2025,6 +2372,7 @@ CMakeFiles/LTspice.dir/Dialogs.cpp.obj: C:/Users/parsa/Documents/university/Prog
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/postypes.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/predefined_ops.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/ptr_traits.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/quoted_string.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/range_access.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/ranges_algo.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/ranges_algobase.h \
@@ -2037,6 +2385,7 @@ CMakeFiles/LTspice.dir/Dialogs.cpp.obj: C:/Users/parsa/Documents/university/Prog
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/shared_ptr_atomic.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/shared_ptr_base.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/specfun.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/sstream.tcc \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/std_abs.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/std_function.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/std_mutex.h \
@@ -2052,10 +2401,12 @@ CMakeFiles/LTspice.dir/Dialogs.cpp.obj: C:/Users/parsa/Documents/university/Prog
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_list.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_map.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_multimap.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_multiset.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_numeric.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_pair.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_raw_storage_iter.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_relops.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_set.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_tempbuf.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_tree.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_uninitialized.h \
@@ -2068,16 +2419,20 @@ CMakeFiles/LTspice.dir/Dialogs.cpp.obj: C:/Users/parsa/Documents/university/Prog
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/uniform_int_dist.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/unique_ptr.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/unordered_map.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/unordered_set.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/uses_allocator.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/uses_allocator_args.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/vector.tcc \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cassert \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cctype \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cerrno \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/chrono \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/climits \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/clocale \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cmath \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/codecvt \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/compare \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/complex \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/concepts \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cstddef \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cstdint \
@@ -2098,13 +2453,19 @@ CMakeFiles/LTspice.dir/Dialogs.cpp.obj: C:/Users/parsa/Documents/university/Prog
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ext/numeric_traits.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ext/string_conversions.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ext/type_traits.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/filesystem \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/fstream \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/functional \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/initializer_list \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/iomanip \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ios \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/iosfwd \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/iostream \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/istream \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/iterator \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/limits \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/list \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/locale \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/map \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/memory \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/new \
@@ -2118,6 +2479,8 @@ CMakeFiles/LTspice.dir/Dialogs.cpp.obj: C:/Users/parsa/Documents/university/Prog
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/glue_numeric_defs.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/pstl_config.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ratio \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/set \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/sstream \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/stdexcept \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/stdlib.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/streambuf \
@@ -2138,15 +2501,19 @@ CMakeFiles/LTspice.dir/Dialogs.cpp.obj: C:/Users/parsa/Documents/university/Prog
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/tr1/special_function_util.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/tuple \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/type_traits \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/typeindex \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/typeinfo \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/unordered_map \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/unordered_set \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/utility \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/variant \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/vector \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/version \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/atomic_word.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/basic_file.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/c++allocator.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/c++io.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/c++locale.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/cpu_defines.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/ctype_base.h \
@@ -2154,12 +2521,18 @@ CMakeFiles/LTspice.dir/Dialogs.cpp.obj: C:/Users/parsa/Documents/university/Prog
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/error_constants.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/gthr-default.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/gthr.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/messages_members.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/os_defines.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/time_members.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/emmintrin.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/mm_malloc.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/mmintrin.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/pmmintrin.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stdarg.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stdbool.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stddef.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/stdint.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/xmmintrin.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/_mingw.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/_mingw_mac.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/_mingw_off_t.h \
@@ -2205,11 +2578,215 @@ CMakeFiles/LTspice.dir/Dialogs.cpp.obj: C:/Users/parsa/Documents/university/Prog
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/vadefs.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wctype.h \
-  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Dialogs.h
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/Cholesky \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/Core \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/Dense \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/Eigenvalues \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/Geometry \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/Householder \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/Jacobi \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/LU \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/QR \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/SVD \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Cholesky/LDLT.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Cholesky/LLT.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/ArithmeticSequence.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/Array.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/ArrayBase.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/ArrayWrapper.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/Assign.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/AssignEvaluator.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/BandMatrix.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/Block.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/BooleanRedux.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/CommaInitializer.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/ConditionEstimator.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/CoreEvaluators.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/CoreIterators.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/CwiseBinaryOp.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/CwiseNullaryOp.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/CwiseTernaryOp.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/CwiseUnaryOp.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/CwiseUnaryView.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/DenseBase.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/DenseCoeffsBase.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/DenseStorage.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/Diagonal.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/DiagonalMatrix.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/DiagonalProduct.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/Dot.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/EigenBase.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/Fuzzy.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/GeneralProduct.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/GenericPacketMath.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/GlobalFunctions.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/IO.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/IndexedView.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/Inverse.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/Map.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/MapBase.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/MathFunctions.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/MathFunctionsImpl.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/Matrix.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/MatrixBase.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/NestByValue.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/NoAlias.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/NumTraits.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/PartialReduxEvaluator.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/PermutationMatrix.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/PlainObjectBase.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/Product.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/ProductEvaluators.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/Random.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/Redux.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/Ref.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/Replicate.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/Reshaped.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/ReturnByValue.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/Reverse.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/Select.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/SelfAdjointView.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/SelfCwiseBinaryOp.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/Solve.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/SolveTriangular.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/SolverBase.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/StableNorm.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/StlIterators.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/Stride.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/Swap.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/Transpose.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/Transpositions.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/TriangularMatrix.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/VectorBlock.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/VectorwiseOp.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/Visitor.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/arch/Default/BFloat16.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/arch/Default/ConjHelper.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/arch/Default/GenericPacketMathFunctions.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/arch/Default/GenericPacketMathFunctionsFwd.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/arch/Default/Half.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/arch/Default/Settings.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/arch/Default/TypeCasting.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/arch/SSE/Complex.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/arch/SSE/MathFunctions.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/arch/SSE/PacketMath.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/arch/SSE/TypeCasting.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/functors/AssignmentFunctors.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/functors/BinaryFunctors.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/functors/NullaryFunctors.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/functors/StlFunctors.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/functors/TernaryFunctors.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/functors/UnaryFunctors.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/products/GeneralBlockPanelKernel.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/products/GeneralMatrixMatrix.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/products/GeneralMatrixMatrixTriangular.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/products/GeneralMatrixVector.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/products/Parallelizer.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/products/SelfadjointMatrixMatrix.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/products/SelfadjointMatrixVector.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/products/SelfadjointProduct.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/products/SelfadjointRank2Update.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/products/TriangularMatrixMatrix.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/products/TriangularMatrixVector.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/products/TriangularSolverMatrix.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/products/TriangularSolverVector.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/util/BlasUtil.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/util/ConfigureVectorization.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/util/Constants.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/util/DisableStupidWarnings.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/util/ForwardDeclarations.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/util/IndexedViewHelper.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/util/IntegralConstant.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/util/MKL_support.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/util/Macros.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/util/Memory.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/util/Meta.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/util/ReenableStupidWarnings.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/util/ReshapedHelper.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/util/StaticAssert.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/util/SymbolicIndex.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/util/XprHelper.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Eigenvalues/ComplexEigenSolver.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Eigenvalues/ComplexSchur.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Eigenvalues/EigenSolver.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Eigenvalues/GeneralizedEigenSolver.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Eigenvalues/GeneralizedSelfAdjointEigenSolver.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Eigenvalues/HessenbergDecomposition.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Eigenvalues/MatrixBaseEigenvalues.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Eigenvalues/RealQZ.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Eigenvalues/RealSchur.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Eigenvalues/SelfAdjointEigenSolver.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Eigenvalues/Tridiagonalization.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Geometry/AlignedBox.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Geometry/AngleAxis.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Geometry/EulerAngles.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Geometry/Homogeneous.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Geometry/Hyperplane.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Geometry/OrthoMethods.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Geometry/ParametrizedLine.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Geometry/Quaternion.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Geometry/Rotation2D.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Geometry/RotationBase.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Geometry/Scaling.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Geometry/Transform.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Geometry/Translation.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Geometry/Umeyama.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Geometry/arch/Geometry_SIMD.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Householder/BlockHouseholder.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Householder/Householder.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Householder/HouseholderSequence.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Jacobi/Jacobi.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/LU/Determinant.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/LU/FullPivLU.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/LU/InverseImpl.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/LU/PartialPivLU.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/LU/arch/InverseSize4.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/QR/ColPivHouseholderQR.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/QR/CompleteOrthogonalDecomposition.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/QR/FullPivHouseholderQR.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/QR/HouseholderQR.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/SVD/BDCSVD.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/SVD/JacobiSVD.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/SVD/SVDBase.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/SVD/UpperBidiagonalization.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/misc/Image.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/misc/Kernel.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/misc/RealSvd2x2.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/plugins/ArrayCwiseBinaryOps.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/plugins/ArrayCwiseUnaryOps.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/plugins/BlockMethods.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/plugins/CommonCwiseBinaryOps.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/plugins/CommonCwiseUnaryOps.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/plugins/IndexedViewMethods.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/plugins/MatrixCwiseBinaryOps.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/plugins/MatrixCwiseUnaryOps.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/plugins/ReshapedMethods.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/access.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/cereal.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/details/helpers.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/details/polymorphic_impl_fwd.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/details/static_object.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/details/traits.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/macros.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/specialize.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/types/base_class.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/types/common.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/types/concepts/pair_associative_container.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/types/map.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/types/string.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/types/vector.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Circuit.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Component.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/ComponentFactory.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Dialogs.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Waveform.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Component.h
 
 CMakeFiles/LTspice.dir/LTspice_autogen/EWIEGA46WW/qrc_resources.cpp.obj: LTspice_autogen/EWIEGA46WW/qrc_resources.cpp
 
 CMakeFiles/LTspice.dir/LTspice_autogen/mocs_compilation.cpp.obj: LTspice_autogen/mocs_compilation.cpp \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/QCoreApplication \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/QDir \
   C:/Qt/6.7.3/mingw_64/include/QtCore/QList \
   C:/Qt/6.7.3/mingw_64/include/QtCore/QObject \
   C:/Qt/6.7.3/mingw_64/include/QtCore/QRect \
@@ -2235,6 +2812,7 @@ CMakeFiles/LTspice.dir/LTspice_autogen/mocs_compilation.cpp.obj: LTspice_autogen
   C:/Qt/6.7.3/mingw_64/include/QtCore/qbytearrayalgorithms.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qbytearraylist.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qbytearrayview.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qcalendar.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qchar.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qcompare.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qcompare_impl.h \
@@ -2251,12 +2829,17 @@ CMakeFiles/LTspice.dir/LTspice_autogen/mocs_compilation.cpp.obj: LTspice_autogen
   C:/Qt/6.7.3/mingw_64/include/QtCore/qcoreevent.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qdarwinhelpers.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qdatastream.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qdatetime.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qdeadlinetimer.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qdebug.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qdir.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qelapsedtimer.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qendian.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qeventloop.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qexceptionhandling.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qfile.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qfiledevice.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qfileinfo.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qflags.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qfloat16.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qforeach.h \
@@ -2329,6 +2912,7 @@ CMakeFiles/LTspice.dir/LTspice_autogen/mocs_compilation.cpp.obj: LTspice_autogen
   C:/Qt/6.7.3/mingw_64/include/QtCore/qtdeprecationmarkers.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qtenvironmentvariables.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qtextstream.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qtimezone.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qtmetamacros.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qtmochelpers.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qtnoop.h \
@@ -2405,6 +2989,7 @@ CMakeFiles/LTspice.dir/LTspice_autogen/mocs_compilation.cpp.obj: LTspice_autogen
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QDialogButtonBox \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QFormLayout \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QGroupBox \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/QInputDialog \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QLabel \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QLayout \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QLineEdit \
@@ -2435,6 +3020,7 @@ CMakeFiles/LTspice.dir/LTspice_autogen/mocs_compilation.cpp.obj: LTspice_autogen
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qframe.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qgridlayout.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qgroupbox.h \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/qinputdialog.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qlabel.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qlayout.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qlayoutitem.h \
@@ -2573,6 +3159,7 @@ CMakeFiles/LTspice.dir/LTspice_autogen/mocs_compilation.cpp.obj: LTspice_autogen
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/uniform_int_dist.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/unique_ptr.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/unordered_map.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/unordered_set.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/uses_allocator.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/uses_allocator_args.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/vector.tcc \
@@ -2654,8 +3241,10 @@ CMakeFiles/LTspice.dir/LTspice_autogen/mocs_compilation.cpp.obj: LTspice_autogen
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/tr1/special_function_util.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/tuple \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/type_traits \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/typeindex \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/typeinfo \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/unordered_map \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/unordered_set \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/utility \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/variant \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/vector \
@@ -2913,13 +3502,27 @@ CMakeFiles/LTspice.dir/LTspice_autogen/mocs_compilation.cpp.obj: LTspice_autogen
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/plugins/MatrixCwiseBinaryOps.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/plugins/MatrixCwiseUnaryOps.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/plugins/ReshapedMethods.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/access.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/cereal.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/details/helpers.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/details/polymorphic_impl_fwd.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/details/static_object.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/details/traits.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/macros.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/specialize.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/types/base_class.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/types/common.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/types/concepts/pair_associative_container.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/types/map.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/types/string.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/types/vector.hpp \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/ChartWindow.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Circuit.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Component.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/ComponentFactory.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Dialogs.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/SchematicWidget.h \
-  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/WaveForm.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Waveform.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Component.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/mainwindow.h \
   LTspice_autogen/EWIEGA46WW/moc_ChartWindow.cpp \
@@ -2928,6 +3531,8 @@ CMakeFiles/LTspice.dir/LTspice_autogen/mocs_compilation.cpp.obj: LTspice_autogen
   LTspice_autogen/EWIEGA46WW/moc_mainwindow.cpp
 
 CMakeFiles/LTspice.dir/SchematicWidget.cpp.obj: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/SchematicWidget.cpp \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/QCoreApplication \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/QDir \
   C:/Qt/6.7.3/mingw_64/include/QtCore/QList \
   C:/Qt/6.7.3/mingw_64/include/QtCore/QObject \
   C:/Qt/6.7.3/mingw_64/include/QtCore/QRect \
@@ -2952,6 +3557,7 @@ CMakeFiles/LTspice.dir/SchematicWidget.cpp.obj: C:/Users/parsa/Documents/univers
   C:/Qt/6.7.3/mingw_64/include/QtCore/qbytearrayalgorithms.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qbytearraylist.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qbytearrayview.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qcalendar.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qchar.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qcompare.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qcompare_impl.h \
@@ -2968,12 +3574,17 @@ CMakeFiles/LTspice.dir/SchematicWidget.cpp.obj: C:/Users/parsa/Documents/univers
   C:/Qt/6.7.3/mingw_64/include/QtCore/qcoreevent.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qdarwinhelpers.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qdatastream.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qdatetime.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qdeadlinetimer.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qdebug.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qdir.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qelapsedtimer.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qendian.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qeventloop.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qexceptionhandling.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qfile.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qfiledevice.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qfileinfo.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qflags.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qfloat16.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qforeach.h \
@@ -3046,6 +3657,7 @@ CMakeFiles/LTspice.dir/SchematicWidget.cpp.obj: C:/Users/parsa/Documents/univers
   C:/Qt/6.7.3/mingw_64/include/QtCore/qtdeprecationmarkers.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qtenvironmentvariables.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qtextstream.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qtimezone.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qtmetamacros.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qtnoop.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qtpreprocessorsupport.h \
@@ -3117,6 +3729,7 @@ CMakeFiles/LTspice.dir/SchematicWidget.cpp.obj: C:/Users/parsa/Documents/univers
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QDialogButtonBox \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QFormLayout \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QGroupBox \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/QInputDialog \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QLabel \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QLayout \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QLineEdit \
@@ -3141,6 +3754,7 @@ CMakeFiles/LTspice.dir/SchematicWidget.cpp.obj: C:/Users/parsa/Documents/univers
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qframe.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qgridlayout.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qgroupbox.h \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/qinputdialog.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qlabel.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qlayout.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qlayoutitem.h \
@@ -3274,6 +3888,7 @@ CMakeFiles/LTspice.dir/SchematicWidget.cpp.obj: C:/Users/parsa/Documents/univers
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/uniform_int_dist.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/unique_ptr.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/unordered_map.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/unordered_set.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/uses_allocator.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/uses_allocator_args.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/vector.tcc \
@@ -3355,8 +3970,10 @@ CMakeFiles/LTspice.dir/SchematicWidget.cpp.obj: C:/Users/parsa/Documents/univers
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/tr1/special_function_util.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/tuple \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/type_traits \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/typeindex \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/typeinfo \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/unordered_map \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/unordered_set \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/utility \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/variant \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/vector \
@@ -3613,15 +4230,29 @@ CMakeFiles/LTspice.dir/SchematicWidget.cpp.obj: C:/Users/parsa/Documents/univers
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/plugins/MatrixCwiseBinaryOps.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/plugins/MatrixCwiseUnaryOps.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/plugins/ReshapedMethods.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/access.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/cereal.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/details/helpers.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/details/polymorphic_impl_fwd.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/details/static_object.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/details/traits.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/macros.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/specialize.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/types/base_class.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/types/common.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/types/concepts/pair_associative_container.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/types/map.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/types/string.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/types/vector.hpp \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Circuit.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Component.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/ComponentFactory.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Dialogs.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/SchematicWidget.h \
-  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/WaveForm.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Waveform.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Component.h
 
-CMakeFiles/LTspice.dir/WaveForm.cpp.obj: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/WaveForm.cpp \
+CMakeFiles/LTspice.dir/Waveform.cpp.obj: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Waveform.cpp \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed/limits.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed/syslimits.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/concept_check.h \
@@ -3683,9 +4314,11 @@ CMakeFiles/LTspice.dir/WaveForm.cpp.obj: C:/Users/parsa/Documents/university/Pro
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/sec_api/stdlib_s.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/stdlib.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/vadefs.h \
-  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/WaveForm.h
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Waveform.h
 
 CMakeFiles/LTspice.dir/main.cpp.obj: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/main.cpp \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/QCoreApplication \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/QDir \
   C:/Qt/6.7.3/mingw_64/include/QtCore/QList \
   C:/Qt/6.7.3/mingw_64/include/QtCore/QObject \
   C:/Qt/6.7.3/mingw_64/include/QtCore/QRect \
@@ -3711,6 +4344,7 @@ CMakeFiles/LTspice.dir/main.cpp.obj: C:/Users/parsa/Documents/university/Program
   C:/Qt/6.7.3/mingw_64/include/QtCore/qbytearrayalgorithms.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qbytearraylist.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qbytearrayview.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qcalendar.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qchar.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qcompare.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qcompare_impl.h \
@@ -3727,12 +4361,17 @@ CMakeFiles/LTspice.dir/main.cpp.obj: C:/Users/parsa/Documents/university/Program
   C:/Qt/6.7.3/mingw_64/include/QtCore/qcoreevent.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qdarwinhelpers.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qdatastream.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qdatetime.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qdeadlinetimer.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qdebug.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qdir.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qelapsedtimer.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qendian.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qeventloop.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qexceptionhandling.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qfile.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qfiledevice.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qfileinfo.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qflags.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qfloat16.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qforeach.h \
@@ -3805,6 +4444,7 @@ CMakeFiles/LTspice.dir/main.cpp.obj: C:/Users/parsa/Documents/university/Program
   C:/Qt/6.7.3/mingw_64/include/QtCore/qtdeprecationmarkers.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qtenvironmentvariables.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qtextstream.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qtimezone.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qtmetamacros.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qtnoop.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qtpreprocessorsupport.h \
@@ -3880,6 +4520,7 @@ CMakeFiles/LTspice.dir/main.cpp.obj: C:/Users/parsa/Documents/university/Program
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QDialogButtonBox \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QFormLayout \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QGroupBox \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/QInputDialog \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QLabel \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QLayout \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QLineEdit \
@@ -3910,6 +4551,7 @@ CMakeFiles/LTspice.dir/main.cpp.obj: C:/Users/parsa/Documents/university/Program
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qframe.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qgridlayout.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qgroupbox.h \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/qinputdialog.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qlabel.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qlayout.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qlayoutitem.h \
@@ -4048,6 +4690,7 @@ CMakeFiles/LTspice.dir/main.cpp.obj: C:/Users/parsa/Documents/university/Program
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/uniform_int_dist.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/unique_ptr.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/unordered_map.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/unordered_set.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/uses_allocator.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/uses_allocator_args.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/vector.tcc \
@@ -4129,8 +4772,10 @@ CMakeFiles/LTspice.dir/main.cpp.obj: C:/Users/parsa/Documents/university/Program
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/tr1/special_function_util.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/tuple \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/type_traits \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/typeindex \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/typeinfo \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/unordered_map \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/unordered_set \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/utility \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/variant \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/vector \
@@ -4388,17 +5033,33 @@ CMakeFiles/LTspice.dir/main.cpp.obj: C:/Users/parsa/Documents/university/Program
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/plugins/MatrixCwiseBinaryOps.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/plugins/MatrixCwiseUnaryOps.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/plugins/ReshapedMethods.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/access.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/cereal.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/details/helpers.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/details/polymorphic_impl_fwd.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/details/static_object.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/details/traits.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/macros.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/specialize.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/types/base_class.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/types/common.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/types/concepts/pair_associative_container.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/types/map.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/types/string.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/types/vector.hpp \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/ChartWindow.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Circuit.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Component.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/ComponentFactory.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Dialogs.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/SchematicWidget.h \
-  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/WaveForm.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Waveform.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Component.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/mainwindow.h
 
 CMakeFiles/LTspice.dir/mainwindow.cpp.obj: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/mainwindow.cpp \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/QCoreApplication \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/QDir \
   C:/Qt/6.7.3/mingw_64/include/QtCore/QList \
   C:/Qt/6.7.3/mingw_64/include/QtCore/QObject \
   C:/Qt/6.7.3/mingw_64/include/QtCore/QRect \
@@ -4424,6 +5085,7 @@ CMakeFiles/LTspice.dir/mainwindow.cpp.obj: C:/Users/parsa/Documents/university/P
   C:/Qt/6.7.3/mingw_64/include/QtCore/qbytearrayalgorithms.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qbytearraylist.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qbytearrayview.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qcalendar.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qchar.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qcompare.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qcompare_impl.h \
@@ -4440,12 +5102,17 @@ CMakeFiles/LTspice.dir/mainwindow.cpp.obj: C:/Users/parsa/Documents/university/P
   C:/Qt/6.7.3/mingw_64/include/QtCore/qcoreevent.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qdarwinhelpers.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qdatastream.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qdatetime.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qdeadlinetimer.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qdebug.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qdir.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qelapsedtimer.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qendian.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qeventloop.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qexceptionhandling.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qfile.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qfiledevice.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qfileinfo.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qflags.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qfloat16.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qforeach.h \
@@ -4518,6 +5185,7 @@ CMakeFiles/LTspice.dir/mainwindow.cpp.obj: C:/Users/parsa/Documents/university/P
   C:/Qt/6.7.3/mingw_64/include/QtCore/qtdeprecationmarkers.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qtenvironmentvariables.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qtextstream.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qtimezone.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qtmetamacros.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qtnoop.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qtpreprocessorsupport.h \
@@ -4593,6 +5261,7 @@ CMakeFiles/LTspice.dir/mainwindow.cpp.obj: C:/Users/parsa/Documents/university/P
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QDialogButtonBox \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QFormLayout \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QGroupBox \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/QInputDialog \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QLabel \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QLayout \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QLineEdit \
@@ -4623,6 +5292,7 @@ CMakeFiles/LTspice.dir/mainwindow.cpp.obj: C:/Users/parsa/Documents/university/P
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qframe.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qgridlayout.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qgroupbox.h \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/qinputdialog.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qlabel.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qlayout.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qlayoutitem.h \
@@ -4761,6 +5431,7 @@ CMakeFiles/LTspice.dir/mainwindow.cpp.obj: C:/Users/parsa/Documents/university/P
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/uniform_int_dist.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/unique_ptr.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/unordered_map.h \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/unordered_set.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/uses_allocator.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/uses_allocator_args.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/vector.tcc \
@@ -4842,8 +5513,10 @@ CMakeFiles/LTspice.dir/mainwindow.cpp.obj: C:/Users/parsa/Documents/university/P
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/tr1/special_function_util.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/tuple \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/type_traits \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/typeindex \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/typeinfo \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/unordered_map \
+  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/unordered_set \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/utility \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/variant \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/vector \
@@ -5101,13 +5774,27 @@ CMakeFiles/LTspice.dir/mainwindow.cpp.obj: C:/Users/parsa/Documents/university/P
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/plugins/MatrixCwiseBinaryOps.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/plugins/MatrixCwiseUnaryOps.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/plugins/ReshapedMethods.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/access.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/cereal.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/details/helpers.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/details/polymorphic_impl_fwd.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/details/static_object.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/details/traits.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/macros.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/specialize.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/types/base_class.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/types/common.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/types/concepts/pair_associative_container.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/types/map.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/types/string.hpp \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/types/vector.hpp \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/ChartWindow.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Circuit.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Component.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/ComponentFactory.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Dialogs.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/SchematicWidget.h \
-  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/WaveForm.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Waveform.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Component.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/mainwindow.h
 
@@ -5142,6 +5829,8 @@ C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/basi
 
 C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/error_constants.h:
 
+C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/types/concepts/pair_associative_container.hpp:
+
 C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/products/SelfadjointMatrixVector.h:
 
 C:/Qt/6.7.3/mingw_64/include/QtCore/qcoreapplication_platform.h:
@@ -5155,6 +5844,8 @@ C:/Qt/6.7.3/mingw_64/include/QtCore/qarraydataops.h:
 C:/Qt/6.7.3/mingw_64/include/QtWidgets/qboxlayout.h:
 
 C:/Qt/6.7.3/mingw_64/include/QtGui/qimage.h:
+
+C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/types/base_class.hpp:
 
 C:/Qt/6.7.3/mingw_64/include/QtCharts/qchartglobal.h:
 
@@ -5198,9 +5889,9 @@ C:/Qt/6.7.3/mingw_64/include/QtCharts/QValueAxis:
 
 C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/fs_fwd.h:
 
-C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/pstl_config.h:
-
 C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/ArithmeticSequence.h:
+
+C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/pstl/pstl_config.h:
 
 C:/Qt/6.7.3/mingw_64/include/QtCore/qconfig.h:
 
@@ -5272,9 +5963,9 @@ C:/Qt/6.7.3/mingw_64/include/QtCore/qiodevicebase.h:
 
 C:/Qt/6.7.3/mingw_64/include/QtCore/qscopedpointer.h:
 
-C:/Qt/6.7.3/mingw_64/include/QtCore/QMargins:
-
 C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/SVD:
+
+C:/Qt/6.7.3/mingw_64/include/QtCore/QMargins:
 
 C:/Qt/6.7.3/mingw_64/include/QtCore/qcontainerinfo.h:
 
@@ -5370,11 +6061,15 @@ C:/Qt/6.7.3/mingw_64/include/QtCore/qchar.h:
 
 C:/Qt/6.7.3/mingw_64/include/QtCore/qcompare_impl.h:
 
-C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/ostream_insert.h:
-
 C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/Transpose.h:
 
 C:/Qt/6.7.3/mingw_64/include/QtCore/qcontiguouscache.h:
+
+C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/typeindex:
+
+C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/specialize.hpp:
+
+C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/ostream_insert.h:
 
 C:/Qt/6.7.3/mingw_64/include/QtCore/qcomparehelpers.h:
 
@@ -5510,6 +6205,8 @@ C:/Qt/6.7.3/mingw_64/include/QtCore/qnumeric.h:
 
 C:/Qt/6.7.3/mingw_64/include/QtGui/QMouseEvent:
 
+C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/details/helpers.hpp:
+
 C:/Qt/6.7.3/mingw_64/include/QtCore/qobject.h:
 
 C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/numeric:
@@ -5568,6 +6265,8 @@ C:/Qt/6.7.3/mingw_64/include/QtCore/qstring.h:
 
 C:/Qt/6.7.3/mingw_64/include/QtCore/qstringalgorithms.h:
 
+C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/macros.hpp:
+
 C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/CwiseNullaryOp.h:
 
 C:/Qt/6.7.3/mingw_64/include/QtCore/qstringbuilder.h:
@@ -5609,6 +6308,8 @@ C:/Qt/6.7.3/mingw_64/include/QtCore/qsysinfo.h:
 C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/sec_api/sys/timeb_s.h:
 
 C:/Qt/6.7.3/mingw_64/include/QtCore/qtaggedpointer.h:
+
+C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/access.hpp:
 
 C:/Qt/6.7.3/mingw_64/include/QtCore/qtclasshelpermacros.h:
 
@@ -5675,6 +6376,8 @@ C:/Qt/6.7.3/mingw_64/include/QtCore/qtypes.h:
 C:/Qt/6.7.3/mingw_64/include/QtWidgets/qgraphicswidget.h:
 
 C:/Qt/6.7.3/mingw_64/include/QtCore/qurl.h:
+
+C:/Qt/6.7.3/mingw_64/include/QtCore/QDir:
 
 C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Dialogs.h:
 
@@ -5892,6 +6595,8 @@ C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/algorithm
 
 C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/atomic:
 
+C:/Qt/6.7.3/mingw_64/include/QtCore/qcalendar.h:
+
 C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Geometry/AngleAxis.h:
 
 C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward/auto_ptr.h:
@@ -5917,6 +6622,8 @@ C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/allo
 C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/allocator.h:
 
 C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/xmmintrin.h:
+
+C:/Qt/6.7.3/mingw_64/include/QtCore/qfileinfo.h:
 
 C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/atomic_base.h:
 
@@ -5946,6 +6653,8 @@ C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/func
 
 C:/Qt/6.7.3/mingw_64/include/QtWidgets/qmainwindow.h:
 
+C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Waveform.h:
+
 C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/hash_bytes.h:
 
 C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/streambuf_iterator.h:
@@ -5968,6 +6677,8 @@ C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/max_
 
 C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/pthread_compat.h:
 
+C:/Qt/6.7.3/mingw_64/include/QtWidgets/qinputdialog.h:
+
 C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/iterator:
 
 C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/memoryfwd.h:
@@ -5979,6 +6690,8 @@ LTspice_autogen/include/ui_mainwindow.h:
 C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/node_handle.h:
 
 C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cctype:
+
+C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/details/polymorphic_impl_fwd.hpp:
 
 C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/chrono:
 
@@ -6038,9 +6751,9 @@ C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_
 
 C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_vector.h:
 
-C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stream_iterator.h:
-
 C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Cholesky/LLT.h:
+
+C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stream_iterator.h:
 
 C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/unordered_map.h:
 
@@ -6093,6 +6806,8 @@ C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/fs_o
 C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ext/atomicity.h:
 
 C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/sstream:
+
+C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/archives/binary.hpp:
 
 C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ext/new_allocator.h:
 
@@ -6164,11 +6879,11 @@ C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/tr1/hyper
 
 C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/SVD/SVDBase.h:
 
+C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/BandMatrix.h:
+
 C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/assert.h:
 
 C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/corecrt.h:
-
-C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/BandMatrix.h:
 
 C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/tr1/special_function_util.h:
 
@@ -6189,6 +6904,8 @@ C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/_mingw_off_t.h:
 C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/c++locale.h:
 
 C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/cpu_defines.h:
+
+C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/types/string.hpp:
 
 C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/ctype_base.h:
 
@@ -6228,8 +6945,6 @@ C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/istr
 
 C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/math.h:
 
-C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/ArrayBase.h:
-
 C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/pthread.h:
 
 C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/sec_api/stdio_s.h:
@@ -6258,6 +6973,22 @@ C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cp
 
 C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/time.h:
 
+C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/products/TriangularSolverVector.h:
+
+C:/Qt/6.7.3/mingw_64/include/QtCore/QCoreApplication:
+
+C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/products/GeneralMatrixMatrixTriangular.h:
+
+C:/Qt/6.7.3/mingw_64/include/QtCore/qdatetime.h:
+
+C:/Qt/6.7.3/mingw_64/include/QtCore/qdir.h:
+
+C:/Qt/6.7.3/mingw_64/include/QtCore/qfile.h:
+
+C:/Qt/6.7.3/mingw_64/include/QtCore/qfiledevice.h:
+
+C:/Qt/6.7.3/mingw_64/include/QtCore/qtimezone.h:
+
 C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/fs_path.h:
 
 C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/fstream.tcc:
@@ -6273,6 +7004,8 @@ C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/quot
 C:/Qt/6.7.3/mingw_64/include/QtWidgets/qabstractslider.h:
 
 C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_set.h:
+
+C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/unordered_set.h:
 
 C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cassert:
 
@@ -6292,6 +7025,10 @@ C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/locale:
 
 C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/set:
 
+C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/functors/TernaryFunctors.h:
+
+C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/unordered_set:
+
 C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/basic_file.h:
 
 C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/CwiseUnaryView.h:
@@ -6299,6 +7036,8 @@ C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cp
 C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/time_members.h:
 
 C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/emmintrin.h:
+
+C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/details/static_object.hpp:
 
 C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/Cholesky:
 
@@ -6319,6 +7058,8 @@ C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cp
 C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Cholesky/LDLT.h:
 
 C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/Array.h:
+
+C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/ArrayBase.h:
 
 C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/ArrayWrapper.h:
 
@@ -6362,6 +7103,8 @@ C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cp
 
 C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/DiagonalProduct.h:
 
+C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/types/common.hpp:
+
 C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/Dot.h:
 
 C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/Fuzzy.h:
@@ -6381,6 +7124,8 @@ C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cp
 C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/MatrixBase.h:
 
 C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/NestByValue.h:
+
+C:/Qt/6.7.3/mingw_64/include/QtWidgets/QInputDialog:
 
 C:/Qt/6.7.3/mingw_64/include/QtGui/qtextdocument.h:
 
@@ -6434,8 +7179,6 @@ C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cp
 
 C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/arch/Default/GenericPacketMathFunctions.h:
 
-C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/WaveForm.h:
-
 C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/arch/Default/TypeCasting.h:
 
 C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/arch/SSE/Complex.h:
@@ -6444,11 +7187,7 @@ C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cp
 
 C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/functors/BinaryFunctors.h:
 
-C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/functors/TernaryFunctors.h:
-
 C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/functors/UnaryFunctors.h:
-
-C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/products/GeneralMatrixMatrixTriangular.h:
 
 C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/products/Parallelizer.h:
 
@@ -6456,17 +7195,19 @@ C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cp
 
 C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/products/SelfadjointRank2Update.h:
 
-C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/products/TriangularSolverVector.h:
-
 C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/util/BlasUtil.h:
 
 C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/util/ForwardDeclarations.h:
 
 C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/util/IndexedViewHelper.h:
 
+C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Waveform.cpp:
+
 C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/util/IntegralConstant.h:
 
 C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/util/MKL_support.h:
+
+C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/cereal.hpp:
 
 C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/util/Macros.h:
 
@@ -6541,6 +7282,12 @@ C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cp
 C:/Qt/6.7.3/mingw_64/include/QtGui/qvalidator.h:
 
 C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/plugins/ReshapedMethods.h:
+
+C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/details/traits.hpp:
+
+C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/types/map.hpp:
+
+C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/types/vector.hpp:
 
 C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Circuit.h:
 
@@ -6625,8 +7372,6 @@ LTspice_autogen/EWIEGA46WW/moc_ChartWindow.cpp:
 LTspice_autogen/EWIEGA46WW/moc_SchematicWidget.cpp:
 
 C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/SchematicWidget.cpp:
-
-C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/WaveForm.cpp:
 
 C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/main.cpp:
 

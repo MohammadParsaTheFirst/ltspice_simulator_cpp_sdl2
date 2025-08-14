@@ -220,7 +220,6 @@ void SchematicWidget::startPlacingSubcircuit() {
     placementIsHorizontal = true;
     setCursor(Qt::CrossCursor);
     setFocus();
-    return;
 }
 
 void SchematicWidget::keyPressEvent(QKeyEvent* event) {
@@ -405,7 +404,6 @@ void SchematicWidget::placingGroundMouseEvent(QMouseEvent* event) {
 void SchematicWidget::mousePressEvent(QMouseEvent* event) {
     if (currentMode == InteractionMode::Normal)
         return;
-
     if (event->button() == Qt::RightButton) {
         currentMode = InteractionMode::Normal;
         currentCompType = "NF";
@@ -415,7 +413,6 @@ void SchematicWidget::mousePressEvent(QMouseEvent* event) {
         update();
         return;
     }
-
     if (event->button() == Qt::LeftButton) {
         if (currentMode == InteractionMode::placingWire) {
             placingWireMouseEvent(event);
@@ -433,19 +430,23 @@ void SchematicWidget::mousePressEvent(QMouseEvent* event) {
             selectingSubcircuitNodesMouseEvent(event);
         }
         else if (currentMode == InteractionMode::placingSubcircuit) {
-            QPoint startPoint = stickToGrid(event->pos());
-            QPoint endPoint = placementIsHorizontal ? startPoint + QPoint(componentLength, 0) : startPoint + QPoint(0, componentLength);
-            QString componentName = getNextComponentName(currentSubcircuitName);
-            QString node1Name = getNodeNameFromPoint(startPoint);
-            QString node2Name = getNodeNameFromPoint(endPoint);
-            components.push_back({startPoint, placementIsHorizontal, componentName});
-            circuit_ptr->addComponent(currentSubcircuitName.toStdString(), componentName.toStdString(), node1Name.toStdString(), node2Name.toStdString(), 0.0, {}, {}, false);
+           placingSubcircuitMouseEvent(event);
         }
         else {
             placingComponentMouseEvent(event);
         }
         update();
     }
+}
+
+void SchematicWidget::placingSubcircuitMouseEvent(QMouseEvent* event) {
+    QPoint startPoint = stickToGrid(event->pos());
+    QPoint endPoint = placementIsHorizontal ? startPoint + QPoint(componentLength, 0) : startPoint + QPoint(0, componentLength);
+    QString componentName = getNextComponentName(currentSubcircuitName);
+    QString node1Name = getNodeNameFromPoint(startPoint);
+    QString node2Name = getNodeNameFromPoint(endPoint);
+    components.push_back({startPoint, placementIsHorizontal, componentName});
+    circuit_ptr->addComponent(currentSubcircuitName.toStdString(), componentName.toStdString(), node1Name.toStdString(), node2Name.toStdString(), 0.0, {}, {}, false);
 }
 
 void SchematicWidget::drawComponent(QPainter& painter, const QPoint& start, bool isHorizontal, QString type,
@@ -464,7 +465,7 @@ void SchematicWidget::drawComponent(QPainter& painter, const QPoint& start, bool
     painter.setBrush(Qt::white);
     painter.setFont(QFont("Arial", 10, QFont::Bold));
     if (type.startsWith("V")) {
-        painter.drawEllipse(center, gridSize, gridSize);
+        painter.drawEllipse(center, gridSize/2, gridSize/2);
         painter.drawText(center + QPoint(-4,4), type);
         QPen polarityPen(Qt::black, 2);
         painter.setPen(polarityPen);
@@ -479,7 +480,7 @@ void SchematicWidget::drawComponent(QPainter& painter, const QPoint& start, bool
         }
     }
     else if (type.startsWith("I")) {
-        painter.drawEllipse(center, gridSize, gridSize);
+        painter.drawEllipse(center, gridSize/2, gridSize/2);
         painter.drawText(center + QPoint(-4, 4), type);
         QPen arrowPen(Qt::darkBlue, 2);
         painter.setPen(arrowPen);

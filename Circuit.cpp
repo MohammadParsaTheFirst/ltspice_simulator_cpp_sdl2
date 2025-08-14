@@ -56,12 +56,8 @@ double parseSpiceValue(const std::string& valueStr) {
 
 // -------------------------------- Constructors and Destructors --------------------------------
 Circuit::Circuit() : nextNodeId(0), numCurrentUnknowns(0),
-                     currentFilePath(
-                         "C:\\Users\\parsa\\Documents\\university\\Programming and linux\\403101518-403101683.0\\Schematics\\draft.txt"),
-                     hasNonlinearComponents(false) {
-    allFiles.push_back("C:\\Users\\parsa\\Documents\\university\\Programming and linux\\403101518-403101683.0\\Schematics\\draft.txt");
-    loadSubcircuitFromFile("subcircuits.lib");
-}
+                     currentFilePath("C:\\Users\\parsa\\Documents\\university\\Programming and linux\\403101518-403101683.0\\Schematics\\draft.txt"),
+                     hasNonlinearComponents(false) { loadSubcircuits(); }
 
 Circuit::~Circuit() {
     for (Component* comp : components) {
@@ -86,149 +82,132 @@ void Circuit::newCircuit(const std::string& path) {
     circuitNetList.clear();
     groundNodeIds.clear();
     labelToNodes.clear();
-
     currentFilePath = path;
-}
-
-bool Circuit::saveLineToFile(const std::string& line) const {
-    std::ofstream outFile(currentFilePath, std::ios::app);
-    if (!outFile.is_open()) {
-        std::cout << "Error: Could not open file '" << currentFilePath << "' for writing." << std::endl;
-        return false;
-    }
-    outFile << line << std::endl;
-    outFile.close();
-    return true;
 }
 
 void Circuit::saveCircuitToFile() {
     std::ofstream outFile(currentFilePath);
+    if (!outFile.is_open()) {
+        std::cout << "Error: Could not open file '" << currentFilePath << std::endl;
+        return;
+    }
     outFile.close();
     for (std::string& lineToAddToFile : circuitNetList) {
-        if (!saveLineToFile(lineToAddToFile)) {
-            std::cout << "Something bad happened!" << std::endl;
-            return;
-        }
+        outFile << lineToAddToFile << std::endl;
     }
+    outFile.close();
 }
 
 bool Circuit::loadCircuitFromFile() {
+    clearSchematic();
     std::ifstream inFile(currentFilePath);
-    if (!inFile.is_open()) {
-        std::cout << "Error: Could not open file '" << currentFilePath << "' for reading." << std::endl;
+    if (!inFile.is_open())
         return false;
-    }
-
     std::string line;
     while (std::getline(inFile, line)) {
-        if (line.empty() || line[0] == '*' || line[0] == ';') continue;
-
-        std::stringstream ss(line);
-        std::string component_model, comp_name, node1_str, node2_str;
-        if (!(ss >> component_model >> comp_name >> node1_str >> node2_str))
-            throw std::runtime_error("Invalid 'add' format. Expected: add <type><name> <node1> <node2> ...");
-        if (node1_str == node2_str)
-            throw std::runtime_error("Nodes cannot be the same.");
-
-        char type_char = component_model[0];
-
-        double value = 0.0;
-        std::string value_str;
-
-        std::vector<double> numericParams;
-        std::vector<std::string> stringParams;
-
-        bool isSinusoidal = false;
-
-        // For diode model
-        std::string model;
-
-        if (type_char == 'R' || type_char == 'C' || type_char == 'L') {
-            if (!(ss >> value_str))
-                throw std::runtime_error("Missing value.");
-
-            value = parseSpiceValue(value_str);
-        }
-        else if (type_char == 'V' || type_char == 'I') {
-            std::string next_token;
-            if (!(ss >> next_token))
-                throw std::runtime_error("Missing source parameters.");
-
-            if (next_token.find("SIN(") != std::string::npos) {
-                isSinusoidal = true;
-
-                std::string offset_str, amplitude_str, freq_str;
-
-                offset_str = next_token.substr(4);
-                ss >> amplitude_str;
-                ss >> next_token;
-                if (next_token.back() == ')')
-                    freq_str = next_token.substr(0, next_token.size() - 1);
-
-                double offset = parseSpiceValue(offset_str);
-                double amplitude = parseSpiceValue(amplitude_str);
-                double freq = parseSpiceValue(freq_str);
-
-                numericParams = {offset, amplitude, freq};
-            }
-            else
-                value = parseSpiceValue(next_token);
-        }
-        else if (type_char == 'D') {
-            if (!(ss >> model))
-                throw std::runtime_error("Missing value.");
-
-            if (model != "D" && model != "Z") {
-                std::string error_msg = "Model " + model + " not dound in library.";
-                throw std::runtime_error(error_msg);
-            }
-        }
-        else if (type_char == 'E' || type_char == 'G') {
-            std::string c_n1, c_n2;
-            if (!(ss >> c_n1 >> c_n2 >> value_str))
-                throw std::runtime_error("Missing parameters for time-dependent source.");
-            value = parseSpiceValue(value_str);
-            stringParams = {c_n1, c_n2};
-        }
-        else if (type_char == 'H' || type_char == 'F') {
-            std::string c_name;
-            if (!(ss >> c_name >> value_str))
-                throw std::runtime_error("Missing parameters for time-dependent source.");
-            value = parseSpiceValue(value_str);
-            stringParams = {c_name};
-        }
-        else {
-            std::string errorString = "Element " + comp_name + " not found in library.";
-            throw std::runtime_error(errorString);
-        }
-        addComponent(std::string(1, type_char), comp_name, node1_str, node2_str, value, numericParams, stringParams,
-                     isSinusoidal);
+        makeComponentFromLine(line);
         circuitNetList.push_back(line);
     }
     inFile.close();
     return true;
 }
 
-void Circuit::saveSubcircuitsToFile(const std::string& filePath) const {
-    std::ofstream os(filePath, std::ios::binary);
-    if (!os.is_open()) {
-        std::cerr << "Error: Could not open file for saving subcircuits." << std::endl;
+void Circuit::makeComponentFromLine(const std::string& line) {
+    if (line.empty() || line[0] == '*' || line[0] == ';')
         return;
+
+    std::stringstream ss(line);
+    std::string component_model, comp_name, node1_str, node2_str;
+    if (!(ss >> component_model >> comp_name >> node1_str >> node2_str))
+        throw std::runtime_error("Invalid 'add' format. Expected: add <type><name> <node1> <node2> ...");
+    if (node1_str == node2_str)
+        throw std::runtime_error("Nodes cannot be the same.");
+
+    char type_char = component_model[0];
+
+    double value = 0.0;
+    std::string value_str;
+
+    std::vector<double> numericParams;
+    std::vector<std::string> stringParams;
+
+    bool isSinusoidal = false;
+    std::string model;
+
+    if (type_char == 'R' || type_char == 'C' || type_char == 'L') {
+        if (!(ss >> value_str))
+            throw std::runtime_error("Missing value.");
+        value = parseSpiceValue(value_str);
+    }
+    else if (type_char == 'V' || type_char == 'I') {
+        std::string next_token;
+        if (!(ss >> next_token))
+            throw std::runtime_error("Missing source parameters.");
+        if (next_token.find("SIN(") != std::string::npos) {
+            isSinusoidal = true;
+            std::string offset_str, amplitude_str, freq_str;
+            offset_str = next_token.substr(4);
+            ss >> amplitude_str;
+            ss >> next_token;
+            if (next_token.back() == ')')
+                freq_str = next_token.substr(0, next_token.size() - 1);
+            numericParams = {parseSpiceValue(offset_str), parseSpiceValue(amplitude_str), parseSpiceValue(freq_str)};
+        }
+        else
+            value = parseSpiceValue(next_token);
+    }
+    else if (type_char == 'D') {
+        if (!(ss >> model))
+            throw std::runtime_error("Missing value.");
+        if (model != "D" && model != "Z")
+            throw std::runtime_error("Model " + model + " not found in library.");
+    }
+    else if (type_char == 'E' || type_char == 'G') {
+        std::string c_n1, c_n2;
+        if (!(ss >> c_n1 >> c_n2 >> value_str))
+            throw std::runtime_error("Missing parameters for dependent source.");
+        value = parseSpiceValue(value_str);
+        stringParams = {c_n1, c_n2};
+    }
+    else if (type_char == 'H' || type_char == 'F') {
+        std::string c_name;
+        if (!(ss >> c_name >> value_str))
+            throw std::runtime_error("Missing parameters for dependent source.");
+        value = parseSpiceValue(value_str);
+        stringParams = {c_name};
     }
 
-    cereal::BinaryOutputArchive archive(os);
-    archive(subcircuitDefinitions);
-    std::cout << "Subcircuits saved successfully to " << filePath << std::endl;
+    addComponent(std::string(1, type_char), comp_name, node1_str, node2_str, value, numericParams, stringParams, isSinusoidal);
 }
 
-void Circuit::loadSubcircuitFromFile(const std::string& filePath) {
-    std::ifstream is(filePath, std::ios::binary);
-    if (!is.is_open()) 
+void Circuit::saveSubcircuit(const SubcircuitDefinition& subDef) const {
+    QString libDirPath = QCoreApplication::applicationDirPath() + QDir::separator() + "lib";
+    QDir libDir(libDirPath);
+    if (!libDir.exists())
+        libDir.mkpath(".");
+    QString filePath = libDirPath + QDir::separator() + QString::fromStdString(subDef.name) + ".sub";
+    std::ofstream os(filePath.toStdString(), std::ios::binary);
+    if (!os.is_open()) {
+        std::cerr << "Error: Could not open file for saving subcircuit." << std::endl;
         return;
+    }
+    cereal::BinaryOutputArchive archive(os);
+    archive(subDef);
+}
 
-    cereal::BinaryInputArchive archive(is);
-    archive(subcircuitDefinitions);
-    std::cout << subcircuitDefinitions.size() << " subcircuit loaded successfully from " << filePath << std::endl;
+void Circuit::loadSubcircuits() {
+    QString libDirPath = QCoreApplication::applicationDirPath() + QDir::separator() + "lib";
+    QDir libDir(libDirPath);
+    if (!libDir.exists())
+        return;
+    for (const QString& fileName: libDir.entryList(QStringList() << "*.sub", QDir::Files)) {
+        std::ifstream is(libDir.filePath(fileName).toStdString(), std::ios::binary);
+        cereal::BinaryInputArchive archive(is);
+        SubcircuitDefinition subDef;
+        archive(subDef);
+        subcircuitDefinitions[subDef.name] = subDef;
+    }
+    std::cout << subcircuitDefinitions.size() << " subcircuits loaded from directory 'lib'." << std::endl;
 }
 // -------------------------------- File Management --------------------------------
 
@@ -313,41 +292,34 @@ void Circuit::addComponent(const std::string& typeStr, const std::string& name,
     }
 
     if (subcircuitDefinitions.count(typeStr)) {
-        const auto& subDef = subcircuitDefinitions.at(typeStr);
+        const SubcircuitDefinition& subDef = subcircuitDefinitions.at(typeStr);
         std::cout << "Unrolling subcircuit: " << name << " of type " << typeStr << std::endl;
 
         std::map<std::string, std::string> nodeMap;
-
         nodeMap[subDef.port1NodeName] = node1Str;
         nodeMap[subDef.port2NodeName] = node2Str;
-
         for (const std::string& line : subDef.netlist) {
             std::stringstream ss(line);
             std::string subCompType, subCompName, subNode1, subNode2;
             ss >> subCompType >> subCompName >> subNode1 >> subNode2;
-
             std::string newCompName = name + "_" + subCompName;
-
             if (!nodeMap.count(subNode1))
                 nodeMap[subNode1] = name + "_" + subNode1;
             if (!nodeMap.count(subNode2))
                 nodeMap[subNode2] = name + "_" + subNode2;
-
             std::string newLine = subCompType + " " + newCompName + " " + nodeMap[subNode1] + " " + nodeMap[subNode2];
-
             std::string remaining_params;
             std::getline(ss, remaining_params);
             newLine += remaining_params;
-
             circuitNetList.push_back(newLine);
         }
-        loadCircuitFromFile();
+        for (const auto& line: subDef.netlist)
+            makeComponentFromLine(line);
         return;
     }
 
     int n1_id = getNodeId(node1Str, true);
     int n2_id = getNodeId(node2Str, true);
-
     try {
         Component* newComp = ComponentFactory::createComponent(typeStr, name, n1_id, n2_id, value, numericParams,
                                                                stringParams, isSinusoidal, this);
@@ -503,14 +475,13 @@ void Circuit::createSubcircuitDefinition(const std::string& name, const std::str
         std::cout << "Error: A subcircuit with this name exist." << std::endl;
         return;
     }
-
     SubcircuitDefinition newSubcircuit;
     newSubcircuit.name = name;
     newSubcircuit.port1NodeName = node1;
     newSubcircuit.port2NodeName = node2;
     newSubcircuit.netlist = circuitNetList;
     subcircuitDefinitions[name] = newSubcircuit;
-     saveSubcircuitsToFile("subcircuits.lib");
+    saveSubcircuit(newSubcircuit);
 }
 
 // -------------------------------- Component and Node Management --------------------------------
@@ -588,7 +559,6 @@ void Circuit::updateNonlinearComponentStates(const Eigen::VectorXd& solution,
         }
     }
 }
-
 // -------------------------------- MNA and Solver --------------------------------
 
 
@@ -728,7 +698,6 @@ void Circuit::performTransientAnalysis(double stopTime, double startTime, double
     std::cout << "Transient analysis complete. " << transientSolutions.size() << " time points stored." << std::endl;
     std::cout << "Use .print to view results." << std::endl;
 }
-
 // -------------------------------- Analysis Methods --------------------------------
 
 
@@ -917,5 +886,4 @@ void Circuit::printDcSweepResults(const std::string& sourceName, const std::stri
         std::cout << std::setw(14) << result << std::endl;
     }
 }
-
 // -------------------------------- Output Results --------------------------------

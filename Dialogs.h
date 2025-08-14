@@ -14,12 +14,12 @@
 #include <QListWidget>
 #include <QTabWidget>
 #include <QComboBox>
+#include "Circuit.h"
 
 class ValueDialog : public QDialog {
     Q_OBJECT
 public:
     explicit ValueDialog(QWidget *parent = Q_NULLPTR);
-
     QString getValue() const;
 
 private:

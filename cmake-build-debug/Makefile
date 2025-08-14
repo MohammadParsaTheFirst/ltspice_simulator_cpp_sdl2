@@ -346,29 +346,29 @@ SchematicWidget.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/SchematicWidget.cpp.s
 .PHONY : SchematicWidget.cpp.s
 
-WaveForm.obj: WaveForm.cpp.obj
-.PHONY : WaveForm.obj
+Waveform.obj: Waveform.cpp.obj
+.PHONY : Waveform.obj
 
 # target to build an object file
-WaveForm.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/WaveForm.cpp.obj
-.PHONY : WaveForm.cpp.obj
+Waveform.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/Waveform.cpp.obj
+.PHONY : Waveform.cpp.obj
 
-WaveForm.i: WaveForm.cpp.i
-.PHONY : WaveForm.i
+Waveform.i: Waveform.cpp.i
+.PHONY : Waveform.i
 
 # target to preprocess a source file
-WaveForm.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/WaveForm.cpp.i
-.PHONY : WaveForm.cpp.i
+Waveform.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/Waveform.cpp.i
+.PHONY : Waveform.cpp.i
 
-WaveForm.s: WaveForm.cpp.s
-.PHONY : WaveForm.s
+Waveform.s: Waveform.cpp.s
+.PHONY : Waveform.s
 
 # target to generate assembly for a file
-WaveForm.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/WaveForm.cpp.s
-.PHONY : WaveForm.cpp.s
+Waveform.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/Waveform.cpp.s
+.PHONY : Waveform.cpp.s
 
 main.obj: main.cpp.obj
 .PHONY : main.obj
@@ -453,9 +453,9 @@ help:
 	@echo ... SchematicWidget.obj
 	@echo ... SchematicWidget.i
 	@echo ... SchematicWidget.s
-	@echo ... WaveForm.obj
-	@echo ... WaveForm.i
-	@echo ... WaveForm.s
+	@echo ... Waveform.obj
+	@echo ... Waveform.i
+	@echo ... Waveform.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

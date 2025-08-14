@@ -94,6 +94,7 @@ private:
     void placingGroundMouseEvent(QMouseEvent* event);
     void showSimpleValueDialog(QMouseEvent* event);
     void showSourceValueDialog(QMouseEvent* event);
+    void placingSubcircuitMouseEvent(QMouseEvent* event);
     void drawGridDots(QPainter& painter);
     void drawComponents(QPainter& painter);
     void drawLabels(QPainter& painter);
@@ -103,7 +104,7 @@ private:
     QString findOrCreateNodeAtPoint(const QPoint& point);
     void selectingSubcircuitNodesMouseEvent(QMouseEvent* event);
 
-    const int gridSize = 35;
+    const int gridSize = 40;
     InteractionMode currentMode = InteractionMode::Normal;
 
     const int componentLength = 3 * gridSize;
