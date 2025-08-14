@@ -1,0 +1,121 @@
+#ifndef SCHEMATICWIDGET_H
+#define SCHEMATICWIDGET_H
+
+#include <QWidget>
+#include <QPainter>
+#include <QPaintEvent>
+#include <QMouseEvent>
+#include <QKeyEvent>
+#include <QMessageBox>
+#include "Circuit.h"
+#include "Dialogs.h"
+
+enum class InteractionMode {
+    Normal,
+    placingResistor,
+    placingCapacitor,
+    placingInductor,
+    placingVoltageSource,
+    placingGround,
+    placingDiode,
+    deleteMode,
+    placingWire,
+    placingCurrentSource,
+    placingLabel
+};
+
+struct GroundInfo {
+    QPoint position;
+};
+
+struct WireInfo {
+    QPoint startPoint;
+    QPoint endPoint;
+    QString nodeName;
+};
+
+struct ComponentGraphicalInfo {
+    QPoint startPoint;
+    bool isHorizontal;
+    QString name;
+};
+
+struct LabelInfo {
+    QPoint position;
+    QString name;
+    QString connectedNodeName;
+};
+
+class SchematicWidget : public QWidget {
+    Q_OBJECT
+public:
+    SchematicWidget(Circuit* circuit, QWidget* parent = Q_NULLPTR);
+
+public slots:
+    void startRunAnalysis();
+    void startPlacingGround();
+    void startPlacingResistor();
+    void startPlacingCapacitor();
+    void startPlacingInductor();
+    void startPlacingVoltageSource();
+    void startPlacingCurrentSource();
+    void startPlacingDiode();
+    void startDeleteComponent();
+    void startPlacingWire();
+    void startOpenNodeLibrary();
+    void startPlacingLabel();
+
+private slots:
+    void handleNodeLibraryItemSelection(const QString& compType);
+
+protected:
+    void paintEvent(QPaintEvent* event) override;
+    void mouseMoveEvent(QMouseEvent* event) override;
+    void mousePressEvent(QMouseEvent* event) override;
+    void keyPressEvent(QKeyEvent* event) override;
+
+private:
+    QPoint stickToGrid(const QPoint& pos);
+    void drawComponent(QPainter& painter, const QPoint& start, bool isHorizontal, QString type,
+                       bool isHovered = false) const;
+    QString getNodeNameFromPoint(const QPoint& pos) const;
+    QString getNextComponentName(const QString& type);
+    QString findNodeAt(const QPoint& nodePos);
+    void placingWireMouseEvent(QMouseEvent* event);
+    void placingComponentMouseEvent(QMouseEvent* event);
+    void deletingComponentMouseEvent(QMouseEvent* event);
+    void placingLabelMouseEvent(QMouseEvent* event);
+    void placingGroundMouseEvent(QMouseEvent* event);
+    void showSimpleValueDialog(QMouseEvent* event);
+    void showSourceValueDialog(QMouseEvent* event);
+    void drawGridDots(QPainter& painter);
+    void drawComponents(QPainter& painter);
+    void drawLabels(QPainter& painter);
+    void drawWires(QPainter& painter);
+    void drawGrounds(QPainter& painter);
+    void drawGroundSymbol(QPainter& painer, const QPoint& pos);
+    QString findOrCreateNodeAtPoint(const QPoint& point);
+
+
+    const int gridSize = 30; // Pixels
+    InteractionMode currentMode = InteractionMode::Normal;
+
+    const int componentLength = 3 * gridSize;
+    bool placementIsHorizontal = true;
+    QPoint currentMousePos;
+    QString currentCompType = "NF";
+    std::vector<ComponentGraphicalInfo> components;
+    int hoveredComponentIndex = -1;
+    Circuit* circuit_ptr;
+    std::map<QString, int> componentCounters;
+
+    std::vector<WireInfo> wires;
+    bool isWiring = false;
+    QPoint wireStartPoint;
+
+    std::vector<LabelInfo> labels;
+    std::vector<GroundInfo> grounds;
+};
+
+
+#endif //SCHEMATICWIDGET_H
