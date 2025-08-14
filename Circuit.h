@@ -5,6 +5,9 @@
 #include <fstream>
 #include <filesystem>
 #include <set>
+#include <cereal/types/vector.hpp>
+#include <cereal/types/string.hpp>
+#include <cereal/types/map.hpp>
 #include "component.h"
 #include "ComponentFactory.h"
 
@@ -15,6 +18,11 @@ struct SubcircuitDefinition {
     std::vector<std::string> netlist;
     std::string port1NodeName;
     std::string port2NodeName;
+
+    template<class Archive>
+    void serialize(Archive& ar) {
+        ar(name, netlist, port1NodeName, port2NodeName);
+    }
 };
 
 class Circuit {
@@ -32,6 +40,8 @@ public:
     void showExistingFiles();
     void saveCircuitToFile();
     std::string getPathRightNow() { return currentFilePath; }
+    void saveSubcircuitsToFile(const std::string& filePath) const;
+    void loadSubcircuitFromFile(const std::string& filePath);
 
     // Component and Node Management
     void addComponent(const std::string&, const std::string&, const std::string&, const std::string&, double,
@@ -48,7 +58,7 @@ public:
     int getNodeId(const std::string&, bool create = true);
     int getNodeId(const std::string&) const;
     void connectNodes(const std::string&, const std::string&);
-    void createSubcorcuitDefinition(const std::string&, const std::string&, const std::string&);
+    void createSubcircuitDefinition(const std::string&, const std::string&, const std::string&);
 
     // Analysis
     void performDCAnalysis(const std::string&, double, double, double);

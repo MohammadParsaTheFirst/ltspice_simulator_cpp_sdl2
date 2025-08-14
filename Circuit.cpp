@@ -2,6 +2,7 @@
 #include <iomanip>
 #include <utility>
 #include <cctype>
+#include <cereal/archives/binary.hpp>
 namespace fs = std::filesystem;
 
 
@@ -50,7 +51,6 @@ double parseSpiceValue(const std::string& valueStr) {
 
     return std::stod(numPart) * multiplier;
 }
-
 // -------------------------------- Helper for parsing values --------------------------------
 
 
@@ -59,8 +59,8 @@ Circuit::Circuit() : nextNodeId(0), numCurrentUnknowns(0),
                      currentFilePath(
                          "C:\\Users\\parsa\\Documents\\university\\Programming and linux\\403101518-403101683.0\\Schematics\\draft.txt"),
                      hasNonlinearComponents(false) {
-    allFiles.push_back(
-        "C:\\Users\\parsa\\Documents\\university\\Programming and linux\\403101518-403101683.0\\Schematics\\draft.txt");
+    allFiles.push_back("C:\\Users\\parsa\\Documents\\university\\Programming and linux\\403101518-403101683.0\\Schematics\\draft.txt");
+    loadSubcircuitFromFile("subcircuits.lib");
 }
 
 Circuit::~Circuit() {
@@ -68,7 +68,6 @@ Circuit::~Circuit() {
         delete comp;
     }
 }
-
 // -------------------------------- Constructors and Destructors --------------------------------
 
 
@@ -210,6 +209,27 @@ bool Circuit::loadCircuitFromFile() {
     return true;
 }
 
+void Circuit::saveSubcircuitsToFile(const std::string& filePath) const {
+    std::ofstream os(filePath, std::ios::binary);
+    if (!os.is_open()) {
+        std::cerr << "Error: Could not open file for saving subcircuits." << std::endl;
+        return;
+    }
+
+    cereal::BinaryOutputArchive archive(os);
+    archive(subcircuitDefinitions);
+    std::cout << "Subcircuits saved successfully to " << filePath << std::endl;
+}
+
+void Circuit::loadSubcircuitFromFile(const std::string& filePath) {
+    std::ifstream is(filePath, std::ios::binary);
+    if (!is.is_open()) 
+        return;
+
+    cereal::BinaryInputArchive archive(is);
+    archive(subcircuitDefinitions);
+    std::cout << subcircuitDefinitions.size() << " subcircuit loaded successfully from " << filePath << std::endl;
+}
 // -------------------------------- File Management --------------------------------
 
 
@@ -290,6 +310,39 @@ void Circuit::addComponent(const std::string& typeStr, const std::string& name,
             errorMsg += comp->name + " already exists in the circuit.";
             throw std::runtime_error(errorMsg);
         }
+    }
+
+    if (subcircuitDefinitions.count(typeStr)) {
+        const auto& subDef = subcircuitDefinitions.at(typeStr);
+        std::cout << "Unrolling subcircuit: " << name << " of type " << typeStr << std::endl;
+
+        std::map<std::string, std::string> nodeMap;
+
+        nodeMap[subDef.port1NodeName] = node1Str;
+        nodeMap[subDef.port2NodeName] = node2Str;
+
+        for (const std::string& line : subDef.netlist) {
+            std::stringstream ss(line);
+            std::string subCompType, subCompName, subNode1, subNode2;
+            ss >> subCompType >> subCompName >> subNode1 >> subNode2;
+
+            std::string newCompName = name + "_" + subCompName;
+
+            if (!nodeMap.count(subNode1))
+                nodeMap[subNode1] = name + "_" + subNode1;
+            if (!nodeMap.count(subNode2))
+                nodeMap[subNode2] = name + "_" + subNode2;
+
+            std::string newLine = subCompType + " " + newCompName + " " + nodeMap[subNode1] + " " + nodeMap[subNode2];
+
+            std::string remaining_params;
+            std::getline(ss, remaining_params);
+            newLine += remaining_params;
+
+            circuitNetList.push_back(newLine);
+        }
+        loadCircuitFromFile();
+        return;
     }
 
     int n1_id = getNodeId(node1Str, true);
@@ -445,7 +498,7 @@ void Circuit::addLabel(const std::string& labelName, const std::string& nodeName
     }
 }
 
-void Circuit::createSubcorcuitDefinition(const std::string& name, const std::string& node1, const std::string& node2) {
+void Circuit::createSubcircuitDefinition(const std::string& name, const std::string& node1, const std::string& node2) {
     if (subcircuitDefinitions.count(name)) {
         std::cout << "Error: A subcircuit with this name exist." << std::endl;
         return;
@@ -457,6 +510,7 @@ void Circuit::createSubcorcuitDefinition(const std::string& name, const std::str
     newSubcircuit.port2NodeName = node2;
     newSubcircuit.netlist = circuitNetList;
     subcircuitDefinitions[name] = newSubcircuit;
+     saveSubcircuitsToFile("subcircuits.lib");
 }
 
 // -------------------------------- Component and Node Management --------------------------------
