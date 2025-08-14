@@ -1923,6 +1923,7 @@ CMakeFiles/LTspice.dir/Dialogs.cpp.obj: C:/Users/parsa/Documents/university/Prog
   C:/Qt/6.7.3/mingw_64/include/QtGui/qvalidator.h \
   C:/Qt/6.7.3/mingw_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.7.3/mingw_64/include/QtGui/qwindowdefs_win.h \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/QComboBox \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QDialog \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QDialogButtonBox \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QFormLayout \
@@ -1942,6 +1943,7 @@ CMakeFiles/LTspice.dir/Dialogs.cpp.obj: C:/Users/parsa/Documents/university/Prog
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qabstractslider.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qabstractspinbox.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qboxlayout.h \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/qcombobox.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qdialog.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qformlayout.h \
@@ -2398,6 +2400,7 @@ CMakeFiles/LTspice.dir/LTspice_autogen/mocs_compilation.cpp.obj: LTspice_autogen
   C:/Qt/6.7.3/mingw_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.7.3/mingw_64/include/QtGui/qwindowdefs_win.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QApplication \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/QComboBox \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QDialog \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QDialogButtonBox \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QFormLayout \
@@ -2425,6 +2428,7 @@ CMakeFiles/LTspice.dir/LTspice_autogen/mocs_compilation.cpp.obj: LTspice_autogen
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qabstractspinbox.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qapplication.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qboxlayout.h \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/qcombobox.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qdialog.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qformlayout.h \
@@ -3108,6 +3112,7 @@ CMakeFiles/LTspice.dir/SchematicWidget.cpp.obj: C:/Users/parsa/Documents/univers
   C:/Qt/6.7.3/mingw_64/include/QtGui/qvectornd.h \
   C:/Qt/6.7.3/mingw_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.7.3/mingw_64/include/QtGui/qwindowdefs_win.h \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/QComboBox \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QDialog \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QDialogButtonBox \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QFormLayout \
@@ -3129,6 +3134,7 @@ CMakeFiles/LTspice.dir/SchematicWidget.cpp.obj: C:/Users/parsa/Documents/univers
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qabstractslider.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qabstractspinbox.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qboxlayout.h \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/qcombobox.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qdialog.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qformlayout.h \
@@ -3869,6 +3875,7 @@ CMakeFiles/LTspice.dir/main.cpp.obj: C:/Users/parsa/Documents/university/Program
   C:/Qt/6.7.3/mingw_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.7.3/mingw_64/include/QtGui/qwindowdefs_win.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QApplication \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/QComboBox \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QDialog \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QDialogButtonBox \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QFormLayout \
@@ -3896,6 +3903,7 @@ CMakeFiles/LTspice.dir/main.cpp.obj: C:/Users/parsa/Documents/university/Program
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qabstractspinbox.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qapplication.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qboxlayout.h \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/qcombobox.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qdialog.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qformlayout.h \
@@ -4580,6 +4588,7 @@ CMakeFiles/LTspice.dir/mainwindow.cpp.obj: C:/Users/parsa/Documents/university/P
   C:/Qt/6.7.3/mingw_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.7.3/mingw_64/include/QtGui/qwindowdefs_win.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QApplication \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/QComboBox \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QDialog \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QDialogButtonBox \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QFormLayout \
@@ -4607,6 +4616,7 @@ CMakeFiles/LTspice.dir/mainwindow.cpp.obj: C:/Users/parsa/Documents/university/P
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qabstractspinbox.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qapplication.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qboxlayout.h \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/qcombobox.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qdialog.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qformlayout.h \
@@ -5331,6 +5341,8 @@ C:/Qt/6.7.3/mingw_64/include/QtWidgets/QVBoxLayout:
 C:/Qt/6.7.3/mingw_64/include/QtCore/qcoreapplication.h:
 
 C:/Qt/6.7.3/mingw_64/include/QtCore/qatomic.h:
+
+C:/Qt/6.7.3/mingw_64/include/QtWidgets/qcombobox.h:
 
 C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/Core/arch/Default/Settings.h:
 
@@ -6543,6 +6555,8 @@ C:/Qt/6.7.3/mingw_64/include/QtCore/qabstractitemmodel.h:
 C:/Qt/6.7.3/mingw_64/include/QtCore/qitemselectionmodel.h:
 
 C:/Qt/6.7.3/mingw_64/include/QtGui/qtextformat.h:
+
+C:/Qt/6.7.3/mingw_64/include/QtWidgets/QComboBox:
 
 C:/Qt/6.7.3/mingw_64/include/QtWidgets/qmenubar.h:
 

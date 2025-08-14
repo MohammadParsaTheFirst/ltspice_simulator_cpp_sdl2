@@ -184,6 +184,7 @@ C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cp
   C:/Qt/6.7.3/mingw_64/include/QtGui/qvectornd.h \
   C:/Qt/6.7.3/mingw_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.7.3/mingw_64/include/QtGui/qwindowdefs_win.h \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/QComboBox \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QDialog \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QDialogButtonBox \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/QFormLayout \
@@ -205,6 +206,7 @@ C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cp
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qabstractslider.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qabstractspinbox.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qboxlayout.h \
+  C:/Qt/6.7.3/mingw_64/include/QtWidgets/qcombobox.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qdialog.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
   C:/Qt/6.7.3/mingw_64/include/QtWidgets/qformlayout.h \

@@ -438,4 +438,6 @@ CMakeFiles/LTspice.dir/Dialogs.cpp.obj: \
  C:/Qt/6.7.3/mingw_64/include/QtWidgets/qtabwidget.h \
  C:/Qt/6.7.3/mingw_64/include/QtWidgets/qrubberband.h \
  C:/Qt/6.7.3/mingw_64/include/QtWidgets/QTabWidget \
- C:/Qt/6.7.3/mingw_64/include/QtWidgets/qtabwidget.h
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qtabwidget.h \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/QComboBox \
+ C:/Qt/6.7.3/mingw_64/include/QtWidgets/qcombobox.h

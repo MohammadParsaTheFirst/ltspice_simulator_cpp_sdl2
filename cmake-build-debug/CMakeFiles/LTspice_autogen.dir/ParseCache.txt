@@ -566,6 +566,7 @@ C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_
  mdp:C:/Qt/6.7.3/mingw_64/include/QtGui/qwindowdefs.h
  mdp:C:/Qt/6.7.3/mingw_64/include/QtGui/qwindowdefs_win.h
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/QApplication
+ mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/QComboBox
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/QDialog
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/QDialogButtonBox
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/QFormLayout
@@ -592,6 +593,7 @@ C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/qabstractspinbox.h
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/qapplication.h
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/qboxlayout.h
+ mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/qcombobox.h
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/qdialog.h
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/qdialogbuttonbox.h
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/qformlayout.h
@@ -1262,6 +1264,7 @@ C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_
  mdp:C:/Qt/6.7.3/mingw_64/include/QtGui/qvectornd.h
  mdp:C:/Qt/6.7.3/mingw_64/include/QtGui/qwindowdefs.h
  mdp:C:/Qt/6.7.3/mingw_64/include/QtGui/qwindowdefs_win.h
+ mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/QComboBox
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/QDialog
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/QDialogButtonBox
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/QFormLayout
@@ -1283,6 +1286,7 @@ C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/qabstractslider.h
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/qabstractspinbox.h
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/qboxlayout.h
+ mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/qcombobox.h
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/qdialog.h
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/qdialogbuttonbox.h
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/qformlayout.h
@@ -2332,6 +2336,7 @@ C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_
  mdp:C:/Qt/6.7.3/mingw_64/include/QtGui/qvalidator.h
  mdp:C:/Qt/6.7.3/mingw_64/include/QtGui/qwindowdefs.h
  mdp:C:/Qt/6.7.3/mingw_64/include/QtGui/qwindowdefs_win.h
+ mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/QComboBox
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/QDialog
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/QDialogButtonBox
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/QFormLayout
@@ -2351,6 +2356,7 @@ C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/qabstractslider.h
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/qabstractspinbox.h
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/qboxlayout.h
+ mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/qcombobox.h
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/qdialog.h
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/qdialogbuttonbox.h
  mdp:C:/Qt/6.7.3/mingw_64/include/QtWidgets/qformlayout.h
