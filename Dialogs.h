@@ -58,7 +58,7 @@ private:
 class NodeLibraryDialog : public QDialog {
     Q_OBJECT
 public:
-    explicit NodeLibraryDialog(QWidget *parent = Q_NULLPTR);
+    explicit NodeLibraryDialog(Circuit* circuit, QWidget *parent = Q_NULLPTR);
 
 signals:
     void componentSelected(const QString& componentType);

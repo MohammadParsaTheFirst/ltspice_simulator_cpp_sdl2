@@ -83,7 +83,8 @@ QString SourceValueDialog::getSinOffset() const { return sinOffset->text(); }
 QString SourceValueDialog::getSinAmplitude() const { return sinAmplitude->text(); }
 QString SourceValueDialog::getSinFrequency() const { return sinFrequency->text(); }
 
-NodeLibraryDialog::NodeLibraryDialog(QWidget* parent) : QDialog(parent) {
+
+NodeLibraryDialog::NodeLibraryDialog(Circuit* circuit, QWidget* parent) : QDialog(parent) {
     setWindowTitle("Node library");
     setMinimumSize(300,400);
 
@@ -122,6 +123,18 @@ NodeLibraryDialog::NodeLibraryDialog(QWidget* parent) : QDialog(parent) {
     listWidget->addItem(vccsItem);
     listWidget->addItem(ccvsItem);
     listWidget->addItem(cccsItem);
+
+    QListWidgetItem* separator = new QListWidgetItem("--- Subcircuits ---");
+    separator->setFlags(separator->flags() & ~Qt::ItemIsSelectable);
+    listWidget->addItem(separator);
+    if (circuit) {
+        for (const auto& pair: circuit->subcircuitDefinitions) {
+            QString subcircuitName = QString::fromStdString(pair.first);
+            QListWidgetItem* subcircuitItem = new QListWidgetItem(subcircuitName);
+            subcircuitItem->setData(Qt::UserRole, "U: " + subcircuitName);
+            listWidget->addItem(subcircuitItem);
+        }
+    }
 
     QVBoxLayout* layout = new QVBoxLayout(this);
     layout->addWidget(listWidget);
