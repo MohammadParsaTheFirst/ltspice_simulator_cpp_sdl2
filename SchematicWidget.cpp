@@ -74,7 +74,7 @@ void SchematicWidget::drawComponents(QPainter& painter) {
 }
 
 void SchematicWidget::drawWires(QPainter& painter) {
-    QPen wirePen(Qt::yellow, 2);
+    QPen wirePen(Qt::darkBlue, 2);
     painter.setPen(wirePen);
     for (const auto& wire : wires)
         painter.drawLine(wire.startPoint, wire.endPoint);
@@ -195,7 +195,7 @@ void SchematicWidget::startPlacingGround() {
 }
 
 void SchematicWidget::startOpenNodeLibrary() {
-    NodeLibraryDialog dialog(this);
+    NodeLibraryDialog dialog(circuit_ptr, this);
     connect(&dialog, &NodeLibraryDialog::componentSelected, this, &SchematicWidget::handleNodeLibraryItemSelection);
     dialog.exec();
 }
@@ -212,6 +212,15 @@ void SchematicWidget::startCreateSubcircuit() {
     setCursor(Qt::PointingHandCursor);
     QMessageBox::information(this, "Create Subcircuit", "Please select the first node.");
     update();
+}
+
+void SchematicWidget::startPlacingSubcircuit() {
+    currentMode = InteractionMode::placingSubcircuit;
+    currentCompType = currentSubcircuitName;
+    placementIsHorizontal = true;
+    setCursor(Qt::CrossCursor);
+    setFocus();
+    return;
 }
 
 void SchematicWidget::keyPressEvent(QKeyEvent* event) {
@@ -423,6 +432,15 @@ void SchematicWidget::mousePressEvent(QMouseEvent* event) {
         else if (currentMode == InteractionMode::placingSubcircuitNodes) {
             selectingSubcircuitNodesMouseEvent(event);
         }
+        else if (currentMode == InteractionMode::placingSubcircuit) {
+            QPoint startPoint = stickToGrid(event->pos());
+            QPoint endPoint = placementIsHorizontal ? startPoint + QPoint(componentLength, 0) : startPoint + QPoint(0, componentLength);
+            QString componentName = getNextComponentName(currentSubcircuitName);
+            QString node1Name = getNodeNameFromPoint(startPoint);
+            QString node2Name = getNodeNameFromPoint(endPoint);
+            components.push_back({startPoint, placementIsHorizontal, componentName});
+            circuit_ptr->addComponent(currentSubcircuitName.toStdString(), componentName.toStdString(), node1Name.toStdString(), node2Name.toStdString(), 0.0, {}, {}, false);
+        }
         else {
             placingComponentMouseEvent(event);
         }
@@ -432,22 +450,60 @@ void SchematicWidget::mousePressEvent(QMouseEvent* event) {
 
 void SchematicWidget::drawComponent(QPainter& painter, const QPoint& start, bool isHorizontal, QString type,
                                     bool isHovered) const {
-    QPoint end;
-    if (isHorizontal)
-        end = start + QPoint(componentLength, 0);
-    else
-        end = start + QPoint(0, componentLength);
+    QPoint end = isHorizontal ? start + QPoint(componentLength, 0) : start + QPoint(0, componentLength);
 
-    QPen componentPen(Qt::darkBlue, 2);
-    componentPen.setColor(isHovered ? Qt::yellow : Qt::darkBlue);
+    QPen componentPen(Qt::black, 2);
+    componentPen.setColor(isHovered ? Qt::darkRed : Qt::black);
     painter.setPen(componentPen);
-    painter.drawLine(start, end);
+    // painter.drawLine(start, end);
+
+    painter.drawLine(start, isHorizontal ? start + QPoint(gridSize, 0) : start + QPoint(0, gridSize));
+    painter.drawLine(end, isHorizontal ? end - QPoint(gridSize, 0) : end - QPoint(0, gridSize));
+    QPoint center = (start + end) / 2;
 
     painter.setBrush(Qt::white);
-    QRectF resistorBody((start + end) / 2 - QPoint(15, 8), QSize(30, 16));
-    painter.drawRect(resistorBody);
-
-    painter.drawText(resistorBody, Qt::AlignCenter, type);
+    painter.setFont(QFont("Arial", 10, QFont::Bold));
+    if (type.startsWith("V")) {
+        painter.drawEllipse(center, gridSize, gridSize);
+        painter.drawText(center + QPoint(-4,4), type);
+        QPen polarityPen(Qt::black, 2);
+        painter.setPen(polarityPen);
+        painter.setFont(QFont("Arial", 14, QFont::Bold));
+        if (isHorizontal) {
+            painter.drawText(start - QPoint(20,-7), "+");
+            painter.drawText(end + QPoint(5, 7), "-");
+        }
+        else {
+            painter.drawText(start - QPoint(5,10), "+");
+            painter.drawText(end + QPoint(-5, 25), "-");
+        }
+    }
+    else if (type.startsWith("I")) {
+        painter.drawEllipse(center, gridSize, gridSize);
+        painter.drawText(center + QPoint(-4, 4), type);
+        QPen arrowPen(Qt::darkBlue, 2);
+        painter.setPen(arrowPen);
+        QPoint arrowStart, arrowEnd;
+        if (isHorizontal) {
+            arrowStart = center - QPoint(15, 0);
+            arrowEnd = center + QPoint(15, 0);
+            painter.drawLine(arrowStart, arrowEnd);
+            painter.drawLine(arrowEnd, arrowEnd - QPoint(10, 5));
+            painter.drawLine(arrowEnd, arrowEnd - QPoint(10, -5));
+        }
+        else {
+            arrowStart = center - QPoint(0, 15);
+            arrowEnd = center + QPoint(0, 15);
+            painter.drawLine(arrowStart, arrowEnd);
+            painter.drawLine(arrowEnd, arrowEnd - QPoint(5, 10));
+            painter.drawLine(arrowEnd, arrowEnd - QPoint(-5, 10));
+        }
+    }
+    else {
+        QRectF componentBody(center - QPoint(gridSize, 10), QSize(2 * gridSize, 20));
+        painter.drawRect(componentBody);
+        painter.drawText(componentBody, Qt::AlignCenter, type);
+    }
 }
 
 QString SchematicWidget::findNodeAt(const QPoint& nodePos) {
@@ -469,6 +525,10 @@ QString SchematicWidget::findNodeAt(const QPoint& nodePos) {
 }
 
 void SchematicWidget::handleNodeLibraryItemSelection(const QString& compType) {
+    if (compType.startsWith("U:")) {
+        currentSubcircuitName = compType.mid(2);
+        startPlacingSubcircuit();
+    }
     if (compType == "R")
         startPlacingResistor();
     else if (compType == "C")

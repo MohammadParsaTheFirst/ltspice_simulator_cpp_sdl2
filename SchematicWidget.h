@@ -23,7 +23,8 @@ enum class InteractionMode {
     placingWire,
     placingCurrentSource,
     placingLabel,
-    placingSubcircuitNodes
+    placingSubcircuitNodes,
+    placingSubcircuit
 };
 
 struct GroundInfo {
@@ -68,6 +69,7 @@ public slots:
     void startOpenNodeLibrary();
     void startPlacingLabel();
     void startCreateSubcircuit();
+    void startPlacingSubcircuit();
 
 private slots:
     void handleNodeLibraryItemSelection(const QString& compType);
@@ -123,7 +125,8 @@ private:
     double transientTStop = 0.0;
     double transientTStart = 0.0;
     double transientTStep = 0.0;
-
+    
+    QString currentSubcircuitName;
     std::vector<QString> subcircuitNodes;
 };
 
