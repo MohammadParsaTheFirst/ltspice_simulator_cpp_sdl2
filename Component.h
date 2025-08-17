@@ -217,7 +217,6 @@ public:
 };
 
 
-// TODO: change the saving system with cereal for other child classes
 // VCVS - Type E
 class VCVS : public Component {
 private:
@@ -229,8 +228,20 @@ public:
     void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &, const std::map<int, int>& nodeIdToMnaIndex, double, double, int) override;
 
     template<class Archive> 
-    void serialize(Archive& ar) {
+    void save(Archive& ar) {
         ar(cereal::base_class<Component>(this), ctrlNode1, ctrlNode2, gain);
+    }
+
+    template <class Archive>
+    static void load_and_construct(Archive& ar, cereal::construct<VCVS>& construct) {
+        Component::Type type;
+        std::string name;
+        int n1, n2;
+        double v;
+        int ctrlnode1, ctrlnode2;
+        double gain;
+        ar(type, name, n1, n2, v, ctrlnode1, ctrlnode2, gain);
+        construct(name, n1, n2, ctrlnode1, ctrlnode2, gain);
     }
 };
 
@@ -245,8 +256,20 @@ public:
     void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int>&, const std::map<int, int>& nodeIdToMnaIndex, double, double , int) override;
 
     template<class Archive> 
-    void serialize(Archive& ar) {
+    void save(Archive& ar) {
         ar(cereal::base_class<Component>(this), ctrlNode1, ctrlNode2, gain);
+    }
+
+    template <class Archive>
+    static void load_and_construct(Archive& ar, cereal::construct<VCCS>& construct) {
+        Component::Type type;
+        std::string name;
+        int n1, n2;
+        double v;
+        int ctrlnode1, ctrlnode2;
+        double gain;
+        ar(type, name, n1, n2, v, ctrlnode1, ctrlnode2, gain);
+        construct(name, n1, n2, ctrlnode1, ctrlnode2, gain);
     }
 };
 
@@ -263,8 +286,20 @@ public:
     void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &, const std::map<int, int>& nodeIdToMnaIndex, double, double, int) override;
 
     template<class Archive> 
-    void serialize(Archive& ar) {
-        ar(cereal::base_class<Component>(this), ctrlCompName, sourceIndex, gain);
+    void save(Archive& ar) {
+        ar(cereal::base_class<Component>(this), ctrlCompName, gain);
+    }
+
+    template <class Archive>
+    static void load_and_construct(Archive& ar, cereal::construct<CCVS>& construct) {
+        Component::Type type;
+        std::string name;
+        int n1, n2;
+        double v;
+        std::string ctrlcompname;
+        double gain;
+        ar(type, name, n1, n2, v, ctrlcompname, gain);
+        construct(name, n1, n2, ctrlcompname, gain);
     }
 };
 
@@ -279,8 +314,20 @@ public:
     void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &, const std::map<int, int>& nodeIdToMnaIndex, double, double, int) override;
 
     template<class Archive> 
-    void serialize(Archive& ar) {
+    void save(Archive& ar) {
         ar(cereal::base_class<Component>(this), ctrlCompName, gain);
+    }
+
+    template <class Archive>
+    static void load_and_construct(Archive& ar, cereal::construct<CCCS>& construct) {
+        Component::Type type;
+        std::string name;
+        int n1, n2;
+        double v;
+        std::string ctrlcompname;
+        double gain;
+        ar(type, name, n1, n2, v, ctrlcompname, gain);
+        construct(name, n1, n2, ctrlcompname, gain);
     }
 };
 // -------------------------------- Component Class and Its Implementations --------------------------------
