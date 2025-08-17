@@ -8,7 +8,8 @@
 #include <memory>
 #include <map>
 #include <cereal/types/polymorphic.hpp>
-#include <cereal/types/binary.hpp>
+#include <cereal/archives/binary.hpp>
+#include <cereal/access.hpp>
 
 class Circuit;
 
@@ -40,7 +41,7 @@ public:
     virtual bool isNonlinear() const { return false; }
     virtual bool needsCurrentUnknown() const { return false; }
 
-    template<calss Archive>
+    template<class Archive>
     void serialize(Archive& ar) {
         ar(type, name, node1, node2, value);
     }
@@ -57,8 +58,18 @@ public:
     void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &,const std::map<int, int>& nodeIdToMnaIndex,  double, double, int) override;
 
     template<class Archive>
-    void seialize(Archive& ar) {
-        ar(cerael::base_class<Component>(this));
+    void serialize(Archive& ar) {
+        ar(cereal::base_class<Component>(this));
+    }
+
+    template<class Archive>
+    static void load_and_construct(Archive& ar, cereal::construct<Resistor>& construct) {
+        Component::Type type;
+        std::string name;
+        int n1, n2;
+        double v;
+        ar(type, name, n1, n2, v);
+        construct(name, n1, n2, v);
     }
 };
 
@@ -72,9 +83,21 @@ public:
     void reset() override;
     void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &, const std::map<int, int>& nodeIdToMnaIndex, double, double, int) override;
 
-    template<class Archive> 
-    void serialize(Archive& ar) {
+    template<class Archive>
+    void save(Archive& ar) const {
         ar(cereal::base_class<Component>(this), V_prev);
+    }
+
+    template <class Archive>
+    static void load_and_construct(Archive& ar, cereal::construct<Capacitor>& construct) {
+        Component::Type type;
+        std::string name;
+        int n1, n2;
+        double v;
+        double v_prev;
+        ar(type, name, n1, n2, v, v_prev);
+        construct(name, n1, n2, v);
+        construct->V_prev = v_prev;
     }
 };
 
@@ -89,9 +112,21 @@ public:
     void reset() override;
     void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &,const std::map<int, int>& nodeIdToMnaIndex,  double, double, int) override;
 
-    template<class Archive> 
-    void serialize(Archive& ar) {
+    template<class Archive>
+    void save(Archive& ar) const {
         ar(cereal::base_class<Component>(this), I_prev);
+    }
+
+    template <class Archive>
+    static void load_and_construct(Archive& ar, cereal::construct<Inductor>& construct) {
+        Component::Type type;
+        std::string name;
+        int n1, n2;
+        double v;
+        double i_prev;
+        ar(type, name, n1, n2, v, i_prev);
+        construct(name, n1, n2, v);
+        construct->I_prev = i_prev;
     }
 };
 
@@ -110,9 +145,21 @@ public:
     void setPreviousVoltage(double v) { V_prev = v; }
     void reset() override;
 
-    template<class Archive> 
-    void serialize(Archive& ar) {
+    template<class Archive>
+    void save(Archive& ar) const {
         ar(cereal::base_class<Component>(this), Is, Vt, eta, V_prev);
+    }
+
+    template <class Archive>
+    static void load_and_construct(Archive& ar, cereal::construct<Diode>& construct) {
+        Component::Type type;
+        std::string name;
+        int n1, n2;
+        double v;
+        double Is, Vt, eta, V_prev;
+        ar(type, name, n1, n2, v, Is, Vt, eta, V_prev);
+        construct(name, n1, n2, Is, eta, Vt);
+        construct->V_prev = V_prev;
     }
 };
 
@@ -126,9 +173,20 @@ public:
     void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &, const std::map<int, int>& nodeIdToMnaIndex, double, double, int) override;
     void setValue(double v);
 
-    template<class Archive> 
-    void serialize(Archive& ar) {
+    template<class Archive>
+    void save(Archive& ar) const {
         ar(cereal::base_class<Component>(this), waveForm);
+    }
+
+    template <class Archive>
+    static void load_and_construct(Archive& ar, cereal::construct<VoltageSource>& construct) {
+        Component::Type type;
+        std::string name;
+        int n1, n2;
+        double v;
+        std::unique_ptr<IWaveformStrategy> wf;
+        ar(type, name, n1, n2, v, wf);
+        construct(name, n1, n2, std::move(wf));
     }
 };
 
@@ -142,12 +200,24 @@ public:
     void setValue(double v);
 
     template<class Archive> 
-    void serialize(Archive& ar) {
+    void save(Archive& ar) {
         ar(cereal::base_class<Component>(this), waveForm);
+    }
+
+    template <class Archive>
+    static void load_and_construct(Archive& ar, cereal::construct<CurrentSource>& construct) {
+        Component::Type type;
+        std::string name;
+        int n1, n2;
+        double v;
+        std::unique_ptr<IWaveformStrategy> wf;
+        ar(type, name, n1, n2, v, wf);
+        construct(name, n1, n2, std::move(wf));
     }
 };
 
 
+// TODO: change the saving system with cereal for other child classes
 // VCVS - Type E
 class VCVS : public Component {
 private:
