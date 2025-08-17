@@ -33,20 +33,16 @@ Component* ComponentFactory::createComponent(
         newComp = new Inductor(name, n1_id, n2_id, value);
     }
     else if (typeStr == "V") {
-        std::unique_ptr<IWaveformStrategy> wf;
         if (isSinusoidal)
-             wf = std::make_unique<SinusoidalWaveform>(numericParams[0], numericParams[1], numericParams[2]);
+            newComp = new VoltageSource(name, n1_id, n2_id, VoltageSource::SourceType::Sinusoidal, numericParams[0], numericParams[1], numericParams[2]);
         else
-             wf = std::make_unique<DCWaveform>(value);
-        newComp = new VoltageSource(name, n1_id, n2_id, std::move(wf));
+            newComp = new VoltageSource(name, n1_id, n2_id, VoltageSource::SourceType::DC, value, 0.0, 0.0);
     }
     else if (typeStr == "I") {
-        std::unique_ptr<IWaveformStrategy> wf;
         if (isSinusoidal)
-            wf = std::make_unique<SinusoidalWaveform>(numericParams[0], numericParams[1], numericParams[2]);
+            newComp = new CurrentSource(name, n1_id, n2_id, CurrentSource::SourceType::Sinusoidal, numericParams[0], numericParams[1], numericParams[2]);
         else
-            wf = std::make_unique<DCWaveform>(value);
-        newComp = new CurrentSource(name, n1_id, n2_id, std::move(wf));
+            newComp = new CurrentSource(name, n1_id, n2_id, CurrentSource::SourceType::DC, value, 0.0, 0.0);
     }
     else if (typeStr == "D")
         newComp = new Diode(name, n1_id, n2_id, 1e-12, 1.0, 0.026);

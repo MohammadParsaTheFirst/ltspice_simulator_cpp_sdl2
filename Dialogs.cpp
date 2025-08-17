@@ -164,6 +164,7 @@ ConfigureAnalysisDialog::ConfigureAnalysisDialog(QWidget* parent) : QDialog(pare
     setWindowTitle("Configure Analysis");
     tabWidget = new QTabWidget(this);
     buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+
     // Transient Tab
     QWidget* transientTab = new QWidget(this);
     QFormLayout* transientLayout = new QFormLayout(transientTab);
@@ -174,6 +175,7 @@ ConfigureAnalysisDialog::ConfigureAnalysisDialog(QWidget* parent) : QDialog(pare
     transientLayout->addRow(new QLabel("Time to start saving data:"), tStartEdit);
     transientLayout->addRow(new QLabel("Maximum Timestep:"), tStepEdit);
     tabWidget->addTab(transientTab, "Transient");
+
     // AC Sweep Tab
     QWidget* ACSweepTab = new QWidget(this);
     QFormLayout* acSweepLayout = new QFormLayout(ACSweepTab);
@@ -190,6 +192,7 @@ ConfigureAnalysisDialog::ConfigureAnalysisDialog(QWidget* parent) : QDialog(pare
     acSweepLayout->addRow(new QLabel("Type of sweep:"), typeOfSweepComboBox);
     ACSweepTab->setEnabled(false);
     tabWidget->addTab(ACSweepTab, "AC Analysis");
+
     // Phase Sweep
     QWidget* phaseSweepTab = new QWidget(this);
     QFormLayout* phaseSweepLayout = new QFormLayout(phaseSweepTab);

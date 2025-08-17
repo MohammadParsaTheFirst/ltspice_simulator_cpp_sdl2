@@ -18,8 +18,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/LTspice.dir/LTspice_autogen/mocs_compilation.cpp.obj.d"
   "CMakeFiles/LTspice.dir/SchematicWidget.cpp.obj"
   "CMakeFiles/LTspice.dir/SchematicWidget.cpp.obj.d"
-  "CMakeFiles/LTspice.dir/Waveform.cpp.obj"
-  "CMakeFiles/LTspice.dir/Waveform.cpp.obj.d"
   "CMakeFiles/LTspice.dir/main.cpp.obj"
   "CMakeFiles/LTspice.dir/main.cpp.obj.d"
   "CMakeFiles/LTspice.dir/mainwindow.cpp.obj"

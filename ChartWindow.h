@@ -2,6 +2,7 @@
 #define CHARTWINDOW_H
 
 #include <QWidget>
+
 namespace QtCharts {
     class QChartView;
     class QChart;
@@ -9,7 +10,6 @@ namespace QtCharts {
 
 class ChartWindow : public QWidget {
     Q_OBJECT
-
 public:
     explicit ChartWindow(QWidget *parent = Q_NULLPTR);
 

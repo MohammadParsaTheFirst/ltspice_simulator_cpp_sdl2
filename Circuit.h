@@ -12,6 +12,7 @@
 #include <cereal/types/map.hpp>
 #include <QCoreApplication>
 #include <QDir>
+#include <cereal/types/memory.hpp>
 #include "component.h"
 #include "ComponentFactory.h"
 

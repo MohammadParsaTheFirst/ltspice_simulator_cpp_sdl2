@@ -16,7 +16,6 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cmake-build-debug/LTspice_autogen/EWIEGA46WW/qrc_resources.cpp" "CMakeFiles/LTspice.dir/LTspice_autogen/EWIEGA46WW/qrc_resources.cpp.obj" "gcc" "CMakeFiles/LTspice.dir/LTspice_autogen/EWIEGA46WW/qrc_resources.cpp.obj.d"
   "C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cmake-build-debug/LTspice_autogen/mocs_compilation.cpp" "CMakeFiles/LTspice.dir/LTspice_autogen/mocs_compilation.cpp.obj" "gcc" "CMakeFiles/LTspice.dir/LTspice_autogen/mocs_compilation.cpp.obj.d"
   "C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/SchematicWidget.cpp" "CMakeFiles/LTspice.dir/SchematicWidget.cpp.obj" "gcc" "CMakeFiles/LTspice.dir/SchematicWidget.cpp.obj.d"
-  "C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/Waveform.cpp" "CMakeFiles/LTspice.dir/Waveform.cpp.obj" "gcc" "CMakeFiles/LTspice.dir/Waveform.cpp.obj.d"
   "C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/main.cpp" "CMakeFiles/LTspice.dir/main.cpp.obj" "gcc" "CMakeFiles/LTspice.dir/main.cpp.obj.d"
   "C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/mainwindow.cpp" "CMakeFiles/LTspice.dir/mainwindow.cpp.obj" "gcc" "CMakeFiles/LTspice.dir/mainwindow.cpp.obj.d"
   )

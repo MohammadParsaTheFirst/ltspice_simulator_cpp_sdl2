@@ -336,12 +336,6 @@
 			null
 		],
 		[
-			"C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/Waveform.h",
-			"MU",
-			"EWIEGA46WW/moc_Waveform.cpp",
-			null
-		],
-		[
 			"C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/mainwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp",
@@ -455,11 +449,6 @@
 		],
 		[
 			"C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/SchematicWidget.cpp",
-			"MU",
-			null
-		],
-		[
-			"C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/Waveform.cpp",
 			"MU",
 			null
 		],
