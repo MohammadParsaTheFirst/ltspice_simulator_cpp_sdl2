@@ -104,7 +104,7 @@ public:
     void renameNode(const std::string&, const std::string&);
     bool hasNode(const std::string&) const;
     void clearSchematic();
-    Component* getComponent(const std::string& name) const;
+    std::shared_ptr<Component> getComponent(const std::string& name) const;
     int getNodeId(const std::string&, bool create = true);
     int getNodeId(const std::string&) const;
     void connectNodes(const std::string&, const std::string&);
@@ -129,7 +129,7 @@ private:
     void makeComponentFromLine(const std::string& netListLine);
 
     // circuit datas
-    std::vector<Component*> components;
+    std::vector<std::shared_ptr<Component>> components;
     std::vector<ComponentGraphicalInfo> componentGraphics;
     std::map<std::string, int> nodeNameToId;
     std::map<int, std::string> idToNodeName;

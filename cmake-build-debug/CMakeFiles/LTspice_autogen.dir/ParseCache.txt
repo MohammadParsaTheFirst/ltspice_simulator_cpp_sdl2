@@ -912,24 +912,25 @@ C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_
  mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/Dialogs.h
  mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/SchematicWidget.h
  mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/Waveform.h
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/access.hpp
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/cereal.hpp
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/details/helpers.hpp
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/details/polymorphic_impl.hpp
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/details/polymorphic_impl_fwd.hpp
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/details/static_object.hpp
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/details/traits.hpp
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/details/util.hpp
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/macros.hpp
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/specialize.hpp
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/types/base_class.hpp
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/types/common.hpp
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/types/concepts/pair_associative_container.hpp
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/types/map.hpp
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/types/memory.hpp
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/types/polymorphic.hpp
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/types/string.hpp
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/types/vector.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/access.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/archives/binary.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/cereal.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/details/helpers.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/details/polymorphic_impl.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/details/polymorphic_impl_fwd.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/details/static_object.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/details/traits.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/details/util.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/macros.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/specialize.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/types/base_class.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/types/common.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/types/concepts/pair_associative_container.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/types/map.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/types/memory.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/types/polymorphic.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/types/string.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/types/vector.hpp
  mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cmake-build-debug/LTspice_autogen/moc_predefs.h
  mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/Component.h
  mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/Cholesky
@@ -1640,24 +1641,25 @@ C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_
  mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/Dialogs.h
  mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/SchematicWidget.h
  mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/Waveform.h
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/access.hpp
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/cereal.hpp
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/details/helpers.hpp
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/details/polymorphic_impl.hpp
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/details/polymorphic_impl_fwd.hpp
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/details/static_object.hpp
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/details/traits.hpp
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/details/util.hpp
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/macros.hpp
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/specialize.hpp
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/types/base_class.hpp
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/types/common.hpp
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/types/concepts/pair_associative_container.hpp
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/types/map.hpp
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/types/memory.hpp
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/types/polymorphic.hpp
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/types/string.hpp
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/types/vector.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/access.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/archives/binary.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/cereal.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/details/helpers.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/details/polymorphic_impl.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/details/polymorphic_impl_fwd.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/details/static_object.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/details/traits.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/details/util.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/macros.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/specialize.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/types/base_class.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/types/common.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/types/concepts/pair_associative_container.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/types/map.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/types/memory.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/types/polymorphic.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/types/string.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/types/vector.hpp
  mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cmake-build-debug/LTspice_autogen/moc_predefs.h
  mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/Component.h
  mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/Cholesky
@@ -2354,24 +2356,25 @@ C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_
  mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/ComponentFactory.h
  mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/Dialogs.h
  mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/Waveform.h
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/access.hpp
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/cereal.hpp
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/details/helpers.hpp
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/details/polymorphic_impl.hpp
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/details/polymorphic_impl_fwd.hpp
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/details/static_object.hpp
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/details/traits.hpp
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/details/util.hpp
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/macros.hpp
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/specialize.hpp
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/types/base_class.hpp
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/types/common.hpp
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/types/concepts/pair_associative_container.hpp
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/types/map.hpp
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/types/memory.hpp
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/types/polymorphic.hpp
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/types/string.hpp
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/types/vector.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/access.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/archives/binary.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/cereal.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/details/helpers.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/details/polymorphic_impl.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/details/polymorphic_impl_fwd.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/details/static_object.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/details/traits.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/details/util.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/macros.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/specialize.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/types/base_class.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/types/common.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/types/concepts/pair_associative_container.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/types/map.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/types/memory.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/types/polymorphic.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/types/string.hpp
+ mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/types/vector.hpp
  mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cmake-build-debug/LTspice_autogen/moc_predefs.h
  mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/Component.h
  mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/Cholesky

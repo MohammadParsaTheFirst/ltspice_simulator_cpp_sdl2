@@ -51,11 +51,7 @@ double parseSpiceValue(const std::string& valueStr) {
 // -------------------------------- Constructors and Destructors --------------------------------
 Circuit::Circuit() : nextNodeId(0), numCurrentUnknowns(0), hasNonlinearComponents(false) { loadSubcircuits(); }
 
-Circuit::~Circuit() {
-    for (Component* comp : components) {
-        delete comp;
-    }
-}
+Circuit::~Circuit() {}
 // -------------------------------- Constructors and Destructors --------------------------------
 
 
@@ -280,7 +276,7 @@ void Circuit::mergeNodes(int sourceNodeId, int destNodeId) {
     if (sourceNodeId == destNodeId)
         return;
 
-    for (auto* comp : components) {
+    for (auto& comp : components) {
         if (comp->node1 == sourceNodeId)
             comp->node1 = destNodeId;
         if (comp->node2 == sourceNodeId)
@@ -301,9 +297,6 @@ void Circuit::mergeNodes(int sourceNodeId, int destNodeId) {
 }
 
 void Circuit::clearSchematic() {
-    for (Component* comp : components) {
-        delete comp;
-    }
     components.clear();
     nodeNameToId.clear();
     idToNodeName.clear();
@@ -350,7 +343,7 @@ void Circuit::addComponent(const std::string& typeStr, const std::string& name, 
         Component* newComp = ComponentFactory::createComponent(typeStr, name, n1_id, n2_id, value, numericParams,
                                                                stringParams, isSinusoidal, this);
         if (newComp) {
-            components.push_back(newComp);
+            components.push_back(std::shared_ptr<Component>(newComp));
             if (newComp->isNonlinear())
                 hasNonlinearComponents = true;
             std::cout << "Added " << name << "." << std::endl;
@@ -423,7 +416,7 @@ void Circuit::addComponent(const std::string& typeStr, const std::string& name,
                                                                stringParams, isSinusoidal, this);
         if (newComp) {
             componentGraphics.push_back({startPoint, isHorizontal, name});
-            components.push_back(newComp);
+            components.push_back(std::shared_ptr<Component>(newComp));
             if (newComp->isNonlinear())
                 hasNonlinearComponents = true;
             std::cout << "Added " << name << "." << std::endl;
@@ -434,8 +427,8 @@ void Circuit::addComponent(const std::string& typeStr, const std::string& name,
     }
 }
 
-Component* Circuit::getComponent(const std::string& name) const {
-    for (Component* comp : components) {
+std::shared_ptr<Component> Circuit::getComponent(const std::string& name) const {
+    for (const auto& comp : components) {
         if (comp->name == name) {
             return comp;
         }
@@ -461,9 +454,8 @@ void Circuit::addWire(const QPoint& start, const QPoint& end, const std::string&
 }
 
 void Circuit::deleteComponent(const std::string& componentName, char typeChar) {
-    components.erase(std::remove_if(components.begin(), components.end(), [&](Component* comp) {
-        if (comp->getName() == componentName) {
-            delete comp;
+components.erase(std::remove_if(components.begin(), components.end(), [&](const std::shared_ptr<Component>& comp) {
+    if (comp->getName() == componentName) {
             return true;
         }
         return false;
@@ -501,11 +493,11 @@ void Circuit::listNodes() const {
 
 void Circuit::listComponents(char typeFilter) const {
     if (!typeFilter)
-        for (Component* component : components)
+        for (const auto& component : components)
             std::cout << component->name << " " << idToNodeName.at(component->node1) << " " << idToNodeName.
                 at(component->node2) << " " << component->value << std::endl;
     else
-        for (Component* component : components)
+        for (const auto& component : components)
             if (component->name[0] == typeFilter)
                 std::cout << component->name << " " << idToNodeName.at(component->node1) << " " << idToNodeName.
                     at(component->node2) << " " << component->value << std::endl;
@@ -583,7 +575,7 @@ void Circuit::buildMNAMatrix(double time, double h) {
 
     numCurrentUnknowns = 0;
     componentCurrentIndices.clear();
-    for (Component* comp : components) {
+    for (const auto& comp : components) {
         if (comp->needsCurrentUnknown()) {
             componentCurrentIndices[comp->name] = node_count + numCurrentUnknowns;
             numCurrentUnknowns++;
@@ -603,7 +595,7 @@ void Circuit::buildMNAMatrix(double time, double h) {
     A_mna.setZero();
     b_mna.setZero();
 
-    for (Component* comp : components) {
+    for (const auto& comp : components) {
         int idx = -1;
         if (comp->needsCurrentUnknown()) {
             idx = componentCurrentIndices.at(comp->name);
@@ -628,14 +620,14 @@ Eigen::VectorXd Circuit::solveMNASystem() {
 }
 
 void Circuit::updateComponentStates(const Eigen::VectorXd& solution, const std::map<int, int>& nodeIdToMnaIndex) {
-    for (Component* comp : components) {
+    for (const auto& comp : components) {
         comp->updateState(solution, componentCurrentIndices, nodeIdToMnaIndex);
     }
 }
 
 void Circuit::updateNonlinearComponentStates(const Eigen::VectorXd& solution,
                                              const std::map<int, int>& nodeIdToMnaIndex) {
-    for (Component* comp : components) {
+    for (const auto& comp : components) {
         if (comp->isNonlinear()) {
             comp->updateState(solution, componentCurrentIndices, nodeIdToMnaIndex);
         }
@@ -646,7 +638,7 @@ void Circuit::updateNonlinearComponentStates(const Eigen::VectorXd& solution,
 
 // -------------------------------- Analysis Methods --------------------------------
 void Circuit::performDCAnalysis(const std::string& sourceName, double startValue, double endValue, double increment) {
-    Component* sweepSource = getComponent(sourceName);
+    std::shared_ptr<Component> sweepSource = getComponent(sourceName);
 
     if (!sweepSource)
         throw std::runtime_error("Source '" + sourceName + "' for DC sweep not found.");
@@ -657,15 +649,15 @@ void Circuit::performDCAnalysis(const std::string& sourceName, double startValue
     std::cout << "Start: " << startValue << ", Stop: " << endValue << ", Increment: " << increment << std::endl;
 
     dcSweepSolutions.clear();
-    for (Component* component : components)
+    for (const auto& component : components)
         component->reset();
 
     std::map<int, int> nodeIdToMnaIndex;
 
     for (double sweepValue = startValue; sweepValue <= endValue; sweepValue += increment) {
-        if (auto vs = dynamic_cast<VoltageSource*>(sweepSource))
+        if (auto vs = dynamic_cast<VoltageSource*>(sweepSource.get()))
             vs->setValue(sweepValue);
-        else if (auto cs = dynamic_cast<CurrentSource*>(sweepSource))
+        else if (auto cs = dynamic_cast<CurrentSource*>(sweepSource.get()))
             cs->setValue(sweepValue);
         else
             throw std::runtime_error("Component '" + sourceName + "' is not a sweepable source.");
@@ -690,8 +682,8 @@ void Circuit::performDCAnalysis(const std::string& sourceName, double startValue
 
             Eigen::VectorXd lastSolution;
 
-            for (auto* comp : components) {
-                if (auto* diode = dynamic_cast<Diode*>(comp)) {
+            for (const auto& comp : components) {
+                if (auto* diode = dynamic_cast<Diode*>(comp.get())) {
                     diode->reset();
                 }
             }
@@ -732,7 +724,7 @@ void Circuit::performTransientAnalysis(double stopTime, double startTime, double
     if (groundNodeIds.empty())
         throw std::runtime_error("No ground node detected.");
 
-    for (Component* comp : components)
+    for (const auto& comp : components)
         comp->reset();
     transientSolutions.clear();
 
@@ -800,11 +792,9 @@ void Circuit::printTransientResults(const std::vector<std::string>& variablesToP
 
     struct PrintJob {
         std::string header;
-
         enum class Type { VOLTAGE, MNA_CURRENT, RESISTOR_CURRENT, CAPACITOR_CURRENT } type;
-
         int index = -1;
-        Component* component_ptr = nullptr;
+        std::shared_ptr<Component> component_ptr = nullptr;
     };
     std::vector<PrintJob> printJobs;
 
@@ -828,12 +818,12 @@ void Circuit::printTransientResults(const std::vector<std::string>& variablesToP
                 if (componentCurrentIndices.count(name))
                     printJobs.push_back({var, PrintJob::Type::MNA_CURRENT, componentCurrentIndices.at(name), nullptr});
                 else {
-                    Component* comp = getComponent(name);
+                    auto comp = getComponent(name);
                     if (!comp)
                         throw std::runtime_error("Component " + name + " not found.");
-                    if (dynamic_cast<Resistor*>(comp))
+                    if (dynamic_cast<Resistor*>(comp.get()))
                         printJobs.push_back({var, PrintJob::Type::RESISTOR_CURRENT, -1, comp});
-                    else if (dynamic_cast<Capacitor*>(comp))
+                    else if (dynamic_cast<Capacitor*>(comp.get()))
                         printJobs.push_back({var, PrintJob::Type::CAPACITOR_CURRENT, -1, comp});
                     else
                         std::cout << "Warning: Current for component type of '" << name << "' cannot be calculated." <<
@@ -922,7 +912,7 @@ void Circuit::printDcSweepResults(const std::string& sourceName, const std::stri
             result = isGround(nodeID) ? 0.0 : solution(nodeIdToMnaIndex.at(nodeID));
         }
         else {
-            Component* comp = getComponent(varName);
+            auto comp = getComponent(varName);
             if (!comp) {
                 std::string errorMsg = "Component " + varName + " not found in circuit.";
                 throw std::runtime_error(errorMsg);
@@ -937,7 +927,7 @@ void Circuit::printDcSweepResults(const std::string& sourceName, const std::stri
                 }
             }
             else {
-                if (dynamic_cast<Resistor*>(comp)) {
+                if (dynamic_cast<Resistor*>(comp.get())) {
                     int node1 = comp->node1;
                     int node2 = comp->node2;
 
@@ -953,7 +943,7 @@ void Circuit::printDcSweepResults(const std::string& sourceName, const std::stri
                     }
                     result = (v1 - v2) / comp->value;
                 }
-                else if (dynamic_cast<Capacitor*>(comp))
+                else if (dynamic_cast<Capacitor*>(comp.get()))
                     result = 0.0;
                 else {
                     std::cout << "Warning: Current printing for this component type ('" << varName <<

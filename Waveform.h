@@ -1,7 +1,3 @@
-//
-// Created by Parsa on 7/31/2025.
-//
-
 #ifndef WAVEFORM_H
 #define WAVEFORM_H
 
