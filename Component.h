@@ -42,7 +42,7 @@ public:
     virtual bool needsCurrentUnknown() const { return false; }
 
     template<class Archive>
-    void serialize(Archive& ar) {
+    void save(Archive& ar) const {
         ar(type, name, node1, node2, value);
     }
 
@@ -58,7 +58,7 @@ public:
     void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &,const std::map<int, int>& nodeIdToMnaIndex,  double, double, int) override;
 
     template<class Archive>
-    void serialize(Archive& ar) {
+    void save(Archive& ar) const {
         ar(cereal::base_class<Component>(this));
     }
 
@@ -200,7 +200,7 @@ public:
     void setValue(double v);
 
     template<class Archive> 
-    void save(Archive& ar) {
+    void save(Archive& ar) const {
         ar(cereal::base_class<Component>(this), waveForm);
     }
 
@@ -228,7 +228,7 @@ public:
     void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &, const std::map<int, int>& nodeIdToMnaIndex, double, double, int) override;
 
     template<class Archive> 
-    void save(Archive& ar) {
+    void save(Archive& ar) const {
         ar(cereal::base_class<Component>(this), ctrlNode1, ctrlNode2, gain);
     }
 
@@ -256,7 +256,7 @@ public:
     void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int>&, const std::map<int, int>& nodeIdToMnaIndex, double, double , int) override;
 
     template<class Archive> 
-    void save(Archive& ar) {
+    void save(Archive& ar) const {
         ar(cereal::base_class<Component>(this), ctrlNode1, ctrlNode2, gain);
     }
 
@@ -286,7 +286,7 @@ public:
     void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &, const std::map<int, int>& nodeIdToMnaIndex, double, double, int) override;
 
     template<class Archive> 
-    void save(Archive& ar) {
+    void save(Archive& ar) const {
         ar(cereal::base_class<Component>(this), ctrlCompName, gain);
     }
 
@@ -314,7 +314,7 @@ public:
     void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &, const std::map<int, int>& nodeIdToMnaIndex, double, double, int) override;
 
     template<class Archive> 
-    void save(Archive& ar) {
+    void save(Archive& ar) const {
         ar(cereal::base_class<Component>(this), ctrlCompName, gain);
     }
 
