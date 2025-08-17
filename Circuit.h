@@ -2,6 +2,8 @@
 #define CIRCUIT_H
 
 #include <vector>
+#include <QMouseEvent>
+#include <QString>
 #include <fstream>
 #include <filesystem>
 #include <set>
@@ -13,7 +15,47 @@
 #include "component.h"
 #include "ComponentFactory.h"
 
-double parseSpiceValue(const std::string& valueStr);
+struct ComponentGraphicalInfo {
+    QPoint startPoint;
+    bool isHorizontal;
+    std::string name;
+
+    template<class Archive>
+    void serialize(Archive& ar) {
+        ar(startPoint.rx(), startPoint.ry(), isHorizontal, name);
+    }
+};
+
+struct WireInfo {
+    QPoint startPoint;
+    QPoint endPoint;
+    std::string nodeName;
+
+    template<class Archive>
+    void serialize(Archive& ar) {
+        ar(startPoint.rx(), startPoint.ry(), endPoint.rx(), endPoint.ry(), nodeName);
+    }
+};
+
+struct LabelInfo {
+    QPoint position;
+    std::string name;
+    std::string connectedNodeName;
+
+    template<class Archive>
+    void serialize(Archive& ar) {
+        ar(position.rx(), position.ry(), name, connectedNodeName);
+    }
+};
+
+struct GroundInfo {
+    QPoint position;
+
+    template<class Archive>
+    void serialize(Archive& ar) {
+        ar(position.rx(), position.ry());
+    }
+};
 
 struct SubcircuitDefinition {
     std::string name;
@@ -27,6 +69,8 @@ struct SubcircuitDefinition {
     }
 };
 
+double parseSpiceValue(const std::string& valueStr);
+
 class Circuit {
 public:
     Circuit();
@@ -36,18 +80,23 @@ public:
     std::vector<std::string> allFiles;
 
     // File Operations
-    void newCircuit(const std::string&);
-    bool loadCircuitFromFile();
-    void showExistingFiles();
-    void saveCircuitToFile();
-    std::string getPathRightNow() { return currentFilePath; }
+    void newProject(const std::string& projectName);
+    void saveProject() const;
+    void loadProject(const std::string& projectName);
+    QString getProjectDirectory() const;
     void saveSubcircuit(const SubcircuitDefinition& subDef) const;
     void loadSubcircuits();
+    const std::vector<ComponentGraphicalInfo>& getComponentGraphics() const;
+    const std::vector<WireInfo>& getWires() const;
+    const std::vector<LabelInfo>& getLabels() const;
+    const std::vector<GroundInfo>& getGrounds() const;
 
     // Component and Node Management
-    void addComponent(const std::string&, const std::string&, const std::string&, const std::string&, double,
-                      const std::vector<double>&, const std::vector<std::string>&, bool);
-    void addGround(const std::string&);
+    void addComponent(const std::string&, const std::string&, const std::string&, const std::string&,
+    const QPoint& startPoint, bool isHorizontal, double value, const std::vector<double>&, const std::vector<std::string>&, bool);
+    void addComponent(const std::string& typeStr, const std::string&, const std::string&, const std::string&, double, const std::vector<double>&, const std::vector<std::string>&, bool);
+    void addGround(const std::string&, const QPoint&);
+    void addWire(const QPoint& start, const QPoint& end, const std::string& nodeName);
     void deleteComponent(const std::string&, char);
     void deleteGround(const std::string&);
     void listNodes() const;
@@ -81,10 +130,14 @@ private:
 
     // circuit datas
     std::vector<Component*> components;
+    std::vector<ComponentGraphicalInfo> componentGraphics;
     std::map<std::string, int> nodeNameToId;
     std::map<int, std::string> idToNodeName;
     int nextNodeId;
     std::set<int> groundNodeIds;
+    std::vector<WireInfo> wires;
+    std::vector<GroundInfo> grounds;
+    std::vector<LabelInfo> labels;
 
     // MNA Matrix data
     Eigen::MatrixXd A_mna;
@@ -95,7 +148,8 @@ private:
     std::map<double, Eigen::VectorXd> dcSweepSolutions;
 
     // State and file management
-    std::string currentFilePath;
+    QString currentProjectName;
+    QString projectDirectoryPath;
     bool hasNonlinearComponents; // Diode
 
     std::map<std::string, std::set<int>> labelToNodes;

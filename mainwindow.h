@@ -12,6 +12,7 @@
 #include <QPixmap>
 #include <QToolBar>
 #include <QIcon>
+#include <QFileDialog>
 #include "SchematicWidget.h"
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
@@ -35,6 +36,7 @@ private:
     // Some items in menu bar to disable and enabling them
     QAction* settingsAction;
     QAction* newSchematicAction;
+    QAction* saveAction;
     QAction* openAction;
     QAction* configureAnalysisAction;
     QAction* runAction;
@@ -54,6 +56,8 @@ private:
 private slots:
     void hNewSchematic();
     void hShowSettings();
+    void hSaveProject();
+    void hOpenProject();
 
 public:
     MainWindow(QWidget* parent = Q_NULLPTR);

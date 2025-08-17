@@ -21,6 +21,7 @@ void MainWindow::setupWelcomeState() {
     backgroundLabel->setScaledContents(true);
     setCentralWidget(backgroundLabel);
 
+    saveAction->setEnabled(false);
     configureAnalysisAction->setEnabled(false);
     runAction->setEnabled(false);
     wireAction->setEnabled(false);
@@ -41,6 +42,7 @@ void MainWindow::setupSchematicState() {
     schematic = new SchematicWidget(&circuit, this);
     setCentralWidget(schematic);
 
+    connect(saveAction, &QAction::triggered, this, &MainWindow::hSaveProject);
     connect(runAction, &QAction::triggered, schematic, &SchematicWidget::startRunAnalysis);
     connect(configureAnalysisAction, &QAction::triggered, schematic, &SchematicWidget::startOpenConfigureAnalysis);
     connect(wireAction, &QAction::triggered, schematic, &SchematicWidget::startPlacingWire);
@@ -55,6 +57,7 @@ void MainWindow::setupSchematicState() {
     connect(deleteModeAction, &QAction::triggered, schematic, &SchematicWidget::startDeleteComponent);
     connect(createSubcircuitAction, &QAction::triggered, schematic, &SchematicWidget::startCreateSubcircuit);
 
+    saveAction->setEnabled(true);
     configureAnalysisAction->setEnabled(true);
     runAction->setEnabled(true);
     wireAction->setEnabled(true);
@@ -82,13 +85,40 @@ void MainWindow::hShowSettings() {
 }
 
 void MainWindow::hNewSchematic() {
-    setupSchematicState();
+    bool ok;
+    QString projectName = QInputDialog::getText(this, "New Project", "Enter project name:", QLineEdit::Normal, "", &ok);
+    if (ok && !projectName.isEmpty()) {
+        circuit.newProject(projectName.toStdString());
+        setupSchematicState();
+        this->setWindowTitle("LTspice - " + projectName);
+    }
+}
+
+void MainWindow::hSaveProject() {
+    circuit.saveProject();
+    QMessageBox::information(this, "Save Project", "Project saved.");
+}
+
+void MainWindow::hOpenProject() {
+    QString schematicsDir = circuit.getProjectDirectory();
+    QString projectPath = QFileDialog::getExistingDirectory(this, "Open Project", schematicsDir);
+
+    if (!projectPath.isEmpty()) {
+        QDir dir(projectPath);
+        QString projectName = dir.dirName();
+        circuit.loadProject(projectName.toStdString());
+        if (!schematic)
+            setupSchematicState();
+        schematic->reloadFromCircuit();
+        this->setWindowTitle("LTspice - " + projectName);
+    }
 }
 
 void MainWindow::starterWindow() {
     initializeActions();
 
     connect(newSchematicAction, &QAction::triggered, this, &MainWindow::hNewSchematic);
+    connect(openAction, &QAction::triggered, this, &MainWindow::hOpenProject);
     connect(quitAction, &QAction::triggered, this, &QApplication::quit);
     connect(settingsAction, &QAction::triggered, this, &MainWindow::hShowSettings);
 
@@ -100,6 +130,7 @@ void MainWindow::starterWindow() {
 void MainWindow::initializeActions() {
     settingsAction = new QAction(QIcon(":/icon/icons/settings.png"), "Settings", this);
     newSchematicAction = new QAction(QIcon(":/icon/icons/newSchematic.png"), "New Schematic (CTRL+N)", this);
+    saveAction = new QAction(QIcon(":/icon/icons/save.png"), "Save (CTRL+S)", this);
     openAction = new QAction(QIcon(":/icon/icons/open.png"), "Open (CTRL+O)", this);
     configureAnalysisAction = new QAction(QIcon(":/icon/icons/configureAnalysis.png"), "Configure Analysis (A)", this);
     runAction = new QAction(QIcon(":/icon/icons/run.png"), "Run (ALT+R)", this);
@@ -121,6 +152,7 @@ void MainWindow::implementMenuBar() {
     QMenu* file = menuBar()->addMenu(tr("&File"));
     file->addAction(newSchematicAction);
     file->addAction(openAction);
+    file->addAction(saveAction);
     file->addSeparator();
     file->addAction(quitAction);
 
@@ -165,6 +197,7 @@ void MainWindow::implementToolBar() {
     mainToolBar->addAction(settingsAction);
     mainToolBar->addAction(newSchematicAction);
     mainToolBar->addAction(openAction);
+    mainToolBar->addAction(saveAction);
     mainToolBar->addAction(configureAnalysisAction);
     mainToolBar->addAction(runAction);
     mainToolBar->addAction(wireAction);
@@ -184,6 +217,7 @@ void MainWindow::implementToolBar() {
 void MainWindow::shortcutRunner() {
     newSchematicAction->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_N));
     openAction->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_O));
+    saveAction->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_S));
     configureAnalysisAction->setShortcut(QKeySequence(Qt::Key_A));
     runAction->setShortcut(QKeySequence(Qt::ALT | Qt::Key_R));
     wireAction->setShortcut(QKeySequence(Qt::Key_W));

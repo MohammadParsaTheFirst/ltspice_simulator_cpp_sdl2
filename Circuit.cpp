@@ -49,9 +49,7 @@ double parseSpiceValue(const std::string& valueStr) {
 
 
 // -------------------------------- Constructors and Destructors --------------------------------
-Circuit::Circuit() : nextNodeId(0), numCurrentUnknowns(0),
-                     currentFilePath("C:\\Users\\parsa\\Documents\\university\\Programming and linux\\403101518-403101683.0\\Schematics\\draft.txt"),
-                     hasNonlinearComponents(false) { loadSubcircuits(); }
+Circuit::Circuit() : nextNodeId(0), numCurrentUnknowns(0), hasNonlinearComponents(false) { loadSubcircuits(); }
 
 Circuit::~Circuit() {
     for (Component* comp : components) {
@@ -62,48 +60,119 @@ Circuit::~Circuit() {
 
 
 // -------------------------------- File Management --------------------------------
-void Circuit::newCircuit(const std::string& path) {
-    for (Component* comp : components) {
-        delete comp;
-    }
-    components.clear();
-    nodeNameToId.clear();
-    idToNodeName.clear();
-    componentCurrentIndices.clear();
-    nextNodeId = 0;
-    numCurrentUnknowns = 0;
-    hasNonlinearComponents = false;
-    circuitNetList.clear();
-    groundNodeIds.clear();
-    labelToNodes.clear();
-    currentFilePath = path;
+QString Circuit::getProjectDirectory() const {
+    return QCoreApplication::applicationDirPath() + QDir::separator() + "Schematics";
 }
 
-void Circuit::saveCircuitToFile() {
-    std::ofstream outFile(currentFilePath);
-    if (!outFile.is_open()) {
-        std::cout << "Error: Could not open file '" << currentFilePath << std::endl;
+void Circuit::newProject(const std::string& projectName) {
+    clearSchematic();
+    currentProjectName = QString::fromStdString(projectName);
+    projectDirectoryPath = getProjectDirectory() + QDir::separator() + currentProjectName;
+
+    QDir dir(projectDirectoryPath);
+    if (!dir.exists())
+        dir.mkpath(".");
+}
+
+void Circuit::saveProject() const {
+    if (currentProjectName.isEmpty()){
+        std::cerr << "Error: No project is open to save." << std::endl;
         return;
     }
-    outFile.close();
-    for (std::string& lineToAddToFile : circuitNetList) {
-        outFile << lineToAddToFile << std::endl;
-    }
-    outFile.close();
+
+    QString graphicsFilePath = projectDirectoryPath + QDir::separator() + "graphics.bin";
+    std::ofstream os_graphicsFile(graphicsFilePath.toStdString(), std::ios::binary);
+    cereal::BinaryOutputArchive archive(os_graphicsFile);
+    archive(componentGraphics);
+
+    QString componentsFilePath = projectDirectoryPath + QDir::separator() + "components.bin";
+    std::ofstream os_comp(componentsFilePath.toStdString(), std::ios::binary);
+    cereal::BinaryOutputArchive archiveComps(os_comp);
+    archiveComps(components);
+
+    QString wiresFilePath = projectDirectoryPath + QDir::separator() + "wires.bin";
+    std::ofstream os_wires(wiresFilePath.toStdString(), std::ios::binary);
+    cereal::BinaryOutputArchive archiveWires(os_wires);
+    archiveWires(wires);
+
+    QString labelsFilePath = projectDirectoryPath + QDir::separator() + "labels.bin";
+    std::ofstream os_labels(labelsFilePath.toStdString(), std::ios::binary);
+    cereal::BinaryOutputArchive archiveLabels(os_labels);
+    archiveLabels(labels);
+
+    QString netlistFilePath = projectDirectoryPath + QDir::separator() + "netlist.net";
+    std::ofstream os_netlist(netlistFilePath.toStdString());
+    for (const auto& line: circuitNetList)
+        os_netlist << line << std::endl;
+
+    std::cout << "Project '" << currentProjectName.toStdString() << "' saved successfully." << std::endl; 
 }
 
-bool Circuit::loadCircuitFromFile() {
-    clearSchematic();
-    std::ifstream inFile(currentFilePath);
-    if (!inFile.is_open())
-        return false;
+void Circuit::loadProject(const std::string& projectName) {
+    newProject(projectName);
+
+    QString componentFilePath = projectDirectoryPath + QDir::separator() + "components.bin";
+    std::ifstream is_comp(componentFilePath.toStdString(), std::ios::binary);
+    if (!is_comp.is_open()) {
+        std::cout << "Starting new empty project: " << projectName << std::endl;
+        return;
+    }
+    cereal::BinaryInputArchive archiveComps(is_comp);
+    archiveComps(components);
+
+    componentGraphics.clear();
+    QString graphicsFilePath = projectDirectoryPath + QDir::separator() + "graphics.bin";
+    std::ifstream is_graphics(graphicsFilePath.toStdString(), std::ios::binary);
+    cereal::BinaryInputArchive archiveGraphics(is_graphics);
+    archiveGraphics(componentGraphics);
+
+    wires.clear();
+    QString wiresFilePath = projectDirectoryPath + QDir::separator() + "wires.bin";
+    std::ifstream is_wires(wiresFilePath.toStdString(), std::ios::binary);
+    if (is_wires.is_open()) {
+        cereal::BinaryInputArchive archiveWires(is_wires);
+        archiveWires(wires);
+    }
+
+    labels.clear();
+    QString labelsFilePath = projectDirectoryPath + QDir::separator() + "labels.bin";
+    std::ifstream is_labels(labelsFilePath.toStdString(), std::ios::binary);
+    cereal::BinaryInputArchive archiveLabels(is_labels);
+    archiveLabels(labels);
+
+    circuitNetList.clear();
+    QString netlistFilePath = projectDirectoryPath + QDir::separator() + "schematic.net";
+    std::ifstream is_netlist(netlistFilePath.toStdString());
     std::string line;
-    while (std::getline(inFile, line)) {
-        makeComponentFromLine(line);
+    while(std::getline(is_netlist, line)) {
         circuitNetList.push_back(line);
     }
-    inFile.close();
-    return true;
+
+    nextNodeId = 0;
+    nodeNameToId.clear();
+    idToNodeName.clear();
+    for (const auto& comp: components) {
+        getNodeId(idToNodeName[comp->node1], true);
+        getNodeId(idToNodeName[comp->node2], true);
+    }
+
+    std::cout << "Project '" << projectName << "' loaded successfully." << std::endl;
+}
+
+const std::vector<ComponentGraphicalInfo>& Circuit::getComponentGraphics() const {
+    return componentGraphics;
+}
+
+const std::vector<WireInfo>& Circuit::getWires() const {
+    return wires;
+}
+
+const std::vector<LabelInfo>& Circuit::getLabels() const {
+    return labels;
+}
+
+const std::vector<GroundInfo>& Circuit::getGrounds() const {
+    return grounds;
 }
 
 void Circuit::makeComponentFromLine(const std::string& line) {
@@ -232,7 +301,23 @@ void Circuit::mergeNodes(int sourceNodeId, int destNodeId) {
 }
 
 void Circuit::clearSchematic() {
-    newCircuit(currentFilePath);
+    for (Component* comp : components) {
+        delete comp;
+    }
+    components.clear();
+    nodeNameToId.clear();
+    idToNodeName.clear();
+    componentCurrentIndices.clear();
+    nextNodeId = 0;
+    numCurrentUnknowns = 0;
+    hasNonlinearComponents = false;
+    circuitNetList.clear();
+    groundNodeIds.clear();
+    labelToNodes.clear();
+    wires.clear();
+    labels.clear();
+    grounds.clear();
+    componentGraphics.clear();
 }
 
 int Circuit::getNodeId(const std::string& nodeName, bool create) {
@@ -258,8 +343,27 @@ bool Circuit::hasNode(const std::string& nodeName) const {
     return nodeNameToId.count(nodeName);
 }
 
+void Circuit::addComponent(const std::string& typeStr, const std::string& name, const std::string& node1Str, const std::string& node2Str, double value, const std::vector<double>& numericParams, const std::vector<std::string>& stringParams, bool isSinusoidal) {
+    int n1_id = getNodeId(node1Str, true);
+    int n2_id = getNodeId(node2Str, true);
+    try {
+        Component* newComp = ComponentFactory::createComponent(typeStr, name, n1_id, n2_id, value, numericParams,
+                                                               stringParams, isSinusoidal, this);
+        if (newComp) {
+            components.push_back(newComp);
+            if (newComp->isNonlinear())
+                hasNonlinearComponents = true;
+            std::cout << "Added " << name << "." << std::endl;
+        }
+    }
+    catch (const std::exception& e) {
+        std::cout << "ERROR: " << e.what() << std::endl;
+    }
+}
+
 void Circuit::addComponent(const std::string& typeStr, const std::string& name,
                            const std::string& node1Str, const std::string& node2Str,
+                           const QPoint& startPoint, bool isHorizontal,
                            double value, const std::vector<double>& numericParams,
                            const std::vector<std::string>& stringParams, bool isSinusoidal) {
     for (const auto& comp : components) {
@@ -311,12 +415,14 @@ void Circuit::addComponent(const std::string& typeStr, const std::string& name,
             makeComponentFromLine(line);
         return;
     }
+
     int n1_id = getNodeId(node1Str, true);
     int n2_id = getNodeId(node2Str, true);
     try {
         Component* newComp = ComponentFactory::createComponent(typeStr, name, n1_id, n2_id, value, numericParams,
                                                                stringParams, isSinusoidal, this);
         if (newComp) {
+            componentGraphics.push_back({startPoint, isHorizontal, name});
             components.push_back(newComp);
             if (newComp->isNonlinear())
                 hasNonlinearComponents = true;
@@ -341,41 +447,33 @@ bool Circuit::isGround(int nodeId) const {
     return groundNodeIds.count(nodeId);
 }
 
-void Circuit::addGround(const std::string& nodeName) {
+void Circuit::addGround(const std::string& nodeName, const QPoint& position) {
     int nodeId = getNodeId(nodeName, true);
     if (!isGround(nodeId)) {
         groundNodeIds.insert(nodeId);
+        grounds.push_back({position});
         std::cout << "Ground added." << std::endl;
     }
 }
 
+void Circuit::addWire(const QPoint& start, const QPoint& end, const std::string& nodeName) {
+    wires.push_back({start, end, nodeName});
+}
+
 void Circuit::deleteComponent(const std::string& componentName, char typeChar) {
-    for (auto it = components.begin(); it != components.end(); it++) {
-        if ((*it)->getName() == componentName) {
-            delete *it;
-            components.erase(it);
-            for (auto it = circuitNetList.begin(); it != circuitNetList.end(); it++) {
-                if (it->find(componentName) != std::string::npos) {
-                    circuitNetList.erase(it);
-                    break;
-                }
-            }
-            std::cout << "Component " << componentName << " deleted." << std::endl;
-            return;
+    components.erase(std::remove_if(components.begin(), components.end(), [&](Component* comp) {
+        if (comp->getName() == componentName) {
+            delete comp;
+            return true;
         }
-    }
-    if (typeChar == 'R')
-        throw std::runtime_error("Cannot delete resistor; component not found.");
-    else if (typeChar == 'C')
-        throw std::runtime_error("Cannot delete capacitor; component not found.");
-    else if (typeChar == 'L')
-        throw std::runtime_error("Cannot delete inductor; component not found.");
-    else if (typeChar == 'D')
-        throw std::runtime_error("Cannot delete diode; component not found.");
-    else if (typeChar == 'V')
-        throw std::runtime_error("Cannot delete voltage source; component not found.");
-    else if (typeChar == 'I')
-        throw std::runtime_error("Cannot delete current source; component not found.");
+        return false;
+    }), components.end());
+    componentGraphics.erase(std::remove_if(componentGraphics.begin(), componentGraphics.end(), [&](const ComponentGraphicalInfo& g) {
+        return g.name == componentName;
+    }), componentGraphics.end());
+    circuitNetList.erase(std::remove_if(circuitNetList.begin(), circuitNetList.end(), [&](const std::string& line) {
+        return line.find(componentName) != std::string::npos;
+    }), circuitNetList.end());
 }
 
 void Circuit::deleteGround(const std::string& ground_node_name) {

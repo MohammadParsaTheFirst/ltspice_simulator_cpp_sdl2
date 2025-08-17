@@ -73,6 +73,7 @@ LTspice_autogen/EWIEGA46WW/qrc_resources.cpp: CMakeFiles/LTspice_autogen.dir/Aut
 LTspice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/background.jpg
 LTspice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/icons/wire.png
 LTspice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/icons/run.png
+LTspice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/icons/save.png
 LTspice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/icons/open.png
 LTspice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/icons/diode.png
 LTspice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/icons/settings.png

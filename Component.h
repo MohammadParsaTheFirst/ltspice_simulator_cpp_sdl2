@@ -7,6 +7,8 @@
 #include <iostream>
 #include <memory>
 #include <map>
+#include <cereal/types/polymorphic.hpp>
+#include <cereal/types/binary.hpp>
 
 class Circuit;
 
@@ -38,6 +40,11 @@ public:
     virtual bool isNonlinear() const { return false; }
     virtual bool needsCurrentUnknown() const { return false; }
 
+    template<calss Archive>
+    void serialize(Archive& ar) {
+        ar(type, name, node1, node2, value);
+    }
+
     std::string getName() const {
         return name;
     }
@@ -48,6 +55,11 @@ class Resistor : public Component {
 public:
     Resistor(const std::string& n, int n1, int n2, double v);
     void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &,const std::map<int, int>& nodeIdToMnaIndex,  double, double, int) override;
+
+    template<class Archive>
+    void seialize(Archive& ar) {
+        ar(cerael::base_class<Component>(this));
+    }
 };
 
 
@@ -59,6 +71,11 @@ public:
     void updateState(const Eigen::VectorXd& solution, const std::map<std::string, int>& ci, const std::map<int, int>& nodeIdToMnaIndex) override;
     void reset() override;
     void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &, const std::map<int, int>& nodeIdToMnaIndex, double, double, int) override;
+
+    template<class Archive> 
+    void serialize(Archive& ar) {
+        ar(cereal::base_class<Component>(this), V_prev);
+    }
 };
 
 
@@ -71,6 +88,11 @@ public:
     void updateState(const Eigen::VectorXd& solution, const std::map<std::string, int>& ci, const std::map<int, int>& nodeIdToMnaIndex) override;
     void reset() override;
     void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &,const std::map<int, int>& nodeIdToMnaIndex,  double, double, int) override;
+
+    template<class Archive> 
+    void serialize(Archive& ar) {
+        ar(cereal::base_class<Component>(this), I_prev);
+    }
 };
 
 
@@ -87,6 +109,11 @@ public:
     void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &, const std::map<int, int>& nodeIdToMnaIndex, double, double, int) override;
     void setPreviousVoltage(double v) { V_prev = v; }
     void reset() override;
+
+    template<class Archive> 
+    void serialize(Archive& ar) {
+        ar(cereal::base_class<Component>(this), Is, Vt, eta, V_prev);
+    }
 };
 
 
@@ -98,6 +125,11 @@ public:
     bool needsCurrentUnknown() const override { return true; }
     void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &, const std::map<int, int>& nodeIdToMnaIndex, double, double, int) override;
     void setValue(double v);
+
+    template<class Archive> 
+    void serialize(Archive& ar) {
+        ar(cereal::base_class<Component>(this), waveForm);
+    }
 };
 
 
@@ -108,6 +140,11 @@ public:
     CurrentSource(const std::string& n, int n1, int n2, std::unique_ptr<IWaveformStrategy> wf);
     void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &, const std::map<int, int>& nodeIdToMnaIndex, double, double, int) override;
     void setValue(double v);
+
+    template<class Archive> 
+    void serialize(Archive& ar) {
+        ar(cereal::base_class<Component>(this), waveForm);
+    }
 };
 
 
@@ -120,6 +157,11 @@ public:
     VCVS(const std::string& n, int n1, int n2, int ctrlN1, int ctrlN2, double gain);
     bool needsCurrentUnknown() const override { return true; }
     void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &, const std::map<int, int>& nodeIdToMnaIndex, double, double, int) override;
+
+    template<class Archive> 
+    void serialize(Archive& ar) {
+        ar(cereal::base_class<Component>(this), ctrlNode1, ctrlNode2, gain);
+    }
 };
 
 
@@ -131,6 +173,11 @@ private:
 public:
     VCCS(const std::string& n, int n1, int n2, int ctrlN1, int ctrlN2, double gain);
     void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int>&, const std::map<int, int>& nodeIdToMnaIndex, double, double , int) override;
+
+    template<class Archive> 
+    void serialize(Archive& ar) {
+        ar(cereal::base_class<Component>(this), ctrlNode1, ctrlNode2, gain);
+    }
 };
 
 
@@ -144,6 +191,11 @@ public:
     CCVS(const std::string& n, int n1, int n2, const std::string& ctrlComp, double gain);
     bool needsCurrentUnknown() const override { return true; }
     void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &, const std::map<int, int>& nodeIdToMnaIndex, double, double, int) override;
+
+    template<class Archive> 
+    void serialize(Archive& ar) {
+        ar(cereal::base_class<Component>(this), ctrlCompName, sourceIndex, gain);
+    }
 };
 
 
@@ -155,6 +207,11 @@ private:
 public:
     CCCS(const std::string& n, int n1, int n2, const std::string& ctrlComp, double gain);
     void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &, const std::map<int, int>& nodeIdToMnaIndex, double, double, int) override;
+
+    template<class Archive> 
+    void serialize(Archive& ar) {
+        ar(cereal::base_class<Component>(this), ctrlCompName, gain);
+    }
 };
 // -------------------------------- Component Class and Its Implementations --------------------------------
 

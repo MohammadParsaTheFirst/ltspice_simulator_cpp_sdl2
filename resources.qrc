@@ -19,5 +19,6 @@
         <file>icons/wire.png</file>
         <file>icons/diode.png</file>
         <file>icons/deleteMode.png</file>
+        <file>icons/save.png</file>
     </qresource>
 </RCC>

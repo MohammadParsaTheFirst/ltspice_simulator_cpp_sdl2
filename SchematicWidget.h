@@ -27,32 +27,11 @@ enum class InteractionMode {
     placingSubcircuit
 };
 
-struct GroundInfo {
-    QPoint position;
-};
-
-struct WireInfo {
-    QPoint startPoint;
-    QPoint endPoint;
-    QString nodeName;
-};
-
-struct ComponentGraphicalInfo {
-    QPoint startPoint;
-    bool isHorizontal;
-    QString name;
-};
-
-struct LabelInfo {
-    QPoint position;
-    QString name;
-    QString connectedNodeName;
-};
-
 class SchematicWidget : public QWidget {
     Q_OBJECT
 public:
     SchematicWidget(Circuit* circuit, QWidget* parent = Q_NULLPTR);
+    void reloadFromCircuit();
 
 public slots:
     void startOpenConfigureAnalysis();
@@ -111,17 +90,12 @@ private:
     bool placementIsHorizontal = true;
     QPoint currentMousePos;
     QString currentCompType = "NF";
-    std::vector<ComponentGraphicalInfo> components;
     int hoveredComponentIndex = -1;
     Circuit* circuit_ptr;
     std::map<QString, int> componentCounters;
 
-    std::vector<WireInfo> wires;
     bool isWiring = false;
     QPoint wireStartPoint;
-
-    std::vector<LabelInfo> labels;
-    std::vector<GroundInfo> grounds;
 
     double transientTStop = 0.0;
     double transientTStart = 0.0;

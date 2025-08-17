@@ -87,10 +87,8 @@ QString SourceValueDialog::getSinFrequency() const { return sinFrequency->text()
 NodeLibraryDialog::NodeLibraryDialog(Circuit* circuit, QWidget* parent) : QDialog(parent) {
     setWindowTitle("Node library");
     setMinimumSize(300,400);
-
     listWidget = new QListWidget(this);
     connect(listWidget, &QListWidget::itemDoubleClicked, this, &NodeLibraryDialog::doubleClickedOnItem);
-
     QListWidgetItem* resistorItem = new QListWidgetItem("Resistor");
     QListWidgetItem* capacitorItem = new QListWidgetItem("Capacitor");
     QListWidgetItem* inductorItem = new QListWidgetItem("Inductor");
@@ -101,7 +99,6 @@ NodeLibraryDialog::NodeLibraryDialog(Circuit* circuit, QWidget* parent) : QDialo
     QListWidgetItem* vccsItem = new QListWidgetItem("Voltage dependent current source");
     QListWidgetItem* ccvsItem = new QListWidgetItem("Current dependent voltage source");
     QListWidgetItem* cccsItem = new QListWidgetItem("Current dependent current source");
-
     resistorItem->setData(Qt::UserRole, "R");
     capacitorItem->setData(Qt::UserRole, "C");
     inductorItem->setData(Qt::UserRole, "L");
@@ -112,7 +109,6 @@ NodeLibraryDialog::NodeLibraryDialog(Circuit* circuit, QWidget* parent) : QDialo
     vccsItem->setData(Qt::UserRole, "G");
     ccvsItem->setData(Qt::UserRole, "H");
     cccsItem->setData(Qt::UserRole, "F");
-
     listWidget->addItem(resistorItem);
     listWidget->addItem(capacitorItem);
     listWidget->addItem(inductorItem);
@@ -123,7 +119,6 @@ NodeLibraryDialog::NodeLibraryDialog(Circuit* circuit, QWidget* parent) : QDialo
     listWidget->addItem(vccsItem);
     listWidget->addItem(ccvsItem);
     listWidget->addItem(cccsItem);
-
     QListWidgetItem* separator = new QListWidgetItem("------- Subcircuits -------");
     separator->setFlags(separator->flags() & ~Qt::ItemIsSelectable);
     listWidget->addItem(separator);
@@ -135,7 +130,6 @@ NodeLibraryDialog::NodeLibraryDialog(Circuit* circuit, QWidget* parent) : QDialo
             listWidget->addItem(subcircuitItem);
         }
     }
-
     QVBoxLayout* layout = new QVBoxLayout(this);
     layout->addWidget(listWidget);
 }
@@ -153,14 +147,11 @@ LabelDialog::LabelDialog(QWidget* parent) : QDialog(parent) {
     QLabel* label = new QLabel("Enter node label:", this);
     labelLineEdit = new QLineEdit(this);
     labelButtonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-
     layout->addWidget(label);
     layout->addWidget(labelLineEdit);
     layout->addWidget(labelButtonBox);
-
     connect(labelButtonBox, &QDialogButtonBox::accepted, this, &LabelDialog::accept);
     connect(labelButtonBox, &QDialogButtonBox::rejected, this, &LabelDialog::reject);
-
     labelLineEdit->setFocus();
 }
 
@@ -173,7 +164,6 @@ ConfigureAnalysisDialog::ConfigureAnalysisDialog(QWidget* parent) : QDialog(pare
     setWindowTitle("Configure Analysis");
     tabWidget = new QTabWidget(this);
     buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-
     // Transient Tab
     QWidget* transientTab = new QWidget(this);
     QFormLayout* transientLayout = new QFormLayout(transientTab);
@@ -184,7 +174,6 @@ ConfigureAnalysisDialog::ConfigureAnalysisDialog(QWidget* parent) : QDialog(pare
     transientLayout->addRow(new QLabel("Time to start saving data:"), tStartEdit);
     transientLayout->addRow(new QLabel("Maximum Timestep:"), tStepEdit);
     tabWidget->addTab(transientTab, "Transient");
-
     // AC Sweep Tab
     QWidget* ACSweepTab = new QWidget(this);
     QFormLayout* acSweepLayout = new QFormLayout(ACSweepTab);
@@ -201,7 +190,6 @@ ConfigureAnalysisDialog::ConfigureAnalysisDialog(QWidget* parent) : QDialog(pare
     acSweepLayout->addRow(new QLabel("Type of sweep:"), typeOfSweepComboBox);
     ACSweepTab->setEnabled(false);
     tabWidget->addTab(ACSweepTab, "AC Analysis");
-
     // Phase Sweep
     QWidget* phaseSweepTab = new QWidget(this);
     QFormLayout* phaseSweepLayout = new QFormLayout(phaseSweepTab);
@@ -218,7 +206,6 @@ ConfigureAnalysisDialog::ConfigureAnalysisDialog(QWidget* parent) : QDialog(pare
 
     connect(buttonBox, &QDialogButtonBox::accepted, this, &ConfigureAnalysisDialog::accept);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &ConfigureAnalysisDialog::reject);
-
     QVBoxLayout* layout = new QVBoxLayout(this);
     layout->addWidget(tabWidget);
     layout->addWidget(buttonBox);
