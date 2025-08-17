@@ -13,11 +13,11 @@ Inductor::Inductor(const std::string& n, int n1, int n2, double v)
 Diode::Diode(const std::string& n, int n1, int n2, double is, double et, double vt)
     : Component(Type::DIODE, n, n1, n2, 0.0), Is(is), eta(et), Vt(vt), V_prev(0.7) {}
 
-VoltageSource::VoltageSource(const std::string& n, int n1, int n2, std::unique_ptr<IWaveformStrategy> wf)
-    : Component(Type::VOLTAGE_SOURCE, n, n1, n2, 0.0), waveForm(std::move(wf)) {}
+VoltageSource::VoltageSource(const std::string& n, int n1, int n2, SourceType st, double p1, double p2, double p3)
+    : Component(Type::VOLTAGE_SOURCE, n, n1, n2, 0.0), sourceType(st), param1(p1), param2(p2), param3(p3) {}
 
-CurrentSource::CurrentSource(const std::string& n, int n1, int n2, std::unique_ptr<IWaveformStrategy> wf)
-    : Component(Type::CURRENT_SOURCE, n, n1, n2, 0.0), waveForm(std::move(wf)) {}
+CurrentSource::CurrentSource(const std::string& n, int n1, int n2, SourceType st, double p1, double p2, double p3)
+    : Component(Type::CURRENT_SOURCE, n, n1, n2, 0.0), sourceType(st), param1(p1), param2(p2), param3(p3) {}
 
 VCVS::VCVS(const std::string& n, int n1, int n2, int c_n1, int c_n2, double g)
     : Component(Type::VCVS, n, n1, n2, 0.0), ctrlNode1(c_n1), ctrlNode2(c_n2), gain(g) {}
@@ -207,20 +207,18 @@ void VoltageSource::stampMNA(Eigen::MatrixXd& A, Eigen::VectorXd& b, const std::
         A(idx, nodeIdToMnaIndex.at(node2)) -= 1.0;
     }
 
-    b(idx) += waveForm->getValue(time);
+    b(idx) += getCurrentValue(time);
 }
 
 void CurrentSource::stampMNA(Eigen::MatrixXd& A, Eigen::VectorXd& b, const std::map<std::string, int>& ci, const std::map<int, int>& nodeIdToMnaIndex,double time, double h, int idx) {
-    double currentValue = waveForm->getValue(time);
-
     bool n1_is_ground = !nodeIdToMnaIndex.count(node1);
     bool n2_is_ground = !nodeIdToMnaIndex.count(node2);
 
     if (!n1_is_ground) {
-        b(nodeIdToMnaIndex.at(node1)) -= currentValue;
+        b(nodeIdToMnaIndex.at(node1)) -= getCurrentValue(time);
     }
     if (!n2_is_ground) {
-        b(nodeIdToMnaIndex.at(node2)) += currentValue;
+        b(nodeIdToMnaIndex.at(node2)) += getCurrentValue(time);
     }
 }
 
@@ -319,40 +317,27 @@ void CCCS::stampMNA(Eigen::MatrixXd& A, Eigen::VectorXd& b, const std::map<std::
 
 // -------------------------------- Set Values for DC Sweep --------------------------------
 void VoltageSource::setValue(double v) {
-    if (auto i = dynamic_cast<DCWaveform*>(waveForm.get()))
-        i->setValue(v);
-    else
-        std::cout << "Cannot perform DC Sweep on non-dc source: " << name << std::endl;
+    if (sourceType == SourceType::DC)
+        param1 = v;
 }
 
-void CurrentSource::setValue(double v) {
-    if (auto i = dynamic_cast<DCWaveform*>(waveForm.get()))
-        i->setValue(v);
-    else
-        std::cout << "Cannot perform DC Sweep on non-dc source: " << name << std::endl;
+void CurrentSource::setValue(double i) {
+    if (sourceType == SourceType::DC)
+        param1 = i;
 }
 // -------------------------------- Set Values for DC Sweep --------------------------------
 
 
-CEREAL_REGISTER_TYPE(Resistor)
-CEREAL_REGISTER_TYPE(Capacitor)
-CEREAL_REGISTER_TYPE(Inductor)
-CEREAL_REGISTER_TYPE(Diode)
-CEREAL_REGISTER_TYPE(VoltageSource)
-CEREAL_REGISTER_TYPE(CurrentSource)
-CEREAL_REGISTER_TYPE(VCVS)
-CEREAL_REGISTER_TYPE(VCCS)
-CEREAL_REGISTER_TYPE(CCVS)
-CEREAL_REGISTER_TYPE(CCCS)
+double VoltageSource::getCurrentValue(double time) const {
+    if (sourceType == SourceType::DC)
+        return param1;
+    else
+        return param1 + param2 * sin(2*PI*param3*time);
+}
 
-
-CEREAL_REGISTER_POLYMORPHIC_RELATION(Component, Resistor);
-CEREAL_REGISTER_POLYMORPHIC_RELATION(Component, Capacitor);
-CEREAL_REGISTER_POLYMORPHIC_RELATION(Component, Inductor);
-CEREAL_REGISTER_POLYMORPHIC_RELATION(Component, Diode);
-CEREAL_REGISTER_POLYMORPHIC_RELATION(Component, VoltageSource);
-CEREAL_REGISTER_POLYMORPHIC_RELATION(Component, CurrentSource);
-CEREAL_REGISTER_POLYMORPHIC_RELATION(Component, VCVS);
-CEREAL_REGISTER_POLYMORPHIC_RELATION(Component, VCCS);
-CEREAL_REGISTER_POLYMORPHIC_RELATION(Component, CCVS);
-CEREAL_REGISTER_POLYMORPHIC_RELATION(Component, CCCS);
+double CurrentSource::getCurrentValue(double time) const {
+    if (sourceType == SourceType::DC)
+        return param1;
+    else
+        return param1 + param2 * sin(2*PI*param3*time);
+}

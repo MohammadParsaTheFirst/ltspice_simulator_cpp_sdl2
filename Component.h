@@ -2,7 +2,7 @@
 #define COMPONENT_H
 
 #include <Eigen/Dense>
-#include "WaveForm.h"
+#include <cereal/types/memory.hpp>
 #include <string>
 #include <iostream>
 #include <memory>
@@ -12,6 +12,8 @@
 #include <cereal/access.hpp>
 
 class Circuit;
+
+const double PI = 3.141592;
 
 // -------------------------------- Component Class and Its Implementations --------------------------------
 class Component {
@@ -165,17 +167,22 @@ public:
 
 
 class VoltageSource : public Component {
-private:
-    std::unique_ptr<IWaveformStrategy> waveForm;
 public:
-    VoltageSource(const std::string& name, int node1, int node2, std::unique_ptr<IWaveformStrategy> wf);
+    enum class SourceType {DC, Sinusoidal};
+private:
+    SourceType sourceType;
+    double param1, param2, param3;
+public:
+    VoltageSource(const std::string& name, int node1, int node2, SourceType type, double p1, double p2, double p3);
+
     bool needsCurrentUnknown() const override { return true; }
     void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &, const std::map<int, int>& nodeIdToMnaIndex, double, double, int) override;
     void setValue(double v);
+    double getCurrentValue(double time) const;
 
     template<class Archive>
     void save(Archive& ar) const {
-        ar(cereal::base_class<Component>(this), waveForm);
+        ar(cereal::base_class<Component>(this), sourceType, param1, param2, param3);
     }
 
     template <class Archive>
@@ -184,24 +191,29 @@ public:
         std::string name;
         int n1, n2;
         double v;
-        std::unique_ptr<IWaveformStrategy> wf;
-        ar(type, name, n1, n2, v, wf);
-        construct(name, n1, n2, std::move(wf));
+        SourceType st;
+        double p1, p2, p3;
+        ar(type, name, n1, n2, v, st, p1, p2, p3);
+        construct(name, n1, n2, st, p1, p2, p3);
     }
 };
 
 
 class CurrentSource : public Component {
-private:
-    std::unique_ptr<IWaveformStrategy> waveForm;
 public:
-    CurrentSource(const std::string& n, int n1, int n2, std::unique_ptr<IWaveformStrategy> wf);
+    enum class SourceType {DC, Sinusoidal};
+private:
+    SourceType sourceType;
+    double param1, param2, param3;
+public:
+    CurrentSource(const std::string& n, int n1, int n2, SourceType type, double p1, double p2, double p3);
     void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &, const std::map<int, int>& nodeIdToMnaIndex, double, double, int) override;
     void setValue(double v);
+    double getCurrentValue(double time) const;
 
     template<class Archive> 
     void save(Archive& ar) const {
-        ar(cereal::base_class<Component>(this), waveForm);
+        ar(cereal::base_class<Component>(this), sourceType, param1, param2, param3);
     }
 
     template <class Archive>
@@ -210,9 +222,10 @@ public:
         std::string name;
         int n1, n2;
         double v;
-        std::unique_ptr<IWaveformStrategy> wf;
-        ar(type, name, n1, n2, v, wf);
-        construct(name, n1, n2, std::move(wf));
+        SourceType st;
+        double p1, p2, p3;
+        ar(type, name, n1, n2, v, st, p1, p2, p3);
+        construct(name, n1, n2, st, p1, p2, p3);
     }
 };
 

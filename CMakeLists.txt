@@ -6,7 +6,7 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_PREFIX_PATH "C:\\Qt\\6.7.3\\mingw_64")
 
 include_directories(eigen-3.4.0)
-include_directories(${CMAKE_SOURCE_DIR}/cereal/include)
+include_directories(cereal/include)
 
 find_package(Qt6 REQUIRED COMPONENTS Widgets Charts)
 
@@ -19,8 +19,6 @@ add_executable (LTspice
         Circuit.h
         Component.h
         Component.cpp
-        WaveForm.cpp
-        WaveForm.h
         ComponentFactory.cpp
         ComponentFactory.h
         mainwindow.h
