@@ -327,7 +327,7 @@ void CurrentSource::setValue(double i) {
 }
 // -------------------------------- Set Values for DC Sweep --------------------------------
 
-
+// -
 double VoltageSource::getCurrentValue(double time) const {
     if (sourceType == SourceType::DC)
         return param1;
@@ -342,25 +342,152 @@ double CurrentSource::getCurrentValue(double time) const {
         return param1 + param2 * sin(2*PI*param3*time);
 }
 
-CEREAL_REGISTER_TYPE(Resistor)
-CEREAL_REGISTER_TYPE(Capacitor)
-CEREAL_REGISTER_TYPE(Inductor)
-CEREAL_REGISTER_TYPE(Diode)
-CEREAL_REGISTER_TYPE(VoltageSource)
-CEREAL_REGISTER_TYPE(CurrentSource)
-CEREAL_REGISTER_TYPE(VCVS)
-CEREAL_REGISTER_TYPE(VCCS)
-CEREAL_REGISTER_TYPE(CCVS)
-CEREAL_REGISTER_TYPE(CCCS)
 
+void Component::save_binary(std::ofstream& file) const {
+    file.write(reinterpret_cast<const char*>(&type), sizeof(type));
+    size_t name_len = name.size();
+    file.write(reinterpret_cast<const char*>(&name_len), sizeof(name_len));
+    file.write(name.c_str(), name_len);
+    file.write(reinterpret_cast<const char*>(&node1), sizeof(node1));
+    file.write(reinterpret_cast<const char*>(&node2), sizeof(node2));
+    file.write(reinterpret_cast<const char*>(&value), sizeof(value));
+}
+void Component::load_binary(std::ifstream& file) {
+    size_t name_len;
+    file.read(reinterpret_cast<char*>(&name_len), sizeof(name_len));
+    char* name_buf = new char[name_len + 1];
+    file.read(name_buf, name_len);
+    name_buf[name_len] = '\0';
+    name = name_buf;
+    delete[] name_buf;
+    file.read(reinterpret_cast<char*>(&node1), sizeof(node1));
+    file.read(reinterpret_cast<char*>(&node2), sizeof(node2));
+    file.read(reinterpret_cast<char*>(&value), sizeof(value));
+}
 
-CEREAL_REGISTER_POLYMORPHIC_RELATION(Component, Resistor);
-CEREAL_REGISTER_POLYMORPHIC_RELATION(Component, Capacitor);
-CEREAL_REGISTER_POLYMORPHIC_RELATION(Component, Inductor);
-CEREAL_REGISTER_POLYMORPHIC_RELATION(Component, Diode);
-CEREAL_REGISTER_POLYMORPHIC_RELATION(Component, VoltageSource);
-CEREAL_REGISTER_POLYMORPHIC_RELATION(Component, CurrentSource);
-CEREAL_REGISTER_POLYMORPHIC_RELATION(Component, VCVS);
-CEREAL_REGISTER_POLYMORPHIC_RELATION(Component, VCCS);
-CEREAL_REGISTER_POLYMORPHIC_RELATION(Component, CCVS);
-CEREAL_REGISTER_POLYMORPHIC_RELATION(Component, CCCS);
+void Capacitor::save_binary(std::ofstream& file) const {
+    Component::save_binary(file);
+    file.write(reinterpret_cast<const char*>(&V_prev), sizeof(V_prev));
+}
+void Capacitor::load_binary(std::ifstream& file) {
+    Component::load_binary(file);
+    file.read(reinterpret_cast<char*>(&V_prev), sizeof(V_prev));
+}
+
+void Inductor::save_binary(std::ofstream& file) const {
+    Component::save_binary(file);
+    file.write(reinterpret_cast<const char*>(&I_prev), sizeof(I_prev));
+}
+void Inductor::load_binary(std::ifstream& file) {
+    Component::load_binary(file);
+    file.read(reinterpret_cast<char*>(&I_prev), sizeof(I_prev));
+}
+
+void Diode::save_binary(std::ofstream& file) const {
+    Component::save_binary(file);
+    file.write(reinterpret_cast<const char*>(&Is), sizeof(Is));
+    file.write(reinterpret_cast<const char*>(&Vt), sizeof(Vt));
+    file.write(reinterpret_cast<const char*>(&eta), sizeof(eta));
+    file.write(reinterpret_cast<const char*>(&V_prev), sizeof(V_prev));
+}
+void Diode::load_binary(std::ifstream& file) {
+    Component::load_binary(file);
+    file.read(reinterpret_cast<char*>(&Is), sizeof(Is));
+    file.read(reinterpret_cast<char*>(&Vt), sizeof(Vt));
+    file.read(reinterpret_cast<char*>(&eta), sizeof(eta));
+    file.read(reinterpret_cast<char*>(&V_prev), sizeof(V_prev));
+}
+
+void VoltageSource::save_binary(std::ofstream& file) const {
+    Component::save_binary(file);
+    file.write(reinterpret_cast<const char*>(&sourceType), sizeof(sourceType));
+    file.write(reinterpret_cast<const char*>(&param1), sizeof(param1));
+    file.write(reinterpret_cast<const char*>(&param2), sizeof(param2));
+    file.write(reinterpret_cast<const char*>(&param3), sizeof(param3));
+}
+void VoltageSource::load_binary(std::ifstream& file) {
+    Component::load_binary(file);
+    file.read(reinterpret_cast<char*>(&sourceType), sizeof(sourceType));
+    file.read(reinterpret_cast<char*>(&param1), sizeof(param1));
+    file.read(reinterpret_cast<char*>(&param2), sizeof(param2));
+    file.read(reinterpret_cast<char*>(&param3), sizeof(param3));
+}
+
+void CurrentSource::save_binary(std::ofstream& file) const {
+    Component::save_binary(file);
+    file.write(reinterpret_cast<const char*>(&sourceType), sizeof(sourceType));
+    file.write(reinterpret_cast<const char*>(&param1), sizeof(param1));
+    file.write(reinterpret_cast<const char*>(&param2), sizeof(param2));
+    file.write(reinterpret_cast<const char*>(&param3), sizeof(param3));
+}
+void CurrentSource::load_binary(std::ifstream& file) {
+    Component::load_binary(file);
+    file.read(reinterpret_cast<char*>(&sourceType), sizeof(sourceType));
+    file.read(reinterpret_cast<char*>(&param1), sizeof(param1));
+    file.read(reinterpret_cast<char*>(&param2), sizeof(param2));
+    file.read(reinterpret_cast<char*>(&param3), sizeof(param3));
+}
+
+void VCVS::save_binary(std::ofstream& file) const {
+    Component::save_binary(file);
+    file.write(reinterpret_cast<const char*>(&ctrlNode1), sizeof(ctrlNode1));
+    file.write(reinterpret_cast<const char*>(&ctrlNode2), sizeof(ctrlNode2));
+    file.write(reinterpret_cast<const char*>(&gain), sizeof(gain));
+}
+void VCVS::load_binary(std::ifstream& file) {
+    Component::load_binary(file);
+    file.read(reinterpret_cast<char*>(&ctrlNode1), sizeof(ctrlNode1));
+    file.read(reinterpret_cast<char*>(&ctrlNode2), sizeof(ctrlNode2));
+    file.read(reinterpret_cast<char*>(&gain), sizeof(gain));
+}
+
+void VCCS::save_binary(std::ofstream& file) const {
+    Component::save_binary(file);
+    file.write(reinterpret_cast<const char*>(&ctrlNode1), sizeof(ctrlNode1));
+    file.write(reinterpret_cast<const char*>(&ctrlNode2), sizeof(ctrlNode2));
+    file.write(reinterpret_cast<const char*>(&gain), sizeof(gain));
+}
+void VCCS::load_binary(std::ifstream& file) {
+    Component::load_binary(file);
+    file.read(reinterpret_cast<char*>(&ctrlNode1), sizeof(ctrlNode1));
+    file.read(reinterpret_cast<char*>(&ctrlNode2), sizeof(ctrlNode2));
+    file.read(reinterpret_cast<char*>(&gain), sizeof(gain));
+}
+
+void save_string_binary(std::ofstream& file, const std::string& str) {
+    size_t len = str.size();
+    file.write(reinterpret_cast<const char*>(&len), sizeof(len));
+    file.write(str.c_str(), len);
+}
+std::string load_string_binary(std::ifstream& file) {
+    size_t len;
+    file.read(reinterpret_cast<char*>(&len), sizeof(len));
+    char* buf = new char[len + 1];
+    file.read(buf, len);
+    buf[len] = '\0';
+    std::string str = buf;
+    delete[] buf;
+    return str;
+}
+
+void CCVS::save_binary(std::ofstream& file) const {
+    Component::save_binary(file);
+    save_string_binary(file, ctrlCompName);
+    file.write(reinterpret_cast<const char*>(&gain), sizeof(gain));
+}
+void CCVS::load_binary(std::ifstream& file) {
+    Component::load_binary(file);
+    ctrlCompName = load_string_binary(file);
+    file.read(reinterpret_cast<char*>(&gain), sizeof(gain));
+}
+
+void CCCS::save_binary(std::ofstream& file) const {
+    Component::save_binary(file);
+    save_string_binary(file, ctrlCompName);
+    file.write(reinterpret_cast<const char*>(&gain), sizeof(gain));
+}
+void CCCS::load_binary(std::ifstream& file) {
+    Component::load_binary(file);
+    ctrlCompName = load_string_binary(file);
+    file.read(reinterpret_cast<char*>(&gain), sizeof(gain));
+}

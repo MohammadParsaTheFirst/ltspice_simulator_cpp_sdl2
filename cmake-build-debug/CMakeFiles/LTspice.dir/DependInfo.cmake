@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "" "LTspice_autogen/timestamp" "custom" "LTspice_autogen/deps"
   "C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/ChartWindow.cpp" "CMakeFiles/LTspice.dir/ChartWindow.cpp.obj" "gcc" "CMakeFiles/LTspice.dir/ChartWindow.cpp.obj.d"
   "C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/Circuit.cpp" "CMakeFiles/LTspice.dir/Circuit.cpp.obj" "gcc" "CMakeFiles/LTspice.dir/Circuit.cpp.obj.d"
   "C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/Component.cpp" "CMakeFiles/LTspice.dir/Component.cpp.obj" "gcc" "CMakeFiles/LTspice.dir/Component.cpp.obj.d"

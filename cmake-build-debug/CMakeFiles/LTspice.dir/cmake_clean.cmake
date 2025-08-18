@@ -26,6 +26,8 @@ file(REMOVE_RECURSE
   "LTspice.exe.manifest"
   "LTspice.pdb"
   "LTspice_autogen/EWIEGA46WW/qrc_resources.cpp"
+  "LTspice_autogen/mocs_compilation.cpp"
+  "LTspice_autogen/timestamp"
   "libLTspice.dll.a"
 )
 

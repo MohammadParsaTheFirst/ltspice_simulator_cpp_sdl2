@@ -911,7 +911,6 @@ C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_
  mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/ComponentFactory.h
  mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/Dialogs.h
  mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/SchematicWidget.h
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/Waveform.h
  mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/access.hpp
  mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/archives/binary.hpp
  mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/cereal.hpp
@@ -1640,7 +1639,6 @@ C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_
  mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/ComponentFactory.h
  mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/Dialogs.h
  mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/SchematicWidget.h
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/Waveform.h
  mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/access.hpp
  mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/archives/binary.hpp
  mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/cereal.hpp
@@ -2355,7 +2353,6 @@ C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_
  mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/Component.h
  mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/ComponentFactory.h
  mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/Dialogs.h
- mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/Waveform.h
  mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/access.hpp
  mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/archives/binary.hpp
  mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/cereal.hpp
@@ -2562,12 +2559,10 @@ C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_
  mdp:C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/plugins/ReshapedMethods.h
 C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/ComponentFactory.h
 C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/ChartWindow.cpp
-C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/Waveform.h
 C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/Circuit.cpp
 C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/Component.cpp
 C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/ComponentFactory.cpp
 C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/Dialogs.cpp
 C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/SchematicWidget.cpp
-C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/Waveform.cpp
 C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/main.cpp
 C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/mainwindow.cpp

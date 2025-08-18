@@ -68,6 +68,13 @@ include CMakeFiles/LTspice.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/LTspice.dir/flags.make
 
+LTspice_autogen/timestamp: C:/Qt/6.7.3/mingw_64/bin/moc.exe
+LTspice_autogen/timestamp: C:/Qt/6.7.3/mingw_64/bin/uic.exe
+LTspice_autogen/timestamp: CMakeFiles/LTspice.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target LTspice"
+	"C:\Program Files\JetBrains\CLion 2024.2.1\bin\cmake\win\x64\bin\cmake.exe" -E cmake_autogen "C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cmake-build-debug/CMakeFiles/LTspice_autogen.dir/AutogenInfo.json" Debug
+	"C:\Program Files\JetBrains\CLion 2024.2.1\bin\cmake\win\x64\bin\cmake.exe" -E touch "C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cmake-build-debug/LTspice_autogen/timestamp"
+
 LTspice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/resources.qrc
 LTspice_autogen/EWIEGA46WW/qrc_resources.cpp: CMakeFiles/LTspice_autogen.dir/AutoRcc_resources_EWIEGA46WW_Info.json
 LTspice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/background.jpg
@@ -90,14 +97,14 @@ LTspice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/parsa/Documents/universit
 LTspice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/icons/configureAnalysis.png
 LTspice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Qt/6.7.3/mingw_64/bin/rcc.exe
 LTspice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Qt/6.7.3/mingw_64/bin/rcc.exe
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Automatic RCC for resources.qrc"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Automatic RCC for resources.qrc"
 	"C:\Program Files\JetBrains\CLion 2024.2.1\bin\cmake\win\x64\bin\cmake.exe" -E cmake_autorcc "C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cmake-build-debug/CMakeFiles/LTspice_autogen.dir/AutoRcc_resources_EWIEGA46WW_Info.json" Debug
 
 CMakeFiles/LTspice.dir/LTspice_autogen/mocs_compilation.cpp.obj: CMakeFiles/LTspice.dir/flags.make
 CMakeFiles/LTspice.dir/LTspice_autogen/mocs_compilation.cpp.obj: CMakeFiles/LTspice.dir/includes_CXX.rsp
 CMakeFiles/LTspice.dir/LTspice_autogen/mocs_compilation.cpp.obj: LTspice_autogen/mocs_compilation.cpp
 CMakeFiles/LTspice.dir/LTspice_autogen/mocs_compilation.cpp.obj: CMakeFiles/LTspice.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/LTspice.dir/LTspice_autogen/mocs_compilation.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/LTspice.dir/LTspice_autogen/mocs_compilation.cpp.obj"
 	C:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LTspice.dir/LTspice_autogen/mocs_compilation.cpp.obj -MF CMakeFiles\LTspice.dir\LTspice_autogen\mocs_compilation.cpp.obj.d -o CMakeFiles\LTspice.dir\LTspice_autogen\mocs_compilation.cpp.obj -c "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\LTspice_autogen\mocs_compilation.cpp"
 
 CMakeFiles/LTspice.dir/LTspice_autogen/mocs_compilation.cpp.i: cmake_force
@@ -112,7 +119,7 @@ CMakeFiles/LTspice.dir/Circuit.cpp.obj: CMakeFiles/LTspice.dir/flags.make
 CMakeFiles/LTspice.dir/Circuit.cpp.obj: CMakeFiles/LTspice.dir/includes_CXX.rsp
 CMakeFiles/LTspice.dir/Circuit.cpp.obj: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Circuit.cpp
 CMakeFiles/LTspice.dir/Circuit.cpp.obj: CMakeFiles/LTspice.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/LTspice.dir/Circuit.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/LTspice.dir/Circuit.cpp.obj"
 	C:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LTspice.dir/Circuit.cpp.obj -MF CMakeFiles\LTspice.dir\Circuit.cpp.obj.d -o CMakeFiles\LTspice.dir\Circuit.cpp.obj -c "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\Circuit.cpp"
 
 CMakeFiles/LTspice.dir/Circuit.cpp.i: cmake_force
@@ -127,7 +134,7 @@ CMakeFiles/LTspice.dir/Component.cpp.obj: CMakeFiles/LTspice.dir/flags.make
 CMakeFiles/LTspice.dir/Component.cpp.obj: CMakeFiles/LTspice.dir/includes_CXX.rsp
 CMakeFiles/LTspice.dir/Component.cpp.obj: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Component.cpp
 CMakeFiles/LTspice.dir/Component.cpp.obj: CMakeFiles/LTspice.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/LTspice.dir/Component.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/LTspice.dir/Component.cpp.obj"
 	C:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LTspice.dir/Component.cpp.obj -MF CMakeFiles\LTspice.dir\Component.cpp.obj.d -o CMakeFiles\LTspice.dir\Component.cpp.obj -c "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\Component.cpp"
 
 CMakeFiles/LTspice.dir/Component.cpp.i: cmake_force
@@ -142,7 +149,7 @@ CMakeFiles/LTspice.dir/ComponentFactory.cpp.obj: CMakeFiles/LTspice.dir/flags.ma
 CMakeFiles/LTspice.dir/ComponentFactory.cpp.obj: CMakeFiles/LTspice.dir/includes_CXX.rsp
 CMakeFiles/LTspice.dir/ComponentFactory.cpp.obj: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/ComponentFactory.cpp
 CMakeFiles/LTspice.dir/ComponentFactory.cpp.obj: CMakeFiles/LTspice.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/LTspice.dir/ComponentFactory.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/LTspice.dir/ComponentFactory.cpp.obj"
 	C:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LTspice.dir/ComponentFactory.cpp.obj -MF CMakeFiles\LTspice.dir\ComponentFactory.cpp.obj.d -o CMakeFiles\LTspice.dir\ComponentFactory.cpp.obj -c "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\ComponentFactory.cpp"
 
 CMakeFiles/LTspice.dir/ComponentFactory.cpp.i: cmake_force
@@ -157,7 +164,7 @@ CMakeFiles/LTspice.dir/mainwindow.cpp.obj: CMakeFiles/LTspice.dir/flags.make
 CMakeFiles/LTspice.dir/mainwindow.cpp.obj: CMakeFiles/LTspice.dir/includes_CXX.rsp
 CMakeFiles/LTspice.dir/mainwindow.cpp.obj: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/mainwindow.cpp
 CMakeFiles/LTspice.dir/mainwindow.cpp.obj: CMakeFiles/LTspice.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/LTspice.dir/mainwindow.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/LTspice.dir/mainwindow.cpp.obj"
 	C:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LTspice.dir/mainwindow.cpp.obj -MF CMakeFiles\LTspice.dir\mainwindow.cpp.obj.d -o CMakeFiles\LTspice.dir\mainwindow.cpp.obj -c "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\mainwindow.cpp"
 
 CMakeFiles/LTspice.dir/mainwindow.cpp.i: cmake_force
@@ -172,7 +179,7 @@ CMakeFiles/LTspice.dir/main.cpp.obj: CMakeFiles/LTspice.dir/flags.make
 CMakeFiles/LTspice.dir/main.cpp.obj: CMakeFiles/LTspice.dir/includes_CXX.rsp
 CMakeFiles/LTspice.dir/main.cpp.obj: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/main.cpp
 CMakeFiles/LTspice.dir/main.cpp.obj: CMakeFiles/LTspice.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/LTspice.dir/main.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/LTspice.dir/main.cpp.obj"
 	C:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LTspice.dir/main.cpp.obj -MF CMakeFiles\LTspice.dir\main.cpp.obj.d -o CMakeFiles\LTspice.dir\main.cpp.obj -c "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\main.cpp"
 
 CMakeFiles/LTspice.dir/main.cpp.i: cmake_force
@@ -187,7 +194,7 @@ CMakeFiles/LTspice.dir/ChartWindow.cpp.obj: CMakeFiles/LTspice.dir/flags.make
 CMakeFiles/LTspice.dir/ChartWindow.cpp.obj: CMakeFiles/LTspice.dir/includes_CXX.rsp
 CMakeFiles/LTspice.dir/ChartWindow.cpp.obj: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/ChartWindow.cpp
 CMakeFiles/LTspice.dir/ChartWindow.cpp.obj: CMakeFiles/LTspice.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/LTspice.dir/ChartWindow.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/LTspice.dir/ChartWindow.cpp.obj"
 	C:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LTspice.dir/ChartWindow.cpp.obj -MF CMakeFiles\LTspice.dir\ChartWindow.cpp.obj.d -o CMakeFiles\LTspice.dir\ChartWindow.cpp.obj -c "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\ChartWindow.cpp"
 
 CMakeFiles/LTspice.dir/ChartWindow.cpp.i: cmake_force
@@ -202,7 +209,7 @@ CMakeFiles/LTspice.dir/SchematicWidget.cpp.obj: CMakeFiles/LTspice.dir/flags.mak
 CMakeFiles/LTspice.dir/SchematicWidget.cpp.obj: CMakeFiles/LTspice.dir/includes_CXX.rsp
 CMakeFiles/LTspice.dir/SchematicWidget.cpp.obj: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/SchematicWidget.cpp
 CMakeFiles/LTspice.dir/SchematicWidget.cpp.obj: CMakeFiles/LTspice.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/LTspice.dir/SchematicWidget.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/LTspice.dir/SchematicWidget.cpp.obj"
 	C:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LTspice.dir/SchematicWidget.cpp.obj -MF CMakeFiles\LTspice.dir\SchematicWidget.cpp.obj.d -o CMakeFiles\LTspice.dir\SchematicWidget.cpp.obj -c "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\SchematicWidget.cpp"
 
 CMakeFiles/LTspice.dir/SchematicWidget.cpp.i: cmake_force
@@ -217,7 +224,7 @@ CMakeFiles/LTspice.dir/Dialogs.cpp.obj: CMakeFiles/LTspice.dir/flags.make
 CMakeFiles/LTspice.dir/Dialogs.cpp.obj: CMakeFiles/LTspice.dir/includes_CXX.rsp
 CMakeFiles/LTspice.dir/Dialogs.cpp.obj: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Dialogs.cpp
 CMakeFiles/LTspice.dir/Dialogs.cpp.obj: CMakeFiles/LTspice.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/LTspice.dir/Dialogs.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/LTspice.dir/Dialogs.cpp.obj"
 	C:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LTspice.dir/Dialogs.cpp.obj -MF CMakeFiles\LTspice.dir\Dialogs.cpp.obj.d -o CMakeFiles\LTspice.dir\Dialogs.cpp.obj -c "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\Dialogs.cpp"
 
 CMakeFiles/LTspice.dir/Dialogs.cpp.i: cmake_force
@@ -232,7 +239,7 @@ CMakeFiles/LTspice.dir/LTspice_autogen/EWIEGA46WW/qrc_resources.cpp.obj: CMakeFi
 CMakeFiles/LTspice.dir/LTspice_autogen/EWIEGA46WW/qrc_resources.cpp.obj: CMakeFiles/LTspice.dir/includes_CXX.rsp
 CMakeFiles/LTspice.dir/LTspice_autogen/EWIEGA46WW/qrc_resources.cpp.obj: LTspice_autogen/EWIEGA46WW/qrc_resources.cpp
 CMakeFiles/LTspice.dir/LTspice_autogen/EWIEGA46WW/qrc_resources.cpp.obj: CMakeFiles/LTspice.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/LTspice.dir/LTspice_autogen/EWIEGA46WW/qrc_resources.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/LTspice.dir/LTspice_autogen/EWIEGA46WW/qrc_resources.cpp.obj"
 	C:\Qt\Tools\mingw1120_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LTspice.dir/LTspice_autogen/EWIEGA46WW/qrc_resources.cpp.obj -MF CMakeFiles\LTspice.dir\LTspice_autogen\EWIEGA46WW\qrc_resources.cpp.obj.d -o CMakeFiles\LTspice.dir\LTspice_autogen\EWIEGA46WW\qrc_resources.cpp.obj -c "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\LTspice_autogen\EWIEGA46WW\qrc_resources.cpp"
 
 CMakeFiles/LTspice.dir/LTspice_autogen/EWIEGA46WW/qrc_resources.cpp.i: cmake_force
@@ -279,7 +286,7 @@ LTspice.exe: C:/Qt/6.7.3/mingw_64/lib/libQt6Core.a
 LTspice.exe: CMakeFiles/LTspice.dir/linkLibs.rsp
 LTspice.exe: CMakeFiles/LTspice.dir/objects1.rsp
 LTspice.exe: CMakeFiles/LTspice.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable LTspice.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable LTspice.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\LTspice.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -291,6 +298,7 @@ CMakeFiles/LTspice.dir/clean:
 .PHONY : CMakeFiles/LTspice.dir/clean
 
 CMakeFiles/LTspice.dir/depend: LTspice_autogen/EWIEGA46WW/qrc_resources.cpp
+CMakeFiles/LTspice.dir/depend: LTspice_autogen/timestamp
 	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2" "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2" "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug" "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug" "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\CMakeFiles\LTspice.dir\DependInfo.cmake" "--color=$(COLOR)"
 .PHONY : CMakeFiles/LTspice.dir/depend
 

@@ -7,12 +7,8 @@
 #include <fstream>
 #include <filesystem>
 #include <set>
-#include <cereal/types/vector.hpp>
-#include <cereal/types/string.hpp>
-#include <cereal/types/map.hpp>
 #include <QCoreApplication>
 #include <QDir>
-#include <cereal/types/memory.hpp>
 #include "component.h"
 #include "ComponentFactory.h"
 
@@ -20,42 +16,22 @@ struct ComponentGraphicalInfo {
     QPoint startPoint;
     bool isHorizontal;
     std::string name;
-
-    template<class Archive>
-    void serialize(Archive& ar) {
-        ar(startPoint.rx(), startPoint.ry(), isHorizontal, name);
-    }
 };
 
 struct WireInfo {
     QPoint startPoint;
     QPoint endPoint;
     std::string nodeName;
-
-    template<class Archive>
-    void serialize(Archive& ar) {
-        ar(startPoint.rx(), startPoint.ry(), endPoint.rx(), endPoint.ry(), nodeName);
-    }
 };
 
 struct LabelInfo {
     QPoint position;
     std::string name;
     std::string connectedNodeName;
-
-    template<class Archive>
-    void serialize(Archive& ar) {
-        ar(position.rx(), position.ry(), name, connectedNodeName);
-    }
 };
 
 struct GroundInfo {
     QPoint position;
-
-    template<class Archive>
-    void serialize(Archive& ar) {
-        ar(position.rx(), position.ry());
-    }
 };
 
 struct SubcircuitDefinition {
@@ -63,11 +39,6 @@ struct SubcircuitDefinition {
     std::vector<std::string> netlist;
     std::string port1NodeName;
     std::string port2NodeName;
-
-    template<class Archive>
-    void serialize(Archive& ar) {
-        ar(name, netlist, port1NodeName, port2NodeName);
-    }
 };
 
 double parseSpiceValue(const std::string& valueStr);

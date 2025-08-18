@@ -517,7 +517,6 @@ C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cp
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Component.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/ComponentFactory.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Dialogs.h \
-  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/WaveForm.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/access.hpp \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/archives/binary.hpp \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cereal/include/cereal/cereal.hpp \

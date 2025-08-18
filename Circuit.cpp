@@ -1,8 +1,7 @@
-#include "circuit.h"
 #include <iomanip>
 #include <utility>
 #include <cctype>
-#include <cereal/archives/binary.hpp>
+#include "circuit.h"
 namespace fs = std::filesystem;
 
 
@@ -70,38 +69,88 @@ void Circuit::newProject(const std::string& projectName) {
         dir.mkpath(".");
 }
 
+void save_qpoint(std::ofstream& file, const QPoint& p) {
+    int x = p.x(), y = p.y();
+    file.write(reinterpret_cast<const char*>(&x), sizeof(x));
+    file.write(reinterpret_cast<const char*>(&y), sizeof(y));
+}
+
+void save_string(std::ofstream& file, const std::string& s) {
+    size_t len = s.length();
+    file.write(reinterpret_cast<const char*>(&len), sizeof(len));
+    file.write(s.c_str(), len);
+}
+
 void Circuit::saveProject() const {
-    if (currentProjectName.isEmpty()){
+    if (currentProjectName.isEmpty()) {
         std::cerr << "Error: No project is open to save." << std::endl;
         return;
     }
 
-    QString graphicsFilePath = projectDirectoryPath + QDir::separator() + "graphics.bin";
-    std::ofstream os_graphicsFile(graphicsFilePath.toStdString(), std::ios::binary);
-    cereal::BinaryOutputArchive archive(os_graphicsFile);
-    archive(componentGraphics);
-
     QString componentsFilePath = projectDirectoryPath + QDir::separator() + "components.bin";
     std::ofstream os_comp(componentsFilePath.toStdString(), std::ios::binary);
-    cereal::BinaryOutputArchive archiveComps(os_comp);
-    archiveComps(components);
+    size_t num_components = components.size();
+    os_comp.write(reinterpret_cast<const char*>(&num_components), sizeof(num_components));
+    for (const auto& comp : components) {
+        comp->save_binary(os_comp);
+    }
+    os_comp.close();
+
+    QString graphicsFilePath = projectDirectoryPath + QDir::separator() + "graphics.bin";
+    std::ofstream os_graphics(graphicsFilePath.toStdString(), std::ios::binary);
+    size_t num_graphics = componentGraphics.size();
+    os_graphics.write(reinterpret_cast<const char*>(&num_graphics), sizeof(num_graphics));
+    for (const auto& graphic : componentGraphics) {
+        save_qpoint(os_graphics, graphic.startPoint);
+        os_graphics.write(reinterpret_cast<const char*>(&graphic.isHorizontal), sizeof(graphic.isHorizontal));
+        save_string(os_graphics, graphic.name);
+    }
+    os_graphics.close();
 
     QString wiresFilePath = projectDirectoryPath + QDir::separator() + "wires.bin";
     std::ofstream os_wires(wiresFilePath.toStdString(), std::ios::binary);
-    cereal::BinaryOutputArchive archiveWires(os_wires);
-    archiveWires(wires);
+    size_t num_wires = wires.size();
+    os_wires.write(reinterpret_cast<const char*>(&num_wires), sizeof(num_wires));
+    for (const auto& wire : wires) {
+        save_qpoint(os_wires, wire.startPoint);
+        save_qpoint(os_wires, wire.endPoint);
+        save_string(os_wires, wire.nodeName);
+    }
+    os_wires.close();
 
     QString labelsFilePath = projectDirectoryPath + QDir::separator() + "labels.bin";
     std::ofstream os_labels(labelsFilePath.toStdString(), std::ios::binary);
-    cereal::BinaryOutputArchive archiveLabels(os_labels);
-    archiveLabels(labels);
+    size_t num_labels = labels.size();
+    os_labels.write(reinterpret_cast<const char*>(&num_labels), sizeof(num_labels));
+    for (const auto& label : labels) {
+        save_qpoint(os_labels, label.position);
+        save_string(os_labels, label.name);
+        save_string(os_labels, label.connectedNodeName);
+    }
+    os_labels.close();
 
-    QString netlistFilePath = projectDirectoryPath + QDir::separator() + "netlist.net";
-    std::ofstream os_netlist(netlistFilePath.toStdString());
-    for (const auto& line: circuitNetList)
-        os_netlist << line << std::endl;
+    std::cout << "Project '" << currentProjectName.toStdString() << "' saved successfully." << std::endl;
+}
 
-    std::cout << "Project '" << currentProjectName.toStdString() << "' saved successfully." << std::endl; 
+QPoint load_qpoint(std::ifstream& file) {
+    int x, y;
+    file.read(reinterpret_cast<char*>(&x), sizeof(x));
+    file.read(reinterpret_cast<char*>(&y), sizeof(y));
+    return QPoint(x, y);
+}
+
+std::string load_string(std::ifstream& file) {
+    size_t len;
+    file.read(reinterpret_cast<char*>(&len), sizeof(len));
+    if (len > 1024) {
+        throw std::runtime_error("Invalid string length in save file.");
+    }
+    char* buf = new char[len + 1];
+    file.read(buf, len);
+    buf[len] = '\0';
+    std::string s(buf);
+    delete[] buf;
+    return s;
 }
 
 void Circuit::loadProject(const std::string& projectName) {
@@ -113,44 +162,75 @@ void Circuit::loadProject(const std::string& projectName) {
         std::cout << "Starting new empty project: " << projectName << std::endl;
         return;
     }
-    cereal::BinaryInputArchive archiveComps(is_comp);
-    archiveComps(components);
+    components.clear();
+    size_t num_components;
+    is_comp.read(reinterpret_cast<char*>(&num_components), sizeof(num_components));
+    for (size_t i = 0; i < num_components; ++i) {
+        Component::Type type;
+        is_comp.read(reinterpret_cast<char*>(&type), sizeof(type)); // نوع قطعه را بخوان
 
-    componentGraphics.clear();
+        std::shared_ptr<Component> newComp = nullptr;
+        switch (type) {
+            case Component::Type::RESISTOR: newComp = std::make_shared<Resistor>("", 0, 0, 0); break;
+            case Component::Type::CAPACITOR: newComp = std::make_shared<Capacitor>("", 0, 0, 0); break;
+            case Component::Type::INDUCTOR: newComp = std::make_shared<Inductor>("", 0, 0, 0); break;
+            case Component::Type::DIODE: newComp = std::make_shared<Diode>("", 0, 0); break;
+            case Component::Type::VOLTAGE_SOURCE: newComp = std::make_shared<VoltageSource>("", 0, 0, VoltageSource::SourceType::DC, 0, 0, 0); break;
+            case Component::Type::CURRENT_SOURCE: newComp = std::make_shared<CurrentSource>("", 0, 0, CurrentSource::SourceType::DC, 0, 0, 0); break;
+            case Component::Type::VCVS: newComp = std::make_shared<VCVS>("", 0, 0, 0, 0, 0); break;
+            case Component::Type::VCCS: newComp = std::make_shared<VCCS>("", 0, 0, 0, 0, 0); break;
+            case Component::Type::CCVS: newComp = std::make_shared<CCVS>("", 0, 0, "", 0); break;
+            case Component::Type::CCCS: newComp = std::make_shared<CCCS>("", 0, 0, "", 0); break;
+        }
+
+        if (newComp) {
+            newComp->load_binary(is_comp);
+            components.push_back(newComp);
+        }
+    }
+    is_comp.close();
+
     QString graphicsFilePath = projectDirectoryPath + QDir::separator() + "graphics.bin";
     std::ifstream is_graphics(graphicsFilePath.toStdString(), std::ios::binary);
-    cereal::BinaryInputArchive archiveGraphics(is_graphics);
-    archiveGraphics(componentGraphics);
+    componentGraphics.clear();
+    size_t num_graphics;
+    is_graphics.read(reinterpret_cast<char*>(&num_graphics), sizeof(num_graphics));
+    for(size_t i = 0; i < num_graphics; ++i) {
+        ComponentGraphicalInfo graphic;
+        graphic.startPoint = load_qpoint(is_graphics);
+        is_graphics.read(reinterpret_cast<char*>(&graphic.isHorizontal), sizeof(graphic.isHorizontal));
+        graphic.name = load_string(is_graphics);
+        componentGraphics.push_back(graphic);
+    }
+    is_graphics.close();
 
-    wires.clear();
     QString wiresFilePath = projectDirectoryPath + QDir::separator() + "wires.bin";
     std::ifstream is_wires(wiresFilePath.toStdString(), std::ios::binary);
-    if (is_wires.is_open()) {
-        cereal::BinaryInputArchive archiveWires(is_wires);
-        archiveWires(wires);
+    wires.clear();
+    size_t num_wires;
+    is_wires.read(reinterpret_cast<char*>(&num_wires), sizeof(num_wires));
+    for(size_t i = 0; i < num_wires; ++i) {
+        WireInfo wire;
+        wire.startPoint = load_qpoint(is_wires);
+        wire.endPoint = load_qpoint(is_wires);
+        wire.nodeName = load_string(is_wires);
+        wires.push_back(wire);
     }
+    is_wires.close();
 
-    labels.clear();
     QString labelsFilePath = projectDirectoryPath + QDir::separator() + "labels.bin";
     std::ifstream is_labels(labelsFilePath.toStdString(), std::ios::binary);
-    cereal::BinaryInputArchive archiveLabels(is_labels);
-    archiveLabels(labels);
-
-    circuitNetList.clear();
-    QString netlistFilePath = projectDirectoryPath + QDir::separator() + "schematic.net";
-    std::ifstream is_netlist(netlistFilePath.toStdString());
-    std::string line;
-    while(std::getline(is_netlist, line)) {
-        circuitNetList.push_back(line);
+    labels.clear();
+    size_t num_labels;
+    is_labels.read(reinterpret_cast<char*>(&num_labels), sizeof(num_labels));
+    for(size_t i = 0; i < num_labels; ++i) {
+        LabelInfo label;
+        label.position = load_qpoint(is_labels);
+        label.name = load_string(is_labels);
+        label.connectedNodeName = load_string(is_labels);
+        labels.push_back(label);
     }
-
-    nextNodeId = 0;
-    nodeNameToId.clear();
-    idToNodeName.clear();
-    for (const auto& comp: components) {
-        getNodeId(idToNodeName[comp->node1], true);
-        getNodeId(idToNodeName[comp->node2], true);
-    }
+    is_labels.close();
 
     std::cout << "Project '" << projectName << "' loaded successfully." << std::endl;
 }

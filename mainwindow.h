@@ -17,7 +17,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "ChartWindow.h"
-#include "Circuit.h"
 
 namespace Ui {
     class MainWindow;
