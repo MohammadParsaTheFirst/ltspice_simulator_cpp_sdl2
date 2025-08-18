@@ -129,6 +129,22 @@ build CMakeFiles/proj_terminal.dir/Dialogs.cpp.obj: CXX_COMPILER__proj_terminal_
   OBJECT_DIR = CMakeFiles\proj_terminal.dir
   OBJECT_FILE_DIR = CMakeFiles\proj_terminal.dir
 
+build CMakeFiles/proj_terminal.dir/TransientDialog.cpp.obj: CXX_COMPILER__proj_terminal_unscanned_Debug C$:/Users/USER/CLionProjects/proj_terminal/TransientDialog.cpp || cmake_object_order_depends_target_proj_terminal
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CHARTS_LIB -DQT_CORE_LIB -DQT_GUI_LIB -DQT_OPENGLWIDGETS_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\proj_terminal.dir\TransientDialog.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/USER/CLionProjects/proj_terminal/cmake-build-debug -IC:/Users/USER/CLionProjects/proj_terminal -IC:/Users/USER/CLionProjects/proj_terminal/eigen-3.4.0 -isystem C:/Users/USER/CLionProjects/proj_terminal/cmake-build-debug/proj_terminal_autogen/include -isystem C:/Qt/6.9.1/mingw_64/include/QtWidgets -isystem C:/Qt/6.9.1/mingw_64/include -isystem C:/Qt/6.9.1/mingw_64/include/QtCore -isystem C:/Qt/6.9.1/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.9.1/mingw_64/include/QtGui -isystem C:/Qt/6.9.1/mingw_64/include/QtCharts -isystem C:/Qt/6.9.1/mingw_64/include/QtOpenGL -isystem C:/Qt/6.9.1/mingw_64/include/QtOpenGLWidgets
+  OBJECT_DIR = CMakeFiles\proj_terminal.dir
+  OBJECT_FILE_DIR = CMakeFiles\proj_terminal.dir
+
+build CMakeFiles/proj_terminal.dir/PlotWindow.cpp.obj: CXX_COMPILER__proj_terminal_unscanned_Debug C$:/Users/USER/CLionProjects/proj_terminal/PlotWindow.cpp || cmake_object_order_depends_target_proj_terminal
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CHARTS_LIB -DQT_CORE_LIB -DQT_GUI_LIB -DQT_OPENGLWIDGETS_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\proj_terminal.dir\PlotWindow.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/USER/CLionProjects/proj_terminal/cmake-build-debug -IC:/Users/USER/CLionProjects/proj_terminal -IC:/Users/USER/CLionProjects/proj_terminal/eigen-3.4.0 -isystem C:/Users/USER/CLionProjects/proj_terminal/cmake-build-debug/proj_terminal_autogen/include -isystem C:/Qt/6.9.1/mingw_64/include/QtWidgets -isystem C:/Qt/6.9.1/mingw_64/include -isystem C:/Qt/6.9.1/mingw_64/include/QtCore -isystem C:/Qt/6.9.1/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.9.1/mingw_64/include/QtGui -isystem C:/Qt/6.9.1/mingw_64/include/QtCharts -isystem C:/Qt/6.9.1/mingw_64/include/QtOpenGL -isystem C:/Qt/6.9.1/mingw_64/include/QtOpenGLWidgets
+  OBJECT_DIR = CMakeFiles\proj_terminal.dir
+  OBJECT_FILE_DIR = CMakeFiles\proj_terminal.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target proj_terminal
@@ -137,7 +153,7 @@ build CMakeFiles/proj_terminal.dir/Dialogs.cpp.obj: CXX_COMPILER__proj_terminal_
 #############################################
 # Link the executable proj_terminal.exe
 
-build proj_terminal.exe: CXX_EXECUTABLE_LINKER__proj_terminal_Debug CMakeFiles/proj_terminal.dir/proj_terminal_autogen/mocs_compilation.cpp.obj CMakeFiles/proj_terminal.dir/main.cpp.obj CMakeFiles/proj_terminal.dir/Component.cpp.obj CMakeFiles/proj_terminal.dir/Circuit.cpp.obj CMakeFiles/proj_terminal.dir/Waveform.cpp.obj CMakeFiles/proj_terminal.dir/ChartWindow.cpp.obj CMakeFiles/proj_terminal.dir/ComponentFactory.cpp.obj CMakeFiles/proj_terminal.dir/SchematicWidget.cpp.obj CMakeFiles/proj_terminal.dir/mainwindow.cpp.obj CMakeFiles/proj_terminal.dir/Dialogs.cpp.obj | C$:/Qt/6.9.1/mingw_64/lib/libQt6Charts.a C$:/Qt/6.9.1/mingw_64/lib/libQt6OpenGLWidgets.a C$:/Qt/6.9.1/mingw_64/lib/libQt6Widgets.a C$:/Qt/6.9.1/mingw_64/lib/libQt6OpenGL.a C$:/Qt/6.9.1/mingw_64/lib/libQt6Gui.a C$:/Qt/6.9.1/mingw_64/lib/libQt6Core.a || proj_terminal_autogen proj_terminal_autogen_timestamp_deps
+build proj_terminal.exe: CXX_EXECUTABLE_LINKER__proj_terminal_Debug CMakeFiles/proj_terminal.dir/proj_terminal_autogen/mocs_compilation.cpp.obj CMakeFiles/proj_terminal.dir/main.cpp.obj CMakeFiles/proj_terminal.dir/Component.cpp.obj CMakeFiles/proj_terminal.dir/Circuit.cpp.obj CMakeFiles/proj_terminal.dir/Waveform.cpp.obj CMakeFiles/proj_terminal.dir/ChartWindow.cpp.obj CMakeFiles/proj_terminal.dir/ComponentFactory.cpp.obj CMakeFiles/proj_terminal.dir/SchematicWidget.cpp.obj CMakeFiles/proj_terminal.dir/mainwindow.cpp.obj CMakeFiles/proj_terminal.dir/Dialogs.cpp.obj CMakeFiles/proj_terminal.dir/TransientDialog.cpp.obj CMakeFiles/proj_terminal.dir/PlotWindow.cpp.obj | C$:/Qt/6.9.1/mingw_64/lib/libQt6Charts.a C$:/Qt/6.9.1/mingw_64/lib/libQt6OpenGLWidgets.a C$:/Qt/6.9.1/mingw_64/lib/libQt6Widgets.a C$:/Qt/6.9.1/mingw_64/lib/libQt6OpenGL.a C$:/Qt/6.9.1/mingw_64/lib/libQt6Gui.a C$:/Qt/6.9.1/mingw_64/lib/libQt6Core.a || proj_terminal_autogen proj_terminal_autogen_timestamp_deps
   FLAGS = -g
   LINK_LIBRARIES = C:/Qt/6.9.1/mingw_64/lib/libQt6Charts.a  C:/Qt/6.9.1/mingw_64/lib/libQt6OpenGLWidgets.a  C:/Qt/6.9.1/mingw_64/lib/libQt6Widgets.a  C:/Qt/6.9.1/mingw_64/lib/libQt6OpenGL.a  C:/Qt/6.9.1/mingw_64/lib/libQt6Gui.a  C:/Qt/6.9.1/mingw_64/lib/libQt6Core.a  -lmpr  -luserenv  -ld3d11  -ldxgi  -ldxguid  -ld3d12  -luser32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\proj_terminal.dir

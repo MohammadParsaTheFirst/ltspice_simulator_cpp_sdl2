@@ -40,7 +40,9 @@ void MainWindow::setupSchematicState() {
     schematic = new SchematicWidget(&circuit, this);
     setCentralWidget(schematic);
 
-    connect(runAction, &QAction::triggered, schematic, &SchematicWidget::startRunAnalysis);
+    // This is the new connection to our dialog handler
+    connect(runAction, &QAction::triggered, this, &MainWindow::openTransientDialog);
+    //connect(runAction, &QAction::triggered, schematic, &SchematicWidget::startRunAnalysis);
     connect(wireAction, &QAction::triggered, schematic, &SchematicWidget::startPlacingWire);
     connect(groundAction, &QAction::triggered, schematic, &SchematicWidget::startPlacingGround);
     connect(resistorAction, &QAction::triggered, schematic, &SchematicWidget::startPlacingResistor);
@@ -189,4 +191,40 @@ void MainWindow::shortcutRunner() {
     nodeLibraryAction->setShortcut(QKeySequence(Qt::Key_P));
     labelAction->setShortcut(QKeySequence(Qt::Key_T));
     deleteModeAction->setShortcuts({QKeySequence(Qt::Key_Backspace), QKeySequence(Qt::Key_Delete)});
+}
+
+
+void MainWindow::openTransientDialog() {
+    TransientDialog dialog(this);
+    if (dialog.exec() == QDialog::Accepted) {
+        double startTime = dialog.getStartTime();
+        double stopTime = dialog.getStopTime();
+        double stepTime = dialog.getStepTime();
+        QString parameter = dialog.getParameter();
+
+        if (stepTime <= 0) {
+            QMessageBox::warning(this, "Input Error", "Step time must be greater than zero.");
+            return;
+        }
+
+        // Call your existing transient analysis function to run the simulation and store results
+        circuit.runTransientAnalysis(stopTime, startTime, stepTime);
+
+        // Get the specific data to plot using the new function
+        std::pair<std::string, std::vector<double>> results = circuit.getTransientResults(parameter.toStdString());
+
+        // Check if there's any data to plot
+        if (!results.second.empty()) {
+            // Create and show the new plot window
+            PlotWindow *plotWindow = new PlotWindow(this);
+            std::vector<double> timePoints;
+            for (double t = startTime; t <= stopTime; t += stepTime) {
+                timePoints.push_back(t);
+            }
+            plotWindow->plotData(timePoints, results.second, QString::fromStdString(results.first));
+            plotWindow->show();
+        } else {
+            QMessageBox::warning(this, "Analysis Failed", "Could not generate plot data. Please check your circuit and parameters.");
+        }
+    }
 }

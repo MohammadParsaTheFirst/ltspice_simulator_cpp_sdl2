@@ -55,6 +55,10 @@ set(SOURCES
         mainwindow.cpp mainwindow.h
         Dialogs.cpp
         Dialogs.h
+        TransientDialog.cpp
+        TransientDialog.h
+        PlotWindow.cpp
+        PlotWindow.h
 )
 
 # Build executable

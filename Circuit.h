@@ -48,6 +48,11 @@ public:
     void printDcSweepResults(const std::string&, const std::string&) const;
     void addLabel(const std::string&, const std::string&);
 
+    std::pair<std::string, std::vector<double>> getTransientResults(const std::string& parameter);
+    //std::pair<std::string, std::vector<double>>
+    void runTransientAnalysis(double startTime, double stopTime, double stepTime);
+
+
 private:
     void buildMNAMatrix(double, double);
     Eigen::VectorXd solveMNASystem();
@@ -68,7 +73,7 @@ private:
     Eigen::VectorXd b_mna;
     int numCurrentUnknowns;
     std::map<std::string, int> componentCurrentIndices; // component name -> MNA component index
-    std::map<double, Eigen::VectorXd> transientSolutions;
+    std::map<double, Eigen::VectorXd> transientSolutions;//std::map<double, Eigen::VectorXd> transientSolutions;
     std::map<double, Eigen::VectorXd> dcSweepSolutions;
 
     // State and file management

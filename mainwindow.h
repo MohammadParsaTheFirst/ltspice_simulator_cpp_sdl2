@@ -14,8 +14,10 @@
 #include <QIcon>
 #include "SchematicWidget.h"
 #include "mainwindow.h"
+#include "PlotWindow.h"
 #include "ui_mainwindow.h"
 #include "ChartWindow.h"
+#include "TransientDialog.h"
 #include "Circuit.h"
 
 
@@ -32,6 +34,14 @@ private:
     Circuit circuit;
     void setupWelcomeState();
     void setupSchematicState();
+    ////////////////////////////////////////////////////////////////////////////////
+    void createActions();
+    void createMenus();
+    void createToolBars();
+
+    QAction *transientAction;
+
+    //////////////////////////////////////////////////////////////////////////////////
 
     // Some items in menu bar to disable and enabling them
     QAction* settingsAction;
@@ -53,6 +63,7 @@ private:
 
     private slots:
         void hNewSchematic();
+        void openTransientDialog();////////////////////////////
     void hShowSettings();
 
 public:
