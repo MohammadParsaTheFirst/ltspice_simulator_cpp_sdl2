@@ -15,7 +15,6 @@ set(SOURCES
         main.cpp
         Component.cpp Component.h
         Circuit.cpp Circuit.h
-        ChartWindow.cpp ChartWindow.h
         ComponentFactory.cpp ComponentFactory.h
         SchematicWidget.cpp SchematicWidget.h
         mainwindow.cpp mainwindow.h

@@ -96,9 +96,11 @@ public:
     QString getPhaseStart() const;
     QString getPhaseStop() const;
     QString getPhaseNPoints() const;
+    QString getParameter() const;
 
 private:
     QTabWidget* tabWidget;
+    QLineEdit* parameterEdit;
 
     // Storing the transient analysis type variables
     QLineEdit* tStopEdit;
@@ -119,5 +121,4 @@ private:
 
     QDialogButtonBox *buttonBox;
 };
-
 #endif //VALUEDIALOG_H

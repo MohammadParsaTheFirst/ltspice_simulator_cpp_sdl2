@@ -164,6 +164,7 @@ ConfigureAnalysisDialog::ConfigureAnalysisDialog(QWidget* parent) : QDialog(pare
     setWindowTitle("Configure Analysis");
     tabWidget = new QTabWidget(this);
     buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+    parameterEdit = new QLineEdit(this);
 
     // Transient Tab
     QWidget* transientTab = new QWidget(this);
@@ -174,6 +175,7 @@ ConfigureAnalysisDialog::ConfigureAnalysisDialog(QWidget* parent) : QDialog(pare
     transientLayout->addRow(new QLabel("Stop time:"), tStopEdit);
     transientLayout->addRow(new QLabel("Time to start saving data:"), tStartEdit);
     transientLayout->addRow(new QLabel("Maximum Timestep:"), tStepEdit);
+    transientLayout->addRow(new QLabel("Parameter (e.g. V(N_1_1) or I(R1)):"), parameterEdit);
     tabWidget->addTab(transientTab, "Transient");
 
     // AC Sweep Tab
@@ -190,6 +192,7 @@ ConfigureAnalysisDialog::ConfigureAnalysisDialog(QWidget* parent) : QDialog(pare
     acSweepLayout->addRow(new QLabel("Stop frequency:"), ACOmegaStop);
     acSweepLayout->addRow(new QLabel("Number of points:"), ACNPoint);
     acSweepLayout->addRow(new QLabel("Type of sweep:"), typeOfSweepComboBox);
+    acSweepLayout->addRow(new QLabel("Parameter (e.g. V(N_1_1) or I(R1)):"), parameterEdit);
     ACSweepTab->setEnabled(false);
     tabWidget->addTab(ACSweepTab, "AC Analysis");
 
@@ -204,6 +207,7 @@ ConfigureAnalysisDialog::ConfigureAnalysisDialog(QWidget* parent) : QDialog(pare
     phaseSweepLayout->addRow(new QLabel("Start phase:"), phaseStart);
     phaseSweepLayout->addRow(new QLabel("Stop phase:"), phaseStop);
     phaseSweepLayout->addRow(new QLabel("Number of points:"), phaseNPoints);
+    phaseSweepLayout->addRow(new QLabel("Parameter (e.g. V(N_1_1) or I(R1)):"), parameterEdit);
     phaseSweepTab->setEnabled(false);
     tabWidget->addTab(phaseSweepTab, "Phase Sweep");
 
@@ -218,3 +222,4 @@ int ConfigureAnalysisDialog::getSelectedAnalysisType() const {return tabWidget->
 QString ConfigureAnalysisDialog::getTransientTstop() const {return tStopEdit->text();}
 QString ConfigureAnalysisDialog::getTransientTstart() const {return tStartEdit->text();}
 QString ConfigureAnalysisDialog::getTransientTstep() const {return tStepEdit->text();}
+QString ConfigureAnalysisDialog::getParameter() const {return parameterEdit->text();}
