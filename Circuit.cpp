@@ -318,7 +318,7 @@ void Circuit::makeComponentFromLine(const std::string& line) {
 
     addComponent(std::string(1, type_char), comp_name, node1_str, node2_str, value, numericParams, stringParams, isSinusoidal);
 }
-//
+
 // void Circuit::saveSubcircuit(const SubcircuitDefinition& subDef) const {
 //     QString libDirPath = QCoreApplication::applicationDirPath() + QDir::separator() + "lib";
 //     QDir libDir(libDirPath);

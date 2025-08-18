@@ -49,8 +49,8 @@ public slots:
     void startPlacingWire();
     void startOpenNodeLibrary();
     void startPlacingLabel();
-    void startCreateSubcircuit();
-    void startPlacingSubcircuit();
+    // void startCreateSubcircuit();
+    // void startPlacingSubcircuit();
 
 private slots:
     void handleNodeLibraryItemSelection(const QString& compType);
@@ -75,7 +75,7 @@ private:
     void placingGroundMouseEvent(QMouseEvent* event);
     void showSimpleValueDialog(QMouseEvent* event);
     void showSourceValueDialog(QMouseEvent* event);
-    void placingSubcircuitMouseEvent(QMouseEvent* event);
+    // void placingSubcircuitMouseEvent(QMouseEvent* event);
     void drawGridDots(QPainter& painter);
     void drawComponents(QPainter& painter);
     void drawLabels(QPainter& painter);
@@ -83,7 +83,7 @@ private:
     void drawGrounds(QPainter& painter);
     void drawGroundSymbol(QPainter& painer, const QPoint& pos);
     QString findOrCreateNodeAtPoint(const QPoint& point);
-    void selectingSubcircuitNodesMouseEvent(QMouseEvent* event);
+    // void selectingSubcircuitNodesMouseEvent(QMouseEvent* event);
 
     const int gridSize = 40;
     InteractionMode currentMode = InteractionMode::Normal;
@@ -107,8 +107,8 @@ private:
     double transientTStep = 0.0;
     // TODO: AC sweep
     
-    QString currentSubcircuitName;
-    std::vector<QString> subcircuitNodes;
+    // QString currentSubcircuitName;
+    // std::vector<QString> subcircuitNodes;
 };
 
 

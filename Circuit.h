@@ -58,8 +58,8 @@ public:
     void saveProject() const;
     void loadProject(const std::string& projectName);
     QString getProjectDirectory() const;
-    void saveSubcircuit(const SubcircuitDefinition& subDef) const;
-    void loadSubcircuits();
+    // void saveSubcircuit(const SubcircuitDefinition& subDef) const;
+    // void loadSubcircuits();
     const std::vector<ComponentGraphicalInfo>& getComponentGraphics() const;
     const std::vector<WireInfo>& getWires() const;
     const std::vector<LabelInfo>& getLabels() const;
