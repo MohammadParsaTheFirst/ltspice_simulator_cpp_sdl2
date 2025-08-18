@@ -9,7 +9,6 @@ SchematicWidget::SchematicWidget(Circuit* circuit, QWidget* parent) : circuit_pt
     setPalette(pal);
 
     setFocusPolicy(Qt::StrongFocus); // Keyboard Events
-
     circuit_ptr->clearSchematic();
 
     componentCounters["R"] = 0;
@@ -38,7 +37,6 @@ QString SchematicWidget::getNextComponentName(const QString& type) {
 void SchematicWidget::paintEvent(QPaintEvent* event) {
     QWidget::paintEvent(event);
     QPainter painter(this);
-
     drawGridDots(painter);
     drawComponents(painter);
     drawWires(painter);
