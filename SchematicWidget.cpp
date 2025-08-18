@@ -579,7 +579,7 @@ QString SchematicWidget::findOrCreateNodeAtPoint(const QPoint& point) {
 
     return getNodeNameFromPoint(point);
 }
-//
+
 // void SchematicWidget::selectingSubcircuitNodesMouseEvent(QMouseEvent* event) {
 //     QPoint clickPos = stickToGrid(event->pos());
 //     QString nodeName = findNodeAt(clickPos);

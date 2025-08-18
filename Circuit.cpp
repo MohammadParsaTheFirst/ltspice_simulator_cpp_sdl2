@@ -48,7 +48,7 @@ double parseSpiceValue(const std::string& valueStr) {
 
 
 // -------------------------------- Constructors and Destructors --------------------------------
-Circuit::Circuit() : nextNodeId(0), numCurrentUnknowns(0), hasNonlinearComponents(false) { loadSubcircuits(); }
+Circuit::Circuit() : nextNodeId(0), numCurrentUnknowns(0), hasNonlinearComponents(false) {/* loadSubcircuits();*/ }
 
 Circuit::~Circuit() {}
 // -------------------------------- Constructors and Destructors --------------------------------
@@ -634,7 +634,7 @@ void Circuit::createSubcircuitDefinition(const std::string& name, const std::str
     newSubcircuit.port2NodeName = node2;
     newSubcircuit.netlist = circuitNetList;
     subcircuitDefinitions[name] = newSubcircuit;
-    saveSubcircuit(newSubcircuit);
+    // saveSubcircuit(newSubcircuit);
 }
 // -------------------------------- Component and Node Management --------------------------------
 

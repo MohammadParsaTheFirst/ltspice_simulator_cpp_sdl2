@@ -19,7 +19,6 @@ set(SOURCES
         SchematicWidget.cpp SchematicWidget.h
         mainwindow.cpp mainwindow.h
         Dialogs.cpp Dialogs.h
-        TransientDialog.cpp TransientDialog.h
         PlotWindow.cpp PlotWindow.h
 )
 

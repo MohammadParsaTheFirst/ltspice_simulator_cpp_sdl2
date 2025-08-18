@@ -55,7 +55,7 @@ void MainWindow::setupSchematicState() {
     connect(nodeLibraryAction, &QAction::triggered, schematic, &SchematicWidget::startOpenNodeLibrary);
     connect(labelAction, &QAction::triggered, schematic, &SchematicWidget::startPlacingLabel);
     connect(deleteModeAction, &QAction::triggered, schematic, &SchematicWidget::startDeleteComponent);
-    connect(createSubcircuitAction, &QAction::triggered, schematic, &SchematicWidget::startCreateSubcircuit);
+    // connect(createSubcircuitAction, &QAction::triggered, schematic, &SchematicWidget::startCreateSubcircuit);
 
     saveAction->setEnabled(true);
     configureAnalysisAction->setEnabled(true);
@@ -70,7 +70,7 @@ void MainWindow::setupSchematicState() {
     nodeLibraryAction->setEnabled(true);
     labelAction->setEnabled(true);
     deleteModeAction->setEnabled(true);
-    createSubcircuitAction->setEnabled(true);
+    // createSubcircuitAction->setEnabled(true);
 }
 
 // void MainWindow::openChartWindow()
@@ -170,7 +170,7 @@ void MainWindow::implementMenuBar() {
     edit->addAction(createSubcircuitAction);
 
     QMenu* hierarchy = menuBar()->addMenu(tr("&Hierarchy"));
-    hierarchy->addAction(createSubcircuitAction);
+    // hierarchy->addAction(createSubcircuitAction);
 
     QMenu* view = menuBar()->addMenu(tr("&View"));
 
