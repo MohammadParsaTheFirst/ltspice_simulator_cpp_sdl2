@@ -7,28 +7,25 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-set(CMAKE_PREFIX_PATH "C:\\Qt\\6.7.3\\mingw_64")
+set(CMAKE_PREFIX_PATH "C:/Qt/6.7.3/mingw_64")
 find_package(Qt6 REQUIRED COMPONENTS Widgets Charts)
 
-add_executable(LTspice
-        Circuit.cpp
-        Circuit.h
-        Component.h
-        Component.cpp
-        ComponentFactory.cpp
-        ComponentFactory.h
-        mainwindow.h
-        mainwindow.cpp
-        mainwindow.ui
+# Source files
+set(SOURCES
         main.cpp
-        ChartWindow.cpp
-        ChartWindow.h
-        resources.qrc
-        SchematicWidget.cpp
-        SchematicWidget.h
-        Dialogs.cpp
-        Dialogs.h
+        Component.cpp Component.h
+        Circuit.cpp Circuit.h
+        ChartWindow.cpp ChartWindow.h
+        ComponentFactory.cpp ComponentFactory.h
+        SchematicWidget.cpp SchematicWidget.h
+        mainwindow.cpp mainwindow.h
+        Dialogs.cpp Dialogs.h
+        TransientDialog.cpp TransientDialog.h
+        PlotWindow.cpp PlotWindow.h
 )
+
+# Build executable
+add_executable(LTspice ${SOURCES})
 
 target_include_directories(LTspice PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/eigen-3.4.0

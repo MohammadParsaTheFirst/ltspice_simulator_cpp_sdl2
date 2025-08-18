@@ -38,6 +38,7 @@ public:
         const std::map<int, int>& nodeIdToMnaIndex, double time, double h, int idx) = 0;
     virtual void updateState(const Eigen::VectorXd& solution, const std::map<std::string, int>& ci, const std::map<int, int>& nodeIdToMnaIndex) {}
     virtual bool isNonlinear() const { return false; }
+    virtual std::string getName() const { return name; }
     virtual bool needsCurrentUnknown() const { return false; }
 
     virtual void save_binary(std::ofstream& file) const;

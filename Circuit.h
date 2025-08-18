@@ -9,6 +9,8 @@
 #include <set>
 #include <QCoreApplication>
 #include <QDir>
+#include <QString>
+#include <QRegularExpression>
 #include "component.h"
 #include "ComponentFactory.h"
 
@@ -90,6 +92,9 @@ public:
     void addLabel(const std::string&, const std::string&);
 
     std::map<std::string, SubcircuitDefinition> subcircuitDefinitions;
+
+    std::pair<std::string, std::vector<double>> getTransientResults(const std::string& parameter);
+    void runTransientAnalysis(double startTime, double stopTime, double stepTime);
 
 private:
     void buildMNAMatrix(double, double);
