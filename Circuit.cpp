@@ -791,65 +791,65 @@ void Circuit::performDCAnalysis(const std::string& sourceName, double startValue
     }
     std::cout << "DC Sweep complete. " << dcSweepSolutions.size() << " points calculated." << std::endl;
 }
-
-void Circuit::performTransientAnalysis(double stopTime, double startTime, double maxTimeStep) {
-    if (maxTimeStep == 0.0)
-        maxTimeStep = (stopTime - startTime) / 100;
-    std::cout << "\n\t---------- Performing Transient Analysis ----------" << std::endl;
-    std::cout << "Time Start: " << startTime << "s, Stop Time: " << stopTime << "s, Maximum Time Step: " << maxTimeStep
-        << "s" << std::endl;
-
-    if (groundNodeIds.empty())
-        throw std::runtime_error("No ground node detected.");
-
-    for (const auto& comp : components)
-        comp->reset();
-    transientSolutions.clear();
-
-    std::map<int, int> nodeIdToMnaIndex;
-    Eigen::VectorXd solution;
-
-    int currentMnaIndex = 0;
-    for (int i = 0; i < nextNodeId; ++i) {
-        if (idToNodeName.count(i) && !isGround(i)) {
-            nodeIdToMnaIndex[i] = currentMnaIndex++;
-        }
-    }
-
-    for (double t = startTime; t <= stopTime; t += maxTimeStep) {
-        if (!hasNonlinearComponents) {
-            buildMNAMatrix(t, maxTimeStep);
-            solution = solveMNASystem();
-        }
-        else {
-            const int MAX_ITERATIONS = 100;
-            const double TOLERANCE = 1e-6;
-            bool converged = false;
-            Eigen::VectorXd lastSolution;
-
-            for (int i = 0; i < MAX_ITERATIONS; ++i) {
-                buildMNAMatrix(t, maxTimeStep);
-                solution = solveMNASystem();
-                if (solution.size() == 0) break;
-
-                if (i > 0 && (solution - lastSolution).norm() < TOLERANCE) {
-                    converged = true;
-                    break;
-                }
-                lastSolution = solution;
-                updateNonlinearComponentStates(solution, nodeIdToMnaIndex);
-            }
-            if (!converged)
-                std::cout << "Warning: Transient analysis did not converge at t = " << t << "s" << std::endl;
-        }
-        if (solution.size() == 0)
-            throw std::runtime_error("ERROR at t = " + std::to_string(t) + "s: Simulation stopped.");
-        updateComponentStates(solution, nodeIdToMnaIndex);
-        transientSolutions[t] = solution;
-    }
-    std::cout << "Transient analysis complete. " << transientSolutions.size() << " time points stored." << std::endl;
-    std::cout << "Use .print to view results." << std::endl;
-}
+//
+// void Circuit::performTransientAnalysis(double stopTime, double startTime, double maxTimeStep) {
+//     if (maxTimeStep == 0.0)
+//         maxTimeStep = (stopTime - startTime) / 100;
+//     std::cout << "\n\t---------- Performing Transient Analysis ----------" << std::endl;
+//     std::cout << "Time Start: " << startTime << "s, Stop Time: " << stopTime << "s, Maximum Time Step: " << maxTimeStep
+//         << "s" << std::endl;
+//
+//     if (groundNodeIds.empty())
+//         throw std::runtime_error("No ground node detected.");
+//
+//     for (const auto& comp : components)
+//         comp->reset();
+//     transientSolutions.clear();
+//
+//     std::map<int, int> nodeIdToMnaIndex;
+//     Eigen::VectorXd solution;
+//
+//     int currentMnaIndex = 0;
+//     for (int i = 0; i < nextNodeId; ++i) {
+//         if (idToNodeName.count(i) && !isGround(i)) {
+//             nodeIdToMnaIndex[i] = currentMnaIndex++;
+//         }
+//     }
+//
+//     for (double t = startTime; t <= stopTime; t += maxTimeStep) {
+//         if (!hasNonlinearComponents) {
+//             buildMNAMatrix(t, maxTimeStep);
+//             solution = solveMNASystem();
+//         }
+//         else {
+//             const int MAX_ITERATIONS = 100;
+//             const double TOLERANCE = 1e-6;
+//             bool converged = false;
+//             Eigen::VectorXd lastSolution;
+//
+//             for (int i = 0; i < MAX_ITERATIONS; ++i) {
+//                 buildMNAMatrix(t, maxTimeStep);
+//                 solution = solveMNASystem();
+//                 if (solution.size() == 0) break;
+//
+//                 if (i > 0 && (solution - lastSolution).norm() < TOLERANCE) {
+//                     converged = true;
+//                     break;
+//                 }
+//                 lastSolution = solution;
+//                 updateNonlinearComponentStates(solution, nodeIdToMnaIndex);
+//             }
+//             if (!converged)
+//                 std::cout << "Warning: Transient analysis did not converge at t = " << t << "s" << std::endl;
+//         }
+//         if (solution.size() == 0)
+//             throw std::runtime_error("ERROR at t = " + std::to_string(t) + "s: Simulation stopped.");
+//         updateComponentStates(solution, nodeIdToMnaIndex);
+//         transientSolutions[t] = solution;
+//     }
+//     std::cout << "Transient analysis complete. " << transientSolutions.size() << " time points stored." << std::endl;
+//     std::cout << "Use .print to view results." << std::endl;
+// }
 
 void Circuit::runTransientAnalysis(double stopTime, double startTime, double maxTimeStep) {
     if (maxTimeStep == 0.0)
@@ -1125,11 +1125,13 @@ std::pair<std::string, std::vector<double>> Circuit::getTransientResults(const s
             std::cerr << "Invalid node number: " << e.what() << std::endl;
             return {plotTitle, parameterValues};
         }
-    } else if (cMatch.hasMatch()) {
+    }
+    else if (cMatch.hasMatch()) {
         isCurrent = true;
         componentToPlot = cMatch.captured(1).toStdString();  // was .cap(1)
         plotTitle = "Current through " + componentToPlot;
-    } else {
+    }
+    else {
         std::cerr << "Invalid parameter format. Use V(node) or I(component)." << std::endl;
         return {plotTitle, parameterValues};
     }
