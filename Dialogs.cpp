@@ -164,7 +164,6 @@ ConfigureAnalysisDialog::ConfigureAnalysisDialog(QWidget* parent) : QDialog(pare
     setWindowTitle("Configure Analysis");
     tabWidget = new QTabWidget(this);
     buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-    parameterEdit = new QLineEdit(this);
 
     // Transient Tab
     QWidget* transientTab = new QWidget(this);
@@ -172,10 +171,11 @@ ConfigureAnalysisDialog::ConfigureAnalysisDialog(QWidget* parent) : QDialog(pare
     tStopEdit = new QLineEdit(this);
     tStartEdit = new QLineEdit(this);
     tStepEdit = new QLineEdit(this);
+    transientParameterEdit = new QLineEdit(this);
     transientLayout->addRow(new QLabel("Stop time:"), tStopEdit);
     transientLayout->addRow(new QLabel("Time to start saving data:"), tStartEdit);
     transientLayout->addRow(new QLabel("Maximum Timestep:"), tStepEdit);
-    transientLayout->addRow(new QLabel("Parameter (e.g. V(N_1_1) or I(R1)):"), parameterEdit);
+    transientLayout->addRow(new QLabel("Parameter (e.g. V(N_1_1), I(R1)):"), transientParameterEdit);
     tabWidget->addTab(transientTab, "Transient");
 
     // AC Sweep Tab
@@ -188,11 +188,12 @@ ConfigureAnalysisDialog::ConfigureAnalysisDialog(QWidget* parent) : QDialog(pare
     ACOmegaStart = new QLineEdit(this);
     ACOmegaStop = new QLineEdit(this);
     ACNPoint = new QLineEdit(this);
+    ACSweepParameterEdit = new QLineEdit(this);
     acSweepLayout->addRow(new QLabel("Start frequency:"), ACOmegaStart);
     acSweepLayout->addRow(new QLabel("Stop frequency:"), ACOmegaStop);
     acSweepLayout->addRow(new QLabel("Number of points:"), ACNPoint);
     acSweepLayout->addRow(new QLabel("Type of sweep:"), typeOfSweepComboBox);
-    acSweepLayout->addRow(new QLabel("Parameter (e.g. V(N_1_1) or I(R1)):"), parameterEdit);
+    acSweepLayout->addRow(new QLabel("Parameter (e.g. V(N_1_1), I(R1)):"), ACSweepParameterEdit);
     ACSweepTab->setEnabled(false);
     tabWidget->addTab(ACSweepTab, "AC Analysis");
 
@@ -203,11 +204,12 @@ ConfigureAnalysisDialog::ConfigureAnalysisDialog(QWidget* parent) : QDialog(pare
     phaseStart = new QLineEdit(this);
     phaseStop = new QLineEdit(this);
     phaseNPoints = new QLineEdit(this);
+    phaseParameterEdit = new QLineEdit(this);
     phaseSweepLayout->addRow(new QLabel("Base frequency:"), phaseBaseFrequency);
     phaseSweepLayout->addRow(new QLabel("Start phase:"), phaseStart);
     phaseSweepLayout->addRow(new QLabel("Stop phase:"), phaseStop);
     phaseSweepLayout->addRow(new QLabel("Number of points:"), phaseNPoints);
-    phaseSweepLayout->addRow(new QLabel("Parameter (e.g. V(N_1_1) or I(R1)):"), parameterEdit);
+    phaseSweepLayout->addRow(new QLabel("Parameter (e.g. V(N_1_1), I(R1)):"), phaseParameterEdit);
     phaseSweepTab->setEnabled(false);
     tabWidget->addTab(phaseSweepTab, "Phase Sweep");
 
@@ -222,4 +224,4 @@ int ConfigureAnalysisDialog::getSelectedAnalysisType() const {return tabWidget->
 QString ConfigureAnalysisDialog::getTransientTstop() const {return tStopEdit->text();}
 QString ConfigureAnalysisDialog::getTransientTstart() const {return tStartEdit->text();}
 QString ConfigureAnalysisDialog::getTransientTstep() const {return tStepEdit->text();}
-QString ConfigureAnalysisDialog::getParameter() const {return parameterEdit->text();}
+QString ConfigureAnalysisDialog::getTransientParameter() const {return transientParameterEdit->text();}

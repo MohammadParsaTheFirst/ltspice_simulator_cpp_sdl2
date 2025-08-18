@@ -1,5 +1,5 @@
-#include "SchematicWidget.h"
 #include <cmath>
+#include "SchematicWidget.h"
 
 SchematicWidget::SchematicWidget(Circuit* circuit, QWidget* parent) : circuit_ptr(circuit), QWidget(parent) {
     setMouseTracking(true);
@@ -118,7 +118,8 @@ void SchematicWidget::startOpenConfigureAnalysis() {
             transientTStop = parseSpiceValue(dialog.getTransientTstop().toStdString());
             transientTStart = parseSpiceValue(dialog.getTransientTstart().toStdString());
             transientTStep = parseSpiceValue(dialog.getTransientTstep().toStdString());
-            parameterForAnalysis = dialog.getParameter();
+            parameterForAnalysis = dialog.getTransientParameter();
+
             if (transientTStep <= 0) {
                 QMessageBox::warning(this, "Input Error", "Step time must be greater than zero.");
                 return;
@@ -127,29 +128,31 @@ void SchematicWidget::startOpenConfigureAnalysis() {
                 QMessageBox::warning(this, "Input Error", "Start time should less than stop time.");
                 return;
             }
+
             QMessageBox::information(this, "Info", "Transient Analysis varibles updated.");
+
+            circuit_ptr->runTransientAnalysis(transientTStop, transientTStart, transientTStep);
+            std::pair<std::string, std::vector<double>> results = circuit_ptr->getTransientResults(parameterForAnalysis.toStdString());
+
+            // Check if there's any data to plot
+            if (!results.second.empty()) {
+                // Create and show the new plot window
+                PlotWindow *plotWindow = new PlotWindow(this);
+                std::vector<double> timePoints;
+                for (double t = transientTStart; t <= transientTStop; t += transientTStep) {
+                    timePoints.push_back(t);
+                }
+                plotWindow->plotData(timePoints, results.second, QString::fromStdString(results.first));
+                plotWindow->show();
+            }
+            else
+                QMessageBox::warning(this, "Analysis Failed", "Could not generate plot data. Please check your circuit and parameters.");
         }
     }
 }
 
 void SchematicWidget::startRunAnalysis() {
     startOpenConfigureAnalysis();
-    circuit_ptr->runTransientAnalysis(transientTStop, transientTStart, transientTStep);
-    std::pair<std::string, std::vector<double>> results = circuit_ptr->getTransientResults(parameterForAnalysis.toStdString());
-
-    // Check if there's any data to plot
-    if (!results.second.empty()) {
-        // Create and show the new plot window
-        PlotWindow *plotWindow = new PlotWindow(this);
-        std::vector<double> timePoints;
-        for (double t = transientTStart; t <= transientTStop; t += transientTStep) {
-            timePoints.push_back(t);
-        }
-        plotWindow->plotData(timePoints, results.second, QString::fromStdString(results.first));
-        plotWindow->show();
-    }
-    else
-        QMessageBox::warning(this, "Analysis Failed", "Could not generate plot data. Please check your circuit and parameters.");
 }
 
 void SchematicWidget::startPlacingResistor() {

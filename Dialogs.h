@@ -96,28 +96,30 @@ public:
     QString getPhaseStart() const;
     QString getPhaseStop() const;
     QString getPhaseNPoints() const;
-    QString getParameter() const;
+    QString getTransientParameter() const;
 
 private:
     QTabWidget* tabWidget;
-    QLineEdit* parameterEdit;
 
     // Storing the transient analysis type variables
     QLineEdit* tStopEdit;
     QLineEdit* tStartEdit;
     QLineEdit* tStepEdit;
+    QLineEdit* transientParameterEdit;
 
     // AC Sweep
     QComboBox* typeOfSweepComboBox;
     QLineEdit* ACOmegaStart;
     QLineEdit* ACOmegaStop;
     QLineEdit* ACNPoint;
+    QLineEdit* ACSweepParameterEdit;
 
     // Phase Sweep - menu should be in the project but its analyze not
     QLineEdit* phaseBaseFrequency;
     QLineEdit* phaseStart;
     QLineEdit* phaseStop;
     QLineEdit* phaseNPoints;
+    QLineEdit* phaseParameterEdit;
 
     QDialogButtonBox *buttonBox;
 };

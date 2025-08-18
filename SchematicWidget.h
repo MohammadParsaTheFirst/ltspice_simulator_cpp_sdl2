@@ -8,10 +8,10 @@
 #include <QKeyEvent>
 #include <QMessageBox>
 #include <QInputDialog>
+#include <QString>
 #include "Circuit.h"
 #include "Dialogs.h"
 #include "PlotWindow.h"
-#include "TransientDialog.h"
 
 enum class InteractionMode {
     Normal,
