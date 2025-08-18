@@ -10,6 +10,8 @@
 #include <QInputDialog>
 #include "Circuit.h"
 #include "Dialogs.h"
+#include "PlotWindow.h"
+#include "TransientDialog.h"
 
 enum class InteractionMode {
     Normal,
@@ -97,9 +99,13 @@ private:
     bool isWiring = false;
     QPoint wireStartPoint;
 
+    // Analysis
+    QString parameterForAnalysis;
+    // Transient analysis
     double transientTStop = 0.0;
     double transientTStart = 0.0;
     double transientTStep = 0.0;
+    // TODO: AC sweep
     
     QString currentSubcircuitName;
     std::vector<QString> subcircuitNodes;

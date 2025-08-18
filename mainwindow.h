@@ -16,7 +16,6 @@
 #include "SchematicWidget.h"
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "ChartWindow.h"
 
 namespace Ui {
     class MainWindow;
@@ -24,7 +23,6 @@ namespace Ui {
 
 class MainWindow : public QMainWindow {
     Q_OBJECT
-
 private:
     Ui::MainWindow* ui;
     SchematicWidget* schematic;
