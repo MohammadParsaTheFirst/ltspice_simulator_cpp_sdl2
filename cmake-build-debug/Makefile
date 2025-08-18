@@ -154,30 +154,6 @@ LTspice_autogen/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice_autogen.dir\build.make CMakeFiles/LTspice_autogen.dir/build
 .PHONY : LTspice_autogen/fast
 
-ChartWindow.obj: ChartWindow.cpp.obj
-.PHONY : ChartWindow.obj
-
-# target to build an object file
-ChartWindow.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/ChartWindow.cpp.obj
-.PHONY : ChartWindow.cpp.obj
-
-ChartWindow.i: ChartWindow.cpp.i
-.PHONY : ChartWindow.i
-
-# target to preprocess a source file
-ChartWindow.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/ChartWindow.cpp.i
-.PHONY : ChartWindow.cpp.i
-
-ChartWindow.s: ChartWindow.cpp.s
-.PHONY : ChartWindow.s
-
-# target to generate assembly for a file
-ChartWindow.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/ChartWindow.cpp.s
-.PHONY : ChartWindow.cpp.s
-
 Circuit.obj: Circuit.cpp.obj
 .PHONY : Circuit.obj
 
@@ -322,6 +298,30 @@ LTspice_autogen/mocs_compilation.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/LTspice_autogen/mocs_compilation.cpp.s
 .PHONY : LTspice_autogen/mocs_compilation.cpp.s
 
+PlotWindow.obj: PlotWindow.cpp.obj
+.PHONY : PlotWindow.obj
+
+# target to build an object file
+PlotWindow.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/PlotWindow.cpp.obj
+.PHONY : PlotWindow.cpp.obj
+
+PlotWindow.i: PlotWindow.cpp.i
+.PHONY : PlotWindow.i
+
+# target to preprocess a source file
+PlotWindow.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/PlotWindow.cpp.i
+.PHONY : PlotWindow.cpp.i
+
+PlotWindow.s: PlotWindow.cpp.s
+.PHONY : PlotWindow.s
+
+# target to generate assembly for a file
+PlotWindow.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/PlotWindow.cpp.s
+.PHONY : PlotWindow.cpp.s
+
 SchematicWidget.obj: SchematicWidget.cpp.obj
 .PHONY : SchematicWidget.obj
 
@@ -405,9 +405,6 @@ help:
 	@echo ... LTspice_autogen
 	@echo ... LTspice_autogen_timestamp_deps
 	@echo ... LTspice
-	@echo ... ChartWindow.obj
-	@echo ... ChartWindow.i
-	@echo ... ChartWindow.s
 	@echo ... Circuit.obj
 	@echo ... Circuit.i
 	@echo ... Circuit.s
@@ -426,6 +423,9 @@ help:
 	@echo ... LTspice_autogen/mocs_compilation.obj
 	@echo ... LTspice_autogen/mocs_compilation.i
 	@echo ... LTspice_autogen/mocs_compilation.s
+	@echo ... PlotWindow.obj
+	@echo ... PlotWindow.i
+	@echo ... PlotWindow.s
 	@echo ... SchematicWidget.obj
 	@echo ... SchematicWidget.i
 	@echo ... SchematicWidget.s

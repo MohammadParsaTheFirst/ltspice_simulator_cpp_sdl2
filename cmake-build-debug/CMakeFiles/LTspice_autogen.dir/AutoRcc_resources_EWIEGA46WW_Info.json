@@ -33,10 +33,10 @@
 	"OPTIONS" : [ "--no-zstd", "-name", "resources" ],
 	"OUTPUT_CHECKSUM" : "EWIEGA46WW",
 	"OUTPUT_NAME" : "qrc_resources.cpp",
-	"RCC_EXECUTABLE" : "C:/Qt/6.7.3/mingw_64/bin/rcc.exe",
+	"RCC_EXECUTABLE" : "C:/Qt1/6.9.1/mingw_64/bin/rcc.exe",
 	"RCC_LIST_OPTIONS" : [ "--list" ],
 	"SETTINGS_FILE" : "C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cmake-build-debug/CMakeFiles/LTspice_autogen.dir/AutoRcc_resources_EWIEGA46WW_Used.txt",
 	"SOURCE" : "C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/resources.qrc",
-	"USE_BETTER_GRAPH" : false,
+	"USE_BETTER_GRAPH" : true,
 	"VERBOSITY" : 0
 }

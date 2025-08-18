@@ -8,11 +8,8 @@
 #include <QtCharts/QValueAxis>
 #include <QVBoxLayout>
 
-//QT_CHARTS_USE_NAMESPACE
-
 class PlotWindow : public QMainWindow {
     Q_OBJECT
-
 public:
     explicit PlotWindow(QWidget *parent = nullptr);
     ~PlotWindow();

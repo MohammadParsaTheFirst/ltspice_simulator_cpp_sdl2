@@ -67,8 +67,8 @@ include CMakeFiles/LTspice_autogen.dir/progress.make
 
 CMakeFiles/LTspice_autogen: LTspice_autogen/timestamp
 
-LTspice_autogen/timestamp: C:/Qt/6.7.3/mingw_64/bin/moc.exe
-LTspice_autogen/timestamp: C:/Qt/6.7.3/mingw_64/bin/uic.exe
+LTspice_autogen/timestamp: C:/Qt1/6.9.1/mingw_64/bin/moc.exe
+LTspice_autogen/timestamp: C:/Qt1/6.9.1/mingw_64/bin/uic.exe
 LTspice_autogen/timestamp: CMakeFiles/LTspice_autogen.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target LTspice"
 	"C:\Program Files\JetBrains\CLion 2024.2.1\bin\cmake\win\x64\bin\cmake.exe" -E cmake_autogen "C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cmake-build-debug/CMakeFiles/LTspice_autogen.dir/AutogenInfo.json" Debug

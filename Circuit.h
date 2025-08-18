@@ -87,10 +87,10 @@ public:
     // Analysis
     void performDCAnalysis(const std::string&, double, double, double);
     // void performTransientAnalysis(double, double, double);
-    void printTransientResults(const std::vector<std::string>&) const;
+    std::vector<double> getTransientResults(const std::vector<std::string>&) const;
     void printDcSweepResults(const std::string&, const std::string&) const;
     void addLabel(const std::string&, const std::string&);
-    std::pair<std::string, std::vector<double>> getTransientResults(const std::string& parameter);
+    // std::pair<std::string, std::vector<double>> getTransientResults(const std::string& parameter);
     void runTransientAnalysis(double startTime, double stopTime, double stepTime);
 
     std::map<std::string, SubcircuitDefinition> subcircuitDefinitions;

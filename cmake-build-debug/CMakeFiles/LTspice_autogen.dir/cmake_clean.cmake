@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/LTspice_autogen"
-  "LTspice_autogen/include/ui_mainwindow.h"
   "LTspice_autogen/mocs_compilation.cpp"
   "LTspice_autogen/timestamp"
 )

@@ -791,75 +791,17 @@ void Circuit::performDCAnalysis(const std::string& sourceName, double startValue
     }
     std::cout << "DC Sweep complete. " << dcSweepSolutions.size() << " points calculated." << std::endl;
 }
-//
-// void Circuit::performTransientAnalysis(double stopTime, double startTime, double maxTimeStep) {
-//     if (maxTimeStep == 0.0)
-//         maxTimeStep = (stopTime - startTime) / 100;
-//     std::cout << "\n\t---------- Performing Transient Analysis ----------" << std::endl;
-//     std::cout << "Time Start: " << startTime << "s, Stop Time: " << stopTime << "s, Maximum Time Step: " << maxTimeStep
-//         << "s" << std::endl;
-//
-//     if (groundNodeIds.empty())
-//         throw std::runtime_error("No ground node detected.");
-//
-//     for (const auto& comp : components)
-//         comp->reset();
-//     transientSolutions.clear();
-//
-//     std::map<int, int> nodeIdToMnaIndex;
-//     Eigen::VectorXd solution;
-//
-//     int currentMnaIndex = 0;
-//     for (int i = 0; i < nextNodeId; ++i) {
-//         if (idToNodeName.count(i) && !isGround(i)) {
-//             nodeIdToMnaIndex[i] = currentMnaIndex++;
-//         }
-//     }
-//
-//     for (double t = startTime; t <= stopTime; t += maxTimeStep) {
-//         if (!hasNonlinearComponents) {
-//             buildMNAMatrix(t, maxTimeStep);
-//             solution = solveMNASystem();
-//         }
-//         else {
-//             const int MAX_ITERATIONS = 100;
-//             const double TOLERANCE = 1e-6;
-//             bool converged = false;
-//             Eigen::VectorXd lastSolution;
-//
-//             for (int i = 0; i < MAX_ITERATIONS; ++i) {
-//                 buildMNAMatrix(t, maxTimeStep);
-//                 solution = solveMNASystem();
-//                 if (solution.size() == 0) break;
-//
-//                 if (i > 0 && (solution - lastSolution).norm() < TOLERANCE) {
-//                     converged = true;
-//                     break;
-//                 }
-//                 lastSolution = solution;
-//                 updateNonlinearComponentStates(solution, nodeIdToMnaIndex);
-//             }
-//             if (!converged)
-//                 std::cout << "Warning: Transient analysis did not converge at t = " << t << "s" << std::endl;
-//         }
-//         if (solution.size() == 0)
-//             throw std::runtime_error("ERROR at t = " + std::to_string(t) + "s: Simulation stopped.");
-//         updateComponentStates(solution, nodeIdToMnaIndex);
-//         transientSolutions[t] = solution;
-//     }
-//     std::cout << "Transient analysis complete. " << transientSolutions.size() << " time points stored." << std::endl;
-//     std::cout << "Use .print to view results." << std::endl;
-// }
 
 void Circuit::runTransientAnalysis(double stopTime, double startTime, double maxTimeStep) {
     if (maxTimeStep == 0.0)
         maxTimeStep = (stopTime - startTime) / 100;
-    std::cout << "\n\t---------- Performing Transient Analysis ----------" << std::endl;
-    std::cout << "Time Start: " << startTime << "s, Stop Time: " << stopTime << "s, Maximum Time Step: " << maxTimeStep
-        << "s" << std::endl;
+    std::cout << "\n---------- Performing Transient Analysis ----------" << std::endl;
+    std::cout << "Time Start: " << startTime << "s, Stop Time: " << stopTime << "s, Maximum Time Step: " << maxTimeStep << "s" << std::endl;
 
-    if (groundNodeIds.empty())
-        throw std::runtime_error("No ground node detected.");
+    if (groundNodeIds.empty()) {
+        std::cout << "No ground node detected." << std::endl;
+        return;
+    }
 
     for (const auto& comp : components)
         comp->reset();
@@ -901,23 +843,30 @@ void Circuit::runTransientAnalysis(double stopTime, double startTime, double max
             if (!converged)
                 std::cout << "Warning: Transient analysis did not converge at t = " << t << "s" << std::endl;
         }
-        if (solution.size() == 0)
-            throw std::runtime_error("ERROR at t = " + std::to_string(t) + "s: Simulation stopped.");
+        if (solution.size() == 0) {
+            std::cout << "ERROR at t = " << t << "s: Simulation stopped." << std::endl;
+            return;
+        }
         updateComponentStates(solution, nodeIdToMnaIndex);
         transientSolutions[t] = solution;
     }
     std::cout << "Transient analysis complete. " << transientSolutions.size() << " time points stored." << std::endl;
-    std::cout << "Use .print to view results." << std::endl;
 }
 // -------------------------------- Analysis Methods --------------------------------
 
 
 // -------------------------------- Output Results --------------------------------
-void Circuit::printTransientResults(const std::vector<std::string>& variablesToPrint) const {
-    if (transientSolutions.empty())
-        throw std::runtime_error("No analysis results found. Run .TRAN or .DC first.");
-    if (groundNodeIds.empty())
-        throw std::runtime_error("No ground node detected.");
+std::vector<double> Circuit::getTransientResults(const std::vector<std::string>& variablesToPrint) const {
+    std::vector<double> results;
+
+    if (transientSolutions.empty()) {
+        std::cout << "No analysis results found. Run .TRAN or .DC first." << std::endl;
+        return {};
+    }
+    if (groundNodeIds.empty()) {
+        std::cout << "No ground node detected." << std::endl;
+        return {};
+    }
 
     std::map<int, int> nodeIdToMnaIndex;
     int currentMnaIndex = 0;
@@ -942,7 +891,10 @@ void Circuit::printTransientResults(const std::vector<std::string>& variablesToP
         std::string name = var.substr(2, var.length() - 3);
 
         if (type == "V") {
-            if (!hasNode(name)) throw std::runtime_error("Node " + name + " not found.");
+            if (!hasNode(name)) {
+                std::cout << "Node " << name << " not found." << std::endl;
+                return {};
+            }
             int nodeID = nodeNameToId.at(name);
             int solutionIndex = isGround(nodeID) ? -1 : nodeIdToMnaIndex.at(nodeID);
             printJobs.push_back({var, PrintJob::Type::VOLTAGE, solutionIndex, nullptr});
@@ -950,39 +902,39 @@ void Circuit::printTransientResults(const std::vector<std::string>& variablesToP
         else if (type == "I") {
             if (componentCurrentIndices.count(name))
                 printJobs.push_back({var, PrintJob::Type::MNA_CURRENT, componentCurrentIndices.at(name), nullptr});
-
             else {
                 if (componentCurrentIndices.count(name))
                     printJobs.push_back({var, PrintJob::Type::MNA_CURRENT, componentCurrentIndices.at(name), nullptr});
                 else {
                     auto comp = getComponent(name);
-                    if (!comp)
-                        throw std::runtime_error("Component " + name + " not found.");
+                    if (!comp) {
+                        std::cout << "Component " << name << " not found." << std::endl;
+                        return {};
+                    }
                     if (dynamic_cast<Resistor*>(comp.get()))
                         printJobs.push_back({var, PrintJob::Type::RESISTOR_CURRENT, -1, comp});
                     else if (dynamic_cast<Capacitor*>(comp.get()))
                         printJobs.push_back({var, PrintJob::Type::CAPACITOR_CURRENT, -1, comp});
                     else
-                        std::cout << "Warning: Current for component type of '" << name << "' cannot be calculated." <<
-                            std::endl;
+                        std::cout << "Warning: Current for component type of '" << name << "' cannot be calculated." << std::endl;
                 }
             }
         }
     }
     if (printJobs.empty())
-        throw std::runtime_error("No valid variables to print.");
+        return {};
 
-    std::cout << std::left << std::setw(14) << "Time";
-    for (const auto& job : printJobs)
-        std::cout << std::setw(14) << job.header;
-    std::cout << std::endl;
+    // std::cout << std::left << std::setw(14) << "Time";
+    // for (const auto& job : printJobs)
+    //     std::cout << std::setw(14) << job.header;
+    // std::cout << std::endl;
 
     auto itPrev = transientSolutions.begin();
     for (auto it = transientSolutions.begin(); it != transientSolutions.end(); ++it) {
         double t = it->first;
         const Eigen::VectorXd& solution = it->second;
 
-        std::cout << std::left << std::fixed << std::setprecision(6) << std::setw(14) << t;
+        // std::cout << std::left << std::fixed << std::setprecision(6) << std::setw(14) << t;
 
         for (const auto& job : printJobs) {
             double result = 0.0;
@@ -1011,11 +963,13 @@ void Circuit::printTransientResults(const std::vector<std::string>& variablesToP
                     }
                 }
             }
-            std::cout << std::setw(14) << result;
+            // std::cout << std::setw(14) << result;
+            results.push_back(result);
         }
-        std::cout << std::endl;
+        // std::cout << std::endl;
         itPrev = it;
     }
+    return results;
 }
 
 void Circuit::printDcSweepResults(const std::string& sourceName, const std::string& variable) const {
@@ -1096,101 +1050,101 @@ void Circuit::printDcSweepResults(const std::string& sourceName, const std::stri
     }
 }
 
-std::pair<std::string, std::vector<double>> Circuit::getTransientResults(const std::string& parameter) {
-    std::vector<double> parameterValues;
-    std::string plotTitle = "Transient Analysis";
-
-    // Parse the parameter string
-    int nodeToPlot = -1;
-    std::string componentToPlot;
-    bool isVoltage = false;
-    bool isCurrent = false;
-
-    // Use a regular expression to handle both "V(2)" and "V(n2)" formats
-    QRegularExpression voltageRegex(R"(V\((n?)(\d+)\))");
-    QRegularExpression currentRegex(R"(I\((.+)\))");
-
-    QString qParameter = QString::fromStdString(parameter);
-
-    QRegularExpressionMatch vMatch = voltageRegex.match(qParameter);
-    QRegularExpressionMatch cMatch = currentRegex.match(qParameter);
-
-    if (vMatch.hasMatch()) {
-        isVoltage = true;
-        std::string nodeStr = vMatch.captured(2).toStdString();  // was .cap(2)
-        try {
-            nodeToPlot = std::stoi(nodeStr);
-            plotTitle = "Voltage at Node " + std::to_string(nodeToPlot);
-        } catch (const std::invalid_argument& e) {
-            std::cerr << "Invalid node number: " << e.what() << std::endl;
-            return {plotTitle, parameterValues};
-        }
-    }
-    else if (cMatch.hasMatch()) {
-        isCurrent = true;
-        componentToPlot = cMatch.captured(1).toStdString();  // was .cap(1)
-        plotTitle = "Current through " + componentToPlot;
-    }
-    else {
-        std::cerr << "Invalid parameter format. Use V(node) or I(component)." << std::endl;
-        return {plotTitle, parameterValues};
-    }
-    // if (voltageRegex.exactMatch(qParameter)) {
-    //     isVoltage = true;
-    //     std::string nodeStr = voltageRegex.cap(2).toStdString();
-    //     try {
-    //         nodeToPlot = std::stoi(nodeStr);
-    //         plotTitle = "Voltage at Node " + std::to_string(nodeToPlot);
-    //     } catch (const std::invalid_argument& e) {
-    //         std::cerr << "Invalid node number: " << e.what() << std::endl;
-    //         return {plotTitle, parameterValues};
-    //     }
-    // } else if (currentRegex.exactMatch(qParameter)) {
-    //     isCurrent = true;
-    //     componentToPlot = currentRegex.cap(1).toStdString();
-    //     plotTitle = "Current through " + componentToPlot;
-    // } else {
-    //     std::cerr << "Invalid parameter format. Use V(node) or I(component)." << std::endl;
-    //     return {plotTitle, parameterValues};
-    // }
-
-    // Map component names to their current indices if needed
-    std::map<std::string, int> componentCurrentIndices;
-    int currentIdx = nextNodeId;
-    for (const auto& comp : components) {
-        if (comp->needsCurrentUnknown()) {
-            componentCurrentIndices[comp->getName()] = currentIdx++;
-        }
-    }
-
-    // Iterate through the stored solutions and extract the values
-    std::map<int, int> nodeIdToMnaIndex;
-    int currentMnaIndex = 0;
-    for (int i = 0; i < nextNodeId; ++i) {
-        if (idToNodeName.count(i) && !isGround(i)) {
-            nodeIdToMnaIndex[i] = currentMnaIndex++;
-        }
-    }
-
-    for (const auto& pair : transientSolutions) {
-        const Eigen::VectorXd& solution = pair.second;
-        if (isVoltage) {
-            if (nodeToPlot == 0) { // Ground node
-                parameterValues.push_back(0.0);
-            } else if (nodeIdToMnaIndex.count(nodeToPlot)) {
-                parameterValues.push_back(solution(nodeIdToMnaIndex.at(nodeToPlot)));
-            } else {
-                parameterValues.push_back(0.0); // Node not found
-            }
-        } else if (isCurrent) {
-            if (componentCurrentIndices.count(componentToPlot)) {
-                parameterValues.push_back(solution(componentCurrentIndices.at(componentToPlot)));
-            } else {
-                parameterValues.push_back(0.0); // Component not found or has no current
-            }
-        }
-    }
-
-    return {plotTitle, parameterValues};
-}
+// std::pair<std::string, std::vector<double>> Circuit::getTransientResults(const std::string& parameter) {
+//     std::vector<double> parameterValues;
+//     std::string plotTitle = "Transient Analysis";
+//
+//     // Parse the parameter string
+//     int nodeToPlot = -1;
+//     std::string componentToPlot;
+//     bool isVoltage = false;
+//     bool isCurrent = false;
+//
+//     // Use a regular expression to handle both "V(2)" and "V(n2)" formats
+//     QRegularExpression voltageRegex(R"(V\((n?)(\d+)\))");
+//     QRegularExpression currentRegex(R"(I\((.+)\))");
+//
+//     QString qParameter = QString::fromStdString(parameter);
+//
+//     QRegularExpressionMatch vMatch = voltageRegex.match(qParameter);
+//     QRegularExpressionMatch cMatch = currentRegex.match(qParameter);
+//
+//     if (vMatch.hasMatch()) {
+//         isVoltage = true;
+//         std::string nodeStr = vMatch.captured(2).toStdString();  // was .cap(2)
+//         try {
+//             nodeToPlot = std::stoi(nodeStr);
+//             plotTitle = "Voltage at Node " + std::to_string(nodeToPlot);
+//         } catch (const std::invalid_argument& e) {
+//             std::cerr << "Invalid node number: " << e.what() << std::endl;
+//             return {plotTitle, parameterValues};
+//         }
+//     }
+//     else if (cMatch.hasMatch()) {
+//         isCurrent = true;
+//         componentToPlot = cMatch.captured(1).toStdString();  // was .cap(1)
+//         plotTitle = "Current through " + componentToPlot;
+//     }
+//     else {
+//         std::cerr << "Invalid parameter format. Use V(node) or I(component)." << std::endl;
+//         return {plotTitle, parameterValues};
+//     }
+//     // if (voltageRegex.exactMatch(qParameter)) {
+//     //     isVoltage = true;
+//     //     std::string nodeStr = voltageRegex.cap(2).toStdString();
+//     //     try {
+//     //         nodeToPlot = std::stoi(nodeStr);
+//     //         plotTitle = "Voltage at Node " + std::to_string(nodeToPlot);
+//     //     } catch (const std::invalid_argument& e) {
+//     //         std::cerr << "Invalid node number: " << e.what() << std::endl;
+//     //         return {plotTitle, parameterValues};
+//     //     }
+//     // } else if (currentRegex.exactMatch(qParameter)) {
+//     //     isCurrent = true;
+//     //     componentToPlot = currentRegex.cap(1).toStdString();
+//     //     plotTitle = "Current through " + componentToPlot;
+//     // } else {
+//     //     std::cerr << "Invalid parameter format. Use V(node) or I(component)." << std::endl;
+//     //     return {plotTitle, parameterValues};
+//     // }
+//
+//     // Map component names to their current indices if needed
+//     std::map<std::string, int> componentCurrentIndices;
+//     int currentIdx = nextNodeId;
+//     for (const auto& comp : components) {
+//         if (comp->needsCurrentUnknown()) {
+//             componentCurrentIndices[comp->getName()] = currentIdx++;
+//         }
+//     }
+//
+//     // Iterate through the stored solutions and extract the values
+//     std::map<int, int> nodeIdToMnaIndex;
+//     int currentMnaIndex = 0;
+//     for (int i = 0; i < nextNodeId; ++i) {
+//         if (idToNodeName.count(i) && !isGround(i)) {
+//             nodeIdToMnaIndex[i] = currentMnaIndex++;
+//         }
+//     }
+//
+//     for (const auto& pair : transientSolutions) {
+//         const Eigen::VectorXd& solution = pair.second;
+//         if (isVoltage) {
+//             if (nodeToPlot == 0) { // Ground node
+//                 parameterValues.push_back(0.0);
+//             } else if (nodeIdToMnaIndex.count(nodeToPlot)) {
+//                 parameterValues.push_back(solution(nodeIdToMnaIndex.at(nodeToPlot)));
+//             } else {
+//                 parameterValues.push_back(0.0); // Node not found
+//             }
+//         } else if (isCurrent) {
+//             if (componentCurrentIndices.count(componentToPlot)) {
+//                 parameterValues.push_back(solution(componentCurrentIndices.at(componentToPlot)));
+//             } else {
+//                 parameterValues.push_back(0.0); // Component not found or has no current
+//             }
+//         }
+//     }
+//
+//     return {plotTitle, parameterValues};
+// }
 // -------------------------------- Output Results --------------------------------
