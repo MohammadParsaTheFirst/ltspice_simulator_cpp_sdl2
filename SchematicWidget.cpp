@@ -427,40 +427,44 @@ void SchematicWidget::placingGroundMouseEvent(QMouseEvent* event) {
 }
 
 void SchematicWidget::mousePressEvent(QMouseEvent* event) {
-    if (currentMode == InteractionMode::Normal)
-        return;
-    if (event->button() == Qt::RightButton) {
-        currentMode = InteractionMode::Normal;
-        currentCompType = "NF";
-        setCursor(Qt::ArrowCursor);
-        isWiring = false;
-        // subcircuitNodes.clear();
-        update();
-        return;
-    }
-    if (event->button() == Qt::LeftButton) {
-        if (currentMode == InteractionMode::placingWire) {
-            placingWireMouseEvent(event);
+    try{
+        if (currentMode == InteractionMode::Normal)
+            return;
+        if (event->button() == Qt::RightButton) {
+            currentMode = InteractionMode::Normal;
+            currentCompType = "NF";
+            setCursor(Qt::ArrowCursor);
+            isWiring = false;
+            // subcircuitNodes.clear();
+            update();
+            return;
         }
-        else if (currentMode == InteractionMode::placingLabel) {
-            placingLabelMouseEvent(event);
+        if (event->button() == Qt::LeftButton) {
+            if (currentMode == InteractionMode::placingWire) {
+                placingWireMouseEvent(event);
+            }
+            else if (currentMode == InteractionMode::placingLabel) {
+                placingLabelMouseEvent(event);
+            }
+            else if (currentMode == InteractionMode::deleteMode) {
+                deletingComponentMouseEvent(event);
+            }
+            else if (currentMode == InteractionMode::placingGround) {
+                placingGroundMouseEvent(event);
+            }
+            else if (currentMode == InteractionMode::placingSubcircuitNodes) {
+                // selectingSubcircuitNodesMouseEvent(event);
+            }
+            else if (currentMode == InteractionMode::placingSubcircuit) {
+                // placingSubcircuitMouseEvent(event);
+            }
+            else {
+                placingComponentMouseEvent(event);
+            }
+            update();
         }
-        else if (currentMode == InteractionMode::deleteMode) {
-            deletingComponentMouseEvent(event);
-        }
-        else if (currentMode == InteractionMode::placingGround) {
-            placingGroundMouseEvent(event);
-        }
-        else if (currentMode == InteractionMode::placingSubcircuitNodes) {
-            // selectingSubcircuitNodesMouseEvent(event);
-        }
-        else if (currentMode == InteractionMode::placingSubcircuit) {
-           // placingSubcircuitMouseEvent(event);
-        }
-        else {
-            placingComponentMouseEvent(event);
-        }
-        update();
+    } catch(const std::exception& e) {
+        QMessageBox::warning(this, "Error", e.what());
     }
 }
 
