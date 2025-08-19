@@ -131,15 +131,11 @@ void SchematicWidget::startOpenConfigureAnalysis() {
                 QMessageBox::information(this, "Info", "Transient Analysis variables updated.");
 
                 circuit_ptr->runTransientAnalysis(transientTStop, transientTStart, transientTStep);
-                std::vector<double> results = circuit_ptr->getTransientResults({parameterForAnalysis.toStdString()});
+                std::map<double, double> results = circuit_ptr->getTransientResults({parameterForAnalysis.toStdString()});
 
                 if (!results.empty()) {
-                    PlotWindow *plotWindow = new PlotWindow(this);
-                    std::vector<double> timePoints;
-                    for (double t = transientTStart; t <= transientTStop; t += transientTStep) {
-                        timePoints.push_back(t);
-                    }
-                    plotWindow->plotData(timePoints, results, parameterForAnalysis);
+                    PlotTransientData *plotWindow = new PlotTransientData(this);
+                    plotWindow->plotData(results, parameterForAnalysis);
                     plotWindow->show();
                 }
                 else
@@ -151,16 +147,25 @@ void SchematicWidget::startOpenConfigureAnalysis() {
                 acSweepNPoints = parseSpiceValue(dialog.getACNPoints().toStdString());
                 parameterForAnalysis = dialog.getACParameter();
 
-                if (transientTStep <= 0)
-                    throw std::runtime_error("Step time must be greater than zero.");
-                if (transientTStop <= transientTStart)
-                    throw std::runtime_error("Start time should less than stop time.");
+                if (acSweepStartFrequency <= 0 || acSweepStopFrequency <=0)
+                    throw std::runtime_error("Frequency must be greater than zero.");
+                if (acSweepStopFrequency <= acSweepStartFrequency)
+                    throw std::runtime_error("Start frequency should less than stop frequency.");
                 if (parameterForAnalysis.isEmpty())
                     throw std::runtime_error("No parameters added for analysis.");
 
                 QMessageBox::information(this, "Info", "AC Sweep Analysis variables updated.");
 
+                circuit_ptr->runACAnalysis(acSweepStartFrequency, acSweepStopFrequency, acSweepNPoints);
+                std::map<double, double> results = circuit_ptr->getACSweepResults(parameterForAnalysis.toStdString());
 
+                if (!results.empty()) {
+                    PlotACData *plotWindow = new PlotACData(this);
+                    plotWindow->plotData(results, parameterForAnalysis);
+                    plotWindow->show();
+                }
+                else
+                    QMessageBox::warning(this, "Analysis Failed", "Could not generate plot data. Please check your circuit and parameters.");
             }
         }
     } catch (const std::exception& e) {
@@ -421,7 +426,7 @@ void SchematicWidget::placingComponentMouseEvent(QMouseEvent* event) {
         showSimpleValueDialog(event);
     else if (currentCompType == "V" || currentCompType == "I")
         showSourceValueDialog(event);
-    else if (currentCompType == "A")
+    else if (currentCompType == "AC")
         placingACVoltageSource(event);
 }
 

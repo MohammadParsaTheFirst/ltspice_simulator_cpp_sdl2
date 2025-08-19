@@ -7,13 +7,18 @@
 #include <QtCharts/QLineSeries>
 #include <QtCharts/QValueAxis>
 #include <QtCharts/QLogValueAxis>
+#include <QSlider>
+#include <QLabel>
+#include <QGridLayout>
 #include <QVBoxLayout>
+#include <QMenu>
+#include <QColorDialog>
+#include <QInputDialog>
 #include <map>
 
 class PlotWindow : public QMainWindow {
     Q_OBJECT
 public:
-    virtual ~PlotWindow();
     void plotData(const std::map<double, double>&, const QString& title);
 
 protected:
@@ -22,6 +27,20 @@ protected:
     QChartView *chartView;
     QLineSeries *series;
     QValueAxis *axisY;
+
+private slots:
+    void verticalScaleChanged(int value);
+    void horizontalScaleChanged(int value);
+    void showContextMenu(const QPoint &pos);
+    void changeSeriesColor();
+    void renameSeries();
+
+private:
+    QSlider *verticalSlider;
+    QSlider *horizontalSlider;
+
+    QPair<double, double> fullXRange;
+    QPair<double, double> fullYRange;
 };
 
 class PlotTransientData : public PlotWindow {

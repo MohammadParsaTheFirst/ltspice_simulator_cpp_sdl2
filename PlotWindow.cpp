@@ -3,26 +3,42 @@
 PlotWindow::PlotWindow(QWidget* parent) : QMainWindow(parent) {
     resize(800, 600);
 
+    QWidget *centralWidget = new QWidget(this);
+    QGridLayout *mainLayout = new QGridLayout(centralWidget);
+
+    verticalSlider = new QSlider(Qt::Vertical);
+    verticalSlider->setRange(10, 400);
+    verticalSlider->setValue(100);
+    verticalSlider->setToolTip("Vertical Zoom");
+
+    horizontalSlider = new QSlider(Qt::Horizontal);
+    horizontalSlider->setRange(10, 400);
+    horizontalSlider->setValue(100);
+    horizontalSlider->setToolTip("Horizontal Zoom");
+
     chart = new QChart();
     chart->legend()->setVisible(true);
     chartView = new QChartView(chart);
     chartView->setRenderHint(QPainter::Antialiasing);
-
     series = new QLineSeries();
     chart->addSeries(series);
-
     axisY = new QValueAxis();
     chart->addAxis(axisY, Qt::AlignLeft);
     series->attachAxis(axisY);
 
-    setCentralWidget(chartView);
-}
+    mainLayout->addWidget(verticalSlider, 0, 0);
+    mainLayout->addWidget(chartView, 0, 1);
+    mainLayout->addWidget(horizontalSlider, 1, 1);
+    mainLayout->setColumnStretch(1, 100);
+    mainLayout->setRowStretch(0, 100);
 
-PlotWindow::~PlotWindow() {
-    delete series;
-    delete chart;
-    delete chartView;
-    delete axisY;
+    connect(verticalSlider, &QSlider::valueChanged, this, &PlotWindow::verticalScaleChanged);
+    connect(horizontalSlider, &QSlider::valueChanged, this, &PlotWindow::horizontalScaleChanged);
+
+    chartView->setContextMenuPolicy(Qt::CustomContextMenu);
+    connect(chartView, &QChartView::customContextMenuRequested, this, &PlotWindow::showContextMenu);
+
+    setCentralWidget(centralWidget);
 }
 
 void PlotWindow::plotData(const std::map<double, double>& results, const QString& title) {
@@ -43,16 +59,66 @@ void PlotWindow::plotData(const std::map<double, double>& results, const QString
             yMax = pair.second;
     }
 
-    chart->setTitle(title);
+    fullXRange = {results.begin()->first, results.rbegin()->first};
+    fullYRange = {yMin, yMax};
 
-    auto axisX = chart->axes(Qt::Horizontal).first();
-    axisX->setRange(results.begin()->first, results.rbegin()->first);
-    if (yMin == yMax)
-        axisY->setRange(yMin - 1, yMax + 1);
-    else {
-        double margin = (yMax - yMin) * 0.10;
-        axisY->setRange(yMin - margin, yMax + margin);
+    horizontalSlider->setValue(100);
+    verticalSlider->setValue(100);
+
+    horizontalScaleChanged(100);
+    verticalScaleChanged(100);
+
+    axisY->setGridLineVisible(true);
+}
+
+void PlotWindow::verticalScaleChanged(int value) {
+    if (fullYRange.first == fullYRange.second) {
+        axisY->setRange(fullYRange.first - 1, fullYRange.second + 1);
+        return;
     }
+    double scaleFactor = value / 100.0;
+    double centerY = (fullYRange.first + fullYRange.second) / 2.0;
+    double newHeight = (fullYRange.second - fullYRange.first) / scaleFactor;
+    axisY->setRange(centerY - newHeight / 2.0, centerY + newHeight / 2.0);
+}
+
+void PlotWindow::horizontalScaleChanged(int value) {
+    if (fullXRange.first == fullXRange.second)
+        return;
+    double scaleFactor = value / 100.0;
+    double centerX = (fullXRange.first + fullXRange.second) / 2.0;
+    double newWidth = (fullXRange.second - fullXRange.first) / scaleFactor;
+    auto axisX = chart->axes(Qt::Horizontal).first();
+    axisX->setRange(centerX - newWidth / 2.0, centerX + newWidth / 2.0);
+}
+
+void PlotWindow::showContextMenu(const QPoint &pos) {
+    QMenu contextMenu(this);
+
+    QAction *changeColorAction = contextMenu.addAction("Change Color...");
+    connect(changeColorAction, &QAction::triggered, this, &PlotWindow::changeSeriesColor);
+
+    QAction *renameAction = contextMenu.addAction("Rename Signal...");
+    connect(renameAction, &QAction::triggered, this, &PlotWindow::renameSeries);
+
+    contextMenu.exec(chartView->mapToGlobal(pos));
+}
+
+void PlotWindow::changeSeriesColor() {
+    QColor newColor = QColorDialog::getColor(series->color(), this, "Select Signal Color");
+
+    if (newColor.isValid())
+        series->setColor(newColor);
+}
+
+void PlotWindow::renameSeries() {
+    bool ok;
+    QString newName = QInputDialog::getText(this, "Rename Signal",
+                                            "New signal name:", QLineEdit::Normal,
+                                            series->name(), &ok);
+
+    if (ok && !newName.isEmpty())
+        series->setName(newName);
 }
 
 PlotTransientData::PlotTransientData(QWidget *parent) : PlotWindow(parent) {
@@ -64,6 +130,7 @@ PlotTransientData::PlotTransientData(QWidget *parent) : PlotWindow(parent) {
     series->attachAxis(axisX);
 
     axisY->setTitleText("Value (V or A)");
+    axisX->setGridLineVisible(true);
 }
 
 PlotACData::PlotACData(QWidget *parent) : PlotWindow(parent) {
@@ -77,4 +144,5 @@ PlotACData::PlotACData(QWidget *parent) : PlotWindow(parent) {
     series->attachAxis(axisX);
 
     axisY->setTitleText("Magnitude");
+    axisX->setGridLineVisible(true);
 }
