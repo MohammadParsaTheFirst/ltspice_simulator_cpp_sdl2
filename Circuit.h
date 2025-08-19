@@ -86,13 +86,14 @@ public:
     void addLabel(const std::string&, const std::string&);
 
     // Analysis
-    void performDCAnalysis(const std::string&, double, double, double);
+    // void performDCAnalysis(const std::string&, double, double, double);
     // void performTransientAnalysis(double, double, double);
-    void printDcSweepResults(const std::string&, const std::string&) const;
+    // void printDcSweepResults(const std::string&, const std::string&) const;
     // std::pair<std::string, std::vector<double>> getTransientResults(const std::string& parameter);
     void runTransientAnalysis(double startTime, double stopTime, double stepTime);
-    std::vector<double> getTransientResults(const std::vector<std::string>&) const;
+    std::map<double, double> getTransientResults(const std::vector<std::string>&) const;
     void runACAnalysis(double startOmega, double stopOmega, int numPoints);
+    std::map<double, double> getACSweepResults(const std::string& variable) const;
 
     std::map<std::string, SubcircuitDefinition> subcircuitDefinitions;
 private:
@@ -125,7 +126,7 @@ private:
     int numCurrentUnknowns;
     std::map<std::string, int> componentCurrentIndices; // component name -> MNA component index
     std::map<double, Eigen::VectorXd> transientSolutions;
-    std::map<double, Eigen::VectorXd> dcSweepSolutions;
+    // std::map<double, Eigen::VectorXd> dcSweepSolutions;
     std::map<double, Eigen::VectorXd> acSweepSolutions;
     bool hasNonlinearComponents;
 

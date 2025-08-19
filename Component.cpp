@@ -17,7 +17,7 @@ VoltageSource::VoltageSource(const std::string& n, int n1, int n2, SourceType st
     : Component(Type::VOLTAGE_SOURCE, n, n1, n2, 0.0), sourceType(st), param1(p1), param2(p2), param3(p3) {}
 
 ACVoltageSource::ACVoltageSource(const std::string& name, int node1, int node2)
-    : Component(Type::AC_VOLTAGE_SOURCE, name, node1, node2, 0.0) {}
+    : Component(Type::AC_VOLTAGE_SOURCE, name, node1, node2, 1.0) {}
 
 CurrentSource::CurrentSource(const std::string& n, int n1, int n2, SourceType st, double p1, double p2, double p3)
     : Component(Type::CURRENT_SOURCE, n, n1, n2, 0.0), sourceType(st), param1(p1), param2(p2), param3(p3) {}
@@ -445,7 +445,7 @@ double CurrentSource::getCurrentValue(double time) const {
 }
 
 double ACVoltageSource::getValueAtFrequency(double omega) const {
-    return 1.0;
+    return this->value;
 }
 // -------------------------------- Get Values of independent sources --------------------------------
 

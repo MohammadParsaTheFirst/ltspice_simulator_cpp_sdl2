@@ -758,82 +758,82 @@ void Circuit::updateNonlinearComponentStates(const Eigen::VectorXd& solution,
 
 
 // -------------------------------- Analysis Methods --------------------------------
-void Circuit::performDCAnalysis(const std::string& sourceName, double startValue, double endValue, double increment) {
-    std::shared_ptr<Component> sweepSource = getComponent(sourceName);
-
-    if (!sweepSource)
-        throw std::runtime_error("Source '" + sourceName + "' for DC sweep not found.");
-    if (groundNodeIds.empty())
-        throw std::runtime_error("No ground node detected.");
-
-    std::cout << "\n--- Performing DC Sweep Analysis on " << sourceName << " ---" << std::endl;
-    std::cout << "Start: " << startValue << ", Stop: " << endValue << ", Increment: " << increment << std::endl;
-
-    dcSweepSolutions.clear();
-    for (const auto& component : components)
-        component->reset();
-
-    std::map<int, int> nodeIdToMnaIndex;
-
-    for (double sweepValue = startValue; sweepValue <= endValue; sweepValue += increment) {
-        if (auto vs = dynamic_cast<VoltageSource*>(sweepSource.get()))
-            vs->setValue(sweepValue);
-        else if (auto cs = dynamic_cast<CurrentSource*>(sweepSource.get()))
-            cs->setValue(sweepValue);
-        else
-            throw std::runtime_error("Component '" + sourceName + "' is not a sweepable source.");
-
-        Eigen::VectorXd solution;
-        buildMNAMatrix(0.0, 0.0);
-        nodeIdToMnaIndex.clear();
-        int currentMnaIndex = 0;
-        for (int i = 0; i < nextNodeId; ++i) {
-            if (idToNodeName.count(i) && !isGround(i)) {
-                nodeIdToMnaIndex[i] = currentMnaIndex++;
-            }
-        }
-
-        if (!hasNonlinearComponents) {
-            solution = solveMNASystem();
-        }
-        else {
-            const int MAX_ITERATIONS = 100;
-            const double TOLERANCE = 1e-6;
-            bool converged = false;
-
-            Eigen::VectorXd lastSolution;
-
-            for (const auto& comp : components) {
-                if (auto* diode = dynamic_cast<Diode*>(comp.get())) {
-                    diode->reset();
-                }
-            }
-
-            for (int i = 0; i < MAX_ITERATIONS; ++i) {
-                buildMNAMatrix(0.0, 0.0);
-                solution = solveMNASystem();
-                if (solution.size() == 0) {
-                    std::cout << "DC sweep failed to solve at " << sourceName << " = " << sweepValue << std::endl;
-                    break;
-                }
-                if (i > 0 && (solution - lastSolution).norm() < TOLERANCE) {
-                    converged = true;
-                    break;
-                }
-                lastSolution = solution;
-                updateNonlinearComponentStates(solution, nodeIdToMnaIndex);
-            }
-
-            if (!converged)
-                std::cout << "Warning: DC analysis did not converge at sweep value " << sweepValue << std::endl;
-        }
-        if (solution.size() > 0) {
-            dcSweepSolutions[sweepValue] = solution;
-        }
-        dcSweepSolutions[sweepValue] = solution;
-    }
-    std::cout << "DC Sweep complete. " << dcSweepSolutions.size() << " points calculated." << std::endl;
-}
+// void Circuit::performDCAnalysis(const std::string& sourceName, double startValue, double endValue, double increment) {
+//     std::shared_ptr<Component> sweepSource = getComponent(sourceName);
+//
+//     if (!sweepSource)
+//         throw std::runtime_error("Source '" + sourceName + "' for DC sweep not found.");
+//     if (groundNodeIds.empty())
+//         throw std::runtime_error("No ground node detected.");
+//
+//     std::cout << "\n--- Performing DC Sweep Analysis on " << sourceName << " ---" << std::endl;
+//     std::cout << "Start: " << startValue << ", Stop: " << endValue << ", Increment: " << increment << std::endl;
+//
+//     dcSweepSolutions.clear();
+//     for (const auto& component : components)
+//         component->reset();
+//
+//     std::map<int, int> nodeIdToMnaIndex;
+//
+//     for (double sweepValue = startValue; sweepValue <= endValue; sweepValue += increment) {
+//         if (auto vs = dynamic_cast<VoltageSource*>(sweepSource.get()))
+//             vs->setValue(sweepValue);
+//         else if (auto cs = dynamic_cast<CurrentSource*>(sweepSource.get()))
+//             cs->setValue(sweepValue);
+//         else
+//             throw std::runtime_error("Component '" + sourceName + "' is not a sweepable source.");
+//
+//         Eigen::VectorXd solution;
+//         buildMNAMatrix(0.0, 0.0);
+//         nodeIdToMnaIndex.clear();
+//         int currentMnaIndex = 0;
+//         for (int i = 0; i < nextNodeId; ++i) {
+//             if (idToNodeName.count(i) && !isGround(i)) {
+//                 nodeIdToMnaIndex[i] = currentMnaIndex++;
+//             }
+//         }
+//
+//         if (!hasNonlinearComponents) {
+//             solution = solveMNASystem();
+//         }
+//         else {
+//             const int MAX_ITERATIONS = 100;
+//             const double TOLERANCE = 1e-6;
+//             bool converged = false;
+//
+//             Eigen::VectorXd lastSolution;
+//
+//             for (const auto& comp : components) {
+//                 if (auto* diode = dynamic_cast<Diode*>(comp.get())) {
+//                     diode->reset();
+//                 }
+//             }
+//
+//             for (int i = 0; i < MAX_ITERATIONS; ++i) {
+//                 buildMNAMatrix(0.0, 0.0);
+//                 solution = solveMNASystem();
+//                 if (solution.size() == 0) {
+//                     std::cout << "DC sweep failed to solve at " << sourceName << " = " << sweepValue << std::endl;
+//                     break;
+//                 }
+//                 if (i > 0 && (solution - lastSolution).norm() < TOLERANCE) {
+//                     converged = true;
+//                     break;
+//                 }
+//                 lastSolution = solution;
+//                 updateNonlinearComponentStates(solution, nodeIdToMnaIndex);
+//             }
+//
+//             if (!converged)
+//                 std::cout << "Warning: DC analysis did not converge at sweep value " << sweepValue << std::endl;
+//         }
+//         if (solution.size() > 0) {
+//             dcSweepSolutions[sweepValue] = solution;
+//         }
+//         dcSweepSolutions[sweepValue] = solution;
+//     }
+//     std::cout << "DC Sweep complete. " << dcSweepSolutions.size() << " points calculated." << std::endl;
+// }
 
 void Circuit::runTransientAnalysis(double stopTime, double startTime, double maxTimeStep) {
     if (maxTimeStep == 0.0)
@@ -927,15 +927,11 @@ void Circuit::runACAnalysis(double startOmega, double stopOmega, int numPoints) 
 
 
 // -------------------------------- Output Results --------------------------------
-std::vector<double> Circuit::getTransientResults(const std::vector<std::string>& variablesToPrint) const {
-    std::vector<double> results;
+std::map<double, double> Circuit::getTransientResults(const std::vector<std::string>& variablesToPrint) const {
+    std::map<double, double> results;
 
     if (transientSolutions.empty()) {
         std::cout << "No analysis results found. Run .TRAN or .DC first." << std::endl;
-        return {};
-    }
-    if (groundNodeIds.empty()) {
-        std::cout << "No ground node detected." << std::endl;
         return {};
     }
 
@@ -995,17 +991,10 @@ std::vector<double> Circuit::getTransientResults(const std::vector<std::string>&
     if (printJobs.empty())
         return {};
 
-    // std::cout << std::left << std::setw(14) << "Time";
-    // for (const auto& job : printJobs)
-    //     std::cout << std::setw(14) << job.header;
-    // std::cout << std::endl;
-
     auto itPrev = transientSolutions.begin();
     for (auto it = transientSolutions.begin(); it != transientSolutions.end(); ++it) {
         double t = it->first;
         const Eigen::VectorXd& solution = it->second;
-
-        // std::cout << std::left << std::fixed << std::setprecision(6) << std::setw(14) << t;
 
         for (const auto& job : printJobs) {
             double result = 0.0;
@@ -1034,21 +1023,18 @@ std::vector<double> Circuit::getTransientResults(const std::vector<std::string>&
                     }
                 }
             }
-            // std::cout << std::setw(14) << result;
-            results.push_back(result);
+            results[t] = result;
         }
-        // std::cout << std::endl;
         itPrev = it;
     }
     return results;
 }
 
-void Circuit::printDcSweepResults(const std::string& sourceName, const std::string& variable) const {
-    if (dcSweepSolutions.empty())
-        throw std::runtime_error("No DC sweep results found. Run a .DC analysis first via the .print command.");
+std::map<double, double> Circuit::getACSweepResults(const std::string& variable) const {
+     std::map<double, double> results;
 
-    char varType = variable.front();
-    std::string varName = variable.substr(2, variable.length() - 3);
+    if (acSweepSolutions.empty())
+        throw std::runtime_error("No AC analysis results found. Run .AC analysis first.");
 
     std::map<int, int> nodeIdToMnaIndex;
     int currentMnaIndex = 0;
@@ -1058,68 +1044,123 @@ void Circuit::printDcSweepResults(const std::string& sourceName, const std::stri
         }
     }
 
-    std::cout << "\n---- DC Sweep Results ----" << std::endl;
-    std::cout << std::left << std::setw(14) << sourceName;
-    std::cout << std::setw(14) << variable << std::endl;
-    std::cout << "-----------------------------" << std::endl;
+    char varType = variable.front();
+    std::string varName = variable.substr(2, variable.length() - 3);
 
-    for (const auto& pair : dcSweepSolutions) {
-        double sweepValue = pair.first;
+    for (const auto& pair : acSweepSolutions) {
+        double omega = pair.first;
         const Eigen::VectorXd& solution = pair.second;
-        double result = 0.0;
+        double resultValue = 0.0;
 
         if (varType == 'V') {
-            int nodeID = getNodeId(varName);
-            if (nodeID == -1) throw std::runtime_error("Node not found.");
-            result = isGround(nodeID) ? 0.0 : solution(nodeIdToMnaIndex.at(nodeID));
+            int nodeId = getNodeId(varName);
+            if (nodeId == -1)
+                throw std::runtime_error("Node not found");
+            resultValue = isGround(nodeId) ? 0.0 : solution(nodeIdToMnaIndex.at(nodeId));
         }
-        else {
+        else if (varType == 'I') {
             auto comp = getComponent(varName);
-            if (!comp) {
-                std::string errorMsg = "Component " + varName + " not found in circuit.";
-                throw std::runtime_error(errorMsg);
-            }
-            if (comp->needsCurrentUnknown()) {
-                if (componentCurrentIndices.count(varName))
-                    result = solution(componentCurrentIndices.at(varName));
-                else {
-                    std::cout << "Warning: Could not find current index for '" << varName << "'. Skipping." <<
-                        std::endl;
-                    continue;
-                }
+            if (!comp)
+                throw std::runtime_error("Component not found.");
+
+            if (comp->needsCurrentUnknown() && componentCurrentIndices.count(varName)) {
+                resultValue = solution(componentCurrentIndices.at(varName));
             }
             else {
-                if (dynamic_cast<Resistor*>(comp.get())) {
-                    int node1 = comp->node1;
-                    int node2 = comp->node2;
+                double v1 = isGround(comp->node1) ? 0.0 : solution(nodeIdToMnaIndex.at(comp->node1));
+                double v2 = isGround(comp->node2) ? 0.0 : solution(nodeIdToMnaIndex.at(comp->node2));
+                double voltage_diff = v1 - v2;
 
-                    double v1 = 0.0;
-                    if (nodeIdToMnaIndex.count(node1)) {
-                        int index1 = nodeIdToMnaIndex.at(node1);
-                        v1 = solution(index1);
-                    }
-                    double v2 = 0.0;
-                    if (nodeIdToMnaIndex.count(node2)) {
-                        int index2 = nodeIdToMnaIndex.at(node2);
-                        v2 = solution(index2);
-                    }
-                    result = (v1 - v2) / comp->value;
-                }
-                else if (dynamic_cast<Capacitor*>(comp.get()))
-                    result = 0.0;
-                else {
-                    std::cout << "Warning: Current printing for this component type ('" << varName <<
-                        "') is not supported. Skipping." << std::endl;
-                    continue;
-                }
+                if (auto* resistor = dynamic_cast<Resistor*>(comp.get()))
+                    resultValue = voltage_diff / resistor->value;
+                else if (auto* capacitor = dynamic_cast<Capacitor*>(comp.get()))
+                    resultValue = voltage_diff * omega * capacitor->value;
+                else
+                    std::cerr << "Current plotting for this component type is not supported yet." << std::endl;
             }
         }
-
-        std::cout << std::left << std::fixed << std::setprecision(6);
-        std::cout << std::setw(14) << sweepValue;
-        std::cout << std::setw(14) << result << std::endl;
+        results[omega] = resultValue;
     }
+    return results;
 }
+
+// void Circuit::printDcSweepResults(const std::string& sourceName, const std::string& variable) const {
+//     if (dcSweepSolutions.empty())
+//         throw std::runtime_error("No DC sweep results found. Run a .DC analysis first via the .print command.");
+//
+//     char varType = variable.front();
+//     std::string varName = variable.substr(2, variable.length() - 3);
+//
+//     std::map<int, int> nodeIdToMnaIndex;
+//     int currentMnaIndex = 0;
+//     for (int i = 0; i < nextNodeId; ++i) {
+//         if (idToNodeName.count(i) && !isGround(i)) {
+//             nodeIdToMnaIndex[i] = currentMnaIndex++;
+//         }
+//     }
+//
+//     std::cout << "\n---- DC Sweep Results ----" << std::endl;
+//     std::cout << std::left << std::setw(14) << sourceName;
+//     std::cout << std::setw(14) << variable << std::endl;
+//     std::cout << "-----------------------------" << std::endl;
+//
+//     for (const auto& pair : dcSweepSolutions) {
+//         double sweepValue = pair.first;
+//         const Eigen::VectorXd& solution = pair.second;
+//         double result = 0.0;
+//
+//         if (varType == 'V') {
+//             int nodeID = getNodeId(varName);
+//             if (nodeID == -1) throw std::runtime_error("Node not found.");
+//             result = isGround(nodeID) ? 0.0 : solution(nodeIdToMnaIndex.at(nodeID));
+//         }
+//         else {
+//             auto comp = getComponent(varName);
+//             if (!comp) {
+//                 std::string errorMsg = "Component " + varName + " not found in circuit.";
+//                 throw std::runtime_error(errorMsg);
+//             }
+//             if (comp->needsCurrentUnknown()) {
+//                 if (componentCurrentIndices.count(varName))
+//                     result = solution(componentCurrentIndices.at(varName));
+//                 else {
+//                     std::cout << "Warning: Could not find current index for '" << varName << "'. Skipping." <<
+//                         std::endl;
+//                     continue;
+//                 }
+//             }
+//             else {
+//                 if (dynamic_cast<Resistor*>(comp.get())) {
+//                     int node1 = comp->node1;
+//                     int node2 = comp->node2;
+//
+//                     double v1 = 0.0;
+//                     if (nodeIdToMnaIndex.count(node1)) {
+//                         int index1 = nodeIdToMnaIndex.at(node1);
+//                         v1 = solution(index1);
+//                     }
+//                     double v2 = 0.0;
+//                     if (nodeIdToMnaIndex.count(node2)) {
+//                         int index2 = nodeIdToMnaIndex.at(node2);
+//                         v2 = solution(index2);
+//                     }
+//                     result = (v1 - v2) / comp->value;
+//                 }
+//                 else if (dynamic_cast<Capacitor*>(comp.get()))
+//                     result = 0.0;
+//                 else {
+//                     std::cout << "Warning: Current printing for this component type ('" << varName <<
+//                         "') is not supported. Skipping." << std::endl;
+//                     continue;
+//                 }
+//             }
+//         }
+//
+//         std::cout << std::left << std::fixed << std::setprecision(6);
+//         std::cout << std::setw(14) << sweepValue;
+//         std::cout << std::setw(14) << result << std::endl;
+//     }
+// }
 
 // std::pair<std::string, std::vector<double>> Circuit::getTransientResults(const std::string& parameter) {
 //     std::vector<double> parameterValues;

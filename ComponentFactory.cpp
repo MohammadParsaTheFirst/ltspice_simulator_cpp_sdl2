@@ -38,7 +38,7 @@ Component* ComponentFactory::createComponent(
         else
             newComp = new VoltageSource(name, n1_id, n2_id, VoltageSource::SourceType::DC, value, 0.0, 0.0);
     }
-    else if (typeStr == "A") {
+    else if (typeStr == "AC") {
         newComp = new ACVoltageSource(name, n1_id, n2_id);
     }
     else if (typeStr == "I") {
