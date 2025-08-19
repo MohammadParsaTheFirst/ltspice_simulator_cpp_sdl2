@@ -37,6 +37,8 @@ public:
     virtual void reset() {}
     virtual void stampMNA(Eigen::MatrixXd& A, Eigen::VectorXd& b, const std::map<std::string, int> &ci,
         const std::map<int, int>& nodeIdToMnaIndex, double time, double h, int idx) = 0;
+    virtual void stampMNA_AC(Eigen::MatrixXd& A, Eigen::VectorXd& b, const std::map<std::string, int>& ci,
+        const std::map<int, int>& nodeIdToMnaIndex, double omega, int idx) = 0;
     virtual void updateState(const Eigen::VectorXd& solution, const std::map<std::string, int>& ci, const std::map<int, int>& nodeIdToMnaIndex) {}
     virtual bool isNonlinear() const { return false; }
     virtual std::string getName() const { return name; }
@@ -50,6 +52,7 @@ class Resistor : public Component {
 public:
     Resistor(const std::string& n, int n1, int n2, double v);
     void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &,const std::map<int, int>& nodeIdToMnaIndex,  double, double, int) override;
+    void stampMNA_AC(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int>&, const std::map<int, int>&, double, int) override;
 };
 
 class Capacitor : public Component {
@@ -60,6 +63,7 @@ public:
     void updateState(const Eigen::VectorXd& solution, const std::map<std::string, int>& ci, const std::map<int, int>& nodeIdToMnaIndex) override;
     void reset() override;
     void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &, const std::map<int, int>& nodeIdToMnaIndex, double, double, int) override;
+    void stampMNA_AC(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int>&, const std::map<int, int>&, double, int) override;
     void save_binary(std::ofstream& file) const override;
     void load_binary(std::ifstream& file) override;
 };
@@ -73,6 +77,7 @@ public:
     void updateState(const Eigen::VectorXd& solution, const std::map<std::string, int>& ci, const std::map<int, int>& nodeIdToMnaIndex) override;
     void reset() override;
     void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &,const std::map<int, int>& nodeIdToMnaIndex,  double, double, int) override;
+    void stampMNA_AC(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int>&, const std::map<int, int>&, double, int) override;
     void save_binary(std::ofstream& file) const override;
     void load_binary(std::ifstream& file) override;
 };
@@ -88,6 +93,7 @@ public:
     bool isNonlinear() const override { return true; }
     void updateState(const Eigen::VectorXd& solution, const std::map<std::string, int>& ci, const std::map<int, int>& nodeIdToMnaIndex) override;
     void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &, const std::map<int, int>& nodeIdToMnaIndex, double, double, int) override;
+    void stampMNA_AC(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int>&, const std::map<int, int>&, double, int) override;
     void setPreviousVoltage(double v) { V_prev = v; }
     void reset() override;
     void save_binary(std::ofstream& file) const override;
@@ -105,6 +111,7 @@ public:
 
     bool needsCurrentUnknown() const override { return true; }
     void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &, const std::map<int, int>& nodeIdToMnaIndex, double, double, int) override;
+    void stampMNA_AC(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int>&, const std::map<int, int>&, double, int) override;
     void setValue(double v);
     double getCurrentValue(double time) const;
     void save_binary(std::ofstream& file) const override;
@@ -118,6 +125,7 @@ public:
 
     bool needsCurrentUnknown() const override { return true; }
     void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &, const std::map<int, int>& nodeIdToMnaIndex, double, double, int) override;
+    void stampMNA_AC(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int>&, const std::map<int, int>&, double, int) override;
     double getValueAtFrequency(double omega) const;
 };
 
@@ -130,6 +138,7 @@ private:
 public:
     CurrentSource(const std::string& n, int n1, int n2, SourceType type, double p1, double p2, double p3);
     void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &, const std::map<int, int>& nodeIdToMnaIndex, double, double, int) override;
+    void stampMNA_AC(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int>&, const std::map<int, int>&, double, int) override;
     void setValue(double v);
     double getCurrentValue(double time) const;
     void save_binary(std::ofstream& file) const override;
@@ -145,6 +154,7 @@ public:
     VCVS(const std::string& n, int n1, int n2, int ctrlN1, int ctrlN2, double gain);
     bool needsCurrentUnknown() const override { return true; }
     void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &, const std::map<int, int>& nodeIdToMnaIndex, double, double, int) override;
+    void stampMNA_AC(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int>&, const std::map<int, int>&, double, int) override;
     void save_binary(std::ofstream& file) const override;
     void load_binary(std::ifstream& file) override;
 };
@@ -157,6 +167,7 @@ private:
 public:
     VCCS(const std::string& n, int n1, int n2, int ctrlN1, int ctrlN2, double gain);
     void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int>&, const std::map<int, int>& nodeIdToMnaIndex, double, double , int) override;
+    void stampMNA_AC(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int>&, const std::map<int, int>&, double, int) override;
     void save_binary(std::ofstream& file) const override;
     void load_binary(std::ifstream& file) override;
 };
@@ -171,6 +182,7 @@ public:
     CCVS(const std::string& n, int n1, int n2, const std::string& ctrlComp, double gain);
     bool needsCurrentUnknown() const override { return true; }
     void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &, const std::map<int, int>& nodeIdToMnaIndex, double, double, int) override;
+    void stampMNA_AC(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int>&, const std::map<int, int>&, double, int) override;
     void save_binary(std::ofstream& file) const override;
     void load_binary(std::ifstream& file) override;
 };
@@ -183,6 +195,7 @@ private:
 public:
     CCCS(const std::string& n, int n1, int n2, const std::string& ctrlComp, double gain);
     void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &, const std::map<int, int>& nodeIdToMnaIndex, double, double, int) override;
+    void stampMNA_AC(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int>&, const std::map<int, int>&, double, int) override;
     void save_binary(std::ofstream& file) const override;
     void load_binary(std::ifstream& file) override;
 };

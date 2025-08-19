@@ -93,6 +93,87 @@ void Diode::reset() {
 // -------------------------------- Reset initial values --------------------------------
 
 
+// -------------------------------- MNA Stamping Implementations for AC Sweep --------------------------------
+void Resistor::stampMNA_AC(Eigen::MatrixXd& A, Eigen::VectorXd& b, const std::map<std::string, int>& ci, const std::map<int, int>& nodeIdToMnaIndex, double omega, int idx) {
+    stampMNA(A, b, ci, nodeIdToMnaIndex, 0, 0, idx);
+}
+
+void Capacitor::stampMNA_AC(Eigen::MatrixXd& A, Eigen::VectorXd& b, const std::map<std::string, int>& ci, const std::map<int, int>& nodeIdToMnaIndex, double omega, int idx) {
+    double admittance = omega * value;
+    if (admittance < 1e-12)
+        admittance = 1e-12;
+
+    bool n1_is_ground = !nodeIdToMnaIndex.count(node1);
+    bool n2_is_ground = !nodeIdToMnaIndex.count(node2);
+
+    if (!n1_is_ground)
+        A(nodeIdToMnaIndex.at(node1), nodeIdToMnaIndex.at(node1)) += admittance;
+    if (!n2_is_ground)
+        A(nodeIdToMnaIndex.at(node2), nodeIdToMnaIndex.at(node2)) += admittance;
+    if (!n1_is_ground && !n2_is_ground) {
+        A(nodeIdToMnaIndex.at(node1), nodeIdToMnaIndex.at(node2)) -= admittance;
+        A(nodeIdToMnaIndex.at(node2), nodeIdToMnaIndex.at(node1)) -= admittance;
+    }
+}
+
+void Inductor::stampMNA_AC(Eigen::MatrixXd& A, Eigen::VectorXd& b, const std::map<std::string, int>& ci, const std::map<int, int>& nodeIdToMnaIndex, double omega, int idx) {
+    if (omega < 1e-9)
+        omega = 1e-9;
+    double admittance = 1.0 / (omega * value);
+
+    bool n1_is_ground = !nodeIdToMnaIndex.count(node1);
+    bool n2_is_ground = !nodeIdToMnaIndex.count(node2);
+
+    if (!n1_is_ground)
+        A(nodeIdToMnaIndex.at(node1), nodeIdToMnaIndex.at(node1)) += admittance;
+    if (!n2_is_ground)
+        A(nodeIdToMnaIndex.at(node2), nodeIdToMnaIndex.at(node2)) += admittance;
+    if (!n1_is_ground && !n2_is_ground) {
+        A(nodeIdToMnaIndex.at(node1), nodeIdToMnaIndex.at(node2)) -= admittance;
+        A(nodeIdToMnaIndex.at(node2), nodeIdToMnaIndex.at(node1)) -= admittance;
+    }
+}
+
+void Diode::stampMNA_AC(Eigen::MatrixXd& A, Eigen::VectorXd& b, const std::map<std::string, int>& ci, const std::map<int, int>& nodeIdToMnaIndex, double omega, int idx) {
+    double conductance = 1.0;
+
+    bool n1_is_ground = !nodeIdToMnaIndex.count(node1);
+    bool n2_is_ground = !nodeIdToMnaIndex.count(node2);
+
+    if (!n1_is_ground)
+        A(nodeIdToMnaIndex.at(node1), nodeIdToMnaIndex.at(node1)) += conductance;
+    if (!n2_is_ground)
+        A(nodeIdToMnaIndex.at(node2), nodeIdToMnaIndex.at(node2)) += conductance;
+    if (!n1_is_ground && !n2_is_ground) {
+        A(nodeIdToMnaIndex.at(node1), nodeIdToMnaIndex.at(node2)) -= conductance;
+        A(nodeIdToMnaIndex.at(node2), nodeIdToMnaIndex.at(node1)) -= conductance;
+    }
+}
+
+void VoltageSource::stampMNA_AC(Eigen::MatrixXd& A, Eigen::VectorXd& b, const std::map<std::string, int>& ci, const std::map<int, int>& nodeIdToMnaIndex, double omega, int idx) {
+    stampMNA(A, b, ci, nodeIdToMnaIndex, 0, 0, idx);
+}
+void ACVoltageSource::stampMNA_AC(Eigen::MatrixXd& A, Eigen::VectorXd& b, const std::map<std::string, int>& ci, const std::map<int, int>& nodeIdToMnaIndex, double omega, int idx) {
+    stampMNA(A, b, ci, nodeIdToMnaIndex, omega, 0, idx);
+}
+void CurrentSource::stampMNA_AC(Eigen::MatrixXd& A, Eigen::VectorXd& b, const std::map<std::string, int>& ci, const std::map<int, int>& nodeIdToMnaIndex, double omega, int idx) {
+    stampMNA(A, b, ci, nodeIdToMnaIndex, 0, 0, idx);
+}
+void VCVS::stampMNA_AC(Eigen::MatrixXd& A, Eigen::VectorXd& b, const std::map<std::string, int>& ci, const std::map<int, int>& nodeIdToMnaIndex, double omega, int idx) {
+    stampMNA(A, b, ci, nodeIdToMnaIndex, 0, 0, idx);
+}
+void VCCS::stampMNA_AC(Eigen::MatrixXd& A, Eigen::VectorXd& b, const std::map<std::string, int>& ci, const std::map<int, int>& nodeIdToMnaIndex, double omega, int idx) {
+    stampMNA(A, b, ci, nodeIdToMnaIndex, 0, 0, idx);
+}
+void CCVS::stampMNA_AC(Eigen::MatrixXd& A, Eigen::VectorXd& b, const std::map<std::string, int>& ci, const std::map<int, int>& nodeIdToMnaIndex, double omega, int idx) {
+    stampMNA(A, b, ci, nodeIdToMnaIndex, 0, 0, idx);
+}
+void CCCS::stampMNA_AC(Eigen::MatrixXd& A, Eigen::VectorXd& b, const std::map<std::string, int>& ci, const std::map<int, int>& nodeIdToMnaIndex, double omega, int idx) {
+    stampMNA(A, b, ci, nodeIdToMnaIndex, 0, 0, idx);
+}
+// -------------------------------- MNA Stamping Implementations for AC Sweep --------------------------------
+
+
 // -------------------------------- MNA Stamping Implementations --------------------------------
 void Resistor::stampMNA(Eigen::MatrixXd& A, Eigen::VectorXd& b, const std::map<std::string, int>& ci, const std::map<int, int>& nodeIdToMnaIndex, double time, double h, int idx) {
     double conductance = 1.0 / value;

@@ -83,19 +83,21 @@ public:
     int getNodeId(const std::string&) const;
     void connectNodes(const std::string&, const std::string&);
     void createSubcircuitDefinition(const std::string&, const std::string&, const std::string&);
+    void addLabel(const std::string&, const std::string&);
 
     // Analysis
     void performDCAnalysis(const std::string&, double, double, double);
     // void performTransientAnalysis(double, double, double);
-    std::vector<double> getTransientResults(const std::vector<std::string>&) const;
     void printDcSweepResults(const std::string&, const std::string&) const;
-    void addLabel(const std::string&, const std::string&);
     // std::pair<std::string, std::vector<double>> getTransientResults(const std::string& parameter);
     void runTransientAnalysis(double startTime, double stopTime, double stepTime);
+    std::vector<double> getTransientResults(const std::vector<std::string>&) const;
+    void runACAnalysis(double startOmega, double stopOmega, int numPoints);
 
     std::map<std::string, SubcircuitDefinition> subcircuitDefinitions;
 private:
     void buildMNAMatrix(double, double);
+    void buildMNAMatrix_AC(double omega);
     Eigen::VectorXd solveMNASystem();
     void updateComponentStates(const Eigen::VectorXd&, const std::map<int, int>&);
     void updateNonlinearComponentStates(const Eigen::VectorXd&, const std::map<int, int>&);
@@ -103,16 +105,19 @@ private:
     bool isGround(int nodeId) const;
     void makeComponentFromLine(const std::string& netListLine);
 
-    // circuit datas
+    // circuit data
     std::vector<std::shared_ptr<Component>> components;
-    std::vector<ComponentGraphicalInfo> componentGraphics;
     std::map<std::string, int> nodeNameToId;
     std::map<int, std::string> idToNodeName;
     int nextNodeId;
     std::set<int> groundNodeIds;
+
+    // Graphical data
+    std::vector<ComponentGraphicalInfo> componentGraphics;
     std::vector<WireInfo> wires;
     std::vector<GroundInfo> grounds;
     std::vector<LabelInfo> labels;
+    std::map<std::string, std::set<int>> labelToNodes;
 
     // MNA Matrix data
     Eigen::MatrixXd A_mna;
@@ -121,13 +126,12 @@ private:
     std::map<std::string, int> componentCurrentIndices; // component name -> MNA component index
     std::map<double, Eigen::VectorXd> transientSolutions;
     std::map<double, Eigen::VectorXd> dcSweepSolutions;
+    std::map<double, Eigen::VectorXd> acSweepSolutions;
+    bool hasNonlinearComponents;
 
     // State and file management
     QString currentProjectName;
     QString projectDirectoryPath;
-    bool hasNonlinearComponents; // Diode
-
-    std::map<std::string, std::set<int>> labelToNodes;
 };
 
 #endif // CIRCUIT_H

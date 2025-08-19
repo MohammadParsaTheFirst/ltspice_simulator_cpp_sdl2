@@ -691,6 +691,40 @@ void Circuit::buildMNAMatrix(double time, double h) {
     }
 }
 
+void Circuit::buildMNAMatrix_AC(double omega) {
+    std::map<int, int> nodeIdToMnaIndex;
+    int currentMnaIndex = 0;
+    for (int i = 0; i < nextNodeId; ++i) {
+        if (!isGround(i) && idToNodeName.count(i)) {
+            nodeIdToMnaIndex[i] = currentMnaIndex++;
+        }
+    }
+
+    int node_count = nodeIdToMnaIndex.size();
+    numCurrentUnknowns = 0;
+    componentCurrentIndices.clear();
+    for (const auto& comp : components) {
+        if (comp->needsCurrentUnknown()) {
+            componentCurrentIndices[comp->name] = node_count + numCurrentUnknowns;
+            numCurrentUnknowns++;
+        }
+    }
+    int matrix_size = node_count + numCurrentUnknowns;
+    if (matrix_size <= 0)
+        return;
+    A_mna.resize(matrix_size, matrix_size);
+    b_mna.resize(matrix_size);
+    A_mna.setZero();
+    b_mna.setZero();
+
+    for (const auto& comp : components) {
+        int idx = -1;
+        if (comp->needsCurrentUnknown()) {
+            idx = componentCurrentIndices.at(comp->name);
+        }
+        comp->stampMNA_AC(A_mna, b_mna, componentCurrentIndices, nodeIdToMnaIndex, omega, idx);
+    }
+}
 
 Eigen::VectorXd Circuit::solveMNASystem() {
     if (A_mna.rows() == 0) {
@@ -860,6 +894,34 @@ void Circuit::runTransientAnalysis(double stopTime, double startTime, double max
         transientSolutions[t] = solution;
     }
     std::cout << "Transient analysis complete. " << transientSolutions.size() << " time points stored." << std::endl;
+}
+
+void Circuit::runACAnalysis(double startOmega, double stopOmega, int numPoints) {
+    if (groundNodeIds.empty())
+        throw std::runtime_error("No ground node detected.");
+
+    bool acSourceFound = false;
+    for (const auto& comp : components) {
+        if (comp->type == Component::Type::AC_VOLTAGE_SOURCE) {
+            acSourceFound = true;
+            break;
+        }
+    }
+    if (!acSourceFound)
+        throw std::runtime_error("AC Sweep failed. No AC source found.");
+
+    acSweepSolutions.clear();
+    double omegaStep = (numPoints > 1) ? (stopOmega - startOmega) / (numPoints - 1) : 0;
+
+    for (double w = omegaStep; w <= stopOmega; w += omegaStep) {
+        buildMNAMatrix_AC(w);
+        Eigen::VectorXd solution = solveMNASystem();
+        if (solution.size() > 0)
+            acSweepSolutions[w] = solution;
+        else
+            throw std::runtime_error("AC Analysis failed.");
+    }
+    std::cout << "AC Sweep complete. " << acSweepSolutions.size() << " frequency points stored." << std::endl;
 }
 // -------------------------------- Analysis Methods --------------------------------
 
