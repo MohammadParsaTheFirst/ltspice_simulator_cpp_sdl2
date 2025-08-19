@@ -113,39 +113,45 @@ void SchematicWidget::drawLabels(QPainter& painter) {
 
 void SchematicWidget::startOpenConfigureAnalysis() {
     ConfigureAnalysisDialog dialog(this);
-    if (dialog.exec() == QDialog::Accepted) {
-        if (dialog.getSelectedAnalysisType() == 0) {
-            transientTStop = parseSpiceValue(dialog.getTransientTstop().toStdString());
-            transientTStart = parseSpiceValue(dialog.getTransientTstart().toStdString());
-            transientTStep = parseSpiceValue(dialog.getTransientTstep().toStdString());
-            parameterForAnalysis = dialog.getTransientParameter();
+    try{
+        if (dialog.exec() == QDialog::Accepted) {
+            if (dialog.getSelectedAnalysisType() == 0) {
+                transientTStop = parseSpiceValue(dialog.getTransientTstop().toStdString());
+                transientTStart = parseSpiceValue(dialog.getTransientTstart().toStdString());
+                transientTStep = parseSpiceValue(dialog.getTransientTstep().toStdString());
+                parameterForAnalysis = dialog.getTransientParameter();
 
-            if (transientTStep <= 0) {
-                QMessageBox::warning(this, "Input Error", "Step time must be greater than zero.");
-                return;
-            }
-            if (transientTStop <= transientTStart) {
-                QMessageBox::warning(this, "Input Error", "Start time should less than stop time.");
-                return;
-            }
-
-            QMessageBox::information(this, "Info", "Transient Analysis varibles updated.");
-
-            circuit_ptr->runTransientAnalysis(transientTStop, transientTStart, transientTStep);
-            std::vector<double> results = circuit_ptr->getTransientResults({parameterForAnalysis.toStdString()});
-
-            if (!results.empty()) {
-                PlotWindow *plotWindow = new PlotWindow(this);
-                std::vector<double> timePoints;
-                for (double t = transientTStart; t <= transientTStop; t += transientTStep) {
-                    timePoints.push_back(t);
+                if (transientTStep <= 0) {
+                    QMessageBox::warning(this, "Input Error", "Step time must be greater than zero.");
+                    return;
                 }
-                plotWindow->plotData(timePoints, results, parameterForAnalysis);
-                plotWindow->show();
+                if (transientTStop <= transientTStart) {
+                    QMessageBox::warning(this, "Input Error", "Start time should less than stop time.");
+                    return;
+                }
+
+                QMessageBox::information(this, "Info", "Transient Analysis varibles updated.");
+
+                circuit_ptr->runTransientAnalysis(transientTStop, transientTStart, transientTStep);
+                std::vector<double> results = circuit_ptr->getTransientResults({parameterForAnalysis.toStdString()});
+
+                if (!results.empty()) {
+                    PlotWindow *plotWindow = new PlotWindow(this);
+                    std::vector<double> timePoints;
+                    for (double t = transientTStart; t <= transientTStop; t += transientTStep) {
+                        timePoints.push_back(t);
+                    }
+                    plotWindow->plotData(timePoints, results, parameterForAnalysis);
+                    plotWindow->show();
+                }
+                else
+                    QMessageBox::warning(this, "Analysis Failed", "Could not generate plot data. Please check your circuit and parameters.");
             }
-            else
-                QMessageBox::warning(this, "Analysis Failed", "Could not generate plot data. Please check your circuit and parameters.");
         }
+    } catch (const std::exception& e) {
+        std::string errorMessage = e.what();
+        QString qErrorMessage = QString::fromStdString("Error: " + errorMessage + "\n");
+        QMessageBox::warning(this, "Error", qErrorMessage);
     }
 }
 
