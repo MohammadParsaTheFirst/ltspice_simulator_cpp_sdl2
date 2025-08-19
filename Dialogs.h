@@ -89,14 +89,15 @@ public:
     QString getTransientTstop() const;
     QString getTransientTstart() const;
     QString getTransientTstep() const;
+    QString getTransientParameter() const;
     QString getACOmegaStart() const;
     QString getACOmegaStop() const;
     QString getACNPoints() const;
+    QString getACParameter() const;
     QString getPhaseBaseFrequency() const;
     QString getPhaseStart() const;
     QString getPhaseStop() const;
     QString getPhaseNPoints() const;
-    QString getTransientParameter() const;
 
 private:
     QTabWidget* tabWidget;

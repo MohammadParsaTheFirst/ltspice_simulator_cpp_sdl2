@@ -233,3 +233,7 @@ QString ConfigureAnalysisDialog::getTransientTstop() const {return tStopEdit->te
 QString ConfigureAnalysisDialog::getTransientTstart() const {return tStartEdit->text();}
 QString ConfigureAnalysisDialog::getTransientTstep() const {return tStepEdit->text();}
 QString ConfigureAnalysisDialog::getTransientParameter() const {return transientParameterEdit->text();}
+QString ConfigureAnalysisDialog::getACOmegaStart() const {return ACOmegaStart->text();}
+QString ConfigureAnalysisDialog::getACOmegaStop() const {return ACOmegaStop->text();}
+QString ConfigureAnalysisDialog::getACNPoints() const {return ACNPoint->text();}
+QString ConfigureAnalysisDialog::getACParameter() const {return ACSweepParameterEdit->text();}
