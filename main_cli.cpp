@@ -247,7 +247,6 @@ int main() {
                             j = 3;
                         }
                     }
-
                     
                     for (int i = j; i < params.size(); i++)
                         variablesToPrint.push_back(params[i]);

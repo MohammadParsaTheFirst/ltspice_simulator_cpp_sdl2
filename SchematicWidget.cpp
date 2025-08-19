@@ -69,7 +69,7 @@ void SchematicWidget::drawComponents(QPainter& painter) {
         currentMode != InteractionMode::placingSubcircuitNodes) {
         QPoint startPos = stickToGrid(currentMousePos);
         drawComponent(painter, startPos, placementIsHorizontal, currentCompType);
-        }
+    }
 }
 
 void SchematicWidget::drawWires(QPainter& painter) {
@@ -121,16 +121,14 @@ void SchematicWidget::startOpenConfigureAnalysis() {
                 transientTStep = parseSpiceValue(dialog.getTransientTstep().toStdString());
                 parameterForAnalysis = dialog.getTransientParameter();
 
-                if (transientTStep <= 0) {
-                    QMessageBox::warning(this, "Input Error", "Step time must be greater than zero.");
-                    return;
-                }
-                if (transientTStop <= transientTStart) {
-                    QMessageBox::warning(this, "Input Error", "Start time should less than stop time.");
-                    return;
-                }
+                if (transientTStep <= 0)
+                    throw std::runtime_error("Step time must be greater than zero.");
+                if (transientTStop <= transientTStart)
+                    throw std::runtime_error("Start time should less than stop time.");
+                if (parameterForAnalysis.isEmpty())
+                    throw std::runtime_error("No parameters added for analysis.");
 
-                QMessageBox::information(this, "Info", "Transient Analysis varibles updated.");
+                QMessageBox::information(this, "Info", "Transient Analysis variables updated.");
 
                 circuit_ptr->runTransientAnalysis(transientTStop, transientTStart, transientTStep);
                 std::vector<double> results = circuit_ptr->getTransientResults({parameterForAnalysis.toStdString()});
@@ -147,10 +145,27 @@ void SchematicWidget::startOpenConfigureAnalysis() {
                 else
                     QMessageBox::warning(this, "Analysis Failed", "Could not generate plot data. Please check your circuit and parameters.");
             }
+            else if (dialog.getSelectedAnalysisType() == 1) {
+                acSweepStartFrequency = parseSpiceValue(dialog.getACOmegaStart().toStdString());
+                acSweepStopFrequency = parseSpiceValue(dialog.getACOmegaStop().toStdString());
+                acSweepNPoints = parseSpiceValue(dialog.getACNPoints().toStdString());
+                parameterForAnalysis = dialog.getACParameter();
+
+                if (transientTStep <= 0)
+                    throw std::runtime_error("Step time must be greater than zero.");
+                if (transientTStop <= transientTStart)
+                    throw std::runtime_error("Start time should less than stop time.");
+                if (parameterForAnalysis.isEmpty())
+                    throw std::runtime_error("No parameters added for analysis.");
+
+                QMessageBox::information(this, "Info", "AC Sweep Analysis variables updated.");
+
+
+            }
         }
     } catch (const std::exception& e) {
         std::string errorMessage = e.what();
-        QString qErrorMessage = QString::fromStdString("Error: " + errorMessage + "\n");
+        QString qErrorMessage = QString::fromStdString("Error: " + errorMessage);
         QMessageBox::warning(this, "Error", qErrorMessage);
     }
 }
@@ -188,6 +203,14 @@ void SchematicWidget::startPlacingVoltageSource() {
     placementIsHorizontal = true;
     setCursor(Qt::CrossCursor);
     currentCompType = "V";
+    setFocus();
+}
+
+void SchematicWidget::startPlacingACVoltageSource() {
+    currentMode = InteractionMode::placingACVoltageSource;
+    placementIsHorizontal = true;
+    setCursor(Qt::CrossCursor);
+    currentCompType = "AC";
     setFocus();
 }
 
@@ -379,11 +402,27 @@ void SchematicWidget::showSourceValueDialog(QMouseEvent* event) {
     }
 }
 
+void SchematicWidget::placingACVoltageSource(QMouseEvent* event) {
+    QPoint startPoint = stickToGrid(event->pos());
+    QPoint endPoint = placementIsHorizontal
+                          ? startPoint + QPoint(componentLength, 0)
+                          : startPoint + QPoint(0, componentLength);
+
+    QString componentName = getNextComponentName(currentCompType);
+    QString node1Name = getNodeNameFromPoint(startPoint);
+    QString node2Name = getNodeNameFromPoint(endPoint);
+
+    circuit_ptr->addComponent(currentCompType.toStdString(), componentName.toStdString(),
+                              node1Name.toStdString(), node2Name.toStdString(), startPoint, placementIsHorizontal, 0.0, {}, {}, false);
+}
+
 void SchematicWidget::placingComponentMouseEvent(QMouseEvent* event) {
     if (currentCompType == "R" || currentCompType == "C" || currentCompType == "L")
         showSimpleValueDialog(event);
     else if (currentCompType == "V" || currentCompType == "I")
         showSourceValueDialog(event);
+    else if (currentCompType == "A")
+        placingACVoltageSource(event);
 }
 
 void SchematicWidget::deletingComponentMouseEvent(QMouseEvent* event) {
@@ -559,7 +598,7 @@ void SchematicWidget::handleNodeLibraryItemSelection(const QString& compType) {
         // currentSubcircuitName = compType.mid(2);
         // startPlacingSubcircuit();
     }
-    if (compType == "R")
+    else if (compType == "R")
         startPlacingResistor();
     else if (compType == "C")
         startPlacingCapacitor();
@@ -571,6 +610,8 @@ void SchematicWidget::handleNodeLibraryItemSelection(const QString& compType) {
         startPlacingDiode();
     else if (compType == "I")
         startPlacingCurrentSource();
+    else if (compType == "AC")
+        startPlacingACVoltageSource();
     else
         QMessageBox::information(this, "Dependent source", "Buy premium to access this element!");
 }

@@ -108,7 +108,7 @@ NodeLibraryDialog::NodeLibraryDialog(Circuit* circuit, QWidget* parent) : QDialo
     inductorItem->setData(Qt::UserRole, "L");
     diodeItem->setData(Qt::UserRole, "D");
     voltageSourceItem->setData(Qt::UserRole, "V");
-    acVoltageSourceItem->setData(Qt::UserRole, "A");
+    acVoltageSourceItem->setData(Qt::UserRole, "AC");
     currentSourceItem->setData(Qt::UserRole, "I");
     vcvsItem->setData(Qt::UserRole, "E");
     vccsItem->setData(Qt::UserRole, "G");

@@ -19,6 +19,7 @@ enum class InteractionMode {
     placingCapacitor,
     placingInductor,
     placingVoltageSource,
+    placingACVoltageSource,
     placingGround,
     placingDiode,
     deleteMode,
@@ -43,6 +44,7 @@ public slots:
     void startPlacingCapacitor();
     void startPlacingInductor();
     void startPlacingVoltageSource();
+    void startPlacingACVoltageSource();
     void startPlacingCurrentSource();
     void startPlacingDiode();
     void startDeleteComponent();
@@ -75,6 +77,7 @@ private:
     void placingGroundMouseEvent(QMouseEvent* event);
     void showSimpleValueDialog(QMouseEvent* event);
     void showSourceValueDialog(QMouseEvent* event);
+    void placingACVoltageSource(QMouseEvent* event);
     // void placingSubcircuitMouseEvent(QMouseEvent* event);
     void drawGridDots(QPainter& painter);
     void drawComponents(QPainter& painter);
@@ -105,7 +108,10 @@ private:
     double transientTStop = 0.0;
     double transientTStart = 0.0;
     double transientTStep = 0.0;
-    // TODO: AC sweep
+    // AC sweep
+    double acSweepStartFrequency = 0.0;
+    double acSweepStopFrequency = 0.0;
+    double acSweepNPoints = 0.0;
     
     // QString currentSubcircuitName;
     // std::vector<QString> subcircuitNodes;
