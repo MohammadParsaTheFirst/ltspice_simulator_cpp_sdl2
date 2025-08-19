@@ -21,7 +21,8 @@ public:
         INDUCTOR,
         VOLTAGE_SOURCE, CURRENT_SOURCE,
         DIODE,
-        VCVS, VCCS, CCVS, CCCS
+        VCVS, VCCS, CCVS, CCCS,
+        AC_VOLTAGE_SOURCE
     };
 
     Type type;
@@ -45,13 +46,11 @@ public:
     virtual void load_binary(std::ifstream& file);
 };
 
-
 class Resistor : public Component {
 public:
     Resistor(const std::string& n, int n1, int n2, double v);
     void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &,const std::map<int, int>& nodeIdToMnaIndex,  double, double, int) override;
 };
-
 
 class Capacitor : public Component {
 private:
@@ -65,7 +64,6 @@ public:
     void load_binary(std::ifstream& file) override;
 };
 
-
 class Inductor : public Component {
 private:
     double I_prev;
@@ -78,7 +76,6 @@ public:
     void save_binary(std::ofstream& file) const override;
     void load_binary(std::ifstream& file) override;
 };
-
 
 class Diode : public Component {
 private:
@@ -97,7 +94,6 @@ public:
     void load_binary(std::ifstream& file) override;
 };
 
-
 class VoltageSource : public Component {
 public:
     enum class SourceType {DC, Sinusoidal};
@@ -115,6 +111,15 @@ public:
     void load_binary(std::ifstream& file) override;
 };
 
+// AC voltage source
+class ACVoltageSource : public Component {
+public:
+    ACVoltageSource(const std::string& name, int node1, int node2);
+
+    bool needsCurrentUnknown() const override { return true; }
+    void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &, const std::map<int, int>& nodeIdToMnaIndex, double, double, int) override;
+    double getValueAtFrequency(double omega) const;
+};
 
 class CurrentSource : public Component {
 public:
@@ -131,7 +136,6 @@ public:
     void load_binary(std::ifstream& file) override;
 };
 
-
 // VCVS - Type E
 class VCVS : public Component {
 private:
@@ -145,7 +149,6 @@ public:
     void load_binary(std::ifstream& file) override;
 };
 
-
 // VCCS - Type G
 class VCCS : public Component {
 private:
@@ -157,7 +160,6 @@ public:
     void save_binary(std::ofstream& file) const override;
     void load_binary(std::ifstream& file) override;
 };
-
 
 // CCVS - Type H
 class CCVS : public Component {
@@ -172,7 +174,6 @@ public:
     void save_binary(std::ofstream& file) const override;
     void load_binary(std::ifstream& file) override;
 };
-
 
 // CCCS - Type F
 class CCCS : public Component {

@@ -16,6 +16,9 @@ Diode::Diode(const std::string& n, int n1, int n2, double is, double et, double 
 VoltageSource::VoltageSource(const std::string& n, int n1, int n2, SourceType st, double p1, double p2, double p3)
     : Component(Type::VOLTAGE_SOURCE, n, n1, n2, 0.0), sourceType(st), param1(p1), param2(p2), param3(p3) {}
 
+ACVoltageSource::ACVoltageSource(const std::string& name, int node1, int node2)
+    : Component(Type::AC_VOLTAGE_SOURCE, name, node1, node2, 0.0) {}
+
 CurrentSource::CurrentSource(const std::string& n, int n1, int n2, SourceType st, double p1, double p2, double p3)
     : Component(Type::CURRENT_SOURCE, n, n1, n2, 0.0), sourceType(st), param1(p1), param2(p2), param3(p3) {}
 
@@ -196,18 +199,35 @@ void VoltageSource::stampMNA(Eigen::MatrixXd& A, Eigen::VectorXd& b, const std::
 
     if (!n1_is_ground) {
         A(nodeIdToMnaIndex.at(node1), idx) += 1.0;
-    }
-    if (!n2_is_ground) {
-        A(nodeIdToMnaIndex.at(node2), idx) -= 1.0;
-    }
-    if (!n1_is_ground) {
         A(idx, nodeIdToMnaIndex.at(node1)) += 1.0;
     }
     if (!n2_is_ground) {
+        A(nodeIdToMnaIndex.at(node2), idx) -= 1.0;
         A(idx, nodeIdToMnaIndex.at(node2)) -= 1.0;
     }
 
     b(idx) += getCurrentValue(time);
+}
+
+void ACVoltageSource::stampMNA(Eigen::MatrixXd& A, Eigen::VectorXd& b, const std::map<std::string, int>& ci,const std::map<int, int>& nodeIdToMnaIndex, double timeOrOmega, double h, int idx) {
+    if (idx == -1) {
+        std::cerr << "ERROR: VoltageSource '" << name << "' was not assigned a current index." << std::endl;
+        return;
+    }
+
+    bool n1_is_ground = !nodeIdToMnaIndex.count(node1);
+    bool n2_is_ground = !nodeIdToMnaIndex.count(node2);
+
+    if (!n1_is_ground) {
+        A(nodeIdToMnaIndex.at(node1), idx) += 1.0;
+        A(idx, nodeIdToMnaIndex.at(node1)) += 1.0;
+    }
+    if (!n2_is_ground) {
+        A(nodeIdToMnaIndex.at(node2), idx) -= 1.0;
+        A(idx, nodeIdToMnaIndex.at(node2)) -= 1.0;
+    }
+
+    b(idx) += getValueAtFrequency(timeOrOmega);
 }
 
 void CurrentSource::stampMNA(Eigen::MatrixXd& A, Eigen::VectorXd& b, const std::map<std::string, int>& ci, const std::map<int, int>& nodeIdToMnaIndex,double time, double h, int idx) {
@@ -327,7 +347,8 @@ void CurrentSource::setValue(double i) {
 }
 // -------------------------------- Set Values for DC Sweep --------------------------------
 
-// -
+
+// -------------------------------- Get Values of independent sources --------------------------------
 double VoltageSource::getCurrentValue(double time) const {
     if (sourceType == SourceType::DC)
         return param1;
@@ -342,7 +363,13 @@ double CurrentSource::getCurrentValue(double time) const {
         return param1 + param2 * sin(2*PI*param3*time);
 }
 
+double ACVoltageSource::getValueAtFrequency(double omega) const {
+    return 1.0;
+}
+// -------------------------------- Get Values of independent sources --------------------------------
 
+
+// -------------------------------- Saving data with binary files with fstream --------------------------------
 void Component::save_binary(std::ofstream& file) const {
     file.write(reinterpret_cast<const char*>(&type), sizeof(type));
     size_t name_len = name.size();
@@ -352,6 +379,76 @@ void Component::save_binary(std::ofstream& file) const {
     file.write(reinterpret_cast<const char*>(&node2), sizeof(node2));
     file.write(reinterpret_cast<const char*>(&value), sizeof(value));
 }
+
+void Capacitor::save_binary(std::ofstream& file) const {
+    Component::save_binary(file);
+    file.write(reinterpret_cast<const char*>(&V_prev), sizeof(V_prev));
+}
+
+void Inductor::save_binary(std::ofstream& file) const {
+    Component::save_binary(file);
+    file.write(reinterpret_cast<const char*>(&I_prev), sizeof(I_prev));
+}
+
+void Diode::save_binary(std::ofstream& file) const {
+    Component::save_binary(file);
+    file.write(reinterpret_cast<const char*>(&Is), sizeof(Is));
+    file.write(reinterpret_cast<const char*>(&Vt), sizeof(Vt));
+    file.write(reinterpret_cast<const char*>(&eta), sizeof(eta));
+    file.write(reinterpret_cast<const char*>(&V_prev), sizeof(V_prev));
+}
+
+void VoltageSource::save_binary(std::ofstream& file) const {
+    Component::save_binary(file);
+    file.write(reinterpret_cast<const char*>(&sourceType), sizeof(sourceType));
+    file.write(reinterpret_cast<const char*>(&param1), sizeof(param1));
+    file.write(reinterpret_cast<const char*>(&param2), sizeof(param2));
+    file.write(reinterpret_cast<const char*>(&param3), sizeof(param3));
+}
+
+void CurrentSource::save_binary(std::ofstream& file) const {
+    Component::save_binary(file);
+    file.write(reinterpret_cast<const char*>(&sourceType), sizeof(sourceType));
+    file.write(reinterpret_cast<const char*>(&param1), sizeof(param1));
+    file.write(reinterpret_cast<const char*>(&param2), sizeof(param2));
+    file.write(reinterpret_cast<const char*>(&param3), sizeof(param3));
+}
+
+void VCVS::save_binary(std::ofstream& file) const {
+    Component::save_binary(file);
+    file.write(reinterpret_cast<const char*>(&ctrlNode1), sizeof(ctrlNode1));
+    file.write(reinterpret_cast<const char*>(&ctrlNode2), sizeof(ctrlNode2));
+    file.write(reinterpret_cast<const char*>(&gain), sizeof(gain));
+}
+
+void VCCS::save_binary(std::ofstream& file) const {
+    Component::save_binary(file);
+    file.write(reinterpret_cast<const char*>(&ctrlNode1), sizeof(ctrlNode1));
+    file.write(reinterpret_cast<const char*>(&ctrlNode2), sizeof(ctrlNode2));
+    file.write(reinterpret_cast<const char*>(&gain), sizeof(gain));
+}
+
+void save_string_binary(std::ofstream& file, const std::string& str) {
+    size_t len = str.size();
+    file.write(reinterpret_cast<const char*>(&len), sizeof(len));
+    file.write(str.c_str(), len);
+}
+
+void CCVS::save_binary(std::ofstream& file) const {
+    Component::save_binary(file);
+    save_string_binary(file, ctrlCompName);
+    file.write(reinterpret_cast<const char*>(&gain), sizeof(gain));
+}
+
+void CCCS::save_binary(std::ofstream& file) const {
+    Component::save_binary(file);
+    save_string_binary(file, ctrlCompName);
+    file.write(reinterpret_cast<const char*>(&gain), sizeof(gain));
+}
+// -------------------------------- Saving data with binary files with fstream --------------------------------
+
+
+// -------------------------------- Loading data from binary files with fstream --------------------------------
 void Component::load_binary(std::ifstream& file) {
     size_t name_len;
     file.read(reinterpret_cast<char*>(&name_len), sizeof(name_len));
@@ -365,31 +462,16 @@ void Component::load_binary(std::ifstream& file) {
     file.read(reinterpret_cast<char*>(&value), sizeof(value));
 }
 
-void Capacitor::save_binary(std::ofstream& file) const {
-    Component::save_binary(file);
-    file.write(reinterpret_cast<const char*>(&V_prev), sizeof(V_prev));
-}
 void Capacitor::load_binary(std::ifstream& file) {
     Component::load_binary(file);
     file.read(reinterpret_cast<char*>(&V_prev), sizeof(V_prev));
 }
 
-void Inductor::save_binary(std::ofstream& file) const {
-    Component::save_binary(file);
-    file.write(reinterpret_cast<const char*>(&I_prev), sizeof(I_prev));
-}
 void Inductor::load_binary(std::ifstream& file) {
     Component::load_binary(file);
     file.read(reinterpret_cast<char*>(&I_prev), sizeof(I_prev));
 }
 
-void Diode::save_binary(std::ofstream& file) const {
-    Component::save_binary(file);
-    file.write(reinterpret_cast<const char*>(&Is), sizeof(Is));
-    file.write(reinterpret_cast<const char*>(&Vt), sizeof(Vt));
-    file.write(reinterpret_cast<const char*>(&eta), sizeof(eta));
-    file.write(reinterpret_cast<const char*>(&V_prev), sizeof(V_prev));
-}
 void Diode::load_binary(std::ifstream& file) {
     Component::load_binary(file);
     file.read(reinterpret_cast<char*>(&Is), sizeof(Is));
@@ -398,13 +480,6 @@ void Diode::load_binary(std::ifstream& file) {
     file.read(reinterpret_cast<char*>(&V_prev), sizeof(V_prev));
 }
 
-void VoltageSource::save_binary(std::ofstream& file) const {
-    Component::save_binary(file);
-    file.write(reinterpret_cast<const char*>(&sourceType), sizeof(sourceType));
-    file.write(reinterpret_cast<const char*>(&param1), sizeof(param1));
-    file.write(reinterpret_cast<const char*>(&param2), sizeof(param2));
-    file.write(reinterpret_cast<const char*>(&param3), sizeof(param3));
-}
 void VoltageSource::load_binary(std::ifstream& file) {
     Component::load_binary(file);
     file.read(reinterpret_cast<char*>(&sourceType), sizeof(sourceType));
@@ -413,13 +488,6 @@ void VoltageSource::load_binary(std::ifstream& file) {
     file.read(reinterpret_cast<char*>(&param3), sizeof(param3));
 }
 
-void CurrentSource::save_binary(std::ofstream& file) const {
-    Component::save_binary(file);
-    file.write(reinterpret_cast<const char*>(&sourceType), sizeof(sourceType));
-    file.write(reinterpret_cast<const char*>(&param1), sizeof(param1));
-    file.write(reinterpret_cast<const char*>(&param2), sizeof(param2));
-    file.write(reinterpret_cast<const char*>(&param3), sizeof(param3));
-}
 void CurrentSource::load_binary(std::ifstream& file) {
     Component::load_binary(file);
     file.read(reinterpret_cast<char*>(&sourceType), sizeof(sourceType));
@@ -428,12 +496,6 @@ void CurrentSource::load_binary(std::ifstream& file) {
     file.read(reinterpret_cast<char*>(&param3), sizeof(param3));
 }
 
-void VCVS::save_binary(std::ofstream& file) const {
-    Component::save_binary(file);
-    file.write(reinterpret_cast<const char*>(&ctrlNode1), sizeof(ctrlNode1));
-    file.write(reinterpret_cast<const char*>(&ctrlNode2), sizeof(ctrlNode2));
-    file.write(reinterpret_cast<const char*>(&gain), sizeof(gain));
-}
 void VCVS::load_binary(std::ifstream& file) {
     Component::load_binary(file);
     file.read(reinterpret_cast<char*>(&ctrlNode1), sizeof(ctrlNode1));
@@ -441,12 +503,6 @@ void VCVS::load_binary(std::ifstream& file) {
     file.read(reinterpret_cast<char*>(&gain), sizeof(gain));
 }
 
-void VCCS::save_binary(std::ofstream& file) const {
-    Component::save_binary(file);
-    file.write(reinterpret_cast<const char*>(&ctrlNode1), sizeof(ctrlNode1));
-    file.write(reinterpret_cast<const char*>(&ctrlNode2), sizeof(ctrlNode2));
-    file.write(reinterpret_cast<const char*>(&gain), sizeof(gain));
-}
 void VCCS::load_binary(std::ifstream& file) {
     Component::load_binary(file);
     file.read(reinterpret_cast<char*>(&ctrlNode1), sizeof(ctrlNode1));
@@ -454,11 +510,6 @@ void VCCS::load_binary(std::ifstream& file) {
     file.read(reinterpret_cast<char*>(&gain), sizeof(gain));
 }
 
-void save_string_binary(std::ofstream& file, const std::string& str) {
-    size_t len = str.size();
-    file.write(reinterpret_cast<const char*>(&len), sizeof(len));
-    file.write(str.c_str(), len);
-}
 std::string load_string_binary(std::ifstream& file) {
     size_t len;
     file.read(reinterpret_cast<char*>(&len), sizeof(len));
@@ -470,24 +521,15 @@ std::string load_string_binary(std::ifstream& file) {
     return str;
 }
 
-void CCVS::save_binary(std::ofstream& file) const {
-    Component::save_binary(file);
-    save_string_binary(file, ctrlCompName);
-    file.write(reinterpret_cast<const char*>(&gain), sizeof(gain));
-}
 void CCVS::load_binary(std::ifstream& file) {
     Component::load_binary(file);
     ctrlCompName = load_string_binary(file);
     file.read(reinterpret_cast<char*>(&gain), sizeof(gain));
 }
 
-void CCCS::save_binary(std::ofstream& file) const {
-    Component::save_binary(file);
-    save_string_binary(file, ctrlCompName);
-    file.write(reinterpret_cast<const char*>(&gain), sizeof(gain));
-}
 void CCCS::load_binary(std::ifstream& file) {
     Component::load_binary(file);
     ctrlCompName = load_string_binary(file);
     file.read(reinterpret_cast<char*>(&gain), sizeof(gain));
 }
+// -------------------------------- Loading data with binary files with fstream --------------------------------
