@@ -6,10 +6,19 @@ namespace fs = std::filesystem;
 
 
 // -------------------------------- Helper for parsing values --------------------------------
+bool containsOnlyNonEnglishOrNumbers(const std::string& str) {
+    for (char c : str)
+        if (!std::isalnum(static_cast<unsigned char>(c)))
+            return true;
+    return false;
+}
+
 double parseSpiceValue(const std::string& valueStr) {
-    if (valueStr.empty()) {
-        throw std::runtime_error("Empty value");
-    }
+    if (containsOnlyNonEnglishOrNumbers(valueStr))
+        throw std::runtime_error("Invalid spice value. Use english and numbers only.");
+    if (valueStr.empty())
+        throw std::runtime_error("Empty value.");
+
     std::string s_lower = valueStr;
     std::transform(s_lower.begin(), s_lower.end(), s_lower.begin(),
                    [](unsigned char c) { return std::tolower(c); });
