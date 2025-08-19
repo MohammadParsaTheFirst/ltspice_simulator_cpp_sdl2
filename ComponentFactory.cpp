@@ -38,6 +38,9 @@ Component* ComponentFactory::createComponent(
         else
             newComp = new VoltageSource(name, n1_id, n2_id, VoltageSource::SourceType::DC, value, 0.0, 0.0);
     }
+    else if (typeStr == "A") {
+        newComp = new ACVoltageSource(name, n1_id, n2_id);
+    }
     else if (typeStr == "I") {
         if (isSinusoidal)
             newComp = new CurrentSource(name, n1_id, n2_id, CurrentSource::SourceType::Sinusoidal, numericParams[0], numericParams[1], numericParams[2]);
