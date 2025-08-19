@@ -38,12 +38,28 @@ PlotWindow::PlotWindow(QWidget* parent) : QMainWindow(parent) {
     chartView->setContextMenuPolicy(Qt::CustomContextMenu);
     connect(chartView, &QChartView::customContextMenuRequested, this, &PlotWindow::showContextMenu);
 
+    cursorSeries = new QScatterSeries();
+    cursorSeries->setMarkerShape(QScatterSeries::MarkerShapeCircle);
+    cursorSeries->setMarkerSize(10.0);
+    cursorSeries->setColor(Qt::red);
+    chart->addSeries(cursorSeries);
+
+    auto axisX = chart->axes(Qt::Horizontal).first();
+    if (axisX) {
+        cursorSeries->attachAxis(axisX);
+    }
+    cursorSeries->attachAxis(axisY);
+    connect(series, &QLineSeries::clicked, this, &PlotWindow::onSeriesClicked);
+    statusBar()->show();
+
     setCentralWidget(centralWidget);
 }
 
 void PlotWindow::plotData(const std::map<double, double>& results, const QString& title) {
     series->clear();
     series->setName(title);
+    cursorSeries->clear();
+    statusBar()->clearMessage();
     if (results.empty()) {
         chart->setTitle(title);
         return;
@@ -106,7 +122,6 @@ void PlotWindow::showContextMenu(const QPoint &pos) {
 
 void PlotWindow::changeSeriesColor() {
     QColor newColor = QColorDialog::getColor(series->color(), this, "Select Signal Color");
-
     if (newColor.isValid())
         series->setColor(newColor);
 }
@@ -116,9 +131,23 @@ void PlotWindow::renameSeries() {
     QString newName = QInputDialog::getText(this, "Rename Signal",
                                             "New signal name:", QLineEdit::Normal,
                                             series->name(), &ok);
-
     if (ok && !newName.isEmpty())
         series->setName(newName);
+}
+
+void PlotWindow::onSeriesClicked(const QPointF &point) {
+    cursorSeries->clear();
+    cursorSeries->append(point);
+
+    QString xTitle = chart->axes(Qt::Horizontal).first()->titleText();
+    QString yTitle = chart->axes(Qt::Vertical).first()->titleText();
+
+    QString cursorText = QString("%1: %L2, %3: %L4")
+                             .arg(xTitle)
+                             .arg(point.x(), 0, 'f', 2)
+                             .arg(yTitle)
+                             .arg(point.y(), 0, 'f', 2);
+    statusBar()->showMessage(cursorText);
 }
 
 PlotTransientData::PlotTransientData(QWidget *parent) : PlotWindow(parent) {

@@ -7,6 +7,7 @@
 #include <QtCharts/QLineSeries>
 #include <QtCharts/QValueAxis>
 #include <QtCharts/QLogValueAxis>
+#include <QtCharts/QScatterSeries>
 #include <QSlider>
 #include <QLabel>
 #include <QGridLayout>
@@ -14,6 +15,7 @@
 #include <QMenu>
 #include <QColorDialog>
 #include <QInputDialog>
+#include <QStatusBar>
 #include <map>
 
 class PlotWindow : public QMainWindow {
@@ -27,6 +29,7 @@ protected:
     QChartView *chartView;
     QLineSeries *series;
     QValueAxis *axisY;
+    QScatterSeries *cursorSeries;
 
 private slots:
     void verticalScaleChanged(int value);
@@ -34,6 +37,7 @@ private slots:
     void showContextMenu(const QPoint &pos);
     void changeSeriesColor();
     void renameSeries();
+    void onSeriesClicked(const QPointF& point);
 
 private:
     QSlider *verticalSlider;
@@ -41,6 +45,8 @@ private:
 
     QPair<double, double> fullXRange;
     QPair<double, double> fullYRange;
+
+
 };
 
 class PlotTransientData : public PlotWindow {
