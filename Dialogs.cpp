@@ -87,39 +87,47 @@ QString SourceValueDialog::getSinFrequency() const { return sinFrequency->text()
 NodeLibraryDialog::NodeLibraryDialog(Circuit* circuit, QWidget* parent) : QDialog(parent) {
     setWindowTitle("Node library");
     setMinimumSize(300,400);
+
     listWidget = new QListWidget(this);
     connect(listWidget, &QListWidget::itemDoubleClicked, this, &NodeLibraryDialog::doubleClickedOnItem);
+
     QListWidgetItem* resistorItem = new QListWidgetItem("Resistor");
     QListWidgetItem* capacitorItem = new QListWidgetItem("Capacitor");
     QListWidgetItem* inductorItem = new QListWidgetItem("Inductor");
     QListWidgetItem* diodeItem = new QListWidgetItem("Diode");
     QListWidgetItem* voltageSourceItem = new QListWidgetItem("Independent voltage source");
+    QListWidgetItem* acVoltageSourceItem = new QListWidgetItem("AC Voltage");
     QListWidgetItem* currentSourceItem = new QListWidgetItem("Independent current source");
     QListWidgetItem* vcvsItem = new QListWidgetItem("Voltage dependent voltage source");
     QListWidgetItem* vccsItem = new QListWidgetItem("Voltage dependent current source");
     QListWidgetItem* ccvsItem = new QListWidgetItem("Current dependent voltage source");
     QListWidgetItem* cccsItem = new QListWidgetItem("Current dependent current source");
+
     resistorItem->setData(Qt::UserRole, "R");
     capacitorItem->setData(Qt::UserRole, "C");
     inductorItem->setData(Qt::UserRole, "L");
     diodeItem->setData(Qt::UserRole, "D");
     voltageSourceItem->setData(Qt::UserRole, "V");
+    acVoltageSourceItem->setData(Qt::UserRole, "A");
     currentSourceItem->setData(Qt::UserRole, "I");
     vcvsItem->setData(Qt::UserRole, "E");
     vccsItem->setData(Qt::UserRole, "G");
     ccvsItem->setData(Qt::UserRole, "H");
     cccsItem->setData(Qt::UserRole, "F");
+
     listWidget->addItem(resistorItem);
     listWidget->addItem(capacitorItem);
     listWidget->addItem(inductorItem);
     listWidget->addItem(diodeItem);
     listWidget->addItem(voltageSourceItem);
+    listWidget->addItem(acVoltageSourceItem);
     listWidget->addItem(currentSourceItem);
     listWidget->addItem(vcvsItem);
     listWidget->addItem(vccsItem);
     listWidget->addItem(ccvsItem);
     listWidget->addItem(cccsItem);
-    QListWidgetItem* separator = new QListWidgetItem("------- Subcircuits -------");
+
+    QListWidgetItem* separator = new QListWidgetItem("--------- Subcircuits ---------");
     separator->setFlags(separator->flags() & ~Qt::ItemIsSelectable);
     listWidget->addItem(separator);
     if (circuit) {
@@ -130,6 +138,7 @@ NodeLibraryDialog::NodeLibraryDialog(Circuit* circuit, QWidget* parent) : QDialo
             listWidget->addItem(subcircuitItem);
         }
     }
+
     QVBoxLayout* layout = new QVBoxLayout(this);
     layout->addWidget(listWidget);
 }
@@ -194,7 +203,6 @@ ConfigureAnalysisDialog::ConfigureAnalysisDialog(QWidget* parent) : QDialog(pare
     acSweepLayout->addRow(new QLabel("Number of points:"), ACNPoint);
     acSweepLayout->addRow(new QLabel("Type of sweep:"), typeOfSweepComboBox);
     acSweepLayout->addRow(new QLabel("Parameter (e.g. V(N_1_1), I(R1)):"), ACSweepParameterEdit);
-    ACSweepTab->setEnabled(false);
     tabWidget->addTab(ACSweepTab, "AC Analysis");
 
     // Phase Sweep
