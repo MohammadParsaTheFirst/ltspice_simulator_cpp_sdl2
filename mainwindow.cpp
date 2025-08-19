@@ -1,5 +1,7 @@
 #include "mainwindow.h"
 
+#include "NetworkDialog.h"
+
 MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
     ui->setupUi(this);
     this->setWindowTitle("LTspice");
@@ -40,8 +42,13 @@ void MainWindow::setupSchematicState() {
     schematic = new SchematicWidget(&circuit, this);
     setCentralWidget(schematic);
 
+    //////////////////////////////////////////////////////////////////////////////////////////////////////
     // This is the new connection to our dialog handler
     connect(runAction, &QAction::triggered, this, &MainWindow::openTransientDialog);
+    // Connect the new network action
+    connect(networkAction, &QAction::triggered, this, &MainWindow::openNetworkDialog);
+    /////////////////////////////////////////////////////////////////////////////////////////////////////
+
     //connect(runAction, &QAction::triggered, schematic, &SchematicWidget::startRunAnalysis);
     connect(wireAction, &QAction::triggered, schematic, &SchematicWidget::startPlacingWire);
     connect(groundAction, &QAction::triggered, schematic, &SchematicWidget::startPlacingGround);
@@ -66,6 +73,11 @@ void MainWindow::setupSchematicState() {
     nodeLibraryAction->setEnabled(true);
     labelAction->setEnabled(true);
     deleteModeAction->setEnabled(true);
+
+    /////////////////////////////////////////////////////////////////////////////////////////
+    // Enable network action when in schematic state
+    networkAction->setEnabled(true);
+    ////////////////////////////////////////////////////////////////////////////////////////
 }
 
 // void MainWindow::openChartWindow()
@@ -112,6 +124,9 @@ void MainWindow::initializeActions() {
     labelAction = new QAction(QIcon(":/icon/icons/text.png"), "Text (T)", this);
     deleteModeAction = new QAction(QIcon(":/icon/icons/deleteMode.png"), "Delete Mode (Backspace or Del)", this);
     quitAction = new QAction("Exit", this);
+    //////////////////////////////////////////////////////////////////////////////////////////////////////
+    networkAction = new QAction(QIcon(":/icon/icons/network.png"), "Network (N)", this); // New network action
+    //////////////////////////////////////////////////////////////////////////////////////////////////////
 }
 
 void MainWindow::implementMenuBar() {
@@ -146,6 +161,9 @@ void MainWindow::implementMenuBar() {
 
     QMenu* tools = menuBar()->addMenu(tr("&Tools"));
     tools->addAction(settingsAction);
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    tools->addAction(networkAction); // Add network action to Tools menu
+    ///////////////////////////////////////////////////////////////////////////////////////////
 
     QMenu* window = menuBar()->addMenu(tr("&Window"));
 
@@ -172,6 +190,9 @@ void MainWindow::implementToolBar() {
     mainToolBar->addAction(nodeLibraryAction);
     mainToolBar->addAction(labelAction);
     mainToolBar->addAction(deleteModeAction);
+    //////////////////////////////////////////////////////////////////////////////
+    mainToolBar->addAction(networkAction); // Add network action to toolbar
+    //////////////////////////////////////////////////////////////////////////////
 
     mainToolBar->setIconSize(QSize(40, 40));
 }
@@ -191,6 +212,9 @@ void MainWindow::shortcutRunner() {
     nodeLibraryAction->setShortcut(QKeySequence(Qt::Key_P));
     labelAction->setShortcut(QKeySequence(Qt::Key_T));
     deleteModeAction->setShortcuts({QKeySequence(Qt::Key_Backspace), QKeySequence(Qt::Key_Delete)});
+    //////////////////////////////////////////////////////////////////////////////////
+    networkAction->setShortcut(QKeySequence(Qt::Key_N)); // New shortcut for network
+    //////////////////////////////////////////////////////////////////////////////////
 }
 
 
@@ -227,4 +251,44 @@ void MainWindow::openTransientDialog() {
             QMessageBox::warning(this, "Analysis Failed", "Could not generate plot data. Please check your circuit and parameters.");
         }
     }
+}
+
+void MainWindow::openNetworkDialog() {
+    if (tcpServer || tcpClient) {
+        QMessageBox::warning(this, "Network Error", "A network connection is already active. Please restart the application to change settings.");
+        return;
+    }
+
+    NetworkDialog dialog(this);
+    if (dialog.exec() == QDialog::Accepted) {
+        int port = dialog.getPort();
+        if (dialog.isServerMode()) {
+            // Server mode
+            tcpServer = new TcpServer(this);
+            connect(tcpServer, &TcpServer::logMessage, this, &MainWindow::updateNetworkStatus);
+            tcpServer->startServer(port);
+            QMessageBox::information(this, "Server Mode", "Server started. Place a wireless voltage source to begin.");
+        } else {
+            // Client mode
+            QString ipAddress = dialog.getIpAddress();
+            tcpClient = new TcpClient(this);
+            connect(tcpClient, &TcpClient::logMessage, this, &MainWindow::updateNetworkStatus);
+            connect(tcpClient, &TcpClient::voltageReceived, this, &MainWindow::updateVoltageFromNetwork);
+            tcpClient->connectToServer(ipAddress, port);
+            QMessageBox::information(this, "Client Mode", "Client attempting to connect. Place a wireless voltage source to receive data.");
+        }
+    }
+}
+
+void MainWindow::updateVoltageFromNetwork(double voltage) {
+    // This is a placeholder. You'll need to update your WirelessVoltageSource component here.
+    // For example, you might have a method in your Circuit or SchematicWidget to set the voltage of a specific component.
+    // circuit.setWirelessSourceVoltage(voltage);
+    qDebug() << "Received voltage from network: " << voltage;
+}
+
+void MainWindow::updateNetworkStatus(const QString& msg) {
+    // This is a placeholder for a status bar or log in your main window to display network messages.
+    // For now, it will print to the console.
+    qDebug() << msg;
 }

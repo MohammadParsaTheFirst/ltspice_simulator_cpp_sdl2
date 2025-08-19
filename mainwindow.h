@@ -19,6 +19,8 @@
 #include "ChartWindow.h"
 #include "TransientDialog.h"
 #include "Circuit.h"
+#include "TcpClient.h"
+#include "TcpServer.h"
 
 
 namespace Ui {
@@ -35,12 +37,11 @@ private:
     void setupWelcomeState();
     void setupSchematicState();
     ////////////////////////////////////////////////////////////////////////////////
-    void createActions();
-    void createMenus();
-    void createToolBars();
+    QAction* transientAction;          // Action for plotting tr. anal.
+    QAction* networkAction;            // New Action for Networking
 
-    QAction *transientAction;
-
+    TcpServer *tcpServer = nullptr;
+    TcpClient *tcpClient = nullptr;
     //////////////////////////////////////////////////////////////////////////////////
 
     // Some items in menu bar to disable and enabling them
@@ -63,7 +64,12 @@ private:
 
     private slots:
         void hNewSchematic();
-        void openTransientDialog();////////////////////////////
+        ///////////////////////////////////////////////////////////////////
+        void openTransientDialog();
+        void openNetworkDialog();
+        void updateVoltageFromNetwork(double voltage);
+        void updateNetworkStatus(const QString& msg);
+        //////////////////////////////////////////////////////////////////
     void hShowSettings();
 
 public:

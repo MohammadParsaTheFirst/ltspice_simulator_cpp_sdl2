@@ -10,6 +10,24 @@
 
 double parseSpiceValue(const std::string& valueStr);
 
+// New class for a wireless voltage source
+class WirelessVoltageSource : public VoltageSource {
+private:
+    double networkVoltage = 0.0;
+public:
+    WirelessVoltageSource(const std::string& n, int n1, int n2)
+        : VoltageSource(n, n1, n2, nullptr) {}
+
+    virtual double getVoltage(double time) const {
+        return networkVoltage;
+    }
+
+    void setNetworkVoltage(double voltage) {
+        networkVoltage = voltage;
+    }
+};
+/////////////////////////////////////////////////////////////////////////////////
+
 class Circuit {
 public:
     Circuit();
@@ -49,9 +67,9 @@ public:
     void addLabel(const std::string&, const std::string&);
 
     std::pair<std::string, std::vector<double>> getTransientResults(const std::string& parameter);
-    //std::pair<std::string, std::vector<double>>
+    //std::pair<std::string, std::vector<double>>/////////////////////////////////////////////////////////////
     void runTransientAnalysis(double startTime, double stopTime, double stepTime);
-
+    void setWirelessSourceVoltage(double voltage);
 
 private:
     void buildMNAMatrix(double, double);
