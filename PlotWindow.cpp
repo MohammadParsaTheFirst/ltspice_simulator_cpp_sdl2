@@ -44,10 +44,6 @@ PlotWindow::PlotWindow(QWidget* parent) : QMainWindow(parent) {
     cursorSeries->setColor(Qt::red);
     chart->addSeries(cursorSeries);
 
-    auto axisX = chart->axes(Qt::Horizontal).first();
-    if (axisX) {
-        cursorSeries->attachAxis(axisX);
-    }
     cursorSeries->attachAxis(axisY);
     connect(series, &QLineSeries::clicked, this, &PlotWindow::onSeriesClicked);
     statusBar()->show();
@@ -87,6 +83,13 @@ void PlotWindow::plotData(const std::map<double, double>& results, const QString
     axisY->setGridLineVisible(true);
 }
 
+void PlotWindow::finalAxisSetup() {
+    auto axisX = chart->axes(Qt::Horizontal).first();
+    if (axisX) {
+        cursorSeries->attachAxis(axisX);
+    }
+}
+
 void PlotWindow::verticalScaleChanged(int value) {
     if (fullYRange.first == fullYRange.second) {
         axisY->setRange(fullYRange.first - 1, fullYRange.second + 1);
@@ -111,10 +114,10 @@ void PlotWindow::horizontalScaleChanged(int value) {
 void PlotWindow::showContextMenu(const QPoint &pos) {
     QMenu contextMenu(this);
 
-    QAction *changeColorAction = contextMenu.addAction("Change Color...");
+    QAction *changeColorAction = contextMenu.addAction("Change Color of Series...");
     connect(changeColorAction, &QAction::triggered, this, &PlotWindow::changeSeriesColor);
 
-    QAction *renameAction = contextMenu.addAction("Rename Signal...");
+    QAction *renameAction = contextMenu.addAction("Rename Series...");
     connect(renameAction, &QAction::triggered, this, &PlotWindow::renameSeries);
 
     contextMenu.exec(chartView->mapToGlobal(pos));
@@ -128,9 +131,7 @@ void PlotWindow::changeSeriesColor() {
 
 void PlotWindow::renameSeries() {
     bool ok;
-    QString newName = QInputDialog::getText(this, "Rename Signal",
-                                            "New signal name:", QLineEdit::Normal,
-                                            series->name(), &ok);
+    QString newName = QInputDialog::getText(this, "Rename Signal", "New signal name:", QLineEdit::Normal, series->name(), &ok);
     if (ok && !newName.isEmpty())
         series->setName(newName);
 }
@@ -142,11 +143,7 @@ void PlotWindow::onSeriesClicked(const QPointF &point) {
     QString xTitle = chart->axes(Qt::Horizontal).first()->titleText();
     QString yTitle = chart->axes(Qt::Vertical).first()->titleText();
 
-    QString cursorText = QString("%1: %L2, %3: %L4")
-                             .arg(xTitle)
-                             .arg(point.x(), 0, 'f', 2)
-                             .arg(yTitle)
-                             .arg(point.y(), 0, 'f', 2);
+    QString cursorText = QString("%1: %L2, %3: %L4").arg(xTitle).arg(point.x(), 0, 'f', 6).arg(yTitle).arg(point.y(), 0, 'f', 6);
     statusBar()->showMessage(cursorText);
 }
 
@@ -158,8 +155,9 @@ PlotTransientData::PlotTransientData(QWidget *parent) : PlotWindow(parent) {
     chart->addAxis(axisX, Qt::AlignBottom);
     series->attachAxis(axisX);
 
-    axisY->setTitleText("Value (V or A)");
+    axisY->setTitleText("Value");
     axisX->setGridLineVisible(true);
+    finalAxisSetup();
 }
 
 PlotACData::PlotACData(QWidget *parent) : PlotWindow(parent) {
@@ -174,4 +172,5 @@ PlotACData::PlotACData(QWidget *parent) : PlotWindow(parent) {
 
     axisY->setTitleText("Magnitude");
     axisX->setGridLineVisible(true);
+    finalAxisSetup();
 }

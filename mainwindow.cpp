@@ -2,7 +2,7 @@
 
 MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
     ui->setupUi(this);
-    this->setWindowTitle("LTspice");
+    setWindowIcon(QIcon(":/icon.png"));
     this->resize(900, 600);
     starterWindow();
     setupWelcomeState();

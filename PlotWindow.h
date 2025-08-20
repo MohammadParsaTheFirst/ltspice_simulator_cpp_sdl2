@@ -25,6 +25,7 @@ public:
 
 protected:
     explicit PlotWindow(QWidget *parent = Q_NULLPTR);
+    void finalAxisSetup();
     QChart *chart;
     QChartView *chartView;
     QLineSeries *series;
@@ -45,8 +46,6 @@ private:
 
     QPair<double, double> fullXRange;
     QPair<double, double> fullYRange;
-
-
 };
 
 class PlotTransientData : public PlotWindow {
