@@ -624,11 +624,23 @@ void Circuit::connectNodes(const std::string& nodeAStr, const std::string& nodeB
     std::cout << "Node '" << nodeAStr << "' successfully connected to '" << nodeBStr << "'." << std::endl;
 }
 
-void Circuit::addLabel(const std::string& labelName, const std::string& nodeName) {
+void Circuit::addLabel(const QPoint& pos, const std::string& labelName, const std::string& nodeName) {
     int nodeId = getNodeId(nodeName, true);
     if (nodeId != -1) {
         labelToNodes[labelName].insert(nodeId);
+        labels.push_back({pos, labelName, nodeName});
         std::cout << "Label '" << labelName << "' added to node " << nodeName << std::endl;
+    }
+}
+
+void Circuit::processLabelConnections() {
+    for (const auto& pair : labelToNodes) {
+        const std::set<int>& nodes = pair.second;
+        if (nodes.size() > 1) {
+            int destNodeId = *nodes.begin();
+            for (auto it = std::next(nodes.begin()); it != nodes.end(); ++it)
+                mergeNodes(*it, destNodeId);
+        }
     }
 }
 
@@ -650,6 +662,7 @@ void Circuit::createSubcircuitDefinition(const std::string& name, const std::str
 
 // -------------------------------- MNA and Solver --------------------------------
 void Circuit::buildMNAMatrix(double time, double h) {
+    processLabelConnections();
     std::map<int, int> nodeIdToMnaIndex;
     int currentMnaIndex = 0;
     for (int i = 0; i < nextNodeId; ++i) {
@@ -692,6 +705,7 @@ void Circuit::buildMNAMatrix(double time, double h) {
 }
 
 void Circuit::buildMNAMatrix_AC(double omega) {
+    processLabelConnections();
     std::map<int, int> nodeIdToMnaIndex;
     int currentMnaIndex = 0;
     for (int i = 0; i < nextNodeId; ++i) {

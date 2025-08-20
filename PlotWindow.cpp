@@ -120,6 +120,9 @@ void PlotWindow::showContextMenu(const QPoint &pos) {
     QAction *renameAction = contextMenu.addAction("Rename Series...");
     connect(renameAction, &QAction::triggered, this, &PlotWindow::renameSeries);
 
+    QAction *clearCursor = contextMenu.addAction("Clear Cursor...");
+    connect(clearCursor, &QAction::triggered, this, &PlotWindow::clearCursor);
+
     contextMenu.exec(chartView->mapToGlobal(pos));
 }
 
@@ -143,9 +146,14 @@ void PlotWindow::onSeriesClicked(const QPointF &point) {
     QString xTitle = chart->axes(Qt::Horizontal).first()->titleText();
     QString yTitle = chart->axes(Qt::Vertical).first()->titleText();
 
-    QString cursorText = QString("%1: %L2, %3: %L4").arg(xTitle).arg(point.x(), 0, 'f', 6).arg(yTitle).arg(point.y(), 0, 'f', 6);
+    QString cursorText = QString("%1: %L2, %3: %L4").arg(xTitle).arg(point.x(), 0, 'g', 3).arg(yTitle).arg(point.y(), 0, 'g', 3);
     statusBar()->showMessage(cursorText);
 }
+
+void PlotWindow::clearCursor() {
+    cursorSeries->clear();
+}
+
 
 PlotTransientData::PlotTransientData(QWidget *parent) : PlotWindow(parent) {
     setWindowTitle("Transient Analysis Plot");
@@ -157,6 +165,9 @@ PlotTransientData::PlotTransientData(QWidget *parent) : PlotWindow(parent) {
 
     axisY->setTitleText("Value");
     axisX->setGridLineVisible(true);
+    axisX->setLabelFormat("%.2e");
+    axisY->setLabelFormat("%.2e");
+
     finalAxisSetup();
 }
 
@@ -172,5 +183,7 @@ PlotACData::PlotACData(QWidget *parent) : PlotWindow(parent) {
 
     axisY->setTitleText("Magnitude");
     axisX->setGridLineVisible(true);
+    axisY->setLabelFormat("%.2e");
+
     finalAxisSetup();
 }

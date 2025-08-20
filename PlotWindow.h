@@ -39,6 +39,7 @@ private slots:
     void changeSeriesColor();
     void renameSeries();
     void onSeriesClicked(const QPointF& point);
+    void clearCursor();
 
 private:
     QSlider *verticalSlider;

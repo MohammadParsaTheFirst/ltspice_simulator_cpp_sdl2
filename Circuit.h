@@ -58,8 +58,8 @@ public:
     void saveProject() const;
     void loadProject(const std::string& projectName);
     QString getProjectDirectory() const;
-    // void saveSubcircuit(const SubcircuitDefinition& subDef) const;
-    // void loadSubcircuits();
+    void saveSubcircuit(const SubcircuitDefinition& subDef) const;
+    void loadSubcircuits();
     const std::vector<ComponentGraphicalInfo>& getComponentGraphics() const;
     const std::vector<WireInfo>& getWires() const;
     const std::vector<LabelInfo>& getLabels() const;
@@ -83,7 +83,8 @@ public:
     int getNodeId(const std::string&) const;
     void connectNodes(const std::string&, const std::string&);
     void createSubcircuitDefinition(const std::string&, const std::string&, const std::string&);
-    void addLabel(const std::string&, const std::string&);
+    void addLabel(const QPoint&, const std::string&, const std::string&);
+    void processLabelConnections();
 
     // Analysis
     // void performDCAnalysis(const std::string&, double, double, double);
