@@ -6,16 +6,7 @@ namespace fs = std::filesystem;
 
 
 // -------------------------------- Helper for parsing values --------------------------------
-// bool containsOnlyNonEnglishOrNumbers(const std::string& str) {
-//     for (char c : str)
-//         if (!std::isalnum(static_cast<unsigned char>(c)))
-//             return true;
-//     return false;
-// }
-
 double parseSpiceValue(const std::string& valueStr) {
-    // if (containsOnlyNonEnglishOrNumbers(valueStr))
-    //     throw std::runtime_error("Invalid spice value. Use english and numbers only.");
     if (valueStr.empty())
         throw std::runtime_error("Empty value.");
 
@@ -147,6 +138,247 @@ void Circuit::makeComponentFromLine(const std::string& line) {
 
     addComponent(std::string(1, type_char), comp_name, node1_str, node2_str, value, numericParams, stringParams, isSinusoidal);
 }
+
+// void Circuit::saveProjectToFile(const QString& filePath) const {
+//     if (currentProjectName.isEmpty()) {
+//         std::cerr << "Error: No project is open to save." << std::endl;
+//         return;
+//     }
+//
+//     QFile file(filePath);
+//     if (!file.open(QIODevice::WriteOnly)) {
+//         std::cerr << "Error: Could not open file for writing: " << filePath.toStdString() << std::endl;
+//         return;
+//     }
+//
+//     QDataStream out(&file);
+//     out.setVersion(QDataStream::Qt_DefaultCompiledVersion); //Qt_6_0
+//
+//     // Save basic project info
+//     out << currentProjectName;
+//     out << nextNodeId;
+//     out << numCurrentUnknowns;
+//     out << hasNonlinearComponents;
+//
+//     // Save node mappings
+//     out << static_cast<qint32>(nodeNameToId.size());
+//     for (const auto& pair : nodeNameToId) {
+//         out << QString::fromStdString(pair.first) << pair.second;
+//     }
+//
+//     out << static_cast<qint32>(idToNodeName.size());
+//     for (const auto& pair : idToNodeName) {
+//         out << pair.first << QString::fromStdString(pair.second);
+//     }
+//
+//     // Save ground nodes
+//     out << static_cast<qint32>(groundNodeIds.size());
+//     for (int nodeId : groundNodeIds) {
+//         out << nodeId;
+//     }
+//
+//     // Save components
+//     out << static_cast<qint32>(components.size());
+//     for (const auto& comp : components) {
+//         comp->save_binary(out);
+//     }
+//
+//     // Save graphical data
+//     out << static_cast<qint32>(componentGraphics.size());
+//     for (const auto& graphic : componentGraphics) {
+//         out << graphic.startPoint << graphic.isHorizontal << QString::fromStdString(graphic.name);
+//     }
+//
+//     out << static_cast<qint32>(wires.size());
+//     for (const auto& wire : wires) {
+//         out << wire.startPoint << wire.endPoint << QString::fromStdString(wire.nodeName);
+//     }
+//
+//     out << static_cast<qint32>(labels.size());
+//     for (const auto& label : labels) {
+//         out << label.position << QString::fromStdString(label.name) << QString::fromStdString(label.connectedNodeName);
+//     }
+//
+//     out << static_cast<qint32>(grounds.size());
+//     for (const auto& ground : grounds) {
+//         out << ground.position;
+//     }
+//
+//     file.close();
+//     std::cout << "Project '" << currentProjectName.toStdString() << "' saved successfully to: " << filePath.toStdString() << std::endl;
+// }
+//
+// void Circuit::loadProjectFromFile(const QString& filePath) {
+//     QFile file(filePath);
+//     if (!file.open(QIODevice::ReadOnly)) {
+//         std::cerr << "Error: Could not open file for reading: " << filePath.toStdString() << std::endl;
+//         return;
+//     }
+//
+//     std::cout << "Starting to read the file ..." << std::endl;
+//     clearSchematic();
+//     std::cout << "Cleared Schematic ..." <<std::endl;
+//
+//     QDataStream in(&file);
+//     in.setVersion(QDataStream::Qt_DefaultCompiledVersion); //Qt_6_0
+//     std::cout << "Qt version: " << in.version() << std::endl;
+//
+//
+//     // Add status checking throughout
+//     if (in.status() != QDataStream::Ok) {
+//         std::cerr << "Error: QDataStream status error before reading" << std::endl;
+//         file.close();
+//         return;
+//     }
+//
+//
+//     // Load basic project info
+//     in >> currentProjectName;
+//     in >> nextNodeId;
+//     in >> numCurrentUnknowns;
+//     in >> hasNonlinearComponents;
+//
+//     // CHECK May THIS WORK!
+//     if (in.status() != QDataStream::Ok) {
+//         std::cerr << "Error: Failed to read project info from: " << filePath.toStdString() << std::endl;
+//         file.close();
+//         return;
+//     }
+//
+//     // Load node mappings
+//     std::cout << "Loading node mappings ..." << std::endl;
+//     qint32 nodeNameToIdSize;
+//     in >> nodeNameToIdSize;
+//     nodeNameToId.clear();
+//     for (int i = 0; i < nodeNameToIdSize; ++i) {
+//         QString nodeName;
+//         int nodeId;
+//         in >> nodeName >> nodeId;
+//         nodeNameToId[nodeName.toStdString()] = nodeId;
+//     }
+//
+//     qint32 idToNodeNameSize;
+//     in >> idToNodeNameSize;
+//     idToNodeName.clear();
+//     for (int i = 0; i < idToNodeNameSize; ++i) {
+//         int nodeId;
+//         QString nodeName;
+//         in >> nodeId >> nodeName;
+//         idToNodeName[nodeId] = nodeName.toStdString();
+//     }
+//     std::cout << "Loaded node mappings" << std::endl;
+//
+//     // Load ground nodes
+//     std::cout << "Loading ground mappings ..." << std::endl;
+//     qint32 groundNodeIdsSize;
+//     in >> groundNodeIdsSize;
+//     groundNodeIds.clear();
+//     for (int i = 0; i < groundNodeIdsSize; ++i) {
+//         int nodeId;
+//         in >> nodeId;
+//         groundNodeIds.insert(nodeId);
+//     }
+//     std::cout << "Loaded ground mappings" << std::endl;
+//
+//     // Load components
+//     std::cout << "Loading components ..." << std::endl;
+//     qint32 componentsSize;
+//     in >> componentsSize;
+//     components.clear();
+//     for (int i = 0; i < componentsSize; ++i) {
+//         Component::Type type;
+//         in.readRawData(reinterpret_cast<char*>(&type), sizeof(type));
+//
+//         std::shared_ptr<Component> newComp = nullptr;
+//         switch (type) {
+//             case Component::Type::RESISTOR: newComp = std::make_shared<Resistor>("", 0, 0, 0); break;
+//             case Component::Type::CAPACITOR: newComp = std::make_shared<Capacitor>("", 0, 0, 0); break;
+//             case Component::Type::INDUCTOR: newComp = std::make_shared<Inductor>("", 0, 0, 0); break;
+//             case Component::Type::DIODE: newComp = std::make_shared<Diode>("", 0, 0); break;
+//             case Component::Type::VOLTAGE_SOURCE: newComp = std::make_shared<VoltageSource>("", 0, 0, VoltageSource::SourceType::DC, 0, 0, 0); break;
+//             case Component::Type::CURRENT_SOURCE: newComp = std::make_shared<CurrentSource>("", 0, 0, CurrentSource::SourceType::DC, 0, 0, 0); break;
+//             case Component::Type::VCVS: newComp = std::make_shared<VCVS>("", 0, 0, 0, 0, 0); break;
+//             case Component::Type::VCCS: newComp = std::make_shared<VCCS>("", 0, 0, 0, 0, 0); break;
+//             case Component::Type::CCVS: newComp = std::make_shared<CCVS>("", 0, 0, "", 0); break;
+//             case Component::Type::CCCS: newComp = std::make_shared<CCCS>("", 0, 0, "", 0); break;
+//             case Component::Type::AC_VOLTAGE_SOURCE: newComp = std::make_shared<ACVoltageSource>("", 0, 0); break;
+//         }
+//
+//         if (newComp) {
+//             newComp->load_binary(in);
+//             components.push_back(newComp);
+//         }
+//     }
+//     std::cout << "Loaded components" << std::endl;
+//
+//
+//     // // After components loop
+//     // nodeNameToId.clear();
+//     // idToNodeName.clear();
+//     // nextNodeId = 0;
+//     // for (const auto& comp : components) {
+//     //     if (comp->node1 >= 0) {
+//     //         QString nodeName = QString("node%1").arg(comp->node1);
+//     //         nodeNameToId[nodeName.toStdString()] = comp->node1;
+//     //         idToNodeName[comp->node1] = nodeName.toStdString();
+//     //         nextNodeId = std::max(nextNodeId, comp->node1 + 1);
+//     //     }
+//     //     if (comp->node2 >= 0) {
+//     //         QString nodeName = QString("node%1").arg(comp->node2);
+//     //         nodeNameToId[nodeName.toStdString()] = comp->node2;
+//     //         idToNodeName[comp->node2] = nodeName.toStdString();
+//     //         nextNodeId = std::max(nextNodeId, comp->node2 + 1);
+//     //     }
+//     // }
+//
+//     // Load graphical data
+//     qint32 graphicsSize;
+//     in >> graphicsSize;
+//     componentGraphics.clear();
+//     for (int i = 0; i < graphicsSize; ++i) {
+//         ComponentGraphicalInfo graphic;
+//         QString name;
+//         in >> graphic.startPoint >> graphic.isHorizontal >> name;
+//         graphic.name = name.toStdString();
+//         componentGraphics.push_back(graphic);
+//     }
+//
+//     qint32 wiresSize;
+//     in >> wiresSize;
+//     wires.clear();
+//     for (int i = 0; i < wiresSize; ++i) {
+//         WireInfo wire;
+//         QString nodeName;
+//         in >> wire.startPoint >> wire.endPoint >> nodeName;
+//         wire.nodeName = nodeName.toStdString();
+//         wires.push_back(wire);
+//     }
+//
+//     qint32 labelsSize;
+//     in >> labelsSize;
+//     labels.clear();
+//     for (int i = 0; i < labelsSize; ++i) {
+//         LabelInfo label;
+//         QString name, connectedNode;
+//         in >> label.position >> name >> connectedNode;
+//         label.name = name.toStdString();
+//         label.connectedNodeName = connectedNode.toStdString();
+//         labels.push_back(label);
+//     }
+//
+//     qint32 groundsSize;
+//     in >> groundsSize;
+//     grounds.clear();
+//     for (int i = 0; i < groundsSize; ++i) {
+//         GroundInfo ground;
+//         in >> ground.position;
+//         grounds.push_back(ground);
+//     }
+//     std::cout << "Loaded wires, labels, grounds ..." << std::endl;
+//
+//     file.close();
+//     std::cout << "Project loaded successfully from: " << filePath.toStdString() << std::endl;
+// }
 // -------------------------------- File Management --------------------------------
 
 
@@ -621,83 +853,6 @@ void Circuit::updateNonlinearComponentStates(const Eigen::VectorXd& solution,
 
 
 // -------------------------------- Analysis Methods --------------------------------
-// void Circuit::performDCAnalysis(const std::string& sourceName, double startValue, double endValue, double increment) {
-//     std::shared_ptr<Component> sweepSource = getComponent(sourceName);
-//
-//     if (!sweepSource)
-//         throw std::runtime_error("Source '" + sourceName + "' for DC sweep not found.");
-//     if (groundNodeIds.empty())
-//         throw std::runtime_error("No ground node detected.");
-//
-//     std::cout << "\n--- Performing DC Sweep Analysis on " << sourceName << " ---" << std::endl;
-//     std::cout << "Start: " << startValue << ", Stop: " << endValue << ", Increment: " << increment << std::endl;
-//
-//     dcSweepSolutions.clear();
-//     for (const auto& component : components)
-//         component->reset();
-//
-//     std::map<int, int> nodeIdToMnaIndex;
-//
-//     for (double sweepValue = startValue; sweepValue <= endValue; sweepValue += increment) {
-//         if (auto vs = dynamic_cast<VoltageSource*>(sweepSource.get()))
-//             vs->setValue(sweepValue);
-//         else if (auto cs = dynamic_cast<CurrentSource*>(sweepSource.get()))
-//             cs->setValue(sweepValue);
-//         else
-//             throw std::runtime_error("Component '" + sourceName + "' is not a sweepable source.");
-//
-//         Eigen::VectorXd solution;
-//         buildMNAMatrix(0.0, 0.0);
-//         nodeIdToMnaIndex.clear();
-//         int currentMnaIndex = 0;
-//         for (int i = 0; i < nextNodeId; ++i) {
-//             if (idToNodeName.count(i) && !isGround(i)) {
-//                 nodeIdToMnaIndex[i] = currentMnaIndex++;
-//             }
-//         }
-//
-//         if (!hasNonlinearComponents) {
-//             solution = solveMNASystem();
-//         }
-//         else {
-//             const int MAX_ITERATIONS = 100;
-//             const double TOLERANCE = 1e-6;
-//             bool converged = false;
-//
-//             Eigen::VectorXd lastSolution;
-//
-//             for (const auto& comp : components) {
-//                 if (auto* diode = dynamic_cast<Diode*>(comp.get())) {
-//                     diode->reset();
-//                 }
-//             }
-//
-//             for (int i = 0; i < MAX_ITERATIONS; ++i) {
-//                 buildMNAMatrix(0.0, 0.0);
-//                 solution = solveMNASystem();
-//                 if (solution.size() == 0) {
-//                     std::cout << "DC sweep failed to solve at " << sourceName << " = " << sweepValue << std::endl;
-//                     break;
-//                 }
-//                 if (i > 0 && (solution - lastSolution).norm() < TOLERANCE) {
-//                     converged = true;
-//                     break;
-//                 }
-//                 lastSolution = solution;
-//                 updateNonlinearComponentStates(solution, nodeIdToMnaIndex);
-//             }
-//
-//             if (!converged)
-//                 std::cout << "Warning: DC analysis did not converge at sweep value " << sweepValue << std::endl;
-//         }
-//         if (solution.size() > 0) {
-//             dcSweepSolutions[sweepValue] = solution;
-//         }
-//         dcSweepSolutions[sweepValue] = solution;
-//     }
-//     std::cout << "DC Sweep complete. " << dcSweepSolutions.size() << " points calculated." << std::endl;
-// }
-
 void Circuit::runTransientAnalysis(double stopTime, double startTime, double maxTimeStep) {
     if (maxTimeStep == 0.0)
         maxTimeStep = (stopTime - startTime) / 100;
@@ -790,8 +945,8 @@ void Circuit::runACAnalysis(double startOmega, double stopOmega, int numPoints) 
 
 
 // -------------------------------- Output Results --------------------------------
-std::map<double, double> Circuit::getTransientResults(const std::vector<std::string>& variablesToPrint) const {
-    std::map<double, double> results;
+std::map<std::string, std::map<double, double>> Circuit::getTransientResults(const std::vector<std::string>& variablesToPrint) const {
+    std::map<std::string, std::map<double, double>> results;
 
     if (transientSolutions.empty()) {
         std::cout << "No analysis results found. Run .TRAN or .DC first." << std::endl;
@@ -854,6 +1009,9 @@ std::map<double, double> Circuit::getTransientResults(const std::vector<std::str
     if (printJobs.empty())
         return {};
 
+    for (const auto& job : printJobs)
+        results[job.header];
+
     auto itPrev = transientSolutions.begin();
     for (auto it = transientSolutions.begin(); it != transientSolutions.end(); ++it) {
         double t = it->first;
@@ -886,15 +1044,15 @@ std::map<double, double> Circuit::getTransientResults(const std::vector<std::str
                     }
                 }
             }
-            results[t] = result;
+            results.at(job.header)[t] = result;
         }
         itPrev = it;
     }
     return results;
 }
 
-std::map<double, double> Circuit::getACSweepResults(const std::string& variable) const {
-     std::map<double, double> results;
+std::map<std::string, std::map<double, double>> Circuit::getACSweepResults(const std::vector<std::string>& variables) const {
+    std::map<std::string, std::map<double, double>> results;
 
     if (acSweepSolutions.empty())
         throw std::runtime_error("No AC analysis results found. Run .AC analysis first.");
@@ -907,219 +1065,48 @@ std::map<double, double> Circuit::getACSweepResults(const std::string& variable)
         }
     }
 
-    char varType = variable.front();
-    std::string varName = variable.substr(2, variable.length() - 3);
+    for (const auto& var : variables)
+        results[var];
 
     for (const auto& pair : acSweepSolutions) {
         double omega = pair.first;
         const Eigen::VectorXd& solution = pair.second;
         double resultValue = 0.0;
 
-        if (varType == 'V') {
-            int nodeId = getNodeId(varName);
-            if (nodeId == -1)
-                throw std::runtime_error("Node not found");
-            resultValue = isGround(nodeId) ? 0.0 : solution(nodeIdToMnaIndex.at(nodeId));
-        }
-        else if (varType == 'I') {
-            auto comp = getComponent(varName);
-            if (!comp)
-                throw std::runtime_error("Component not found.");
+        for (const auto& variable : variables) {
+            if (variable.length() < 4)
+                continue;
 
-            if (comp->needsCurrentUnknown() && componentCurrentIndices.count(varName)) {
-                resultValue = solution(componentCurrentIndices.at(varName));
-            }
-            else {
-                double v1 = isGround(comp->node1) ? 0.0 : solution(nodeIdToMnaIndex.at(comp->node1));
-                double v2 = isGround(comp->node2) ? 0.0 : solution(nodeIdToMnaIndex.at(comp->node2));
-                double voltage_diff = v1 - v2;
+            char varType = variable.front();
+            std::string varName = variable.substr(2, variable.length() - 3);
+            double resultValue = 0.0;
 
-                if (auto* resistor = dynamic_cast<Resistor*>(comp.get()))
-                    resultValue = voltage_diff / resistor->value;
-                else if (auto* capacitor = dynamic_cast<Capacitor*>(comp.get()))
-                    resultValue = voltage_diff * omega * capacitor->value;
-                else
-                    std::cerr << "Current plotting for this component type is not supported yet." << std::endl;
+            if (varType == 'V') {
+                int nodeId = getNodeId(varName);
+                if (nodeId != -1)
+                    resultValue = isGround(nodeId) ? 0.0 : solution(nodeIdToMnaIndex.at(nodeId));
             }
+            else if (varType == 'I') {
+                auto comp = getComponent(varName);
+                if (!comp) continue;
+
+                if (comp->needsCurrentUnknown() && componentCurrentIndices.count(varName))
+                    resultValue = solution(componentCurrentIndices.at(varName));
+                else {
+                    double v1 = isGround(comp->node1) ? 0.0 : solution(nodeIdToMnaIndex.at(comp->node1));
+                    double v2 = isGround(comp->node2) ? 0.0 : solution(nodeIdToMnaIndex.at(comp->node2));
+                    double voltage_diff = v1 - v2;
+
+                    if (auto* resistor = dynamic_cast<Resistor*>(comp.get()))
+                        resultValue = voltage_diff / resistor->value;
+                    else if (auto* capacitor = dynamic_cast<Capacitor*>(comp.get()))
+                        resultValue = voltage_diff * omega * capacitor->value;
+                }
+            }
+            results.at(variable)[omega] = resultValue;
         }
-        results[omega] = resultValue;
     }
+
     return results;
 }
-
-// void Circuit::printDcSweepResults(const std::string& sourceName, const std::string& variable) const {
-//     if (dcSweepSolutions.empty())
-//         throw std::runtime_error("No DC sweep results found. Run a .DC analysis first via the .print command.");
-//
-//     char varType = variable.front();
-//     std::string varName = variable.substr(2, variable.length() - 3);
-//
-//     std::map<int, int> nodeIdToMnaIndex;
-//     int currentMnaIndex = 0;
-//     for (int i = 0; i < nextNodeId; ++i) {
-//         if (idToNodeName.count(i) && !isGround(i)) {
-//             nodeIdToMnaIndex[i] = currentMnaIndex++;
-//         }
-//     }
-//
-//     std::cout << "\n---- DC Sweep Results ----" << std::endl;
-//     std::cout << std::left << std::setw(14) << sourceName;
-//     std::cout << std::setw(14) << variable << std::endl;
-//     std::cout << "-----------------------------" << std::endl;
-//
-//     for (const auto& pair : dcSweepSolutions) {
-//         double sweepValue = pair.first;
-//         const Eigen::VectorXd& solution = pair.second;
-//         double result = 0.0;
-//
-//         if (varType == 'V') {
-//             int nodeID = getNodeId(varName);
-//             if (nodeID == -1) throw std::runtime_error("Node not found.");
-//             result = isGround(nodeID) ? 0.0 : solution(nodeIdToMnaIndex.at(nodeID));
-//         }
-//         else {
-//             auto comp = getComponent(varName);
-//             if (!comp) {
-//                 std::string errorMsg = "Component " + varName + " not found in circuit.";
-//                 throw std::runtime_error(errorMsg);
-//             }
-//             if (comp->needsCurrentUnknown()) {
-//                 if (componentCurrentIndices.count(varName))
-//                     result = solution(componentCurrentIndices.at(varName));
-//                 else {
-//                     std::cout << "Warning: Could not find current index for '" << varName << "'. Skipping." <<
-//                         std::endl;
-//                     continue;
-//                 }
-//             }
-//             else {
-//                 if (dynamic_cast<Resistor*>(comp.get())) {
-//                     int node1 = comp->node1;
-//                     int node2 = comp->node2;
-//
-//                     double v1 = 0.0;
-//                     if (nodeIdToMnaIndex.count(node1)) {
-//                         int index1 = nodeIdToMnaIndex.at(node1);
-//                         v1 = solution(index1);
-//                     }
-//                     double v2 = 0.0;
-//                     if (nodeIdToMnaIndex.count(node2)) {
-//                         int index2 = nodeIdToMnaIndex.at(node2);
-//                         v2 = solution(index2);
-//                     }
-//                     result = (v1 - v2) / comp->value;
-//                 }
-//                 else if (dynamic_cast<Capacitor*>(comp.get()))
-//                     result = 0.0;
-//                 else {
-//                     std::cout << "Warning: Current printing for this component type ('" << varName <<
-//                         "') is not supported. Skipping." << std::endl;
-//                     continue;
-//                 }
-//             }
-//         }
-//
-//         std::cout << std::left << std::fixed << std::setprecision(6);
-//         std::cout << std::setw(14) << sweepValue;
-//         std::cout << std::setw(14) << result << std::endl;
-//     }
-// }
-
-// std::pair<std::string, std::vector<double>> Circuit::getTransientResults(const std::string& parameter) {
-//     std::vector<double> parameterValues;
-//     std::string plotTitle = "Transient Analysis";
-//
-//     // Parse the parameter string
-//     int nodeToPlot = -1;
-//     std::string componentToPlot;
-//     bool isVoltage = false;
-//     bool isCurrent = false;
-//
-//     // Use a regular expression to handle both "V(2)" and "V(n2)" formats
-//     QRegularExpression voltageRegex(R"(V\((n?)(\d+)\))");
-//     QRegularExpression currentRegex(R"(I\((.+)\))");
-//
-//     QString qParameter = QString::fromStdString(parameter);
-//
-//     QRegularExpressionMatch vMatch = voltageRegex.match(qParameter);
-//     QRegularExpressionMatch cMatch = currentRegex.match(qParameter);
-//
-//     if (vMatch.hasMatch()) {
-//         isVoltage = true;
-//         std::string nodeStr = vMatch.captured(2).toStdString();  // was .cap(2)
-//         try {
-//             nodeToPlot = std::stoi(nodeStr);
-//             plotTitle = "Voltage at Node " + std::to_string(nodeToPlot);
-//         } catch (const std::invalid_argument& e) {
-//             std::cerr << "Invalid node number: " << e.what() << std::endl;
-//             return {plotTitle, parameterValues};
-//         }
-//     }
-//     else if (cMatch.hasMatch()) {
-//         isCurrent = true;
-//         componentToPlot = cMatch.captured(1).toStdString();  // was .cap(1)
-//         plotTitle = "Current through " + componentToPlot;
-//     }
-//     else {
-//         std::cerr << "Invalid parameter format. Use V(node) or I(component)." << std::endl;
-//         return {plotTitle, parameterValues};
-//     }
-//     // if (voltageRegex.exactMatch(qParameter)) {
-//     //     isVoltage = true;
-//     //     std::string nodeStr = voltageRegex.cap(2).toStdString();
-//     //     try {
-//     //         nodeToPlot = std::stoi(nodeStr);
-//     //         plotTitle = "Voltage at Node " + std::to_string(nodeToPlot);
-//     //     } catch (const std::invalid_argument& e) {
-//     //         std::cerr << "Invalid node number: " << e.what() << std::endl;
-//     //         return {plotTitle, parameterValues};
-//     //     }
-//     // } else if (currentRegex.exactMatch(qParameter)) {
-//     //     isCurrent = true;
-//     //     componentToPlot = currentRegex.cap(1).toStdString();
-//     //     plotTitle = "Current through " + componentToPlot;
-//     // } else {
-//     //     std::cerr << "Invalid parameter format. Use V(node) or I(component)." << std::endl;
-//     //     return {plotTitle, parameterValues};
-//     // }
-//
-//     // Map component names to their current indices if needed
-//     std::map<std::string, int> componentCurrentIndices;
-//     int currentIdx = nextNodeId;
-//     for (const auto& comp : components) {
-//         if (comp->needsCurrentUnknown()) {
-//             componentCurrentIndices[comp->getName()] = currentIdx++;
-//         }
-//     }
-//
-//     // Iterate through the stored solutions and extract the values
-//     std::map<int, int> nodeIdToMnaIndex;
-//     int currentMnaIndex = 0;
-//     for (int i = 0; i < nextNodeId; ++i) {
-//         if (idToNodeName.count(i) && !isGround(i)) {
-//             nodeIdToMnaIndex[i] = currentMnaIndex++;
-//         }
-//     }
-//
-//     for (const auto& pair : transientSolutions) {
-//         const Eigen::VectorXd& solution = pair.second;
-//         if (isVoltage) {
-//             if (nodeToPlot == 0) { // Ground node
-//                 parameterValues.push_back(0.0);
-//             } else if (nodeIdToMnaIndex.count(nodeToPlot)) {
-//                 parameterValues.push_back(solution(nodeIdToMnaIndex.at(nodeToPlot)));
-//             } else {
-//                 parameterValues.push_back(0.0); // Node not found
-//             }
-//         } else if (isCurrent) {
-//             if (componentCurrentIndices.count(componentToPlot)) {
-//                 parameterValues.push_back(solution(componentCurrentIndices.at(componentToPlot)));
-//             } else {
-//                 parameterValues.push_back(0.0); // Component not found or has no current
-//             }
-//         }
-//     }
-//
-//     return {plotTitle, parameterValues};
-// }
 // -------------------------------- Output Results --------------------------------

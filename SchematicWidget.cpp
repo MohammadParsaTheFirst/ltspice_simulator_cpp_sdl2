@@ -120,23 +120,33 @@ void SchematicWidget::startOpenConfigureAnalysis() {
                 transientTStop = parseSpiceValue(dialog.getTransientTstop().toStdString());
                 transientTStart = parseSpiceValue(dialog.getTransientTstart().toStdString());
                 transientTStep = parseSpiceValue(dialog.getTransientTstep().toStdString());
-                parameterForAnalysis = dialog.getTransientParameter();
+
+                QString params = dialog.getTransientParameter();
+                std::string paramStr = params.toStdString();
+                std::stringstream ss(paramStr);
+                std::string word;
+                std::vector<std::string> paramsStr;
+                while (ss >> word) {
+                    parametersForAnalysis.push_back(QString::fromStdString(word));
+                    paramsStr.push_back(word);
+                }
 
                 if (transientTStep <= 0)
                     throw std::runtime_error("Step time must be greater than zero.");
                 if (transientTStop <= transientTStart)
                     throw std::runtime_error("Start time should less than stop time.");
-                if (parameterForAnalysis.isEmpty())
+                if (parametersForAnalysis.empty())
                     throw std::runtime_error("No parameters added for analysis.");
 
                 QMessageBox::information(this, "Info", "Transient Analysis variables updated.");
 
                 circuit_ptr->runTransientAnalysis(transientTStop, transientTStart, transientTStep);
-                std::map<double, double> results = circuit_ptr->getTransientResults({parameterForAnalysis.toStdString()});
+                std::map<std::string, std::map<double, double>> results = circuit_ptr->getTransientResults(paramsStr);
 
                 if (!results.empty()) {
                     PlotTransientData *plotWindow = new PlotTransientData(this);
-                    plotWindow->plotData(results, parameterForAnalysis);
+                    for (const auto& pair : results)
+                        plotWindow->addSeries(pair.second, QString::fromStdString(pair.first));
                     plotWindow->show();
                 }
                 else
@@ -146,23 +156,33 @@ void SchematicWidget::startOpenConfigureAnalysis() {
                 acSweepStartFrequency = parseSpiceValue(dialog.getACOmegaStart().toStdString());
                 acSweepStopFrequency = parseSpiceValue(dialog.getACOmegaStop().toStdString());
                 acSweepNPoints = parseSpiceValue(dialog.getACNPoints().toStdString());
-                parameterForAnalysis = dialog.getACParameter();
+
+                QString params = dialog.getTransientParameter();
+                std::string paramStr = params.toStdString();
+                std::stringstream ss(paramStr);
+                std::string word;
+                std::vector<std::string> paramsStr;
+                while (ss >> word) {
+                    parametersForAnalysis.push_back(QString::fromStdString(word));
+                    paramsStr.push_back(word);
+                }
 
                 if (acSweepStartFrequency <= 0 || acSweepStopFrequency <=0)
                     throw std::runtime_error("Frequency must be greater than zero.");
                 if (acSweepStopFrequency <= acSweepStartFrequency)
                     throw std::runtime_error("Start frequency should less than stop frequency.");
-                if (parameterForAnalysis.isEmpty())
+                if (parametersForAnalysis.empty())
                     throw std::runtime_error("No parameters added for analysis.");
 
                 QMessageBox::information(this, "Info", "AC Sweep Analysis variables updated.");
 
                 circuit_ptr->runACAnalysis(acSweepStartFrequency, acSweepStopFrequency, acSweepNPoints);
-                std::map<double, double> results = circuit_ptr->getACSweepResults(parameterForAnalysis.toStdString());
+                std::map<std::string, std::map<double, double>> results = circuit_ptr->getACSweepResults(paramsStr);
 
                 if (!results.empty()) {
                     PlotACData *plotWindow = new PlotACData(this);
-                    plotWindow->plotData(results, parameterForAnalysis);
+                    for (const auto& pair : results)
+                        plotWindow->addSeries(pair.second, QString::fromStdString(pair.first));
                     plotWindow->show();
                 }
                 else

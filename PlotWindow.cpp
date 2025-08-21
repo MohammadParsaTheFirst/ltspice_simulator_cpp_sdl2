@@ -20,11 +20,9 @@ PlotWindow::PlotWindow(QWidget* parent) : QMainWindow(parent) {
     chart->legend()->setVisible(true);
     chartView = new QChartView(chart);
     chartView->setRenderHint(QPainter::Antialiasing);
-    series = new QLineSeries();
-    chart->addSeries(series);
+
     axisY = new QValueAxis();
     chart->addAxis(axisY, Qt::AlignLeft);
-    series->attachAxis(axisY);
 
     mainLayout->addWidget(verticalSlider, 0, 0);
     mainLayout->addWidget(chartView, 0, 1);
@@ -45,55 +43,63 @@ PlotWindow::PlotWindow(QWidget* parent) : QMainWindow(parent) {
     chart->addSeries(cursorSeries);
 
     cursorSeries->attachAxis(axisY);
-    connect(series, &QLineSeries::clicked, this, &PlotWindow::onSeriesClicked);
-    statusBar()->show();
 
+    statusBar()->show();
     setCentralWidget(centralWidget);
 }
 
-void PlotWindow::plotData(const std::map<double, double>& results, const QString& title) {
-    series->clear();
-    series->setName(title);
-    cursorSeries->clear();
-    statusBar()->clearMessage();
+void PlotWindow::clearAllSeries() {
+    chart->removeAllSeries();
+    m_seriesList.clear();
 
-    if (results.empty()) {
-        fullXRange = {0, 0};
-        fullYRange = {0, 0};
-        horizontalScaleChanged(100);
-        verticalScaleChanged(100);
-        return;
+    cursorSeries = new QScatterSeries();
+    cursorSeries->setMarkerShape(QScatterSeries::MarkerShapeCircle);
+    cursorSeries->setMarkerSize(10.0);
+    cursorSeries->setColor(Qt::red);
+    chart->addSeries(cursorSeries);
+    cursorSeries->attachAxis(axisY);
+    auto axisX = chart->axes(Qt::Horizontal).first();
+    if (axisX) {
+        cursorSeries->attachAxis(axisX);
     }
 
-    double yMin = std::numeric_limits<double>::max();
-    double yMax = std::numeric_limits<double>::lowest();
-    bool hasValidData = false;
+    updateFullRange();
+}
 
-    for (const auto& pair : results) {
-        series->append(pair.first, pair.second);
+void PlotWindow::addSeries(const std::map<double, double>& data, const QString& seriesName) {
+    QLineSeries* newSeries = new QLineSeries();
+    newSeries->setName(seriesName);
 
-        if (std::isfinite(pair.second)) {
-            if (pair.second < yMin)
-                yMin = pair.second;
-            if (pair.second > yMax)
-                yMax = pair.second;
-            hasValidData = true;
+    for (const auto& pair : data)
+        newSeries->append(pair.first, pair.second);
+    chart->addSeries(newSeries);
+    m_seriesList.append(newSeries);
+    auto axisX = chart->axes(Qt::Horizontal).first();
+    if (axisX)
+        newSeries->attachAxis(axisX);
+    newSeries->attachAxis(axisY);
+
+    connect(newSeries, &QLineSeries::clicked, this, [this, newSeries](const QPointF& point) {
+        onSeriesClicked(newSeries, point);
+    });
+
+    const auto markers = chart->legend()->markers();
+    for (const auto& marker : markers) {
+        if (marker->series() == newSeries) {
+            connect(marker, &QLegendMarker::clicked, this, &PlotWindow::handleLegendClick);
+            break;
         }
     }
-    if (!hasValidData) {
-        yMin = -1.0;
-        yMax = 1.0;
+
+    updateFullRange();
+}
+
+void PlotWindow::handleLegendClick() {
+    QLegendMarker* marker = qobject_cast<QLegendMarker*>(sender());
+    if (marker) {
+        m_activeSeries = qobject_cast<QLineSeries*>(marker->series());
+        showContextMenu(QCursor::pos());
     }
-
-    fullXRange = {results.begin()->first, results.rbegin()->first};
-    fullYRange = {yMin, yMax};
-
-    horizontalSlider->setValue(100);
-    verticalSlider->setValue(100);
-    horizontalScaleChanged(100);
-    verticalScaleChanged(100);
-
-    axisY->setGridLineVisible(true);
 }
 
 void PlotWindow::finalAxisSetup() {
@@ -125,36 +131,39 @@ void PlotWindow::horizontalScaleChanged(int value) {
 }
 
 void PlotWindow::showContextMenu(const QPoint &pos) {
-    QMenu contextMenu(this);
+    if (!m_activeSeries)
+        return;
 
-    QAction *changeColorAction = contextMenu.addAction("Change Color of Series...");
+    QMenu contextMenu(this);
+    QAction *changeColorAction = contextMenu.addAction("Change Color...");
     connect(changeColorAction, &QAction::triggered, this, &PlotWindow::changeSeriesColor);
 
-    QAction *renameAction = contextMenu.addAction("Rename Series...");
+    QAction *renameAction = contextMenu.addAction("Rename Signal...");
     connect(renameAction, &QAction::triggered, this, &PlotWindow::renameSeries);
 
-    QAction *clearCursor = contextMenu.addAction("Clear Cursor...");
-    connect(clearCursor, &QAction::triggered, this, &PlotWindow::clearCursor);
-
-    contextMenu.exec(chartView->mapToGlobal(pos));
+    contextMenu.exec(pos);
 }
 
 void PlotWindow::changeSeriesColor() {
-    QColor newColor = QColorDialog::getColor(series->color(), this, "Select Signal Color");
+    if (!m_activeSeries)
+        return;
+    QColor newColor = QColorDialog::getColor(m_activeSeries->color(), this, "Select Signal Color");
     if (newColor.isValid())
-        series->setColor(newColor);
+        m_activeSeries->setColor(newColor);
 }
 
 void PlotWindow::renameSeries() {
+    if (!m_activeSeries) return;
     bool ok;
-    QString newName = QInputDialog::getText(this, "Rename Signal", "New signal name:", QLineEdit::Normal, series->name(), &ok);
+    QString newName = QInputDialog::getText(this, "Rename Signal", "New signal name:", QLineEdit::Normal, m_activeSeries->name(), &ok);
     if (ok && !newName.isEmpty())
-        series->setName(newName);
+        m_activeSeries->setName(newName);
 }
 
-void PlotWindow::onSeriesClicked(const QPointF &point) {
+void PlotWindow::onSeriesClicked(QLineSeries* series, const QPointF &point) {
     cursorSeries->clear();
     cursorSeries->append(point);
+    cursorSeries->setColor(series->color());
 
     QString xTitle = chart->axes(Qt::Horizontal).first()->titleText();
     QString yTitle = chart->axes(Qt::Vertical).first()->titleText();
@@ -167,6 +176,39 @@ void PlotWindow::clearCursor() {
     cursorSeries->clear();
 }
 
+void PlotWindow::updateFullRange() {
+    if (m_seriesList.isEmpty()) {
+        fullXRange = {0, 0};
+        fullYRange = {0, 0};
+        return;
+    }
+
+    double overallXMin = std::numeric_limits<double>::max();
+    double overallXMax = std::numeric_limits<double>::lowest();
+    double overallYMin = std::numeric_limits<double>::max();
+    double overallYMax = std::numeric_limits<double>::lowest();
+
+    for (QLineSeries* s : m_seriesList) {
+        for (const QPointF& p : s->points()) {
+            if (p.x() < overallXMin)
+                overallXMin = p.x();
+            if (p.x() > overallXMax)
+                overallXMax = p.x();
+            if (std::isfinite(p.y())) {
+                if (p.y() < overallYMin)
+                    overallYMin = p.y();
+                if (p.y() > overallYMax)
+                    overallYMax = p.y();
+            }
+        }
+    }
+    fullXRange = {overallXMin, overallXMax};
+    fullYRange = {overallYMin, overallYMax};
+
+    horizontalScaleChanged(horizontalSlider->value());
+    verticalScaleChanged(verticalSlider->value());
+}
+
 
 PlotTransientData::PlotTransientData(QWidget *parent) : PlotWindow(parent) {
     setWindowTitle("Transient Analysis Plot");
@@ -174,7 +216,6 @@ PlotTransientData::PlotTransientData(QWidget *parent) : PlotWindow(parent) {
     QValueAxis *axisX = new QValueAxis();
     axisX->setTitleText("Time");
     chart->addAxis(axisX, Qt::AlignBottom);
-    series->attachAxis(axisX);
 
     axisY->setTitleText("Value");
     axisX->setGridLineVisible(true);
@@ -192,7 +233,6 @@ PlotACData::PlotACData(QWidget *parent) : PlotWindow(parent) {
     axisX->setLabelFormat("%g");
     axisX->setBase(10);
     chart->addAxis(axisX, Qt::AlignBottom);
-    series->attachAxis(axisX);
 
     axisY->setTitleText("Magnitude");
     axisX->setGridLineVisible(true);

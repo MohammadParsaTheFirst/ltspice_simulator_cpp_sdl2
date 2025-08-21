@@ -105,7 +105,7 @@ private:
     QPoint wireStartPoint;
 
     // Analysis
-    QString parameterForAnalysis;
+    std::vector<QString> parametersForAnalysis;
     // Transient analysis
     double transientTStop = 0.0;
     double transientTStart = 0.0;

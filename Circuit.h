@@ -54,6 +54,8 @@ public:
     std::vector<std::string> allFiles;
 
     // File Operations
+    void saveProjectToFile(const QString& filePath) const;
+    void loadProjectFromFile(const QString& filePath);
     const std::vector<ComponentGraphicalInfo>& getComponentGraphics() const;
     const std::vector<WireInfo>& getWires() const;
     const std::vector<LabelInfo>& getLabels() const;
@@ -81,14 +83,10 @@ public:
     void processLabelConnections();
 
     // Analysis
-    // void performDCAnalysis(const std::string&, double, double, double);
-    // void performTransientAnalysis(double, double, double);
-    // void printDcSweepResults(const std::string&, const std::string&) const;
-    // std::pair<std::string, std::vector<double>> getTransientResults(const std::string& parameter);
     void runTransientAnalysis(double startTime, double stopTime, double stepTime);
-    std::map<double, double> getTransientResults(const std::vector<std::string>&) const;
+    std::map<std::string, std::map<double, double>> getTransientResults(const std::vector<std::string>&) const;
     void runACAnalysis(double startOmega, double stopOmega, int numPoints);
-    std::map<double, double> getACSweepResults(const std::string& variable) const;
+    std::map<std::string, std::map<double, double>> getACSweepResults(const std::vector<std::string>&) const;
 
     std::map<std::string, SubcircuitDefinition> subcircuitDefinitions;
 private:
