@@ -53,6 +53,7 @@ public slots:
     void startPlacingLabel();
     void startCreateSubcircuit();
     void startPlacingSubcircuit();
+    void startOpeningSubcircuitLibrary();
 
 private slots:
     void handleNodeLibraryItemSelection(const QString& compType);
@@ -72,7 +73,8 @@ private:
     QString findNodeAt(const QPoint& nodePos);
     void placingWireMouseEvent(QMouseEvent* event);
     void placingComponentMouseEvent(QMouseEvent* event);
-    void deletingComponentMouseEvent(QMouseEvent* event);
+    bool deletingComponentMouseEvent(QMouseEvent* event);
+    void deletingGroundMouseEvent(QMouseEvent* event);
     void placingLabelMouseEvent(QMouseEvent* event);
     void placingGroundMouseEvent(QMouseEvent* event);
     void showSimpleValueDialog(QMouseEvent* event);

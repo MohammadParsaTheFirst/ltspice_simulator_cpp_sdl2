@@ -56,19 +56,33 @@ void PlotWindow::plotData(const std::map<double, double>& results, const QString
     series->setName(title);
     cursorSeries->clear();
     statusBar()->clearMessage();
+
     if (results.empty()) {
-        chart->setTitle(title);
+        fullXRange = {0, 0};
+        fullYRange = {0, 0};
+        horizontalScaleChanged(100);
+        verticalScaleChanged(100);
         return;
     }
 
-    double yMin = results.begin()->second;
-    double yMax = results.begin()->second;
+    double yMin = std::numeric_limits<double>::max();
+    double yMax = std::numeric_limits<double>::lowest();
+    bool hasValidData = false;
+
     for (const auto& pair : results) {
         series->append(pair.first, pair.second);
-        if (pair.second < yMin)
-            yMin = pair.second;
-        if (pair.second > yMax)
-            yMax = pair.second;
+
+        if (std::isfinite(pair.second)) {
+            if (pair.second < yMin)
+                yMin = pair.second;
+            if (pair.second > yMax)
+                yMax = pair.second;
+            hasValidData = true;
+        }
+    }
+    if (!hasValidData) {
+        yMin = -1.0;
+        yMax = 1.0;
     }
 
     fullXRange = {results.begin()->first, results.rbegin()->first};
@@ -76,7 +90,6 @@ void PlotWindow::plotData(const std::map<double, double>& results, const QString
 
     horizontalSlider->setValue(100);
     verticalSlider->setValue(100);
-
     horizontalScaleChanged(100);
     verticalScaleChanged(100);
 

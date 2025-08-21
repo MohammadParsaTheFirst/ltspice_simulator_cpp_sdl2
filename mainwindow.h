@@ -48,6 +48,7 @@ private:
     QAction* labelAction;
     QAction* deleteModeAction;
     QAction* createSubcircuitAction;
+    QAction* subcircuitLibraryAction;
     QAction* quitAction;
 
 private slots:

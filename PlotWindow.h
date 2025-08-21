@@ -17,6 +17,7 @@
 #include <QInputDialog>
 #include <QStatusBar>
 #include <map>
+#include <limits>
 
 class PlotWindow : public QMainWindow {
     Q_OBJECT

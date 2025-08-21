@@ -281,6 +281,12 @@ void SchematicWidget::startPlacingSubcircuit() {
     setFocus();
 }
 
+void SchematicWidget::startOpeningSubcircuitLibrary() {
+    SubcircuitLibarary dialog(circuit_ptr, this);
+    connect(&dialog, &SubcircuitLibarary::componentSelected, this, &SchematicWidget::handleNodeLibraryItemSelection);
+    dialog.exec();
+}
+
 void SchematicWidget::keyPressEvent(QKeyEvent* event) {
     if (currentMode != InteractionMode::Normal) {
         if ((event->modifiers() & Qt::ControlModifier) && event->key() == Qt::Key_R) {
@@ -431,7 +437,7 @@ void SchematicWidget::placingComponentMouseEvent(QMouseEvent* event) {
         placingACVoltageSource(event);
 }
 
-void SchematicWidget::deletingComponentMouseEvent(QMouseEvent* event) {
+bool SchematicWidget::deletingComponentMouseEvent(QMouseEvent* event) {
     QPoint clickPos = event->pos();
 
     const auto& componentGraphics = circuit_ptr->getComponentGraphics();
@@ -445,6 +451,20 @@ void SchematicWidget::deletingComponentMouseEvent(QMouseEvent* event) {
 
         if (componentRect.contains(clickPos)) {
             circuit_ptr->deleteComponent(it->name, it->name[0]);
+            return true;
+        }
+    }
+    return false;
+}
+
+void SchematicWidget::deletingGroundMouseEvent(QMouseEvent* event) {
+    QPoint clickPos = event->pos();
+
+    for (const auto& groundInfo : circuit_ptr->getGrounds()) {
+        QRect groundRect(groundInfo.position - QPoint(15, 0), QSize(30, 30));
+        if (groundRect.contains(clickPos)) {
+            QString nodeName = getNodeNameFromPoint(groundInfo.position);
+            circuit_ptr->deleteGround(nodeName.toStdString());
             return;
         }
     }
@@ -466,8 +486,7 @@ void SchematicWidget::placingLabelMouseEvent(QMouseEvent* event) {
 
 void SchematicWidget::placingGroundMouseEvent(QMouseEvent* event) {
     QPoint clickPos = stickToGrid(event->pos());
-    QString nodeName = getNodeNameFromPoint(clickPos);
-
+    QString nodeName = findNodeAt(clickPos);
     circuit_ptr->addGround(nodeName.toStdString(), clickPos);
 }
 
@@ -492,7 +511,10 @@ void SchematicWidget::mousePressEvent(QMouseEvent* event) {
                 placingLabelMouseEvent(event);
             }
             else if (currentMode == InteractionMode::deleteMode) {
-                deletingComponentMouseEvent(event);
+                bool itemDeleted = deletingComponentMouseEvent(event);
+                if (!itemDeleted)
+                    deletingGroundMouseEvent(event);
+                update();
             }
             else if (currentMode == InteractionMode::placingGround) {
                 placingGroundMouseEvent(event);
@@ -633,6 +655,13 @@ QString SchematicWidget::findOrCreateNodeAtPoint(const QPoint& point) {
             return getNodeNameFromPoint(start);
         if (point == end)
             return getNodeNameFromPoint(end);
+    }
+
+    for (const auto& wire : circuit_ptr->getWires()) {
+        QRect wireRect(wire.startPoint, wire.endPoint);
+        wireRect = wireRect.normalized().adjusted(-5, -5, 5, 5);
+        if (wireRect.contains(point))
+            return QString::fromStdString(wire.nodeName);
     }
 
     return getNodeNameFromPoint(point);

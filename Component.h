@@ -109,6 +109,11 @@ private:
 public:
     VoltageSource(const std::string& name, int node1, int node2, SourceType type, double p1, double p2, double p3);
 
+    SourceType getSourceType() const { return sourceType; }
+    double getParam1() const { return param1; }
+    double getParam2() const { return param2; }
+    double getParam3() const { return param3; }
+
     bool needsCurrentUnknown() const override { return true; }
     void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &, const std::map<int, int>& nodeIdToMnaIndex, double, double, int) override;
     void stampMNA_AC(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int>&, const std::map<int, int>&, double, int) override;
@@ -137,6 +142,12 @@ private:
     double param1, param2, param3;
 public:
     CurrentSource(const std::string& n, int n1, int n2, SourceType type, double p1, double p2, double p3);
+
+    SourceType getSourceType() const { return sourceType; }
+    double getParam1() const { return param1; }
+    double getParam2() const { return param2; }
+    double getParam3() const { return param3; }
+
     void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &, const std::map<int, int>& nodeIdToMnaIndex, double, double, int) override;
     void stampMNA_AC(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int>&, const std::map<int, int>&, double, int) override;
     void setValue(double v);
@@ -152,6 +163,11 @@ private:
     double gain;
 public:
     VCVS(const std::string& n, int n1, int n2, int ctrlN1, int ctrlN2, double gain);
+
+    int getCtrlNode1() const {return ctrlNode1;}
+    int getCtrlNode2() const {return ctrlNode2;}
+    double getGain() const {return gain;}
+
     bool needsCurrentUnknown() const override { return true; }
     void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &, const std::map<int, int>& nodeIdToMnaIndex, double, double, int) override;
     void stampMNA_AC(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int>&, const std::map<int, int>&, double, int) override;
@@ -166,6 +182,11 @@ private:
     double gain;
 public:
     VCCS(const std::string& n, int n1, int n2, int ctrlN1, int ctrlN2, double gain);
+
+    int getCtrlNode1() const {return ctrlNode1;}
+    int getCtrlNode2() const {return ctrlNode2;}
+    double getGain() const {return gain;}
+
     void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int>&, const std::map<int, int>& nodeIdToMnaIndex, double, double , int) override;
     void stampMNA_AC(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int>&, const std::map<int, int>&, double, int) override;
     void save_binary(std::ofstream& file) const override;
@@ -180,6 +201,11 @@ private:
     int sourceIndex;
 public:
     CCVS(const std::string& n, int n1, int n2, const std::string& ctrlComp, double gain);
+
+    std::string getCtrlCompName() const {return ctrlCompName;}
+    double getGain() const {return gain;}
+    int getSourceIndex() const {return sourceIndex;}
+
     bool needsCurrentUnknown() const override { return true; }
     void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &, const std::map<int, int>& nodeIdToMnaIndex, double, double, int) override;
     void stampMNA_AC(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int>&, const std::map<int, int>&, double, int) override;
@@ -194,6 +220,10 @@ private:
     double gain;
 public:
     CCCS(const std::string& n, int n1, int n2, const std::string& ctrlComp, double gain);
+
+    std::string getCtrlCompName() const {return ctrlCompName;}
+    double getGain() const {return gain;}
+
     void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &, const std::map<int, int>& nodeIdToMnaIndex, double, double, int) override;
     void stampMNA_AC(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int>&, const std::map<int, int>&, double, int) override;
     void save_binary(std::ofstream& file) const override;

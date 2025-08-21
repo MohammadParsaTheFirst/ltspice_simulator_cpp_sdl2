@@ -54,12 +54,6 @@ public:
     std::vector<std::string> allFiles;
 
     // File Operations
-    void newProject(const std::string& projectName);
-    void saveProject() const;
-    void loadProject(const std::string& projectName);
-    QString getProjectDirectory() const;
-    void saveSubcircuit(const SubcircuitDefinition& subDef) const;
-    void loadSubcircuits();
     const std::vector<ComponentGraphicalInfo>& getComponentGraphics() const;
     const std::vector<WireInfo>& getWires() const;
     const std::vector<LabelInfo>& getLabels() const;
@@ -106,6 +100,7 @@ private:
     void mergeNodes(int sourceNodeI, int destNodeId);
     bool isGround(int nodeId) const;
     void makeComponentFromLine(const std::string& netListLine);
+    std::vector<std::string> generateNetlistFromComponents() const;
 
     // circuit data
     std::vector<std::shared_ptr<Component>> components;

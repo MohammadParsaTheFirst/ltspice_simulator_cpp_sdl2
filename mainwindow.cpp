@@ -35,6 +35,7 @@ void MainWindow::setupWelcomeState() {
     labelAction->setEnabled(false);
     deleteModeAction->setEnabled(false);
     createSubcircuitAction->setEnabled(false);
+    subcircuitLibraryAction->setEnabled(false);
 }
 
 void MainWindow::setupSchematicState() {
@@ -55,7 +56,8 @@ void MainWindow::setupSchematicState() {
     connect(nodeLibraryAction, &QAction::triggered, schematic, &SchematicWidget::startOpenNodeLibrary);
     connect(labelAction, &QAction::triggered, schematic, &SchematicWidget::startPlacingLabel);
     connect(deleteModeAction, &QAction::triggered, schematic, &SchematicWidget::startDeleteComponent);
-    // connect(createSubcircuitAction, &QAction::triggered, schematic, &SchematicWidget::startCreateSubcircuit);
+    connect(createSubcircuitAction, &QAction::triggered, schematic, &SchematicWidget::startCreateSubcircuit);
+    connect(subcircuitLibraryAction, &QAction::triggered, schematic, &SchematicWidget::startOpeningSubcircuitLibrary);
 
     saveAction->setEnabled(true);
     configureAnalysisAction->setEnabled(true);
@@ -70,15 +72,9 @@ void MainWindow::setupSchematicState() {
     nodeLibraryAction->setEnabled(true);
     labelAction->setEnabled(true);
     deleteModeAction->setEnabled(true);
-    // createSubcircuitAction->setEnabled(true);
+    createSubcircuitAction->setEnabled(true);
+    subcircuitLibraryAction->setEnabled(true);
 }
-
-// void MainWindow::openChartWindow()
-// {
-//     ChartWindow *chartWin = new ChartWindow();
-//     chartWin->setAttribute(Qt::WA_DeleteOnClose);
-//     chartWin->show();
-// }
 
 void MainWindow::hShowSettings() {
     QMessageBox::information(this, "Settings", "Buy premium!");
@@ -88,30 +84,30 @@ void MainWindow::hNewSchematic() {
     bool ok;
     QString projectName = QInputDialog::getText(this, "New Project", "Enter project name:", QLineEdit::Normal, "", &ok);
     if (ok && !projectName.isEmpty()) {
-        circuit.newProject(projectName.toStdString());
+        // circuit.newProject(projectName.toStdString());
         setupSchematicState();
         this->setWindowTitle("LTspice - " + projectName);
     }
 }
 
 void MainWindow::hSaveProject() {
-    circuit.saveProject();
+    // circuit.saveProject();
     QMessageBox::information(this, "Save Project", "Project saved.");
 }
 
 void MainWindow::hOpenProject() {
-    QString schematicsDir = circuit.getProjectDirectory();
-    QString projectPath = QFileDialog::getExistingDirectory(this, "Open Project", schematicsDir);
-
-    if (!projectPath.isEmpty()) {
-        QDir dir(projectPath);
-        QString projectName = dir.dirName();
-        circuit.loadProject(projectName.toStdString());
-        if (!schematic)
-            setupSchematicState();
-        schematic->reloadFromCircuit();
-        this->setWindowTitle("LTspice - " + projectName);
-    }
+    // // QString schematicsDir = circuit.getProjectDirectory();
+    // QString projectPath = QFileDialog::getExistingDirectory(this, "Open Project", schematicsDir);
+    //
+    // if (!projectPath.isEmpty()) {
+    //     QDir dir(projectPath);
+    //     QString projectName = dir.dirName();
+    //     // circuit.loadProject(projectName.toStdString());
+    //     if (!schematic)
+    //         setupSchematicState();
+    //     schematic->reloadFromCircuit();
+    //     this->setWindowTitle("LTspice - " + projectName);
+    // }
 }
 
 void MainWindow::starterWindow() {
@@ -145,6 +141,7 @@ void MainWindow::initializeActions() {
     labelAction = new QAction(QIcon(":/icon/icons/text.png"), "Text (T)", this);
     deleteModeAction = new QAction(QIcon(":/icon/icons/deleteMode.png"), "Delete Mode (Backspace or Del)", this);
     createSubcircuitAction = new QAction("Create Subcircuit", this);
+    subcircuitLibraryAction = new QAction("Open Subcircuit Library", this);
     quitAction = new QAction("Exit", this);
 }
 
@@ -170,7 +167,8 @@ void MainWindow::implementMenuBar() {
     edit->addAction(createSubcircuitAction);
 
     QMenu* hierarchy = menuBar()->addMenu(tr("&Hierarchy"));
-    // hierarchy->addAction(createSubcircuitAction);
+    hierarchy->addAction(createSubcircuitAction);
+    hierarchy->addAction(subcircuitLibraryAction);
 
     QMenu* view = menuBar()->addMenu(tr("&View"));
 
