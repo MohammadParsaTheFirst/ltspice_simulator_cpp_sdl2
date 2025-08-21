@@ -79,7 +79,7 @@ private:
     void placingGroundMouseEvent(QMouseEvent* event);
     void showSimpleValueDialog(QMouseEvent* event);
     void showSourceValueDialog(QMouseEvent* event);
-    void placingACVoltageSource(QMouseEvent* event);
+    void placingOtherComp(QMouseEvent* event);
     void placingSubcircuitMouseEvent(QMouseEvent* event);
     void drawGridDots(QPainter& painter);
     void drawComponents(QPainter& painter);

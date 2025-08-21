@@ -56,6 +56,10 @@ public:
     // File Operations
     void saveProjectToFile(const QString& filePath) const;
     void loadProjectFromFile(const QString& filePath);
+    void newProject(const std::string& projectName);
+    void saveProject() const;
+    void loadProject(const std::string& projectName);
+    QString getProjectDirectory() const;
     const std::vector<ComponentGraphicalInfo>& getComponentGraphics() const;
     const std::vector<WireInfo>& getWires() const;
     const std::vector<LabelInfo>& getLabels() const;
@@ -77,10 +81,13 @@ public:
     std::shared_ptr<Component> getComponent(const std::string& name) const;
     int getNodeId(const std::string&, bool create = true);
     int getNodeId(const std::string&) const;
+    QString getCurrentProjectName() const;
+    const std::map<int, std::string>& getIdToNodeName() const;
     void connectNodes(const std::string&, const std::string&);
     void createSubcircuitDefinition(const std::string&, const std::string&, const std::string&);
     void addLabel(const QPoint&, const std::string&, const std::string&);
     void processLabelConnections();
+    const std::vector<std::shared_ptr<Component>>& getComponentsVector() const { return components; }
 
     // Analysis
     void runTransientAnalysis(double startTime, double stopTime, double stepTime);

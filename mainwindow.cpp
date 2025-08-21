@@ -13,7 +13,7 @@ MainWindow::~MainWindow() {
 }
 
 void MainWindow::setupWelcomeState() {
-    this->setWindowTitle("LTspice Simulator");
+    this->setWindowTitle("ParsaSpice Simulator");
 
     QLabel* backgroundLabel = new QLabel(this);
     QPixmap backgroundImage(":/background.jpg");
@@ -39,7 +39,7 @@ void MainWindow::setupWelcomeState() {
 }
 
 void MainWindow::setupSchematicState() {
-    this->setWindowTitle("LTspice - Draft.asc");
+    this->setWindowTitle("ParsaSpice - Draft.asc");
     schematic = new SchematicWidget(&circuit, this);
     setCentralWidget(schematic);
 
@@ -84,30 +84,44 @@ void MainWindow::hNewSchematic() {
     bool ok;
     QString projectName = QInputDialog::getText(this, "New Project", "Enter project name:", QLineEdit::Normal, "", &ok);
     if (ok && !projectName.isEmpty()) {
-        // circuit.newProject(projectName.toStdString());
+        circuit.newProject(projectName.toStdString());
         setupSchematicState();
-        this->setWindowTitle("LTspice - " + projectName);
+        this->setWindowTitle("ParsaSpice - " + projectName);
     }
 }
 
 void MainWindow::hSaveProject() {
-    // circuit.saveProject();
-    QMessageBox::information(this, "Save Project", "Project saved.");
+    QString defaultPath = circuit.getProjectDirectory() + QDir::separator() + circuit.getCurrentProjectName() + ".bin";
+    QString filePath = QFileDialog::getSaveFileName(this, "Save Project", defaultPath, "Binary Projects (*.bin)");
+    if (!filePath.isEmpty()) {
+        // Ensure the file has .bin extension
+        if (!filePath.endsWith(".bin", Qt::CaseInsensitive)) {
+            filePath += ".bin";
+        }
+        circuit.saveProjectToFile(filePath);
+        QMessageBox::information(this, "Save Project", "Project saved successfully.");
+    }
 }
 
 void MainWindow::hOpenProject() {
-    // // QString schematicsDir = circuit.getProjectDirectory();
-    // QString projectPath = QFileDialog::getExistingDirectory(this, "Open Project", schematicsDir);
-    //
-    // if (!projectPath.isEmpty()) {
-    //     QDir dir(projectPath);
-    //     QString projectName = dir.dirName();
-    //     // circuit.loadProject(projectName.toStdString());
-    //     if (!schematic)
-    //         setupSchematicState();
-    //     schematic->reloadFromCircuit();
-    //     this->setWindowTitle("LTspice - " + projectName);
-    // }
+    QString filePath = QFileDialog::getOpenFileName(this, "Open Project", circuit.getProjectDirectory(), "Binary Projects (*.bin)");
+    if (!filePath.isEmpty()) {
+        try {
+            circuit.loadProjectFromFile(filePath);
+            if (!schematic) {
+                setupSchematicState();
+            } else {
+                schematic->reloadFromCircuit();
+            }
+            // Extract project name from file path
+            QFileInfo fileInfo(filePath);
+            QString projectName = fileInfo.baseName();
+            this->setWindowTitle("LTspice - " + projectName);
+            QMessageBox::information(this, "Open Project", "Project loaded successfully.");
+        } catch (const std::exception& e) {
+            QMessageBox::warning(this, "Error", QString("Failed to load project: %1").arg(e.what()));
+        }
+    }
 }
 
 void MainWindow::starterWindow() {

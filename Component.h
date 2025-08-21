@@ -2,11 +2,13 @@
 #define COMPONENT_H
 
 #include <Eigen/Dense>
+#include <QString>
 #include <string>
 #include <iostream>
 #include <memory>
 #include <map>
 #include <fstream>
+#include <qdatastream.h>
 
 class Circuit;
 
@@ -44,8 +46,8 @@ public:
     virtual std::string getName() const { return name; }
     virtual bool needsCurrentUnknown() const { return false; }
 
-    virtual void save_binary(std::ofstream& file) const;
-    virtual void load_binary(std::ifstream& file);
+    virtual void save_binary(QDataStream& out) const;
+    virtual void load_binary(QDataStream& in);
 };
 
 class Resistor : public Component {
@@ -53,6 +55,9 @@ public:
     Resistor(const std::string& n, int n1, int n2, double v);
     void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &,const std::map<int, int>& nodeIdToMnaIndex,  double, double, int) override;
     void stampMNA_AC(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int>&, const std::map<int, int>&, double, int) override;
+
+    void save_binary(QDataStream &out) const override;
+    void load_binary(QDataStream &in) override;
 };
 
 class Capacitor : public Component {
@@ -64,8 +69,9 @@ public:
     void reset() override;
     void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &, const std::map<int, int>& nodeIdToMnaIndex, double, double, int) override;
     void stampMNA_AC(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int>&, const std::map<int, int>&, double, int) override;
-    void save_binary(std::ofstream& file) const override;
-    void load_binary(std::ifstream& file) override;
+
+    void save_binary(QDataStream &out) const override;
+    void load_binary(QDataStream &in) override;
 };
 
 class Inductor : public Component {
@@ -78,8 +84,9 @@ public:
     void reset() override;
     void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &,const std::map<int, int>& nodeIdToMnaIndex,  double, double, int) override;
     void stampMNA_AC(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int>&, const std::map<int, int>&, double, int) override;
-    void save_binary(std::ofstream& file) const override;
-    void load_binary(std::ifstream& file) override;
+
+    void save_binary(QDataStream &out) const override;
+    void load_binary(QDataStream &in) override;
 };
 
 class Diode : public Component {
@@ -96,8 +103,9 @@ public:
     void stampMNA_AC(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int>&, const std::map<int, int>&, double, int) override;
     void setPreviousVoltage(double v) { V_prev = v; }
     void reset() override;
-    void save_binary(std::ofstream& file) const override;
-    void load_binary(std::ifstream& file) override;
+
+    void save_binary(QDataStream &out) const override;
+    void load_binary(QDataStream &in) override;
 };
 
 class VoltageSource : public Component {
@@ -119,8 +127,9 @@ public:
     void stampMNA_AC(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int>&, const std::map<int, int>&, double, int) override;
     void setValue(double v);
     double getCurrentValue(double time) const;
-    void save_binary(std::ofstream& file) const override;
-    void load_binary(std::ifstream& file) override;
+
+    void save_binary(QDataStream &out) const override;
+    void load_binary(QDataStream &in) override;
 };
 
 // AC voltage source
@@ -152,8 +161,9 @@ public:
     void stampMNA_AC(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int>&, const std::map<int, int>&, double, int) override;
     void setValue(double v);
     double getCurrentValue(double time) const;
-    void save_binary(std::ofstream& file) const override;
-    void load_binary(std::ifstream& file) override;
+
+    void save_binary(QDataStream &out) const override;
+    void load_binary(QDataStream &in) override;
 };
 
 // VCVS - Type E
@@ -171,8 +181,9 @@ public:
     bool needsCurrentUnknown() const override { return true; }
     void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &, const std::map<int, int>& nodeIdToMnaIndex, double, double, int) override;
     void stampMNA_AC(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int>&, const std::map<int, int>&, double, int) override;
-    void save_binary(std::ofstream& file) const override;
-    void load_binary(std::ifstream& file) override;
+
+    void save_binary(QDataStream &out) const override;
+    void load_binary(QDataStream &in) override;
 };
 
 // VCCS - Type G
@@ -189,8 +200,9 @@ public:
 
     void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int>&, const std::map<int, int>& nodeIdToMnaIndex, double, double , int) override;
     void stampMNA_AC(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int>&, const std::map<int, int>&, double, int) override;
-    void save_binary(std::ofstream& file) const override;
-    void load_binary(std::ifstream& file) override;
+
+    void save_binary(QDataStream &out) const override;
+    void load_binary(QDataStream &in) override;
 };
 
 // CCVS - Type H
@@ -209,8 +221,9 @@ public:
     bool needsCurrentUnknown() const override { return true; }
     void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &, const std::map<int, int>& nodeIdToMnaIndex, double, double, int) override;
     void stampMNA_AC(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int>&, const std::map<int, int>&, double, int) override;
-    void save_binary(std::ofstream& file) const override;
-    void load_binary(std::ifstream& file) override;
+
+    void save_binary(QDataStream &out) const override;
+    void load_binary(QDataStream &in) override;
 };
 
 // CCCS - Type F
@@ -226,8 +239,9 @@ public:
 
     void stampMNA(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int> &, const std::map<int, int>& nodeIdToMnaIndex, double, double, int) override;
     void stampMNA_AC(Eigen::MatrixXd&, Eigen::VectorXd&, const std::map<std::string, int>&, const std::map<int, int>&, double, int) override;
-    void save_binary(std::ofstream& file) const override;
-    void load_binary(std::ifstream& file) override;
+
+    void save_binary(QDataStream &out) const override;
+    void load_binary(QDataStream &in) override;
 };
 // -------------------------------- Component Class and Its Implementations --------------------------------
 
