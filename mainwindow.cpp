@@ -1,18 +1,81 @@
 #include "mainwindow.h"
+#include <QDebug>
 
-MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
+MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWindow), circuit() {
+    schematic = new SchematicWidget(&circuit, this);
+    setCentralWidget(schematic);
+    schematic->setMinimumSize(800, 600);
+
+    qDebug() << "MainWindow constructor: circuit=" << &circuit
+             << " schematic=" << schematic
+             << " schematic->circuit_ptr=" << (schematic ? schematic->getCircuitPtr() : nullptr);
+
     ui->setupUi(this);
+    qDebug() << "After ui->setupUi: schematic=" << schematic
+             << " centralWidget=" << centralWidget()
+             << " schematic->circuit_ptr=" << (schematic ? schematic->getCircuitPtr() : nullptr);
+
+    if (centralWidget() != schematic) {
+        qDebug() << "WARNING: ui->setupUi changed centralWidget to" << centralWidget();
+        delete centralWidget(); // Delete the default widget to avoid memory leak
+        setCentralWidget(schematic); // Restore schematic
+        schematic->show();
+    }
+
     this->setWindowTitle("LTspice");
     this->resize(900, 600);
+
+    // Temporarily skip to avoid crash
     starterWindow();
     setupWelcomeState();
+    qDebug() << "MainWindow constructor end: circuit=" << &circuit
+             << " schematic->circuit_ptr=" << (schematic ? schematic->getCircuitPtr() : nullptr);
 }
+// MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
+//     // Initialize schematic first
+//     schematic = new SchematicWidget(&circuit, this);
+//     setCentralWidget(schematic);
+//
+//     schematic->setMinimumSize(800, 600);
+//     qDebug() << "MainWindow constructor: circuit=" << &circuit
+//              << " schematic=" << schematic
+//              << " schematic->circuit_ptr=" << (schematic ? schematic->getCircuitPtr() : nullptr);
+//
+//     // Debug after initialization
+//     qDebug() << "MainWindow constructor: circuit=" << &circuit
+//              << " schematic=" << schematic
+//              << " schematic->circuit_ptr=" << (schematic ? schematic->getCircuitPtr() : nullptr);
+//
+//     ui->setupUi(this);
+//     qDebug() << "After ui->setupUi: schematic=" << schematic
+//              << " schematic->circuit_ptr=" << (schematic ? schematic->getCircuitPtr() : nullptr);
+//
+//     this->setWindowTitle("LTspice");
+//     this->resize(900, 600);
+//     starterWindow();
+//     setupWelcomeState();
+//
+//
+//     qDebug() << "MainWindow constructor: circuit=" << &circuit << " schematic->circuit_ptr=" << schematic->getCircuitPtr();
+// }
 
 MainWindow::~MainWindow() {
     delete ui;
 }
 
 void MainWindow::setupWelcomeState() {
+    qDebug() << "setupWelcomeState: Start, schematic=" << schematic
+             << " schematic->circuit_ptr=" << (schematic ? schematic->getCircuitPtr() : nullptr);
+
+    // Avoid: setCentralWidget(new QWidget);
+    // Instead, show schematic if hidden
+    if (schematic) {
+        schematic->show();
+        schematic->setCircuitPtr(&circuit);
+    }
+
+    qDebug() << "setupWelcomeState: End, schematic->circuit_ptr=" << (schematic ? schematic->getCircuitPtr() : nullptr);
+
     this->setWindowTitle("LTspice Simulator");
 
     QLabel* backgroundLabel = new QLabel(this);
@@ -35,6 +98,7 @@ void MainWindow::setupWelcomeState() {
     labelAction->setEnabled(false);
     deleteModeAction->setEnabled(false);
     createSubcircuitAction->setEnabled(false);
+
 }
 
 void MainWindow::setupSchematicState() {
@@ -99,6 +163,73 @@ void MainWindow::hSaveProject() {
     QMessageBox::information(this, "Save Project", "Project saved.");
 }
 
+// void MainWindow::hOpenProject() {
+//     QString schematicsDir = circuit.getProjectDirectory();
+//     QString projectPath = QFileDialog::getExistingDirectory(this, "Open Project", schematicsDir);
+//
+//     if (!projectPath.isEmpty()) {
+//         QDir dir(projectPath);
+//         QString projectName = dir.dirName();
+//         circuit.loadProject(projectName.toStdString());
+//         if (!schematic) {
+//             schematic = new SchematicWidget(&circuit, this);
+//             setCentralWidget(schematic);
+//             schematic->setMinimumSize(800, 600); // Ensure reasonable size
+//             qDebug() << "Created new SchematicWidget with circuit_ptr";
+//         } else {
+//             schematic->setCircuitPtr(&circuit); // Ensure circuit_ptr is set
+//             qDebug() << "Updated existing SchematicWidget with circuit_ptr";
+//         }
+//         schematic->reloadFromCircuit();
+//         schematic->update(); // Force repaint
+//         this->setWindowTitle("LTspice - " + projectName);
+//         qDebug() << "After open: Components=" << circuit.getComponentGraphics().size()
+//                  << " Wires=" << circuit.getWires().size()
+//                  << " Grounds=" << circuit.getGrounds().size()
+//                  << " Labels=" << circuit.getLabels().size();
+//     }
+// }
+// -------------------------------------
+// void MainWindow::hOpenProject() {
+//     QString schematicsDir = circuit.getProjectDirectory();
+//     QString projectPath = QFileDialog::getExistingDirectory(this, "Open Project", schematicsDir);
+//
+//     if (!projectPath.isEmpty()) {
+//         QDir dir(projectPath);
+//         QString projectName = dir.dirName();
+//         qDebug() << "hOpenProject: Before loadProject: circuit=" << &circuit
+//                  << " schematic=" << schematic
+//                  << " schematic->circuit_ptr=" << (schematic ? schematic->getCircuitPtr() : nullptr);
+//
+//         circuit.loadProject(projectName.toStdString());
+//
+//         if (!schematic) {
+//             schematic = new SchematicWidget(&circuit, this);
+//             setCentralWidget(schematic);
+//             schematic->setMinimumSize(800, 600);
+//             qDebug() << "Created new SchematicWidget: circuit_ptr=" << schematic->getCircuitPtr();
+//         } else {
+//             schematic->setCircuitPtr(&circuit);
+//             qDebug() << "Updated SchematicWidget: circuit_ptr=" << schematic->getCircuitPtr();
+//         }
+//
+//         qDebug() << "Before reloadFromCircuit: Components=" << circuit.getComponentGraphics().size()
+//                  << " Wires=" << circuit.getWires().size()
+//                  << " Grounds=" << circuit.getGrounds().size()
+//                  << " Labels=" << circuit.getLabels().size();
+//
+//         if (schematic) {
+//             schematic->reloadFromCircuit();
+//             qDebug() << "After reloadFromCircuit: circuit_ptr=" << schematic->getCircuitPtr();
+//             schematic->update();
+//             qDebug() << "After update";
+//         }
+//
+//         this->setWindowTitle("LTspice - " + projectName);
+//         qDebug() << "After hOpenProject: circuit=" << &circuit
+//                  << " schematic->circuit_ptr=" << (schematic ? schematic->getCircuitPtr() : nullptr);
+//     }
+// }
 void MainWindow::hOpenProject() {
     QString schematicsDir = circuit.getProjectDirectory();
     QString projectPath = QFileDialog::getExistingDirectory(this, "Open Project", schematicsDir);
@@ -106,15 +237,59 @@ void MainWindow::hOpenProject() {
     if (!projectPath.isEmpty()) {
         QDir dir(projectPath);
         QString projectName = dir.dirName();
+        qDebug() << "hOpenProject: Before loadProject: circuit=" << &circuit
+                 << " schematic=" << schematic
+                 << " schematic->circuit_ptr=" << (schematic ? schematic->getCircuitPtr() : nullptr);
+
         circuit.loadProject(projectName.toStdString());
-        if (!schematic)
-            setupSchematicState();
-        schematic->reloadFromCircuit();
+
+        if (!schematic) {
+            schematic = new SchematicWidget(&circuit, this);
+            setCentralWidget(schematic);
+            schematic->setMinimumSize(800, 600);
+            qDebug() << "Created new SchematicWidget: circuit_ptr=" << schematic->getCircuitPtr();
+        } else {
+            schematic->setCircuitPtr(&circuit);
+            schematic->show();
+            qDebug() << "Updated SchematicWidget: circuit_ptr=" << schematic->getCircuitPtr();
+        }
+
+        qDebug() << "Before reloadFromCircuit: Components=" << circuit.getComponentGraphics().size()
+                 << " Wires=" << circuit.getWires().size()
+                 << " Grounds=" << circuit.getGrounds().size()
+                 << " Labels=" << circuit.getLabels().size();
+
+        if (schematic) {
+            schematic->reloadFromCircuit();
+            qDebug() << "After reloadFromCircuit: circuit_ptr=" << schematic->getCircuitPtr();
+            schematic->update();
+            qDebug() << "After update";
+        }
+
         this->setWindowTitle("LTspice - " + projectName);
+        qDebug() << "After hOpenProject: circuit=" << &circuit
+                 << " schematic->circuit_ptr=" << (schematic ? schematic->getCircuitPtr() : nullptr);
     }
 }
+// void MainWindow::hOpenProject() {
+//     QString schematicsDir = circuit.getProjectDirectory();
+//     QString projectPath = QFileDialog::getExistingDirectory(this, "Open Project", schematicsDir);
+//
+//     if (!projectPath.isEmpty()) {
+//         QDir dir(projectPath);
+//         QString projectName = dir.dirName();
+//         circuit.loadProject(projectName.toStdString());
+//         if (!schematic)
+//             setupSchematicState();
+//         schematic->reloadFromCircuit();
+//         this->setWindowTitle("LTspice - " + projectName);
+//     }
+// }
 
 void MainWindow::starterWindow() {
+    qDebug() << "starterWindow: Start, schematic=" << schematic
+             << " schematic->circuit_ptr=" << (schematic ? schematic->getCircuitPtr() : nullptr);
+    // Avoid resetting schematic or circuit_ptr
     initializeActions();
 
     connect(newSchematicAction, &QAction::triggered, this, &MainWindow::hNewSchematic);
@@ -125,6 +300,7 @@ void MainWindow::starterWindow() {
     shortcutRunner();
     implementMenuBar();
     implementToolBar();
+    qDebug() << "starterWindow: End";
 }
 
 void MainWindow::initializeActions() {

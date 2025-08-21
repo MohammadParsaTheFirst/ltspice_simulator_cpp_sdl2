@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(ltspice_simulator_cpp_sdl2)
+project(ltspice_simulator_cpp_qt6)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_AUTOMOC ON)
@@ -7,8 +7,12 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-set(CMAKE_PREFIX_PATH "C:/Qt1/6.9.1/mingw_64")
-find_package(Qt6 REQUIRED COMPONENTS Widgets Charts)
+set(CMAKE_PREFIX_PATH "C:/Qt/6.9.1/mingw_64/lib/cmake")
+
+find_package(Qt6 REQUIRED COMPONENTS Widgets Charts Network)  # <-- add Network
+
+# Include Eigen
+include_directories("C:/Users/USER/CLionProjects/proj_terminal/eigen-3.4.0")
 
 # Source files
 set(SOURCES
@@ -24,10 +28,16 @@ set(SOURCES
 )
 
 # Build executable
-add_executable(LTspice ${SOURCES})
+add_executable(ltspice_simulator_cpp_qt6 ${SOURCES})
 
-target_include_directories(LTspice PUBLIC
-        ${CMAKE_CURRENT_SOURCE_DIR}/eigen-3.4.0
+target_link_libraries(ltspice_simulator_cpp_qt6
+        Qt6::Widgets
+        Qt6::Charts
+        Qt6::Network   # <-- add Network
 )
 
-target_link_libraries(LTspice PRIVATE Qt6::Widgets Qt6::Charts)
+# Automatically run windeployqt after build
+add_custom_command(TARGET ltspice_simulator_cpp_qt6 POST_BUILD
+        COMMAND "C:\\Qt\\6.9.1\\mingw_64\\bin\\windeployqt.exe" "$<TARGET_FILE:ltspice_simulator_cpp_qt6>"
+        COMMENT "Running windeployqt to deploy Qt dependencies..."
+)

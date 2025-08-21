@@ -1,0 +1,37 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/ltspice_simulator_cpp_qt6_autogen.dir/AutogenUsed.txt"
+  "CMakeFiles/ltspice_simulator_cpp_qt6_autogen.dir/ParseCache.txt"
+  "ltspice_simulator_cpp_qt6_autogen"
+  "CMakeFiles/ltspice_simulator_cpp_qt6.dir/Circuit.cpp.obj"
+  "CMakeFiles/ltspice_simulator_cpp_qt6.dir/Circuit.cpp.obj.d"
+  "CMakeFiles/ltspice_simulator_cpp_qt6.dir/Component.cpp.obj"
+  "CMakeFiles/ltspice_simulator_cpp_qt6.dir/Component.cpp.obj.d"
+  "CMakeFiles/ltspice_simulator_cpp_qt6.dir/ComponentFactory.cpp.obj"
+  "CMakeFiles/ltspice_simulator_cpp_qt6.dir/ComponentFactory.cpp.obj.d"
+  "CMakeFiles/ltspice_simulator_cpp_qt6.dir/Dialogs.cpp.obj"
+  "CMakeFiles/ltspice_simulator_cpp_qt6.dir/Dialogs.cpp.obj.d"
+  "CMakeFiles/ltspice_simulator_cpp_qt6.dir/PlotWindow.cpp.obj"
+  "CMakeFiles/ltspice_simulator_cpp_qt6.dir/PlotWindow.cpp.obj.d"
+  "CMakeFiles/ltspice_simulator_cpp_qt6.dir/SchematicWidget.cpp.obj"
+  "CMakeFiles/ltspice_simulator_cpp_qt6.dir/SchematicWidget.cpp.obj.d"
+  "CMakeFiles/ltspice_simulator_cpp_qt6.dir/ltspice_simulator_cpp_qt6_autogen/EWIEGA46WW/qrc_resources.cpp.obj"
+  "CMakeFiles/ltspice_simulator_cpp_qt6.dir/ltspice_simulator_cpp_qt6_autogen/EWIEGA46WW/qrc_resources.cpp.obj.d"
+  "CMakeFiles/ltspice_simulator_cpp_qt6.dir/ltspice_simulator_cpp_qt6_autogen/mocs_compilation.cpp.obj"
+  "CMakeFiles/ltspice_simulator_cpp_qt6.dir/ltspice_simulator_cpp_qt6_autogen/mocs_compilation.cpp.obj.d"
+  "CMakeFiles/ltspice_simulator_cpp_qt6.dir/main.cpp.obj"
+  "CMakeFiles/ltspice_simulator_cpp_qt6.dir/main.cpp.obj.d"
+  "CMakeFiles/ltspice_simulator_cpp_qt6.dir/mainwindow.cpp.obj"
+  "CMakeFiles/ltspice_simulator_cpp_qt6.dir/mainwindow.cpp.obj.d"
+  "libltspice_simulator_cpp_qt6.dll.a"
+  "ltspice_simulator_cpp_qt6.exe"
+  "ltspice_simulator_cpp_qt6.exe.manifest"
+  "ltspice_simulator_cpp_qt6.pdb"
+  "ltspice_simulator_cpp_qt6_autogen/EWIEGA46WW/qrc_resources.cpp"
+  "ltspice_simulator_cpp_qt6_autogen/mocs_compilation.cpp"
+  "ltspice_simulator_cpp_qt6_autogen/timestamp"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/ltspice_simulator_cpp_qt6.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

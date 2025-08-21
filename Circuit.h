@@ -83,7 +83,8 @@ public:
     int getNodeId(const std::string&) const;
     void connectNodes(const std::string&, const std::string&);
     void createSubcircuitDefinition(const std::string&, const std::string&, const std::string&);
-    void addLabel(const std::string&, const std::string&);
+    //void addLabel(const std::string&, const std::string&);
+    void addLabel(const std::string& labelName, const std::string& nodeName, const QPoint& position);
 
     // Analysis
     // void performDCAnalysis(const std::string&, double, double, double);
@@ -96,7 +97,19 @@ public:
     std::map<double, double> getACSweepResults(const std::string& variable) const;
 
     std::map<std::string, SubcircuitDefinition> subcircuitDefinitions;
+
+    void debugPrintGraphics() const;
 private:
+    /* ------------------------------------------------------------------------------------------- */
+    // loggings
+    std::vector<std::string> pendingActions;
+    QString projectLogPath;  // Path to project.log.txt
+
+    //void parseAction(const std::string& line);
+    void parseAction(const std::string& line, std::ifstream& is);
+    std::string formatValue(double value) const;  // Helper to format doubles without trailing zeros
+    /* ------------------------------------------------------------------------------------------- */
+
     void buildMNAMatrix(double, double);
     void buildMNAMatrix_AC(double omega);
     Eigen::VectorXd solveMNASystem();

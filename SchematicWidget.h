@@ -35,6 +35,8 @@ class SchematicWidget : public QWidget {
 public:
     SchematicWidget(Circuit* circuit, QWidget* parent = Q_NULLPTR);
     void reloadFromCircuit();
+    void setCircuitPtr(Circuit* ptr) { circuit_ptr = ptr; }
+    Circuit* getCircuitPtr() const { return circuit_ptr; }
 
 public slots:
     void startOpenConfigureAnalysis();
