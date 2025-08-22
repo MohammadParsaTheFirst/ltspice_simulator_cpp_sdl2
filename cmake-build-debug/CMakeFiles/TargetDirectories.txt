@@ -1,5 +1,5 @@
-C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/cmake-build-debug/CMakeFiles/ParsaSpice.dir
-C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/cmake-build-debug/CMakeFiles/ParsaSpice_autogen_timestamp_deps.dir
-C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/cmake-build-debug/CMakeFiles/ParsaSpice_autogen.dir
+C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cmake-build-debug/CMakeFiles/ParsaSpice.dir
+C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cmake-build-debug/CMakeFiles/ParsaSpice_autogen_timestamp_deps.dir
+C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cmake-build-debug/CMakeFiles/ParsaSpice_autogen.dir

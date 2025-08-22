@@ -1,5 +1,5 @@
-C:/Users/parsa/Documents/university/Programming\ and\ linux/403101518-403101683.0/cmake-build-debug/ParsaSpice_autogen/EWIEGA46WW/moc_PlotWindow.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/403101518-403101683.0/PlotWindow.h \
-  C:/Users/parsa/Documents/university/Programming\ and\ linux/403101518-403101683.0/cmake-build-debug/ParsaSpice_autogen/moc_predefs.h \
+C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cmake-build-debug/ParsaSpice_autogen/EWIEGA46WW/moc_PlotWindow.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/PlotWindow.h \
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/cmake-build-debug/ParsaSpice_autogen/moc_predefs.h \
   C:/Qt1/6.9.1/mingw_64/include/QtCharts/QAbstractAxis \
   C:/Qt1/6.9.1/mingw_64/include/QtCharts/QAbstractSeries \
   C:/Qt1/6.9.1/mingw_64/include/QtCharts/QChart \

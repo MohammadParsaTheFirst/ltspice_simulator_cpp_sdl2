@@ -52,10 +52,10 @@ RM = "C:\Program Files\JetBrains\CLion 2024.2.1\bin\cmake\win\x64\bin\cmake.exe"
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0"
+CMAKE_SOURCE_DIR = "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\cmake-build-debug"
+CMAKE_BINARY_DIR = "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/ParsaSpice.dir/depend.make
@@ -71,185 +71,185 @@ include CMakeFiles/ParsaSpice.dir/flags.make
 ParsaSpice_autogen/timestamp: C:/Qt1/6.9.1/mingw_64/bin/moc.exe
 ParsaSpice_autogen/timestamp: C:/Qt1/6.9.1/mingw_64/bin/uic.exe
 ParsaSpice_autogen/timestamp: CMakeFiles/ParsaSpice.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target ParsaSpice"
-	"C:\Program Files\JetBrains\CLion 2024.2.1\bin\cmake\win\x64\bin\cmake.exe" -E cmake_autogen "C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/cmake-build-debug/CMakeFiles/ParsaSpice_autogen.dir/AutogenInfo.json" Debug
-	"C:\Program Files\JetBrains\CLion 2024.2.1\bin\cmake\win\x64\bin\cmake.exe" -E touch "C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/cmake-build-debug/ParsaSpice_autogen/timestamp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target ParsaSpice"
+	"C:\Program Files\JetBrains\CLion 2024.2.1\bin\cmake\win\x64\bin\cmake.exe" -E cmake_autogen "C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cmake-build-debug/CMakeFiles/ParsaSpice_autogen.dir/AutogenInfo.json" Debug
+	"C:\Program Files\JetBrains\CLion 2024.2.1\bin\cmake\win\x64\bin\cmake.exe" -E touch "C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cmake-build-debug/ParsaSpice_autogen/timestamp"
 
-ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/403101518-403101683.0/resources.qrc
+ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/resources.qrc
 ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp: CMakeFiles/ParsaSpice_autogen.dir/AutoRcc_resources_EWIEGA46WW_Info.json
-ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/403101518-403101683.0/background.jpg
-ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/403101518-403101683.0/icon.png
-ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/403101518-403101683.0/icons/wire.png
-ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/403101518-403101683.0/icons/run.png
-ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/403101518-403101683.0/icons/save.png
-ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/403101518-403101683.0/icons/open.png
-ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/403101518-403101683.0/icons/diode.png
-ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/403101518-403101683.0/icons/settings.png
-ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/403101518-403101683.0/icons/newSchematic.png
-ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/403101518-403101683.0/icons/nodeLibrary.png
-ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/403101518-403101683.0/icons/text.png
-ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/403101518-403101683.0/icons/resistor.png
-ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/403101518-403101683.0/icons/labelNet.png
-ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/403101518-403101683.0/icons/deleteMode.png
-ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/403101518-403101683.0/icons/ground.png
-ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/403101518-403101683.0/icons/Capacitor.png
-ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/403101518-403101683.0/icons/voltageSource.png
-ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/403101518-403101683.0/icons/inductor.png
-ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/403101518-403101683.0/icons/configureAnalysis.png
+ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/background.jpg
+ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/icon.png
+ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/icons/wire.png
+ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/icons/run.png
+ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/icons/save.png
+ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/icons/open.png
+ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/icons/diode.png
+ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/icons/settings.png
+ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/icons/newSchematic.png
+ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/icons/nodeLibrary.png
+ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/icons/text.png
+ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/icons/resistor.png
+ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/icons/labelNet.png
+ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/icons/deleteMode.png
+ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/icons/ground.png
+ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/icons/Capacitor.png
+ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/icons/voltageSource.png
+ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/icons/inductor.png
+ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/icons/configureAnalysis.png
 ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Qt1/6.9.1/mingw_64/bin/rcc.exe
 ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Qt1/6.9.1/mingw_64/bin/rcc.exe
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Automatic RCC for resources.qrc"
-	"C:\Program Files\JetBrains\CLion 2024.2.1\bin\cmake\win\x64\bin\cmake.exe" -E cmake_autorcc "C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/cmake-build-debug/CMakeFiles/ParsaSpice_autogen.dir/AutoRcc_resources_EWIEGA46WW_Info.json" Debug
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Automatic RCC for resources.qrc"
+	"C:\Program Files\JetBrains\CLion 2024.2.1\bin\cmake\win\x64\bin\cmake.exe" -E cmake_autorcc "C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cmake-build-debug/CMakeFiles/ParsaSpice_autogen.dir/AutoRcc_resources_EWIEGA46WW_Info.json" Debug
 
 CMakeFiles/ParsaSpice.dir/ParsaSpice_autogen/mocs_compilation.cpp.obj: CMakeFiles/ParsaSpice.dir/flags.make
 CMakeFiles/ParsaSpice.dir/ParsaSpice_autogen/mocs_compilation.cpp.obj: CMakeFiles/ParsaSpice.dir/includes_CXX.rsp
 CMakeFiles/ParsaSpice.dir/ParsaSpice_autogen/mocs_compilation.cpp.obj: ParsaSpice_autogen/mocs_compilation.cpp
 CMakeFiles/ParsaSpice.dir/ParsaSpice_autogen/mocs_compilation.cpp.obj: CMakeFiles/ParsaSpice.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ParsaSpice.dir/ParsaSpice_autogen/mocs_compilation.cpp.obj"
-	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ParsaSpice.dir/ParsaSpice_autogen/mocs_compilation.cpp.obj -MF CMakeFiles\ParsaSpice.dir\ParsaSpice_autogen\mocs_compilation.cpp.obj.d -o CMakeFiles\ParsaSpice.dir\ParsaSpice_autogen\mocs_compilation.cpp.obj -c "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\cmake-build-debug\ParsaSpice_autogen\mocs_compilation.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ParsaSpice.dir/ParsaSpice_autogen/mocs_compilation.cpp.obj"
+	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ParsaSpice.dir/ParsaSpice_autogen/mocs_compilation.cpp.obj -MF CMakeFiles\ParsaSpice.dir\ParsaSpice_autogen\mocs_compilation.cpp.obj.d -o CMakeFiles\ParsaSpice.dir\ParsaSpice_autogen\mocs_compilation.cpp.obj -c "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\ParsaSpice_autogen\mocs_compilation.cpp"
 
 CMakeFiles/ParsaSpice.dir/ParsaSpice_autogen/mocs_compilation.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ParsaSpice.dir/ParsaSpice_autogen/mocs_compilation.cpp.i"
-	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\cmake-build-debug\ParsaSpice_autogen\mocs_compilation.cpp" > CMakeFiles\ParsaSpice.dir\ParsaSpice_autogen\mocs_compilation.cpp.i
+	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\ParsaSpice_autogen\mocs_compilation.cpp" > CMakeFiles\ParsaSpice.dir\ParsaSpice_autogen\mocs_compilation.cpp.i
 
 CMakeFiles/ParsaSpice.dir/ParsaSpice_autogen/mocs_compilation.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ParsaSpice.dir/ParsaSpice_autogen/mocs_compilation.cpp.s"
-	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\cmake-build-debug\ParsaSpice_autogen\mocs_compilation.cpp" -o CMakeFiles\ParsaSpice.dir\ParsaSpice_autogen\mocs_compilation.cpp.s
+	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\ParsaSpice_autogen\mocs_compilation.cpp" -o CMakeFiles\ParsaSpice.dir\ParsaSpice_autogen\mocs_compilation.cpp.s
 
 CMakeFiles/ParsaSpice.dir/main.cpp.obj: CMakeFiles/ParsaSpice.dir/flags.make
 CMakeFiles/ParsaSpice.dir/main.cpp.obj: CMakeFiles/ParsaSpice.dir/includes_CXX.rsp
-CMakeFiles/ParsaSpice.dir/main.cpp.obj: C:/Users/parsa/Documents/university/Programming\ and\ linux/403101518-403101683.0/main.cpp
+CMakeFiles/ParsaSpice.dir/main.cpp.obj: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/main.cpp
 CMakeFiles/ParsaSpice.dir/main.cpp.obj: CMakeFiles/ParsaSpice.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ParsaSpice.dir/main.cpp.obj"
-	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ParsaSpice.dir/main.cpp.obj -MF CMakeFiles\ParsaSpice.dir\main.cpp.obj.d -o CMakeFiles\ParsaSpice.dir\main.cpp.obj -c "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\main.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ParsaSpice.dir/main.cpp.obj"
+	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ParsaSpice.dir/main.cpp.obj -MF CMakeFiles\ParsaSpice.dir\main.cpp.obj.d -o CMakeFiles\ParsaSpice.dir\main.cpp.obj -c "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\main.cpp"
 
 CMakeFiles/ParsaSpice.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ParsaSpice.dir/main.cpp.i"
-	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\main.cpp" > CMakeFiles\ParsaSpice.dir\main.cpp.i
+	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\main.cpp" > CMakeFiles\ParsaSpice.dir\main.cpp.i
 
 CMakeFiles/ParsaSpice.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ParsaSpice.dir/main.cpp.s"
-	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\main.cpp" -o CMakeFiles\ParsaSpice.dir\main.cpp.s
+	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\main.cpp" -o CMakeFiles\ParsaSpice.dir\main.cpp.s
 
 CMakeFiles/ParsaSpice.dir/Component.cpp.obj: CMakeFiles/ParsaSpice.dir/flags.make
 CMakeFiles/ParsaSpice.dir/Component.cpp.obj: CMakeFiles/ParsaSpice.dir/includes_CXX.rsp
-CMakeFiles/ParsaSpice.dir/Component.cpp.obj: C:/Users/parsa/Documents/university/Programming\ and\ linux/403101518-403101683.0/Component.cpp
+CMakeFiles/ParsaSpice.dir/Component.cpp.obj: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Component.cpp
 CMakeFiles/ParsaSpice.dir/Component.cpp.obj: CMakeFiles/ParsaSpice.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ParsaSpice.dir/Component.cpp.obj"
-	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ParsaSpice.dir/Component.cpp.obj -MF CMakeFiles\ParsaSpice.dir\Component.cpp.obj.d -o CMakeFiles\ParsaSpice.dir\Component.cpp.obj -c "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\Component.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ParsaSpice.dir/Component.cpp.obj"
+	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ParsaSpice.dir/Component.cpp.obj -MF CMakeFiles\ParsaSpice.dir\Component.cpp.obj.d -o CMakeFiles\ParsaSpice.dir\Component.cpp.obj -c "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\Component.cpp"
 
 CMakeFiles/ParsaSpice.dir/Component.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ParsaSpice.dir/Component.cpp.i"
-	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\Component.cpp" > CMakeFiles\ParsaSpice.dir\Component.cpp.i
+	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\Component.cpp" > CMakeFiles\ParsaSpice.dir\Component.cpp.i
 
 CMakeFiles/ParsaSpice.dir/Component.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ParsaSpice.dir/Component.cpp.s"
-	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\Component.cpp" -o CMakeFiles\ParsaSpice.dir\Component.cpp.s
+	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\Component.cpp" -o CMakeFiles\ParsaSpice.dir\Component.cpp.s
 
 CMakeFiles/ParsaSpice.dir/Circuit.cpp.obj: CMakeFiles/ParsaSpice.dir/flags.make
 CMakeFiles/ParsaSpice.dir/Circuit.cpp.obj: CMakeFiles/ParsaSpice.dir/includes_CXX.rsp
-CMakeFiles/ParsaSpice.dir/Circuit.cpp.obj: C:/Users/parsa/Documents/university/Programming\ and\ linux/403101518-403101683.0/Circuit.cpp
+CMakeFiles/ParsaSpice.dir/Circuit.cpp.obj: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Circuit.cpp
 CMakeFiles/ParsaSpice.dir/Circuit.cpp.obj: CMakeFiles/ParsaSpice.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/ParsaSpice.dir/Circuit.cpp.obj"
-	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ParsaSpice.dir/Circuit.cpp.obj -MF CMakeFiles\ParsaSpice.dir\Circuit.cpp.obj.d -o CMakeFiles\ParsaSpice.dir\Circuit.cpp.obj -c "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\Circuit.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/ParsaSpice.dir/Circuit.cpp.obj"
+	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ParsaSpice.dir/Circuit.cpp.obj -MF CMakeFiles\ParsaSpice.dir\Circuit.cpp.obj.d -o CMakeFiles\ParsaSpice.dir\Circuit.cpp.obj -c "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\Circuit.cpp"
 
 CMakeFiles/ParsaSpice.dir/Circuit.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ParsaSpice.dir/Circuit.cpp.i"
-	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\Circuit.cpp" > CMakeFiles\ParsaSpice.dir\Circuit.cpp.i
+	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\Circuit.cpp" > CMakeFiles\ParsaSpice.dir\Circuit.cpp.i
 
 CMakeFiles/ParsaSpice.dir/Circuit.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ParsaSpice.dir/Circuit.cpp.s"
-	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\Circuit.cpp" -o CMakeFiles\ParsaSpice.dir\Circuit.cpp.s
+	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\Circuit.cpp" -o CMakeFiles\ParsaSpice.dir\Circuit.cpp.s
 
 CMakeFiles/ParsaSpice.dir/ComponentFactory.cpp.obj: CMakeFiles/ParsaSpice.dir/flags.make
 CMakeFiles/ParsaSpice.dir/ComponentFactory.cpp.obj: CMakeFiles/ParsaSpice.dir/includes_CXX.rsp
-CMakeFiles/ParsaSpice.dir/ComponentFactory.cpp.obj: C:/Users/parsa/Documents/university/Programming\ and\ linux/403101518-403101683.0/ComponentFactory.cpp
+CMakeFiles/ParsaSpice.dir/ComponentFactory.cpp.obj: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/ComponentFactory.cpp
 CMakeFiles/ParsaSpice.dir/ComponentFactory.cpp.obj: CMakeFiles/ParsaSpice.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/ParsaSpice.dir/ComponentFactory.cpp.obj"
-	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ParsaSpice.dir/ComponentFactory.cpp.obj -MF CMakeFiles\ParsaSpice.dir\ComponentFactory.cpp.obj.d -o CMakeFiles\ParsaSpice.dir\ComponentFactory.cpp.obj -c "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\ComponentFactory.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/ParsaSpice.dir/ComponentFactory.cpp.obj"
+	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ParsaSpice.dir/ComponentFactory.cpp.obj -MF CMakeFiles\ParsaSpice.dir\ComponentFactory.cpp.obj.d -o CMakeFiles\ParsaSpice.dir\ComponentFactory.cpp.obj -c "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\ComponentFactory.cpp"
 
 CMakeFiles/ParsaSpice.dir/ComponentFactory.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ParsaSpice.dir/ComponentFactory.cpp.i"
-	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\ComponentFactory.cpp" > CMakeFiles\ParsaSpice.dir\ComponentFactory.cpp.i
+	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\ComponentFactory.cpp" > CMakeFiles\ParsaSpice.dir\ComponentFactory.cpp.i
 
 CMakeFiles/ParsaSpice.dir/ComponentFactory.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ParsaSpice.dir/ComponentFactory.cpp.s"
-	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\ComponentFactory.cpp" -o CMakeFiles\ParsaSpice.dir\ComponentFactory.cpp.s
+	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\ComponentFactory.cpp" -o CMakeFiles\ParsaSpice.dir\ComponentFactory.cpp.s
 
 CMakeFiles/ParsaSpice.dir/SchematicWidget.cpp.obj: CMakeFiles/ParsaSpice.dir/flags.make
 CMakeFiles/ParsaSpice.dir/SchematicWidget.cpp.obj: CMakeFiles/ParsaSpice.dir/includes_CXX.rsp
-CMakeFiles/ParsaSpice.dir/SchematicWidget.cpp.obj: C:/Users/parsa/Documents/university/Programming\ and\ linux/403101518-403101683.0/SchematicWidget.cpp
+CMakeFiles/ParsaSpice.dir/SchematicWidget.cpp.obj: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/SchematicWidget.cpp
 CMakeFiles/ParsaSpice.dir/SchematicWidget.cpp.obj: CMakeFiles/ParsaSpice.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/ParsaSpice.dir/SchematicWidget.cpp.obj"
-	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ParsaSpice.dir/SchematicWidget.cpp.obj -MF CMakeFiles\ParsaSpice.dir\SchematicWidget.cpp.obj.d -o CMakeFiles\ParsaSpice.dir\SchematicWidget.cpp.obj -c "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\SchematicWidget.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/ParsaSpice.dir/SchematicWidget.cpp.obj"
+	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ParsaSpice.dir/SchematicWidget.cpp.obj -MF CMakeFiles\ParsaSpice.dir\SchematicWidget.cpp.obj.d -o CMakeFiles\ParsaSpice.dir\SchematicWidget.cpp.obj -c "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\SchematicWidget.cpp"
 
 CMakeFiles/ParsaSpice.dir/SchematicWidget.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ParsaSpice.dir/SchematicWidget.cpp.i"
-	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\SchematicWidget.cpp" > CMakeFiles\ParsaSpice.dir\SchematicWidget.cpp.i
+	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\SchematicWidget.cpp" > CMakeFiles\ParsaSpice.dir\SchematicWidget.cpp.i
 
 CMakeFiles/ParsaSpice.dir/SchematicWidget.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ParsaSpice.dir/SchematicWidget.cpp.s"
-	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\SchematicWidget.cpp" -o CMakeFiles\ParsaSpice.dir\SchematicWidget.cpp.s
+	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\SchematicWidget.cpp" -o CMakeFiles\ParsaSpice.dir\SchematicWidget.cpp.s
 
 CMakeFiles/ParsaSpice.dir/mainwindow.cpp.obj: CMakeFiles/ParsaSpice.dir/flags.make
 CMakeFiles/ParsaSpice.dir/mainwindow.cpp.obj: CMakeFiles/ParsaSpice.dir/includes_CXX.rsp
-CMakeFiles/ParsaSpice.dir/mainwindow.cpp.obj: C:/Users/parsa/Documents/university/Programming\ and\ linux/403101518-403101683.0/mainwindow.cpp
+CMakeFiles/ParsaSpice.dir/mainwindow.cpp.obj: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/mainwindow.cpp
 CMakeFiles/ParsaSpice.dir/mainwindow.cpp.obj: CMakeFiles/ParsaSpice.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/ParsaSpice.dir/mainwindow.cpp.obj"
-	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ParsaSpice.dir/mainwindow.cpp.obj -MF CMakeFiles\ParsaSpice.dir\mainwindow.cpp.obj.d -o CMakeFiles\ParsaSpice.dir\mainwindow.cpp.obj -c "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\mainwindow.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/ParsaSpice.dir/mainwindow.cpp.obj"
+	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ParsaSpice.dir/mainwindow.cpp.obj -MF CMakeFiles\ParsaSpice.dir\mainwindow.cpp.obj.d -o CMakeFiles\ParsaSpice.dir\mainwindow.cpp.obj -c "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\mainwindow.cpp"
 
 CMakeFiles/ParsaSpice.dir/mainwindow.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ParsaSpice.dir/mainwindow.cpp.i"
-	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\mainwindow.cpp" > CMakeFiles\ParsaSpice.dir\mainwindow.cpp.i
+	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\mainwindow.cpp" > CMakeFiles\ParsaSpice.dir\mainwindow.cpp.i
 
 CMakeFiles/ParsaSpice.dir/mainwindow.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ParsaSpice.dir/mainwindow.cpp.s"
-	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\mainwindow.cpp" -o CMakeFiles\ParsaSpice.dir\mainwindow.cpp.s
+	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\mainwindow.cpp" -o CMakeFiles\ParsaSpice.dir\mainwindow.cpp.s
 
 CMakeFiles/ParsaSpice.dir/Dialogs.cpp.obj: CMakeFiles/ParsaSpice.dir/flags.make
 CMakeFiles/ParsaSpice.dir/Dialogs.cpp.obj: CMakeFiles/ParsaSpice.dir/includes_CXX.rsp
-CMakeFiles/ParsaSpice.dir/Dialogs.cpp.obj: C:/Users/parsa/Documents/university/Programming\ and\ linux/403101518-403101683.0/Dialogs.cpp
+CMakeFiles/ParsaSpice.dir/Dialogs.cpp.obj: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Dialogs.cpp
 CMakeFiles/ParsaSpice.dir/Dialogs.cpp.obj: CMakeFiles/ParsaSpice.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/ParsaSpice.dir/Dialogs.cpp.obj"
-	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ParsaSpice.dir/Dialogs.cpp.obj -MF CMakeFiles\ParsaSpice.dir\Dialogs.cpp.obj.d -o CMakeFiles\ParsaSpice.dir\Dialogs.cpp.obj -c "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\Dialogs.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/ParsaSpice.dir/Dialogs.cpp.obj"
+	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ParsaSpice.dir/Dialogs.cpp.obj -MF CMakeFiles\ParsaSpice.dir\Dialogs.cpp.obj.d -o CMakeFiles\ParsaSpice.dir\Dialogs.cpp.obj -c "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\Dialogs.cpp"
 
 CMakeFiles/ParsaSpice.dir/Dialogs.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ParsaSpice.dir/Dialogs.cpp.i"
-	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\Dialogs.cpp" > CMakeFiles\ParsaSpice.dir\Dialogs.cpp.i
+	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\Dialogs.cpp" > CMakeFiles\ParsaSpice.dir\Dialogs.cpp.i
 
 CMakeFiles/ParsaSpice.dir/Dialogs.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ParsaSpice.dir/Dialogs.cpp.s"
-	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\Dialogs.cpp" -o CMakeFiles\ParsaSpice.dir\Dialogs.cpp.s
+	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\Dialogs.cpp" -o CMakeFiles\ParsaSpice.dir\Dialogs.cpp.s
 
 CMakeFiles/ParsaSpice.dir/PlotWindow.cpp.obj: CMakeFiles/ParsaSpice.dir/flags.make
 CMakeFiles/ParsaSpice.dir/PlotWindow.cpp.obj: CMakeFiles/ParsaSpice.dir/includes_CXX.rsp
-CMakeFiles/ParsaSpice.dir/PlotWindow.cpp.obj: C:/Users/parsa/Documents/university/Programming\ and\ linux/403101518-403101683.0/PlotWindow.cpp
+CMakeFiles/ParsaSpice.dir/PlotWindow.cpp.obj: C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/PlotWindow.cpp
 CMakeFiles/ParsaSpice.dir/PlotWindow.cpp.obj: CMakeFiles/ParsaSpice.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/ParsaSpice.dir/PlotWindow.cpp.obj"
-	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ParsaSpice.dir/PlotWindow.cpp.obj -MF CMakeFiles\ParsaSpice.dir\PlotWindow.cpp.obj.d -o CMakeFiles\ParsaSpice.dir\PlotWindow.cpp.obj -c "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\PlotWindow.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/ParsaSpice.dir/PlotWindow.cpp.obj"
+	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ParsaSpice.dir/PlotWindow.cpp.obj -MF CMakeFiles\ParsaSpice.dir\PlotWindow.cpp.obj.d -o CMakeFiles\ParsaSpice.dir\PlotWindow.cpp.obj -c "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\PlotWindow.cpp"
 
 CMakeFiles/ParsaSpice.dir/PlotWindow.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ParsaSpice.dir/PlotWindow.cpp.i"
-	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\PlotWindow.cpp" > CMakeFiles\ParsaSpice.dir\PlotWindow.cpp.i
+	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\PlotWindow.cpp" > CMakeFiles\ParsaSpice.dir\PlotWindow.cpp.i
 
 CMakeFiles/ParsaSpice.dir/PlotWindow.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ParsaSpice.dir/PlotWindow.cpp.s"
-	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\PlotWindow.cpp" -o CMakeFiles\ParsaSpice.dir\PlotWindow.cpp.s
+	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\PlotWindow.cpp" -o CMakeFiles\ParsaSpice.dir\PlotWindow.cpp.s
 
 CMakeFiles/ParsaSpice.dir/ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp.obj: CMakeFiles/ParsaSpice.dir/flags.make
 CMakeFiles/ParsaSpice.dir/ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp.obj: CMakeFiles/ParsaSpice.dir/includes_CXX.rsp
 CMakeFiles/ParsaSpice.dir/ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp.obj: ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp
 CMakeFiles/ParsaSpice.dir/ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp.obj: CMakeFiles/ParsaSpice.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/ParsaSpice.dir/ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp.obj"
-	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ParsaSpice.dir/ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp.obj -MF CMakeFiles\ParsaSpice.dir\ParsaSpice_autogen\EWIEGA46WW\qrc_resources.cpp.obj.d -o CMakeFiles\ParsaSpice.dir\ParsaSpice_autogen\EWIEGA46WW\qrc_resources.cpp.obj -c "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\cmake-build-debug\ParsaSpice_autogen\EWIEGA46WW\qrc_resources.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/ParsaSpice.dir/ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp.obj"
+	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ParsaSpice.dir/ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp.obj -MF CMakeFiles\ParsaSpice.dir\ParsaSpice_autogen\EWIEGA46WW\qrc_resources.cpp.obj.d -o CMakeFiles\ParsaSpice.dir\ParsaSpice_autogen\EWIEGA46WW\qrc_resources.cpp.obj -c "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\ParsaSpice_autogen\EWIEGA46WW\qrc_resources.cpp"
 
 CMakeFiles/ParsaSpice.dir/ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ParsaSpice.dir/ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp.i"
-	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\cmake-build-debug\ParsaSpice_autogen\EWIEGA46WW\qrc_resources.cpp" > CMakeFiles\ParsaSpice.dir\ParsaSpice_autogen\EWIEGA46WW\qrc_resources.cpp.i
+	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\ParsaSpice_autogen\EWIEGA46WW\qrc_resources.cpp" > CMakeFiles\ParsaSpice.dir\ParsaSpice_autogen\EWIEGA46WW\qrc_resources.cpp.i
 
 CMakeFiles/ParsaSpice.dir/ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ParsaSpice.dir/ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp.s"
-	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\cmake-build-debug\ParsaSpice_autogen\EWIEGA46WW\qrc_resources.cpp" -o CMakeFiles\ParsaSpice.dir\ParsaSpice_autogen\EWIEGA46WW\qrc_resources.cpp.s
+	C:\Qt1\Tools\mingw1310_64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\ParsaSpice_autogen\EWIEGA46WW\qrc_resources.cpp" -o CMakeFiles\ParsaSpice.dir\ParsaSpice_autogen\EWIEGA46WW\qrc_resources.cpp.s
 
 # Object files for target ParsaSpice
 ParsaSpice_OBJECTS = \
@@ -287,7 +287,7 @@ ParsaSpice.exe: C:/Qt1/6.9.1/mingw_64/lib/libQt6Core.a
 ParsaSpice.exe: CMakeFiles/ParsaSpice.dir/linkLibs.rsp
 ParsaSpice.exe: CMakeFiles/ParsaSpice.dir/objects1.rsp
 ParsaSpice.exe: CMakeFiles/ParsaSpice.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable ParsaSpice.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable ParsaSpice.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\ParsaSpice.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -300,6 +300,6 @@ CMakeFiles/ParsaSpice.dir/clean:
 
 CMakeFiles/ParsaSpice.dir/depend: ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp
 CMakeFiles/ParsaSpice.dir/depend: ParsaSpice_autogen/timestamp
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0" "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0" "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\cmake-build-debug" "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\cmake-build-debug" "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\cmake-build-debug\CMakeFiles\ParsaSpice.dir\DependInfo.cmake" "--color=$(COLOR)"
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2" "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2" "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug" "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug" "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\CMakeFiles\ParsaSpice.dir\DependInfo.cmake" "--color=$(COLOR)"
 .PHONY : CMakeFiles/ParsaSpice.dir/depend
 
