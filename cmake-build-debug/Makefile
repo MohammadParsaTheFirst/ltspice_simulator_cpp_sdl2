@@ -56,10 +56,10 @@ RM = "C:\Program Files\JetBrains\CLion 2024.2.1\bin\cmake\win\x64\bin\cmake.exe"
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2"
+CMAKE_SOURCE_DIR = "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug"
+CMAKE_BINARY_DIR = "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -86,9 +86,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\CMakeFiles" "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\\CMakeFiles\progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\cmake-build-debug\CMakeFiles" "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\cmake-build-debug\\CMakeFiles\progress.marks"
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\cmake-build-debug\CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -116,50 +116,50 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named LTspice
+# Target rules for targets named ParsaSpice
 
 # Build rule for target.
-LTspice: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 LTspice
-.PHONY : LTspice
+ParsaSpice: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 ParsaSpice
+.PHONY : ParsaSpice
 
 # fast build rule for target.
-LTspice/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/build
-.PHONY : LTspice/fast
+ParsaSpice/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ParsaSpice.dir\build.make CMakeFiles/ParsaSpice.dir/build
+.PHONY : ParsaSpice/fast
 
 #=============================================================================
-# Target rules for targets named LTspice_autogen_timestamp_deps
+# Target rules for targets named ParsaSpice_autogen_timestamp_deps
 
 # Build rule for target.
-LTspice_autogen_timestamp_deps: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 LTspice_autogen_timestamp_deps
-.PHONY : LTspice_autogen_timestamp_deps
+ParsaSpice_autogen_timestamp_deps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 ParsaSpice_autogen_timestamp_deps
+.PHONY : ParsaSpice_autogen_timestamp_deps
 
 # fast build rule for target.
-LTspice_autogen_timestamp_deps/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice_autogen_timestamp_deps.dir\build.make CMakeFiles/LTspice_autogen_timestamp_deps.dir/build
-.PHONY : LTspice_autogen_timestamp_deps/fast
+ParsaSpice_autogen_timestamp_deps/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ParsaSpice_autogen_timestamp_deps.dir\build.make CMakeFiles/ParsaSpice_autogen_timestamp_deps.dir/build
+.PHONY : ParsaSpice_autogen_timestamp_deps/fast
 
 #=============================================================================
-# Target rules for targets named LTspice_autogen
+# Target rules for targets named ParsaSpice_autogen
 
 # Build rule for target.
-LTspice_autogen: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 LTspice_autogen
-.PHONY : LTspice_autogen
+ParsaSpice_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 ParsaSpice_autogen
+.PHONY : ParsaSpice_autogen
 
 # fast build rule for target.
-LTspice_autogen/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice_autogen.dir\build.make CMakeFiles/LTspice_autogen.dir/build
-.PHONY : LTspice_autogen/fast
+ParsaSpice_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ParsaSpice_autogen.dir\build.make CMakeFiles/ParsaSpice_autogen.dir/build
+.PHONY : ParsaSpice_autogen/fast
 
 Circuit.obj: Circuit.cpp.obj
 .PHONY : Circuit.obj
 
 # target to build an object file
 Circuit.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/Circuit.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ParsaSpice.dir\build.make CMakeFiles/ParsaSpice.dir/Circuit.cpp.obj
 .PHONY : Circuit.cpp.obj
 
 Circuit.i: Circuit.cpp.i
@@ -167,7 +167,7 @@ Circuit.i: Circuit.cpp.i
 
 # target to preprocess a source file
 Circuit.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/Circuit.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ParsaSpice.dir\build.make CMakeFiles/ParsaSpice.dir/Circuit.cpp.i
 .PHONY : Circuit.cpp.i
 
 Circuit.s: Circuit.cpp.s
@@ -175,7 +175,7 @@ Circuit.s: Circuit.cpp.s
 
 # target to generate assembly for a file
 Circuit.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/Circuit.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ParsaSpice.dir\build.make CMakeFiles/ParsaSpice.dir/Circuit.cpp.s
 .PHONY : Circuit.cpp.s
 
 Component.obj: Component.cpp.obj
@@ -183,7 +183,7 @@ Component.obj: Component.cpp.obj
 
 # target to build an object file
 Component.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/Component.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ParsaSpice.dir\build.make CMakeFiles/ParsaSpice.dir/Component.cpp.obj
 .PHONY : Component.cpp.obj
 
 Component.i: Component.cpp.i
@@ -191,7 +191,7 @@ Component.i: Component.cpp.i
 
 # target to preprocess a source file
 Component.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/Component.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ParsaSpice.dir\build.make CMakeFiles/ParsaSpice.dir/Component.cpp.i
 .PHONY : Component.cpp.i
 
 Component.s: Component.cpp.s
@@ -199,7 +199,7 @@ Component.s: Component.cpp.s
 
 # target to generate assembly for a file
 Component.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/Component.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ParsaSpice.dir\build.make CMakeFiles/ParsaSpice.dir/Component.cpp.s
 .PHONY : Component.cpp.s
 
 ComponentFactory.obj: ComponentFactory.cpp.obj
@@ -207,7 +207,7 @@ ComponentFactory.obj: ComponentFactory.cpp.obj
 
 # target to build an object file
 ComponentFactory.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/ComponentFactory.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ParsaSpice.dir\build.make CMakeFiles/ParsaSpice.dir/ComponentFactory.cpp.obj
 .PHONY : ComponentFactory.cpp.obj
 
 ComponentFactory.i: ComponentFactory.cpp.i
@@ -215,7 +215,7 @@ ComponentFactory.i: ComponentFactory.cpp.i
 
 # target to preprocess a source file
 ComponentFactory.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/ComponentFactory.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ParsaSpice.dir\build.make CMakeFiles/ParsaSpice.dir/ComponentFactory.cpp.i
 .PHONY : ComponentFactory.cpp.i
 
 ComponentFactory.s: ComponentFactory.cpp.s
@@ -223,7 +223,7 @@ ComponentFactory.s: ComponentFactory.cpp.s
 
 # target to generate assembly for a file
 ComponentFactory.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/ComponentFactory.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ParsaSpice.dir\build.make CMakeFiles/ParsaSpice.dir/ComponentFactory.cpp.s
 .PHONY : ComponentFactory.cpp.s
 
 Dialogs.obj: Dialogs.cpp.obj
@@ -231,7 +231,7 @@ Dialogs.obj: Dialogs.cpp.obj
 
 # target to build an object file
 Dialogs.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/Dialogs.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ParsaSpice.dir\build.make CMakeFiles/ParsaSpice.dir/Dialogs.cpp.obj
 .PHONY : Dialogs.cpp.obj
 
 Dialogs.i: Dialogs.cpp.i
@@ -239,7 +239,7 @@ Dialogs.i: Dialogs.cpp.i
 
 # target to preprocess a source file
 Dialogs.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/Dialogs.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ParsaSpice.dir\build.make CMakeFiles/ParsaSpice.dir/Dialogs.cpp.i
 .PHONY : Dialogs.cpp.i
 
 Dialogs.s: Dialogs.cpp.s
@@ -247,63 +247,63 @@ Dialogs.s: Dialogs.cpp.s
 
 # target to generate assembly for a file
 Dialogs.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/Dialogs.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ParsaSpice.dir\build.make CMakeFiles/ParsaSpice.dir/Dialogs.cpp.s
 .PHONY : Dialogs.cpp.s
 
-LTspice_autogen/EWIEGA46WW/qrc_resources.obj: LTspice_autogen/EWIEGA46WW/qrc_resources.cpp.obj
-.PHONY : LTspice_autogen/EWIEGA46WW/qrc_resources.obj
+ParsaSpice_autogen/EWIEGA46WW/qrc_resources.obj: ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp.obj
+.PHONY : ParsaSpice_autogen/EWIEGA46WW/qrc_resources.obj
 
 # target to build an object file
-LTspice_autogen/EWIEGA46WW/qrc_resources.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/LTspice_autogen/EWIEGA46WW/qrc_resources.cpp.obj
-.PHONY : LTspice_autogen/EWIEGA46WW/qrc_resources.cpp.obj
+ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ParsaSpice.dir\build.make CMakeFiles/ParsaSpice.dir/ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp.obj
+.PHONY : ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp.obj
 
-LTspice_autogen/EWIEGA46WW/qrc_resources.i: LTspice_autogen/EWIEGA46WW/qrc_resources.cpp.i
-.PHONY : LTspice_autogen/EWIEGA46WW/qrc_resources.i
+ParsaSpice_autogen/EWIEGA46WW/qrc_resources.i: ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp.i
+.PHONY : ParsaSpice_autogen/EWIEGA46WW/qrc_resources.i
 
 # target to preprocess a source file
-LTspice_autogen/EWIEGA46WW/qrc_resources.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/LTspice_autogen/EWIEGA46WW/qrc_resources.cpp.i
-.PHONY : LTspice_autogen/EWIEGA46WW/qrc_resources.cpp.i
+ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ParsaSpice.dir\build.make CMakeFiles/ParsaSpice.dir/ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp.i
+.PHONY : ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp.i
 
-LTspice_autogen/EWIEGA46WW/qrc_resources.s: LTspice_autogen/EWIEGA46WW/qrc_resources.cpp.s
-.PHONY : LTspice_autogen/EWIEGA46WW/qrc_resources.s
+ParsaSpice_autogen/EWIEGA46WW/qrc_resources.s: ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp.s
+.PHONY : ParsaSpice_autogen/EWIEGA46WW/qrc_resources.s
 
 # target to generate assembly for a file
-LTspice_autogen/EWIEGA46WW/qrc_resources.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/LTspice_autogen/EWIEGA46WW/qrc_resources.cpp.s
-.PHONY : LTspice_autogen/EWIEGA46WW/qrc_resources.cpp.s
+ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ParsaSpice.dir\build.make CMakeFiles/ParsaSpice.dir/ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp.s
+.PHONY : ParsaSpice_autogen/EWIEGA46WW/qrc_resources.cpp.s
 
-LTspice_autogen/mocs_compilation.obj: LTspice_autogen/mocs_compilation.cpp.obj
-.PHONY : LTspice_autogen/mocs_compilation.obj
+ParsaSpice_autogen/mocs_compilation.obj: ParsaSpice_autogen/mocs_compilation.cpp.obj
+.PHONY : ParsaSpice_autogen/mocs_compilation.obj
 
 # target to build an object file
-LTspice_autogen/mocs_compilation.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/LTspice_autogen/mocs_compilation.cpp.obj
-.PHONY : LTspice_autogen/mocs_compilation.cpp.obj
+ParsaSpice_autogen/mocs_compilation.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ParsaSpice.dir\build.make CMakeFiles/ParsaSpice.dir/ParsaSpice_autogen/mocs_compilation.cpp.obj
+.PHONY : ParsaSpice_autogen/mocs_compilation.cpp.obj
 
-LTspice_autogen/mocs_compilation.i: LTspice_autogen/mocs_compilation.cpp.i
-.PHONY : LTspice_autogen/mocs_compilation.i
+ParsaSpice_autogen/mocs_compilation.i: ParsaSpice_autogen/mocs_compilation.cpp.i
+.PHONY : ParsaSpice_autogen/mocs_compilation.i
 
 # target to preprocess a source file
-LTspice_autogen/mocs_compilation.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/LTspice_autogen/mocs_compilation.cpp.i
-.PHONY : LTspice_autogen/mocs_compilation.cpp.i
+ParsaSpice_autogen/mocs_compilation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ParsaSpice.dir\build.make CMakeFiles/ParsaSpice.dir/ParsaSpice_autogen/mocs_compilation.cpp.i
+.PHONY : ParsaSpice_autogen/mocs_compilation.cpp.i
 
-LTspice_autogen/mocs_compilation.s: LTspice_autogen/mocs_compilation.cpp.s
-.PHONY : LTspice_autogen/mocs_compilation.s
+ParsaSpice_autogen/mocs_compilation.s: ParsaSpice_autogen/mocs_compilation.cpp.s
+.PHONY : ParsaSpice_autogen/mocs_compilation.s
 
 # target to generate assembly for a file
-LTspice_autogen/mocs_compilation.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/LTspice_autogen/mocs_compilation.cpp.s
-.PHONY : LTspice_autogen/mocs_compilation.cpp.s
+ParsaSpice_autogen/mocs_compilation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ParsaSpice.dir\build.make CMakeFiles/ParsaSpice.dir/ParsaSpice_autogen/mocs_compilation.cpp.s
+.PHONY : ParsaSpice_autogen/mocs_compilation.cpp.s
 
 PlotWindow.obj: PlotWindow.cpp.obj
 .PHONY : PlotWindow.obj
 
 # target to build an object file
 PlotWindow.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/PlotWindow.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ParsaSpice.dir\build.make CMakeFiles/ParsaSpice.dir/PlotWindow.cpp.obj
 .PHONY : PlotWindow.cpp.obj
 
 PlotWindow.i: PlotWindow.cpp.i
@@ -311,7 +311,7 @@ PlotWindow.i: PlotWindow.cpp.i
 
 # target to preprocess a source file
 PlotWindow.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/PlotWindow.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ParsaSpice.dir\build.make CMakeFiles/ParsaSpice.dir/PlotWindow.cpp.i
 .PHONY : PlotWindow.cpp.i
 
 PlotWindow.s: PlotWindow.cpp.s
@@ -319,7 +319,7 @@ PlotWindow.s: PlotWindow.cpp.s
 
 # target to generate assembly for a file
 PlotWindow.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/PlotWindow.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ParsaSpice.dir\build.make CMakeFiles/ParsaSpice.dir/PlotWindow.cpp.s
 .PHONY : PlotWindow.cpp.s
 
 SchematicWidget.obj: SchematicWidget.cpp.obj
@@ -327,7 +327,7 @@ SchematicWidget.obj: SchematicWidget.cpp.obj
 
 # target to build an object file
 SchematicWidget.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/SchematicWidget.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ParsaSpice.dir\build.make CMakeFiles/ParsaSpice.dir/SchematicWidget.cpp.obj
 .PHONY : SchematicWidget.cpp.obj
 
 SchematicWidget.i: SchematicWidget.cpp.i
@@ -335,7 +335,7 @@ SchematicWidget.i: SchematicWidget.cpp.i
 
 # target to preprocess a source file
 SchematicWidget.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/SchematicWidget.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ParsaSpice.dir\build.make CMakeFiles/ParsaSpice.dir/SchematicWidget.cpp.i
 .PHONY : SchematicWidget.cpp.i
 
 SchematicWidget.s: SchematicWidget.cpp.s
@@ -343,7 +343,7 @@ SchematicWidget.s: SchematicWidget.cpp.s
 
 # target to generate assembly for a file
 SchematicWidget.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/SchematicWidget.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ParsaSpice.dir\build.make CMakeFiles/ParsaSpice.dir/SchematicWidget.cpp.s
 .PHONY : SchematicWidget.cpp.s
 
 main.obj: main.cpp.obj
@@ -351,7 +351,7 @@ main.obj: main.cpp.obj
 
 # target to build an object file
 main.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/main.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ParsaSpice.dir\build.make CMakeFiles/ParsaSpice.dir/main.cpp.obj
 .PHONY : main.cpp.obj
 
 main.i: main.cpp.i
@@ -359,7 +359,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ParsaSpice.dir\build.make CMakeFiles/ParsaSpice.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -367,7 +367,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ParsaSpice.dir\build.make CMakeFiles/ParsaSpice.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 mainwindow.obj: mainwindow.cpp.obj
@@ -375,7 +375,7 @@ mainwindow.obj: mainwindow.cpp.obj
 
 # target to build an object file
 mainwindow.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/mainwindow.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ParsaSpice.dir\build.make CMakeFiles/ParsaSpice.dir/mainwindow.cpp.obj
 .PHONY : mainwindow.cpp.obj
 
 mainwindow.i: mainwindow.cpp.i
@@ -383,7 +383,7 @@ mainwindow.i: mainwindow.cpp.i
 
 # target to preprocess a source file
 mainwindow.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/mainwindow.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ParsaSpice.dir\build.make CMakeFiles/ParsaSpice.dir/mainwindow.cpp.i
 .PHONY : mainwindow.cpp.i
 
 mainwindow.s: mainwindow.cpp.s
@@ -391,7 +391,7 @@ mainwindow.s: mainwindow.cpp.s
 
 # target to generate assembly for a file
 mainwindow.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LTspice.dir\build.make CMakeFiles/LTspice.dir/mainwindow.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ParsaSpice.dir\build.make CMakeFiles/ParsaSpice.dir/mainwindow.cpp.s
 .PHONY : mainwindow.cpp.s
 
 # Help Target
@@ -402,9 +402,9 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... LTspice_autogen
-	@echo ... LTspice_autogen_timestamp_deps
-	@echo ... LTspice
+	@echo ... ParsaSpice_autogen
+	@echo ... ParsaSpice_autogen_timestamp_deps
+	@echo ... ParsaSpice
 	@echo ... Circuit.obj
 	@echo ... Circuit.i
 	@echo ... Circuit.s
@@ -417,12 +417,12 @@ help:
 	@echo ... Dialogs.obj
 	@echo ... Dialogs.i
 	@echo ... Dialogs.s
-	@echo ... LTspice_autogen/EWIEGA46WW/qrc_resources.obj
-	@echo ... LTspice_autogen/EWIEGA46WW/qrc_resources.i
-	@echo ... LTspice_autogen/EWIEGA46WW/qrc_resources.s
-	@echo ... LTspice_autogen/mocs_compilation.obj
-	@echo ... LTspice_autogen/mocs_compilation.i
-	@echo ... LTspice_autogen/mocs_compilation.s
+	@echo ... ParsaSpice_autogen/EWIEGA46WW/qrc_resources.obj
+	@echo ... ParsaSpice_autogen/EWIEGA46WW/qrc_resources.i
+	@echo ... ParsaSpice_autogen/EWIEGA46WW/qrc_resources.s
+	@echo ... ParsaSpice_autogen/mocs_compilation.obj
+	@echo ... ParsaSpice_autogen/mocs_compilation.i
+	@echo ... ParsaSpice_autogen/mocs_compilation.s
 	@echo ... PlotWindow.obj
 	@echo ... PlotWindow.i
 	@echo ... PlotWindow.s

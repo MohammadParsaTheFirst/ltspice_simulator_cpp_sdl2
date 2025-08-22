@@ -503,9 +503,37 @@ CMakeFiles/LTspice.dir/PlotWindow.cpp.obj: \
  C:/Qt1/6.9.1/mingw_64/include/QtGui/qimage.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCharts/QValueAxis \
  C:/Qt1/6.9.1/mingw_64/include/QtCharts/qvalueaxis.h \
- C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QVBoxLayout \
- C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qboxlayout.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtCharts/QLogValueAxis \
+ C:/Qt1/6.9.1/mingw_64/include/QtCharts/qlogvalueaxis.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtCharts/QScatterSeries \
+ C:/Qt1/6.9.1/mingw_64/include/QtCharts/qscatterseries.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtCharts/qxyseries.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QSlider \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qslider.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qabstractslider.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QLabel \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qlabel.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtGui/qpicture.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtGui/qtextdocument.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QGridLayout \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qgridlayout.h \
  C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qlayout.h \
  C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qlayoutitem.h \
  C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qboxlayout.h \
- C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qgridlayout.h
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qgridlayout.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QVBoxLayout \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qboxlayout.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QMenu \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qmenu.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QColorDialog \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qcolordialog.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qdialog.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QInputDialog \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qinputdialog.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qlineedit.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtGui/qtextcursor.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtGui/qtextformat.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtCharts/QLegendMarker \
+ C:/Qt1/6.9.1/mingw_64/include/QtCharts/qlegendmarker.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QStatusBar \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qstatusbar.h

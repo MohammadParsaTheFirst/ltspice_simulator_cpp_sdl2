@@ -536,6 +536,8 @@ CMakeFiles/LTspice.dir/LTspice_autogen/mocs_compilation.cpp.obj: \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qtimezone.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/QRegularExpression \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qregularexpression.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtCore/QDataStream \
+ C:/Qt1/6.9.1/mingw_64/include/QtCore/qdatastream.h \
  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/component.h \
  C:/Users/parsa/DOCUME~1/UNIVER~1/PROGRA~1/LTSPIC~1/EIGEN-~1.0/Eigen/Dense \
  C:/Users/parsa/DOCUME~1/UNIVER~1/PROGRA~1/LTSPIC~1/EIGEN-~1.0/Eigen/Core \
@@ -787,6 +789,27 @@ CMakeFiles/LTspice.dir/LTspice_autogen/mocs_compilation.cpp.obj: \
  C:/Qt1/6.9.1/mingw_64/include/QtGui/qimage.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCharts/QValueAxis \
  C:/Qt1/6.9.1/mingw_64/include/QtCharts/qvalueaxis.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtCharts/QLogValueAxis \
+ C:/Qt1/6.9.1/mingw_64/include/QtCharts/qlogvalueaxis.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtCharts/QScatterSeries \
+ C:/Qt1/6.9.1/mingw_64/include/QtCharts/qscatterseries.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtCharts/qxyseries.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QSlider \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qslider.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QGridLayout \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qgridlayout.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QMenu \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qmenu.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QColorDialog \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qcolordialog.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qdialog.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QInputDialog \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qinputdialog.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qlineedit.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtCharts/QLegendMarker \
+ C:/Qt1/6.9.1/mingw_64/include/QtCharts/qlegendmarker.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QStatusBar \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qstatusbar.h \
  C:\Users\parsa\Documents\university\Programming\ and\ linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\LTspice_autogen\EWIEGA46WW/moc_SchematicWidget.cpp \
  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/SchematicWidget.h \
  C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QWidget \
@@ -797,19 +820,13 @@ CMakeFiles/LTspice.dir/LTspice_autogen/mocs_compilation.cpp.obj: \
  C:/Qt1/6.9.1/mingw_64/include/QtGui/QKeyEvent \
  C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QMessageBox \
  C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qmessagebox.h \
- C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qdialog.h \
  C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
- C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QInputDialog \
- C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qinputdialog.h \
- C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qlineedit.h \
  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/Dialogs.h \
  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/PlotWindow.h \
  C:\Users\parsa\Documents\university\Programming\ and\ linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\LTspice_autogen\EWIEGA46WW/moc_mainwindow.cpp \
  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/mainwindow.h \
  C:/Qt1/6.9.1/mingw_64/include/QtGui/QAction \
  C:/Qt1/6.9.1/mingw_64/include/QtGui/qaction.h \
- C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QMenu \
- C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qmenu.h \
  C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QMenuBar \
  C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qmenubar.h \
  C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qmenu.h \
@@ -824,12 +841,10 @@ CMakeFiles/LTspice.dir/LTspice_autogen/mocs_compilation.cpp.obj: \
  C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QFileDialog \
  C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qfiledialog.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qdir.h \
- C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/SchematicWidget.h \
- C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/mainwindow.h \
  C:/Users/parsa/DOCUME~1/UNIVER~1/PROGRA~1/LTSPIC~1/CMAKE-~1/LTSPIC~1/include/ui_mainwindow.h \
  C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QApplication \
  C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QMainWindow \
  C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QMenuBar \
  C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QStatusBar \
- C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qstatusbar.h \
- C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QWidget
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QWidget \
+ C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/SchematicWidget.h

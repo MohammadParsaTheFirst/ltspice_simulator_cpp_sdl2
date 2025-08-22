@@ -1,18 +1,18 @@
 {
 	"AUTOGEN_COMMAND_LINE_LENGTH_MAX" : 32000,
-	"BUILD_DIR" : "C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cmake-build-debug/LTspice_autogen",
-	"CMAKE_BINARY_DIR" : "C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cmake-build-debug",
-	"CMAKE_CURRENT_BINARY_DIR" : "C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cmake-build-debug",
-	"CMAKE_CURRENT_SOURCE_DIR" : "C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2",
+	"BUILD_DIR" : "C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/cmake-build-debug/LTspice_autogen",
+	"CMAKE_BINARY_DIR" : "C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/cmake-build-debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/cmake-build-debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0",
 	"CMAKE_EXECUTABLE" : "C:/Program Files/JetBrains/CLion 2024.2.1/bin/cmake/win/x64/bin/cmake.exe",
 	"CMAKE_LIST_FILES" : 
 	[
-		"C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/CMakeLists.txt",
-		"C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cmake-build-debug/CMakeFiles/3.29.6/CMakeSystem.cmake",
+		"C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/CMakeLists.txt",
+		"C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/cmake-build-debug/CMakeFiles/3.29.6/CMakeSystem.cmake",
 		"C:/Program Files/JetBrains/CLion 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeSystemSpecificInitialize.cmake",
 		"C:/Program Files/JetBrains/CLion 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-Initialize.cmake",
-		"C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cmake-build-debug/CMakeFiles/3.29.6/CMakeCCompiler.cmake",
-		"C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cmake-build-debug/CMakeFiles/3.29.6/CMakeCXXCompiler.cmake",
+		"C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/cmake-build-debug/CMakeFiles/3.29.6/CMakeCCompiler.cmake",
+		"C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/cmake-build-debug/CMakeFiles/3.29.6/CMakeCXXCompiler.cmake",
 		"C:/Program Files/JetBrains/CLion 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeSystemSpecificInformation.cmake",
 		"C:/Program Files/JetBrains/CLion 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeGenericSystem.cmake",
 		"C:/Program Files/JetBrains/CLion 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeInitializeConfigs.cmake",
@@ -25,7 +25,7 @@
 		"C:/Program Files/JetBrains/CLion 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/CMakeCommonCompilerMacros.cmake",
 		"C:/Program Files/JetBrains/CLion 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-GNU-C.cmake",
 		"C:/Program Files/JetBrains/CLion 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-GNU.cmake",
-		"C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cmake-build-debug/CMakeFiles/3.29.6/CMakeRCCompiler.cmake",
+		"C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/cmake-build-debug/CMakeFiles/3.29.6/CMakeRCCompiler.cmake",
 		"C:/Program Files/JetBrains/CLion 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeRCInformation.cmake",
 		"C:/Program Files/JetBrains/CLion 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-windres.cmake",
 		"C:/Program Files/JetBrains/CLion 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-GNU-C-ABI.cmake",
@@ -347,60 +347,60 @@
 		"C:/Qt1/6.9.1/mingw_64/lib/cmake/Qt6ChartsPrivate/Qt6ChartsPrivateAdditionalTargetInfo.cmake",
 		"C:/Qt1/6.9.1/mingw_64/lib/cmake/Qt6ChartsPrivate/Qt6ChartsPrivateVersionlessAliasTargets.cmake",
 		"C:/Qt1/6.9.1/mingw_64/lib/cmake/Qt6Charts/Qt6ChartsVersionlessAliasTargets.cmake",
-		"C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/resources.qrc"
+		"C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/resources.qrc"
 	],
-	"CMAKE_SOURCE_DIR" : "C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2",
+	"CMAKE_SOURCE_DIR" : "C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0",
 	"CROSS_CONFIG" : false,
-	"DEP_FILE" : "C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cmake-build-debug/LTspice_autogen/deps",
+	"DEP_FILE" : "C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/cmake-build-debug/LTspice_autogen/deps",
 	"DEP_FILE_RULE_NAME" : "LTspice_autogen/timestamp",
 	"HEADERS" : 
 	[
 		[
-			"C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/Circuit.h",
+			"C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/Circuit.h",
 			"MU",
 			"EWIEGA46WW/moc_Circuit.cpp",
 			null
 		],
 		[
-			"C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/Component.h",
+			"C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/Component.h",
 			"MU",
 			"EWIEGA46WW/moc_Component.cpp",
 			null
 		],
 		[
-			"C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/ComponentFactory.h",
+			"C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/ComponentFactory.h",
 			"MU",
 			"EWIEGA46WW/moc_ComponentFactory.cpp",
 			null
 		],
 		[
-			"C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/Dialogs.h",
+			"C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/Dialogs.h",
 			"MU",
 			"EWIEGA46WW/moc_Dialogs.cpp",
 			null
 		],
 		[
-			"C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/PlotWindow.h",
+			"C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/PlotWindow.h",
 			"MU",
 			"EWIEGA46WW/moc_PlotWindow.cpp",
 			null
 		],
 		[
-			"C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/SchematicWidget.h",
+			"C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/SchematicWidget.h",
 			"MU",
 			"EWIEGA46WW/moc_SchematicWidget.cpp",
 			null
 		],
 		[
-			"C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/mainwindow.h",
+			"C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/mainwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp",
 			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
-	"INCLUDE_DIR" : "C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cmake-build-debug/LTspice_autogen/include",
-	"MOC_COMPILATION_FILE" : "C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cmake-build-debug/LTspice_autogen/mocs_compilation.cpp",
+	"INCLUDE_DIR" : "C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/cmake-build-debug/LTspice_autogen/include",
+	"MOC_COMPILATION_FILE" : "C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/cmake-build-debug/LTspice_autogen/mocs_compilation.cpp",
 	"MOC_DEFINITIONS" : 
 	[
 		"MINGW_HAS_SECURE_API=1",
@@ -426,9 +426,9 @@
 	],
 	"MOC_INCLUDES" : 
 	[
-		"C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cmake-build-debug",
-		"C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2",
-		"C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0",
+		"C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/cmake-build-debug",
+		"C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0",
+		"C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/eigen-3.4.0",
 		"C:/Qt1/6.9.1/mingw_64/include/QtWidgets",
 		"C:/Qt1/6.9.1/mingw_64/include",
 		"C:/Qt1/6.9.1/mingw_64/include/QtCore",
@@ -464,56 +464,56 @@
 		"-c",
 		"C:/Program Files/JetBrains/CLion 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCXXCompilerABI.cpp"
 	],
-	"MOC_PREDEFS_FILE" : "C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cmake-build-debug/LTspice_autogen/moc_predefs.h",
+	"MOC_PREDEFS_FILE" : "C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/cmake-build-debug/LTspice_autogen/moc_predefs.h",
 	"MOC_RELAXED_MODE" : false,
 	"MOC_SKIP" : [],
 	"MULTI_CONFIG" : false,
 	"PARALLEL" : 2,
-	"PARSE_CACHE_FILE" : "C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cmake-build-debug/CMakeFiles/LTspice_autogen.dir/ParseCache.txt",
+	"PARSE_CACHE_FILE" : "C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/cmake-build-debug/CMakeFiles/LTspice_autogen.dir/ParseCache.txt",
 	"QT_MOC_EXECUTABLE" : "C:/Qt1/6.9.1/mingw_64/bin/moc.exe",
 	"QT_UIC_EXECUTABLE" : "C:/Qt1/6.9.1/mingw_64/bin/uic.exe",
 	"QT_VERSION_MAJOR" : 6,
 	"QT_VERSION_MINOR" : 9,
-	"SETTINGS_FILE" : "C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cmake-build-debug/CMakeFiles/LTspice_autogen.dir/AutogenUsed.txt",
+	"SETTINGS_FILE" : "C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/cmake-build-debug/CMakeFiles/LTspice_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
 		[
-			"C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/Circuit.cpp",
+			"C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/Circuit.cpp",
 			"MU",
 			null
 		],
 		[
-			"C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/Component.cpp",
+			"C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/Component.cpp",
 			"MU",
 			null
 		],
 		[
-			"C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/ComponentFactory.cpp",
+			"C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/ComponentFactory.cpp",
 			"MU",
 			null
 		],
 		[
-			"C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/Dialogs.cpp",
+			"C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/Dialogs.cpp",
 			"MU",
 			null
 		],
 		[
-			"C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/PlotWindow.cpp",
+			"C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/PlotWindow.cpp",
 			"MU",
 			null
 		],
 		[
-			"C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/SchematicWidget.cpp",
+			"C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/SchematicWidget.cpp",
 			"MU",
 			null
 		],
 		[
-			"C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/main.cpp",
+			"C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/main.cpp",
 			"MU",
 			null
 		],
 		[
-			"C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/mainwindow.cpp",
+			"C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/mainwindow.cpp",
 			"MU",
 			null
 		]

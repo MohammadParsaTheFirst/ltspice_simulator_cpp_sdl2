@@ -52,10 +52,10 @@ RM = "C:\Program Files\JetBrains\CLion 2024.2.1\bin\cmake\win\x64\bin\cmake.exe"
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2"
+CMAKE_SOURCE_DIR = "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug"
+CMAKE_BINARY_DIR = "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\cmake-build-debug"
 
 # Utility rule file for LTspice_autogen.
 
@@ -70,9 +70,9 @@ CMakeFiles/LTspice_autogen: LTspice_autogen/timestamp
 LTspice_autogen/timestamp: C:/Qt1/6.9.1/mingw_64/bin/moc.exe
 LTspice_autogen/timestamp: C:/Qt1/6.9.1/mingw_64/bin/uic.exe
 LTspice_autogen/timestamp: CMakeFiles/LTspice_autogen.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target LTspice"
-	"C:\Program Files\JetBrains\CLion 2024.2.1\bin\cmake\win\x64\bin\cmake.exe" -E cmake_autogen "C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cmake-build-debug/CMakeFiles/LTspice_autogen.dir/AutogenInfo.json" Debug
-	"C:\Program Files\JetBrains\CLion 2024.2.1\bin\cmake\win\x64\bin\cmake.exe" -E touch "C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/cmake-build-debug/LTspice_autogen/timestamp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir="C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target LTspice"
+	"C:\Program Files\JetBrains\CLion 2024.2.1\bin\cmake\win\x64\bin\cmake.exe" -E cmake_autogen "C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/cmake-build-debug/CMakeFiles/LTspice_autogen.dir/AutogenInfo.json" Debug
+	"C:\Program Files\JetBrains\CLion 2024.2.1\bin\cmake\win\x64\bin\cmake.exe" -E touch "C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/cmake-build-debug/LTspice_autogen/timestamp"
 
 LTspice_autogen: CMakeFiles/LTspice_autogen
 LTspice_autogen: LTspice_autogen/timestamp
@@ -88,6 +88,6 @@ CMakeFiles/LTspice_autogen.dir/clean:
 .PHONY : CMakeFiles/LTspice_autogen.dir/clean
 
 CMakeFiles/LTspice_autogen.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2" "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2" "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug" "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug" "C:\Users\parsa\Documents\university\Programming and linux\ltspice_simulator_cpp_sdl2\cmake-build-debug\CMakeFiles\LTspice_autogen.dir\DependInfo.cmake" "--color=$(COLOR)"
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0" "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0" "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\cmake-build-debug" "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\cmake-build-debug" "C:\Users\parsa\Documents\university\Programming and linux\403101518-403101683.0\cmake-build-debug\CMakeFiles\LTspice_autogen.dir\DependInfo.cmake" "--color=$(COLOR)"
 .PHONY : CMakeFiles/LTspice_autogen.dir/depend
 

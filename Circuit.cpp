@@ -1,6 +1,7 @@
 #include <iomanip>
 #include <utility>
 #include <cctype>
+#include <QFile>
 #include "circuit.h"
 namespace fs = std::filesystem;
 
@@ -55,7 +56,101 @@ Circuit::~Circuit() {}
 
 
 // -------------------------------- File Management --------------------------------
+const std::vector<ComponentGraphicalInfo>& Circuit::getComponentGraphics() const {
+    return componentGraphics;
+}
 
+const std::vector<WireInfo>& Circuit::getWires() const {
+    return wires;
+}
+
+const std::vector<LabelInfo>& Circuit::getLabels() const {
+    return labels;
+}
+
+const std::vector<GroundInfo>& Circuit::getGrounds() const {
+    return grounds;
+}
+
+QString getSubcircuitLibraryPath();
+void Circuit::saveSubcircuitToFile(const SubcircuitDefinition& subDef) {
+    QString libraryPath = getSubcircuitLibraryPath();
+    QString filePath = libraryPath + "/" + QString::fromStdString(subDef.name) + ".sub";
+
+    QFile file(filePath);
+    if (!file.open(QIODevice::WriteOnly)) {
+        throw std::runtime_error("Cannot open file for writing subcircuit: " + filePath.toStdString());
+    }
+    QDataStream out(&file);
+    out.setVersion(QDataStream::Qt_6_5);
+    out << subDef; // We already have the stream operator for this
+    file.close();
+}
+
+void Circuit::saveToFile(const QString& filePath) {
+    QFile file(filePath);
+    if (!file.open(QIODevice::WriteOnly))
+        throw std::runtime_error("Cannot open file for writing: " + filePath.toStdString());
+    QDataStream out(&file);
+    out.setVersion(QDataStream::Qt_6_5);
+
+    out << componentGraphics;
+    out << wires;
+    out << labels;
+    out << grounds;
+    out << subcircuitDefinitions;
+    out << (quint32)components.size()
+    ;
+    for (const auto& comp : components) {
+        out << comp->getTypeString();
+        comp->serialize(out);
+    }
+
+    out << nodeNameToId;
+    out << idToNodeName;
+    out << (qint32)nextNodeId;
+    out << groundNodeIds;
+}
+
+void Circuit::loadFromFile(const QString& filePath) {
+    QFile file(filePath);
+    if (!file.open(QIODevice::ReadOnly))
+        throw std::runtime_error("Cannot open file for reading: " + filePath.toStdString());
+
+    QDataStream in(&file);
+    in.setVersion(QDataStream::Qt_6_5);
+
+    clearSchematic();
+
+    in >> componentGraphics;
+    in >> wires;
+    in >> labels;
+    in >> grounds;
+    in >> subcircuitDefinitions;
+
+    quint32 componentCount;
+    in >> componentCount;
+    for (quint32 i = 0; i < componentCount; ++i) {
+        QString typeString;
+        in >> typeString;
+        std::shared_ptr<Component> newComp = ComponentFactory::createComponentFromType(typeString);
+        if (newComp) {
+            newComp->deserialize(in);
+            components.push_back(newComp);
+            if (newComp->isNonlinear())
+                hasNonlinearComponents = true;
+        }
+        else
+            throw std::runtime_error("Unknown component type in file: " + typeString.toStdString());
+    }
+
+    qint32 loadedNextNodeId;
+    in >> nodeNameToId;
+    in >> idToNodeName;
+    in >> loadedNextNodeId;
+    in >> groundNodeIds;
+    nextNodeId = loadedNextNodeId;
+}
 // -------------------------------- File Management --------------------------------
 
 
@@ -787,3 +882,163 @@ std::map<std::string, std::map<double, double>> Circuit::getACSweepResults(const
     return results;
 }
 // -------------------------------- Output Results --------------------------------
+
+template<typename T>
+QDataStream& operator<<(QDataStream& out, const std::vector<T>& vec) {
+    out << (quint32)vec.size();
+    for (const T& item : vec) { out << item; }
+    return out;
+}
+template<typename T>
+QDataStream& operator>>(QDataStream& in, std::vector<T>& vec) {
+    quint32 size;
+    in >> size;
+    vec.clear();
+    vec.reserve(size);
+    for (quint32 i = 0; i < size; ++i) {
+        T item;
+        in >> item;
+        vec.push_back(item);
+    }
+    return in;
+}
+
+QDataStream& operator<<(QDataStream& out, const std::map<std::string, int>& map) {
+    out << (quint32)map.size();
+    for(const auto& pair : map) { out << QString::fromStdString(pair.first) << (qint32)pair.second; }
+    return out;
+}
+QDataStream& operator>>(QDataStream& in, std::map<std::string, int>& map) {
+    map.clear();
+    quint32 size;
+    in >> size;
+    for(quint32 i=0; i<size; ++i) {
+        QString key;
+        qint32 val;
+        in >> key >> val;
+        map[key.toStdString()] = val;
+    }
+    return in;
+}
+
+QDataStream& operator<<(QDataStream& out, const std::map<int, std::string>& map) {
+    out << (quint32)map.size();
+    for(const auto& pair : map) { out << (qint32)pair.first << QString::fromStdString(pair.second); }
+    return out;
+}
+QDataStream& operator>>(QDataStream& in, std::map<int, std::string>& map) {
+    map.clear();
+    quint32 size;
+    in >> size;
+    for(quint32 i=0; i<size; ++i) {
+        qint32 key;
+        QString val;
+        in >> key >> val;
+        map[key] = val.toStdString();
+    }
+    return in;
+}
+
+QDataStream& operator<<(QDataStream& out, const std::set<int>& set) {
+    out << (quint32)set.size();
+    for(int item : set) { out << (qint32)item; }
+    return out;
+}
+QDataStream& operator>>(QDataStream& in, std::set<int>& set) {
+    set.clear();
+    quint32 size;
+    in >> size;
+    for(quint32 i=0; i<size; ++i) {
+        qint32 item;
+        in >> item;
+        set.insert(item);
+    }
+    return in;
+}
+
+QDataStream& operator<<(QDataStream& out, const std::map<std::string, SubcircuitDefinition>& map) {
+    out << (quint32)map.size();
+    for (const auto& pair : map) { out << QString::fromStdString(pair.first) << pair.second; }
+    return out;
+}
+QDataStream& operator>>(QDataStream& in, std::map<std::string, SubcircuitDefinition>& map) {
+    map.clear();
+    quint32 size;
+    in >> size;
+    for (quint32 i = 0; i < size; ++i) {
+        QString key;
+        SubcircuitDefinition val;
+        in >> key >> val;
+        map[key.toStdString()] = val;
+    }
+    return in;
+}
+
+QDataStream& operator<<(QDataStream& out, const ComponentGraphicalInfo& info) {
+    out << info.startPoint << info.isHorizontal << QString::fromStdString(info.name);
+    return out;
+}
+QDataStream& operator>>(QDataStream& in, ComponentGraphicalInfo& info) {
+    QString name;
+    in >> info.startPoint >> info.isHorizontal >> name;
+    info.name = name.toStdString();
+    return in;
+}
+
+QDataStream& operator<<(QDataStream& out, const WireInfo& info) {
+    out << info.startPoint << info.endPoint << QString::fromStdString(info.nodeName);
+    return out;
+}
+QDataStream& operator>>(QDataStream& in, WireInfo& info) {
+    QString nodeName;
+    in >> info.startPoint >> info.endPoint >> nodeName;
+    info.nodeName = nodeName.toStdString();
+    return in;
+}
+
+QDataStream& operator<<(QDataStream& out, const LabelInfo& info) {
+    out << info.position << QString::fromStdString(info.name) << QString::fromStdString(info.connectedNodeName);
+    return out;
+}
+QDataStream& operator>>(QDataStream& in, LabelInfo& info) {
+    QString name, connectedNodeName;
+    in >> info.position >> name >> connectedNodeName;
+    info.name = name.toStdString();
+    info.connectedNodeName = connectedNodeName.toStdString();
+    return in;
+}
+
+QDataStream& operator<<(QDataStream& out, const GroundInfo& info) {
+    out << info.position;
+    return out;
+}
+QDataStream& operator>>(QDataStream& in, GroundInfo& info) {
+    in >> info.position;
+    return in;
+}
+
+QDataStream& operator<<(QDataStream& out, const SubcircuitDefinition& def) {
+    out << QString::fromStdString(def.name);
+    out << (quint32)def.netlist.size();
+    for(const auto& s : def.netlist) { out << QString::fromStdString(s); }
+    out << QString::fromStdString(def.port1NodeName) << QString::fromStdString(def.port2NodeName);
+    return out;
+}
+QDataStream& operator>>(QDataStream& in, SubcircuitDefinition& def) {
+    QString name, port1, port2;
+    in >> name;
+    def.name = name.toStdString();
+    quint32 netlistSize;
+    in >> netlistSize;
+    def.netlist.clear();
+    def.netlist.reserve(netlistSize);
+    for(quint32 i=0; i<netlistSize; ++i) {
+        QString s;
+        in >> s;
+        def.netlist.push_back(s.toStdString());
+    }
+    in >> port1 >> port2;
+    def.port1NodeName = port1.toStdString();
+    def.port2NodeName = port2.toStdString();
+    return in;
+}

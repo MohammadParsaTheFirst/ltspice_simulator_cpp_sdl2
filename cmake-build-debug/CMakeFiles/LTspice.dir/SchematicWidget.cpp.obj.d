@@ -500,6 +500,8 @@ CMakeFiles/LTspice.dir/SchematicWidget.cpp.obj: \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qtimezone.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/QRegularExpression \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qregularexpression.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtCore/QDataStream \
+ C:/Qt1/6.9.1/mingw_64/include/QtCore/qdatastream.h \
  C:\Users\parsa\Documents\university\Programming\ and\ linux\ltspice_simulator_cpp_sdl2\component.h \
  C:/Users/parsa/DOCUME~1/UNIVER~1/PROGRA~1/LTSPIC~1/EIGEN-~1.0/Eigen/Dense \
  C:/Users/parsa/DOCUME~1/UNIVER~1/PROGRA~1/LTSPIC~1/EIGEN-~1.0/Eigen/Core \
@@ -794,4 +796,21 @@ CMakeFiles/LTspice.dir/SchematicWidget.cpp.obj: \
  C:/Qt1/6.9.1/mingw_64/include/QtGui/QImage \
  C:/Qt1/6.9.1/mingw_64/include/QtGui/qimage.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCharts/QValueAxis \
- C:/Qt1/6.9.1/mingw_64/include/QtCharts/qvalueaxis.h
+ C:/Qt1/6.9.1/mingw_64/include/QtCharts/qvalueaxis.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtCharts/QLogValueAxis \
+ C:/Qt1/6.9.1/mingw_64/include/QtCharts/qlogvalueaxis.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtCharts/QScatterSeries \
+ C:/Qt1/6.9.1/mingw_64/include/QtCharts/qscatterseries.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtCharts/qxyseries.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QSlider \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qslider.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QGridLayout \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qgridlayout.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QMenu \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qmenu.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QColorDialog \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qcolordialog.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtCharts/QLegendMarker \
+ C:/Qt1/6.9.1/mingw_64/include/QtCharts/qlegendmarker.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QStatusBar \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qstatusbar.h

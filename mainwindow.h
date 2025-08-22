@@ -13,9 +13,10 @@
 #include <QToolBar>
 #include <QIcon>
 #include <QFileDialog>
-#include "SchematicWidget.h"
-#include "mainwindow.h"
+#include <QInputDialog>
 #include "ui_mainwindow.h"
+#include "SchematicWidget.h"
+#include "Circuit.h"
 
 namespace Ui {
     class MainWindow;
@@ -27,8 +28,12 @@ private:
     Ui::MainWindow* ui;
     SchematicWidget* schematic;
     Circuit circuit;
+    QString currentProjectPath;
+    QString schematicsPath;
+    QString currentProjectName;
+
     void setupWelcomeState();
-    void setupSchematicState();
+    void setupSchematicState(const QString& projectName = "Draft.asc");
 
     // Some items in menu bar to disable and enabling them
     QAction* settingsAction;
@@ -66,6 +71,8 @@ public:
     void implementMenuBar();
     void implementToolBar();
     void shortcutRunner();
+
+    void loadSubcircuitsFromLibrary();
 };
 
 

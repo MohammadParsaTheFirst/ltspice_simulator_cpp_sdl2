@@ -6,7 +6,10 @@ C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cp
   C:/Qt1/6.9.1/mingw_64/include/QtCharts/QChartGlobal \
   C:/Qt1/6.9.1/mingw_64/include/QtCharts/QChartView \
   C:/Qt1/6.9.1/mingw_64/include/QtCharts/QLegend \
+  C:/Qt1/6.9.1/mingw_64/include/QtCharts/QLegendMarker \
   C:/Qt1/6.9.1/mingw_64/include/QtCharts/QLineSeries \
+  C:/Qt1/6.9.1/mingw_64/include/QtCharts/QLogValueAxis \
+  C:/Qt1/6.9.1/mingw_64/include/QtCharts/QScatterSeries \
   C:/Qt1/6.9.1/mingw_64/include/QtCharts/QValueAxis \
   C:/Qt1/6.9.1/mingw_64/include/QtCharts/QXYSeries \
   C:/Qt1/6.9.1/mingw_64/include/QtCharts/qabstractaxis.h \
@@ -15,7 +18,10 @@ C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cp
   C:/Qt1/6.9.1/mingw_64/include/QtCharts/qchartglobal.h \
   C:/Qt1/6.9.1/mingw_64/include/QtCharts/qchartview.h \
   C:/Qt1/6.9.1/mingw_64/include/QtCharts/qlegend.h \
+  C:/Qt1/6.9.1/mingw_64/include/QtCharts/qlegendmarker.h \
   C:/Qt1/6.9.1/mingw_64/include/QtCharts/qlineseries.h \
+  C:/Qt1/6.9.1/mingw_64/include/QtCharts/qlogvalueaxis.h \
+  C:/Qt1/6.9.1/mingw_64/include/QtCharts/qscatterseries.h \
   C:/Qt1/6.9.1/mingw_64/include/QtCharts/qtcharts-config.h \
   C:/Qt1/6.9.1/mingw_64/include/QtCharts/qtchartsexports.h \
   C:/Qt1/6.9.1/mingw_64/include/QtCharts/qvalueaxis.h \
@@ -192,6 +198,7 @@ C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cp
   C:/Qt1/6.9.1/mingw_64/include/QtGui/qpainterpath.h \
   C:/Qt1/6.9.1/mingw_64/include/QtGui/qpalette.h \
   C:/Qt1/6.9.1/mingw_64/include/QtGui/qpen.h \
+  C:/Qt1/6.9.1/mingw_64/include/QtGui/qpicture.h \
   C:/Qt1/6.9.1/mingw_64/include/QtGui/qpixelformat.h \
   C:/Qt1/6.9.1/mingw_64/include/QtGui/qpixmap.h \
   C:/Qt1/6.9.1/mingw_64/include/QtGui/qpointingdevice.h \
@@ -201,6 +208,9 @@ C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cp
   C:/Qt1/6.9.1/mingw_64/include/QtGui/qrgba64.h \
   C:/Qt1/6.9.1/mingw_64/include/QtGui/qscreen.h \
   C:/Qt1/6.9.1/mingw_64/include/QtGui/qscreen_platform.h \
+  C:/Qt1/6.9.1/mingw_64/include/QtGui/qtextcursor.h \
+  C:/Qt1/6.9.1/mingw_64/include/QtGui/qtextdocument.h \
+  C:/Qt1/6.9.1/mingw_64/include/QtGui/qtextformat.h \
   C:/Qt1/6.9.1/mingw_64/include/QtGui/qtextoption.h \
   C:/Qt1/6.9.1/mingw_64/include/QtGui/qtgui-config.h \
   C:/Qt1/6.9.1/mingw_64/include/QtGui/qtguiexports.h \
@@ -210,12 +220,22 @@ C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cp
   C:/Qt1/6.9.1/mingw_64/include/QtGui/qvectornd.h \
   C:/Qt1/6.9.1/mingw_64/include/QtGui/qwindowdefs.h \
   C:/Qt1/6.9.1/mingw_64/include/QtGui/qwindowdefs_win.h \
+  C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QColorDialog \
   C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QGraphicsView \
   C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QGraphicsWidget \
+  C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QGridLayout \
+  C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QInputDialog \
+  C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QLabel \
   C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QMainWindow \
+  C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QMenu \
+  C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QSlider \
+  C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QStatusBar \
   C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QVBoxLayout \
   C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+  C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qabstractslider.h \
   C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qboxlayout.h \
+  C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qcolordialog.h \
+  C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qdialog.h \
   C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qframe.h \
   C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qgraphicsitem.h \
   C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qgraphicslayoutitem.h \
@@ -223,11 +243,17 @@ C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cp
   C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qgraphicsview.h \
   C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qgraphicswidget.h \
   C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qgridlayout.h \
+  C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qinputdialog.h \
+  C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qlabel.h \
   C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qlayout.h \
   C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qlayoutitem.h \
+  C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qlineedit.h \
   C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qmainwindow.h \
+  C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qmenu.h \
   C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qscrollarea.h \
   C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qsizepolicy.h \
+  C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qslider.h \
+  C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qstatusbar.h \
   C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qtabwidget.h \
   C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qtwidgets-config.h \
   C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qtwidgetsexports.h \

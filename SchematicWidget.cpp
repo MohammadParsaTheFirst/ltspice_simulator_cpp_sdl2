@@ -9,7 +9,6 @@ SchematicWidget::SchematicWidget(Circuit* circuit, QWidget* parent) : circuit_pt
     setPalette(pal);
 
     setFocusPolicy(Qt::StrongFocus); // Keyboard Events
-    circuit_ptr->clearSchematic();
 
     componentCounters["R"] = 0;
     componentCounters["C"] = 0;
@@ -702,126 +701,15 @@ void SchematicWidget::selectingSubcircuitNodesMouseEvent(QMouseEvent* event) {
         QString subcircuitName = QInputDialog::getText(this, "Subcircuit Name", "Enter a name for the new subcircuit:", QLineEdit::Normal, "", &ok);
         if (ok && !subcircuitName.isEmpty()) {
             circuit_ptr->createSubcircuitDefinition(subcircuitName.toStdString(), subcircuitNodes[0].toStdString(), subcircuitNodes[1].toStdString());
-            QMessageBox::information(this, "Success", QString("Subcircuit '%1' created successfully.").arg(subcircuitName));
+            try {
+                const auto& newSubDef = circuit_ptr->subcircuitDefinitions.at(subcircuitName.toStdString());
+                circuit_ptr->saveSubcircuitToFile(newSubDef);
+                QMessageBox::information(this, "Success", QString("Subcircuit '%1' created and saved to library.").arg(subcircuitName));
+            } catch (const std::exception& e) {
+                QMessageBox::critical(this, "Error", QString("Failed to save subcircuit to file: %1").arg(e.what()));
+            }
         }
         currentMode = InteractionMode::Normal;
         setCursor(Qt::ArrowCursor);
     }
 }
-
-// void SchematicWidget::reloadFromCircuit() {
-//     componentCounters.clear();
-//     const auto& graphics = circuit_ptr->getComponentGraphics();
-//     const auto& components = circuit_ptr->getComponentsVector();
-//
-//     // Check if graphics is empty
-//     if (graphics.empty())
-//         std::cerr << "Warning: No graphics data loaded. Skipping graphics validation." << std::endl;
-//     else {
-//         if (graphics.size() > components.size())
-//             std::cerr << "Warning: Graphics size (" << graphics.size() << ") exceeds components size (" << components.size() << ")" << std::endl;
-//         for (size_t i = 0; i < graphics.size(); ++i) {
-//             if (graphics[i].name.empty()) {
-//                 std::cerr << "Warning: Empty component name at graphic index " << i << std::endl;
-//                 continue;
-//             }
-//             auto comp = circuit_ptr->getComponent(graphics[i].name);
-//             if (!comp) {
-//                 std::cerr << "Warning: No component found for graphic name '" << graphics[i].name << "' at index " << i << std::endl;
-//                 continue;
-//             }
-//             if (comp->node1 < 0 || !circuit_ptr->getIdToNodeName().count(comp->node1)) {
-//                 std::cerr << "Warning: Invalid node1 (" << comp->node1 << ") for component '" << graphics[i].name << "' at index " << i << std::endl;
-//                 continue;
-//             }
-//             if (comp->node2 < 0 || !circuit_ptr->getIdToNodeName().count(comp->node2)) {
-//                 std::cerr << "Warning: Invalid node2 (" << comp->node2 << ") for component '" << graphics[i].name << "' at index " << i << std::endl;
-//                 continue;
-//             }
-//             QString typeStr;
-//             switch (comp->type) {
-//                 case Component::Type::RESISTOR: typeStr = "Resistor"; break;
-//                 case Component::Type::CAPACITOR: typeStr = "Capacitor"; break;
-//                 case Component::Type::INDUCTOR: typeStr = "Inductor"; break;
-//                 case Component::Type::DIODE: typeStr = "Diode"; break;
-//                 case Component::Type::VOLTAGE_SOURCE: typeStr = "VoltageSource"; break;
-//                 case Component::Type::CURRENT_SOURCE: typeStr = "CurrentSource"; break;
-//                 case Component::Type::VCVS: typeStr = "VCVS"; break;
-//                 case Component::Type::VCCS: typeStr = "VCCS"; break;
-//                 case Component::Type::CCVS: typeStr = "CCVS"; break;
-//                 case Component::Type::CCCS: typeStr = "CCCS"; break;
-//                 default: typeStr = "Unknown"; break;
-//             }
-//             componentCounters[typeStr]++;
-//         }
-//     }
-//
-//     // Validate components
-//     if (components.empty()) {
-//         std::cerr << "Warning: No components loaded." << std::endl;
-//     } else {
-//         for (size_t i = 0; i < components.size(); ++i) {
-//             if (!components[i]) {
-//                 std::cerr << "Warning: Null component at index " << i << std::endl;
-//                 continue;
-//             }
-//             if (components[i]->name.empty()) {
-//                 std::cerr << "Warning: Empty component name at index " << i << std::endl;
-//                 continue;
-//             }
-//             bool hasGraphic = false;
-//             for (const auto& g : graphics) {
-//                 if (g.name == components[i]->name) {
-//                     hasGraphic = true;
-//                     break;
-//                 }
-//             }
-//             if (!hasGraphic)
-//                 std::cerr << "Warning: Component '" << components[i]->name << "' at index " << i << " has no corresponding graphic" << std::endl;
-//         }
-//     }
-//
-//     if (componentCounters.empty())
-//         std::cout << "None";
-//     else
-//         for (const auto& pair : componentCounters)
-//             std::cout << pair.first.toStdString() << ": " << pair.second << ", ";
-//
-//     update();
-// }
-
-// void SchematicWidget::paintEvent(QPaintEvent* event) {
-//     QWidget::paintEvent(event);
-//     QPainter painter(this);
-//
-//     drawGridDots(painter);
-//     drawComponents(painter);
-//     drawWires(painter);
-//     drawLabels(painter);
-//     drawGrounds(painter);
-// }
-
-// void SchematicWidget::drawComponents(QPainter& painter) {
-//     const auto& componentGraphics = circuit_ptr->getComponentGraphics();
-//     for (int i = 0; i < componentGraphics.size(); i++) {
-//         const std::string& name = componentGraphics[i].name;
-//         if (name.empty() || name.find_first_not_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_") != std::string::npos) {
-//             std::cerr << "Warning: Skipping graphic with invalid name at index " << i << std::endl;
-//             continue;
-//         }
-//         auto comp = circuit_ptr->getComponent(name);
-//         if (!comp) {
-//             std::cerr << "Warning: Skipping graphic " << name << " with no matching component at index " << i << std::endl;
-//             continue;
-//         }
-//         bool isHovered = (i == hoveredComponentIndex && currentMode == InteractionMode::deleteMode);
-//         drawComponent(painter, componentGraphics[i].startPoint, componentGraphics[i].isHorizontal,
-//                       QString::fromStdString(name), isHovered);
-//     }
-//     if (currentMode != InteractionMode::Normal && currentMode != InteractionMode::deleteMode &&
-//         currentMode != InteractionMode::placingWire && currentMode != InteractionMode::placingLabel &&
-//         currentMode != InteractionMode::placingGround && currentMode != InteractionMode::placingSubcircuitNodes) {
-//         QPoint startPos = stickToGrid(currentMousePos);
-//         drawComponent(painter, startPos, placementIsHorizontal, currentCompType);
-//     }
-// }

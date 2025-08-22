@@ -73,3 +73,19 @@ Component* ComponentFactory::createComponent(
 
     return newComp;
 }
+
+std::shared_ptr<Component> ComponentFactory::createComponentFromType(const QString& typeStr) {
+    if (typeStr == "Resistor") return std::make_shared<Resistor>();
+    if (typeStr == "Capacitor") return std::make_shared<Capacitor>();
+    if (typeStr == "Inductor") return std::make_shared<Inductor>();
+    if (typeStr == "VoltageSource") return std::make_shared<VoltageSource>();
+    if (typeStr == "CurrentSource") return std::make_shared<CurrentSource>();
+    if (typeStr == "ACVoltageSource") return std::make_shared<ACVoltageSource>();
+    if (typeStr == "Diode") return std::make_shared<Diode>();
+    if (typeStr == "VCVS") return std::make_shared<VCVS>();
+    if (typeStr == "VCCS") return std::make_shared<VCCS>();
+    if (typeStr == "CCVS") return std::make_shared<CCVS>();
+    if (typeStr == "CCCS") return std::make_shared<CCCS>();
+
+    return nullptr;
+}

@@ -535,6 +535,8 @@ CMakeFiles/LTspice.dir/Dialogs.cpp.obj: \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qtimezone.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/QRegularExpression \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qregularexpression.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtCore/QDataStream \
+ C:/Qt1/6.9.1/mingw_64/include/QtCore/qdatastream.h \
  C:\Users\parsa\Documents\university\Programming\ and\ linux\ltspice_simulator_cpp_sdl2\component.h \
  C:/Users/parsa/DOCUME~1/UNIVER~1/PROGRA~1/LTSPIC~1/EIGEN-~1.0/Eigen/Dense \
  C:/Users/parsa/DOCUME~1/UNIVER~1/PROGRA~1/LTSPIC~1/EIGEN-~1.0/Eigen/Core \

@@ -21,8 +21,8 @@ public:
         bool isSinusoidal,
         Circuit* circuit
     );
+
+    static std::shared_ptr<Component> createComponentFromType(const QString& typeStr);
 };
-
-
 
 #endif //COMPONENTFACTORY_H

@@ -6,7 +6,10 @@ C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cp
   C:/Qt1/6.9.1/mingw_64/include/QtCharts/QChartGlobal \
   C:/Qt1/6.9.1/mingw_64/include/QtCharts/QChartView \
   C:/Qt1/6.9.1/mingw_64/include/QtCharts/QLegend \
+  C:/Qt1/6.9.1/mingw_64/include/QtCharts/QLegendMarker \
   C:/Qt1/6.9.1/mingw_64/include/QtCharts/QLineSeries \
+  C:/Qt1/6.9.1/mingw_64/include/QtCharts/QLogValueAxis \
+  C:/Qt1/6.9.1/mingw_64/include/QtCharts/QScatterSeries \
   C:/Qt1/6.9.1/mingw_64/include/QtCharts/QValueAxis \
   C:/Qt1/6.9.1/mingw_64/include/QtCharts/QXYSeries \
   C:/Qt1/6.9.1/mingw_64/include/QtCharts/qabstractaxis.h \
@@ -15,12 +18,16 @@ C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cp
   C:/Qt1/6.9.1/mingw_64/include/QtCharts/qchartglobal.h \
   C:/Qt1/6.9.1/mingw_64/include/QtCharts/qchartview.h \
   C:/Qt1/6.9.1/mingw_64/include/QtCharts/qlegend.h \
+  C:/Qt1/6.9.1/mingw_64/include/QtCharts/qlegendmarker.h \
   C:/Qt1/6.9.1/mingw_64/include/QtCharts/qlineseries.h \
+  C:/Qt1/6.9.1/mingw_64/include/QtCharts/qlogvalueaxis.h \
+  C:/Qt1/6.9.1/mingw_64/include/QtCharts/qscatterseries.h \
   C:/Qt1/6.9.1/mingw_64/include/QtCharts/qtcharts-config.h \
   C:/Qt1/6.9.1/mingw_64/include/QtCharts/qtchartsexports.h \
   C:/Qt1/6.9.1/mingw_64/include/QtCharts/qvalueaxis.h \
   C:/Qt1/6.9.1/mingw_64/include/QtCharts/qxyseries.h \
   C:/Qt1/6.9.1/mingw_64/include/QtCore/QCoreApplication \
+  C:/Qt1/6.9.1/mingw_64/include/QtCore/QDataStream \
   C:/Qt1/6.9.1/mingw_64/include/QtCore/QDir \
   C:/Qt1/6.9.1/mingw_64/include/QtCore/QList \
   C:/Qt1/6.9.1/mingw_64/include/QtCore/QMargins \
@@ -238,6 +245,7 @@ C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cp
   C:/Qt1/6.9.1/mingw_64/include/QtGui/qwindowdefs.h \
   C:/Qt1/6.9.1/mingw_64/include/QtGui/qwindowdefs_win.h \
   C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QApplication \
+  C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QColorDialog \
   C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QComboBox \
   C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QDialog \
   C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QDialogButtonBox \
@@ -245,6 +253,7 @@ C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cp
   C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QFormLayout \
   C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QGraphicsView \
   C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QGraphicsWidget \
+  C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QGridLayout \
   C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QGroupBox \
   C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QInputDialog \
   C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QLabel \
@@ -257,6 +266,8 @@ C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cp
   C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QMessageBox \
   C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QPushButton \
   C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QRadioButton \
+  C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QSlider \
+  C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QStatusBar \
   C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QTabWidget \
   C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QToolBar \
   C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QVBoxLayout \
@@ -269,6 +280,7 @@ C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cp
   C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
   C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qapplication.h \
   C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qboxlayout.h \
+  C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qcolordialog.h \
   C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qcombobox.h \
   C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qdialog.h \
   C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
@@ -299,6 +311,7 @@ C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cp
   C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qscrollarea.h \
   C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qsizepolicy.h \
   C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qslider.h \
+  C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qstatusbar.h \
   C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qstyle.h \
   C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qstyleoption.h \
   C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qtabbar.h \
@@ -766,5 +779,4 @@ C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cp
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/plugins/IndexedViewMethods.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/plugins/MatrixCwiseBinaryOps.h \
   C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/plugins/MatrixCwiseUnaryOps.h \
-  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/plugins/ReshapedMethods.h \
-  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/mainwindow.h
+  C:/Users/parsa/Documents/university/Programming\ and\ linux/ltspice_simulator_cpp_sdl2/eigen-3.4.0/Eigen/src/plugins/ReshapedMethods.h

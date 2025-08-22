@@ -1,0 +1,3 @@
+"C:\Program Files\JetBrains\CLion 2024.2.1\bin\cmake\win\x64\bin\cmake.exe" -E rm -f CMakeFiles\ParsaSpice.dir/objects.a
+C:\Qt1\Tools\mingw1310_64\bin\ar.exe qc CMakeFiles\ParsaSpice.dir/objects.a @CMakeFiles\ParsaSpice.dir\objects1.rsp
+C:\Qt1\Tools\mingw1310_64\bin\c++.exe -g -Wl,--whole-archive CMakeFiles\ParsaSpice.dir/objects.a -Wl,--no-whole-archive -o ParsaSpice.exe -Wl,--out-implib,libParsaSpice.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\ParsaSpice.dir\linkLibs.rsp

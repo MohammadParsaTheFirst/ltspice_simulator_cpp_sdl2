@@ -478,13 +478,27 @@ CMakeFiles/LTspice.dir/main.cpp.obj: \
  C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_ops.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qfileinfo.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qtimezone.h \
- C:\Users\parsa\Documents\university\Programming\ and\ linux\ltspice_simulator_cpp_sdl2\SchematicWidget.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QInputDialog \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qinputdialog.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qlineedit.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtGui/qtextcursor.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtGui/qtextformat.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtGui/qpen.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtGui/qtextoption.h \
+ C:/Users/parsa/DOCUME~1/UNIVER~1/PROGRA~1/LTSPIC~1/CMAKE-~1/LTSPIC~1/include/ui_mainwindow.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtCore/QVariant \
+ C:/Qt1/6.9.1/mingw_64/include/QtCore/qvariant.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QApplication \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QMainWindow \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QMenuBar \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QStatusBar \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qstatusbar.h \
  C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QWidget \
  C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qwidget.h \
+ C:\Users\parsa\Documents\university\Programming\ and\ linux\ltspice_simulator_cpp_sdl2\SchematicWidget.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QWidget \
  C:/Qt1/6.9.1/mingw_64/include/QtGui/QPainter \
  C:/Qt1/6.9.1/mingw_64/include/QtGui/qpainter.h \
- C:/Qt1/6.9.1/mingw_64/include/QtGui/qtextoption.h \
- C:/Qt1/6.9.1/mingw_64/include/QtGui/qpen.h \
  C:/Qt1/6.9.1/mingw_64/include/QtGui/QPaintEvent \
  C:/Qt1/6.9.1/mingw_64/include/QtGui/qevent.h \
  C:/Qt1/6.9.1/mingw_64/include/QtGui/qeventpoint.h \
@@ -507,11 +521,6 @@ CMakeFiles/LTspice.dir/main.cpp.obj: \
  C:/Qt1/6.9.1/mingw_64/include/QtGui/qscreen_platform.h \
  C:/Qt1/6.9.1/mingw_64/include/QtGui/QMouseEvent \
  C:/Qt1/6.9.1/mingw_64/include/QtGui/QKeyEvent \
- C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QInputDialog \
- C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qinputdialog.h \
- C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qlineedit.h \
- C:/Qt1/6.9.1/mingw_64/include/QtGui/qtextcursor.h \
- C:/Qt1/6.9.1/mingw_64/include/QtGui/qtextformat.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/QString \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qstring.h \
  C:\Users\parsa\Documents\university\Programming\ and\ linux\ltspice_simulator_cpp_sdl2\Circuit.h \
@@ -525,6 +534,8 @@ CMakeFiles/LTspice.dir/main.cpp.obj: \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qdir.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/QRegularExpression \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qregularexpression.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtCore/QDataStream \
+ C:/Qt1/6.9.1/mingw_64/include/QtCore/qdatastream.h \
  C:\Users\parsa\Documents\university\Programming\ and\ linux\ltspice_simulator_cpp_sdl2\component.h \
  C:/Users/parsa/DOCUME~1/UNIVER~1/PROGRA~1/LTSPIC~1/EIGEN-~1.0/Eigen/Dense \
  C:/Users/parsa/DOCUME~1/UNIVER~1/PROGRA~1/LTSPIC~1/EIGEN-~1.0/Eigen/Core \
@@ -785,8 +796,6 @@ CMakeFiles/LTspice.dir/main.cpp.obj: \
  C:/Qt1/6.9.1/mingw_64/include/QtGui/qpen.h \
  C:/Qt1/6.9.1/mingw_64/include/QtGui/QFont \
  C:/Qt1/6.9.1/mingw_64/include/QtGui/qfont.h \
- C:/Qt1/6.9.1/mingw_64/include/QtCore/QVariant \
- C:/Qt1/6.9.1/mingw_64/include/QtCore/qvariant.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCharts/QLegend \
  C:/Qt1/6.9.1/mingw_64/include/QtCharts/qlegend.h \
  C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QGraphicsWidget \
@@ -814,10 +823,17 @@ CMakeFiles/LTspice.dir/main.cpp.obj: \
  C:/Qt1/6.9.1/mingw_64/include/QtGui/qimage.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCharts/QValueAxis \
  C:/Qt1/6.9.1/mingw_64/include/QtCharts/qvalueaxis.h \
- C:/Users/parsa/DOCUME~1/UNIVER~1/PROGRA~1/LTSPIC~1/CMAKE-~1/LTSPIC~1/include/ui_mainwindow.h \
- C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QApplication \
- C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QMainWindow \
- C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QMenuBar \
- C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QStatusBar \
- C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qstatusbar.h \
- C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QWidget
+ C:/Qt1/6.9.1/mingw_64/include/QtCharts/QLogValueAxis \
+ C:/Qt1/6.9.1/mingw_64/include/QtCharts/qlogvalueaxis.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtCharts/QScatterSeries \
+ C:/Qt1/6.9.1/mingw_64/include/QtCharts/qscatterseries.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtCharts/qxyseries.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QSlider \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qslider.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QGridLayout \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qgridlayout.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QColorDialog \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/qcolordialog.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtCharts/QLegendMarker \
+ C:/Qt1/6.9.1/mingw_64/include/QtCharts/qlegendmarker.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtWidgets/QStatusBar

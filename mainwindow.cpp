@@ -1,11 +1,49 @@
 #include "mainwindow.h"
+#include <QDir>
+
+QString getSubcircuitLibraryPath() {
+    QString appPath = QCoreApplication::applicationDirPath();
+    QDir dir(appPath + "/lib");
+    if (!dir.exists())
+        dir.mkpath(".");
+    return dir.path();
+}
 
 MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
     ui->setupUi(this);
+    loadSubcircuitsFromLibrary();
     setWindowIcon(QIcon(":/icon.png"));
     this->resize(900, 600);
+    schematicsPath = QCoreApplication::applicationDirPath() + "/Schematics";
+    QDir dir(schematicsPath);
+    if (!dir.exists())
+        dir.mkpath(".");
+
     starterWindow();
     setupWelcomeState();
+}
+
+void MainWindow::loadSubcircuitsFromLibrary() {
+    QString libraryPath = getSubcircuitLibraryPath();
+    QDir directory(libraryPath);
+    QStringList files = directory.entryList(QStringList() << "*.sub", QDir::Files);
+
+    for (const QString& filename : files) {
+        QString filePath = libraryPath + "/" + filename;
+        QFile file(filePath);
+        if (!file.open(QIODevice::ReadOnly)) {
+            qWarning("Could not open subcircuit file: %s", qPrintable(filePath));
+            continue;
+        }
+
+        QDataStream in(&file);
+        in.setVersion(QDataStream::Qt_6_5);
+        SubcircuitDefinition subDef;
+        in >> subDef;
+        file.close();
+
+        circuit.subcircuitDefinitions[subDef.name] = subDef;
+    }
 }
 
 MainWindow::~MainWindow() {
@@ -14,6 +52,11 @@ MainWindow::~MainWindow() {
 
 void MainWindow::setupWelcomeState() {
     this->setWindowTitle("ParsaSpice Simulator");
+
+    if (centralWidget()) {
+        delete centralWidget();
+        schematic = nullptr;
+    }
 
     QLabel* backgroundLabel = new QLabel(this);
     QPixmap backgroundImage(":/background.jpg");
@@ -38,8 +81,13 @@ void MainWindow::setupWelcomeState() {
     subcircuitLibraryAction->setEnabled(false);
 }
 
-void MainWindow::setupSchematicState() {
-    this->setWindowTitle("ParsaSpice - Draft.asc");
+void MainWindow::setupSchematicState(const QString& projectName) {
+    if (centralWidget() && schematic) {
+        delete centralWidget();
+        schematic = nullptr;
+    }
+
+    this->setWindowTitle(projectName);
     schematic = new SchematicWidget(&circuit, this);
     setCentralWidget(schematic);
 
@@ -84,39 +132,52 @@ void MainWindow::hNewSchematic() {
     bool ok;
     QString projectName = QInputDialog::getText(this, "New Project", "Enter project name:", QLineEdit::Normal, "", &ok);
     if (ok && !projectName.isEmpty()) {
-        circuit.newProject(projectName.toStdString());
-        setupSchematicState();
-        this->setWindowTitle("ParsaSpice - " + projectName);
+        circuit.clearSchematic();
+        currentProjectPath.clear();
+        currentProjectName = projectName;
+        setupSchematicState("ParsaSpice - " + projectName);
     }
 }
 
 void MainWindow::hSaveProject() {
-    QString projectDirPath = QFileDialog::getExistingDirectory(this, "Open Project", circuit.getProjectDirectory());
+    QString filePath = currentProjectPath;
+    if (filePath.isEmpty()) {
+        QString projectFolderPath = schematicsPath + "/" + currentProjectName;
+        QDir().mkpath(projectFolderPath);
+        QString defaultPath = projectFolderPath + "/" + currentProjectName + ".psp";
+        filePath = QFileDialog::getSaveFileName(this, "Save Schematic", defaultPath, "ParsaSpice Project (*.psp)");
+        if (filePath.isEmpty())
+            return;
+        currentProjectPath = filePath;
+    }
 
-    if (!projectDirPath.isEmpty()) {
-        try {
-            QDir dir(projectDirPath);
-            QString projectName = dir.dirName();
-            circuit.loadProject(projectName.toStdString());
-            if (!schematic)
-                setupSchematicState();
-            else
-                schematic->reloadFromCircuit();
-            this->setWindowTitle("ParsaSpice - " + projectName);
-        }
-        catch (const std::exception& e) {
-            QMessageBox::warning(this, "Error", QString("Failed to load project: %1").arg(e.what()));
-        }
+    try {
+        circuit.saveToFile(currentProjectPath);
+        QFileInfo fileInfo(currentProjectPath);
+        setWindowTitle("ParsaSpice - " + fileInfo.fileName());
+        QMessageBox::information(this, "Success", "Project saved successfully.");
+    } catch (const std::exception& e) {
+        QMessageBox::critical(this, "Error", QString("Failed to save project: %1").arg(e.what()));
     }
 }
 
 void MainWindow::hOpenProject() {
+    QString filePath = QFileDialog::getOpenFileName(this, "Open Schematic", schematicsPath, "ParsaSpice Project (*.psp)");
+    if (filePath.isEmpty())
+        return;
+
     try {
-        circuit.saveProject();
-        QMessageBox::information(this, "Save Project", "Project saved successfully.");
-    }
-    catch (const std::exception& e) {
-        QMessageBox::warning(this, "Error", e.what());
+        circuit.loadFromFile(filePath);
+        currentProjectPath = filePath;
+        QFileInfo fileInfo(filePath);
+        currentProjectName = fileInfo.baseName();
+        setupSchematicState("ParsaSpice - " + fileInfo.fileName());
+        schematic->update();
+        QMessageBox::information(this, "Success", "Project loaded successfully.");
+    } catch (const std::exception& e) {
+        QMessageBox::critical(this, "Error", QString("Failed to load project: %1").arg(e.what()));
+        circuit.clearSchematic();
+        setupWelcomeState();
     }
 }
 

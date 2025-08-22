@@ -163,15 +163,10 @@ CMakeFiles/LTspice.dir/Circuit.cpp.obj: \
  C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/sstream.tcc \
  C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/utility \
  C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_relops.h \
- C:\Users\parsa\Documents\university\Programming\ and\ linux\ltspice_simulator_cpp_sdl2\circuit.h \
- C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/vector \
- C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_uninitialized.h \
- C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_vector.h \
- C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_bvector.h \
- C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/vector.tcc \
- C:/Qt1/6.9.1/mingw_64/include/QtGui/QMouseEvent \
- C:/Qt1/6.9.1/mingw_64/include/QtGui/qevent.h \
- C:/Qt1/6.9.1/mingw_64/include/QtGui/qtguiglobal.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtCore/QFile \
+ C:/Qt1/6.9.1/mingw_64/include/QtCore/qfile.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtCore/qfiledevice.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtCore/qiodevice.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qglobal.h \
  C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstdint \
  C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stdint.h \
@@ -259,11 +254,7 @@ CMakeFiles/LTspice.dir/Circuit.cpp.obj: \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qtresource.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qttranslation.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qversiontagging.h \
- C:/Qt1/6.9.1/mingw_64/include/QtGui/qtgui-config.h \
- C:/Qt1/6.9.1/mingw_64/include/QtGui/qtguiexports.h \
- C:/Qt1/6.9.1/mingw_64/include/QtCore/qcoreevent.h \
- C:/Qt1/6.9.1/mingw_64/include/QtCore/qbasictimer.h \
- C:/Qt1/6.9.1/mingw_64/include/QtCore/qabstracteventdispatcher.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtCore/qiodevicebase.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qobject.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qobjectdefs.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qnamespace.h \
@@ -280,6 +271,11 @@ CMakeFiles/LTspice.dir/Circuit.cpp.obj: \
  C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/aligned_buffer.h \
  C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/node_handle.h \
  C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/erase_if.h \
+ C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/vector \
+ C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_uninitialized.h \
+ C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_vector.h \
+ C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_bvector.h \
+ C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/vector.tcc \
  C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/array \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qtmetamacros.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qobjectdefs_impl.h \
@@ -343,7 +339,6 @@ CMakeFiles/LTspice.dir/Circuit.cpp.obj: \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qscopedpointer.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qmetatype.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qdatastream.h \
- C:/Qt1/6.9.1/mingw_64/include/QtCore/qiodevicebase.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qfloat16.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qmath.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qtformat_impl.h \
@@ -368,13 +363,27 @@ CMakeFiles/LTspice.dir/Circuit.cpp.obj: \
  C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/chrono.h \
  C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ratio \
  C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/chrono_io.h \
- C:/Qt1/6.9.1/mingw_64/include/QtCore/qeventloop.h \
- C:/Qt1/6.9.1/mingw_64/include/QtCore/qdeadlinetimer.h \
- C:/Qt1/6.9.1/mingw_64/include/QtCore/qelapsedtimer.h \
- C:/Qt1/6.9.1/mingw_64/include/QtCore/qiodevice.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qspan.h \
  C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cassert \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/q20iterator.h \
+ C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/filesystem \
+ C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_fwd.h \
+ C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_path.h \
+ C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/codecvt \
+ C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_dir.h \
+ C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_ops.h \
+ C:\Users\parsa\Documents\university\Programming\ and\ linux\ltspice_simulator_cpp_sdl2\circuit.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtGui/QMouseEvent \
+ C:/Qt1/6.9.1/mingw_64/include/QtGui/qevent.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtGui/qtguiglobal.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtGui/qtgui-config.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtGui/qtguiexports.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtCore/qcoreevent.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtCore/qbasictimer.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtCore/qabstracteventdispatcher.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtCore/qeventloop.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtCore/qdeadlinetimer.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtCore/qelapsedtimer.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qurl.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qvariant.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qdebug.h \
@@ -437,18 +446,11 @@ CMakeFiles/LTspice.dir/Circuit.cpp.obj: \
  C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/basic_file.h \
  C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++io.h \
  C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fstream.tcc \
- C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/filesystem \
- C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_fwd.h \
- C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_path.h \
- C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/codecvt \
- C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_dir.h \
- C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_ops.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/QCoreApplication \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qcoreapplication.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/QDir \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qdir.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qdirlisting.h \
- C:/Qt1/6.9.1/mingw_64/include/QtCore/qfiledevice.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qdatetime.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qcalendar.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qfile.h \
@@ -456,6 +458,8 @@ CMakeFiles/LTspice.dir/Circuit.cpp.obj: \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qtimezone.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/QRegularExpression \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qregularexpression.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtCore/QDataStream \
+ C:/Qt1/6.9.1/mingw_64/include/QtCore/qdatastream.h \
  C:\Users\parsa\Documents\university\Programming\ and\ linux\ltspice_simulator_cpp_sdl2\component.h \
  C:/Users/parsa/DOCUME~1/UNIVER~1/PROGRA~1/LTSPIC~1/EIGEN-~1.0/Eigen/Dense \
  C:/Users/parsa/DOCUME~1/UNIVER~1/PROGRA~1/LTSPIC~1/EIGEN-~1.0/Eigen/Core \

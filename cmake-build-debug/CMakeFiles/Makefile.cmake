@@ -261,12 +261,12 @@ set(CMAKE_MAKEFILE_DEPENDS
   "C:/Qt1/6.9.1/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateConfigVersionImpl.cmake"
   "C:/Qt1/6.9.1/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateTargets.cmake"
   "C:/Qt1/6.9.1/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateVersionlessAliasTargets.cmake"
-  "C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/CMakeLists.txt"
+  "C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/CMakeLists.txt"
   "CMakeFiles/3.29.6/CMakeCCompiler.cmake"
   "CMakeFiles/3.29.6/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.29.6/CMakeRCCompiler.cmake"
   "CMakeFiles/3.29.6/CMakeSystem.cmake"
-  "C:/Users/parsa/Documents/university/Programming and linux/ltspice_simulator_cpp_sdl2/resources.qrc"
+  "C:/Users/parsa/Documents/university/Programming and linux/403101518-403101683.0/resources.qrc"
   )
 
 # The corresponding makefile is:
@@ -277,8 +277,8 @@ set(CMAKE_MAKEFILE_OUTPUTS
 
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
-  "CMakeFiles/LTspice_autogen.dir/AutogenInfo.json"
-  "CMakeFiles/LTspice_autogen.dir/AutoRcc_resources_EWIEGA46WW_Info.json"
+  "CMakeFiles/ParsaSpice_autogen.dir/AutogenInfo.json"
+  "CMakeFiles/ParsaSpice_autogen.dir/AutoRcc_resources_EWIEGA46WW_Info.json"
   ".qt/QtDeploySupport.cmake"
   ".qt/QtDeployTargets.cmake"
   "CMakeFiles/CMakeDirectoryInformation.cmake"
@@ -286,7 +286,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/LTspice.dir/DependInfo.cmake"
-  "CMakeFiles/LTspice_autogen_timestamp_deps.dir/DependInfo.cmake"
-  "CMakeFiles/LTspice_autogen.dir/DependInfo.cmake"
+  "CMakeFiles/ParsaSpice.dir/DependInfo.cmake"
+  "CMakeFiles/ParsaSpice_autogen_timestamp_deps.dir/DependInfo.cmake"
+  "CMakeFiles/ParsaSpice_autogen.dir/DependInfo.cmake"
   )

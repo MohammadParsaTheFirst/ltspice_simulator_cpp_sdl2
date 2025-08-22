@@ -11,50 +11,30 @@
 #include <QDir>
 #include <QString>
 #include <QRegularExpression>
+#include <QDataStream>
 #include "component.h"
 #include "ComponentFactory.h"
-#include "Serialization.h"
 
 struct ComponentGraphicalInfo {
     QPoint startPoint;
     bool isHorizontal;
     std::string name;
-
-    template<class Archive>
-    void serialize(Archive& ar) {
-        ar(CEREAL_NVP(startPoint), CEREAL_NVP(isHorizontal), CEREAL_NVP(name));
-    }
 };
 
 struct WireInfo {
     QPoint startPoint;
     QPoint endPoint;
     std::string nodeName;
-
-    template<class Archive>
-    void serialize(Archive& ar) {
-        ar(CEREAL_NVP(startPoint), CEREAL_NVP(endPoint), CEREAL_NVP(nodeName));
-    }
 };
 
 struct LabelInfo {
     QPoint position;
     std::string name;
     std::string connectedNodeName;
-
-    template<class Archive>
-    void serialize(Archive& ar) {
-        ar(CEREAL_NVP(position), CEREAL_NVP(name), CEREAL_NVP(connectedNodeName));
-    }
 };
 
 struct GroundInfo {
     QPoint position;
-
-    template<class Archive>
-    void serialize(Archive& ar) {
-        ar(CEREAL_NVP(position));
-    }
 };
 
 struct SubcircuitDefinition {
@@ -63,10 +43,6 @@ struct SubcircuitDefinition {
     std::string port1NodeName;
     std::string port2NodeName;
 
-    template<class Archive>
-    void serialize(Archive& ar) {
-        ar(CEREAL_NVP(name), CEREAL_NVP(netlist), CEREAL_NVP(port1NodeName), CEREAL_NVP(port2NodeName));
-    }
 };
 
 double parseSpiceValue(const std::string& valueStr);
@@ -79,19 +55,14 @@ public:
     std::vector<std::string> circuitNetList;
     std::vector<std::string> allFiles;
 
-    // File Operations
-    // void saveProjectToFile(const QString& filePath) const;
-    // void loadProjectFromFile(const QString& filePath);
-    void newProject(const std::string& projectName);
-    void saveProject() const;
-    void loadProject(const std::string& projectName);
-    QString getProjectDirectory() const;
+    // --- Getters for graphical data ---
     const std::vector<ComponentGraphicalInfo>& getComponentGraphics() const;
     const std::vector<WireInfo>& getWires() const;
     const std::vector<LabelInfo>& getLabels() const;
     const std::vector<GroundInfo>& getGrounds() const;
+    void saveSubcircuitToFile(const SubcircuitDefinition& subDef);
 
-    // Component and Node Management
+    // --- Component and Node Management ---
     void addComponent(const std::string&, const std::string&, const std::string&, const std::string&,
     const QPoint& startPoint, bool isHorizontal, double value, const std::vector<double>&, const std::vector<std::string>&, bool);
     void addComponent(const std::string& typeStr, const std::string&, const std::string&, const std::string&, double, const std::vector<double>&, const std::vector<std::string>&, bool);
@@ -108,20 +79,22 @@ public:
     int getNodeId(const std::string&, bool create = true);
     int getNodeId(const std::string&) const;
     QString getCurrentProjectName() const;
-    // const std::map<int, std::string>& getIdToNodeName() const;
     void connectNodes(const std::string&, const std::string&);
     void createSubcircuitDefinition(const std::string&, const std::string&, const std::string&);
     void addLabel(const QPoint&, const std::string&, const std::string&);
     void processLabelConnections();
-    // const std::vector<std::shared_ptr<Component>>& getComponentsVector() const { return components; }
 
-    // Analysis
+    // --- Analysis ---
     void runTransientAnalysis(double startTime, double stopTime, double stepTime);
     std::map<std::string, std::map<double, double>> getTransientResults(const std::vector<std::string>&) const;
     void runACAnalysis(double startOmega, double stopOmega, int numPoints);
     std::map<std::string, std::map<double, double>> getACSweepResults(const std::vector<std::string>&) const;
 
     std::map<std::string, SubcircuitDefinition> subcircuitDefinitions;
+
+    void saveToFile(const QString& filePath);
+    void loadFromFile(const QString& filePath);
+
 private:
     void buildMNAMatrix(double, double);
     void buildMNAMatrix_AC(double omega);
@@ -132,6 +105,7 @@ private:
     bool isGround(int nodeId) const;
     void makeComponentFromLine(const std::string& netListLine);
     std::vector<std::string> generateNetlistFromComponents() const;
+    // void rebuildNodeMaps();
 
     // circuit data
     std::vector<std::shared_ptr<Component>> components;
@@ -153,7 +127,6 @@ private:
     int numCurrentUnknowns;
     std::map<std::string, int> componentCurrentIndices; // component name -> MNA component index
     std::map<double, Eigen::VectorXd> transientSolutions;
-    // std::map<double, Eigen::VectorXd> dcSweepSolutions;
     std::map<double, Eigen::VectorXd> acSweepSolutions;
     bool hasNonlinearComponents;
 
@@ -162,18 +135,30 @@ private:
     QString projectDirectoryPath;
 };
 
+template<typename T>
+QDataStream& operator<<(QDataStream& out, const std::vector<T>& vec);
+template<typename T>
+QDataStream& operator>>(QDataStream& in, std::vector<T>& vec);
 
-// QDataStream& operator<<(QDataStream& out, const ComponentGraphicalInfo& info);
-// QDataStream& operator>>(QDataStream& in, ComponentGraphicalInfo& info);
-//
-// template<typename K, typename V>
-// QDataStream& operator<<(QDataStream& out, const std::map<K, V>& map);
-// template<typename K, typename V>
-// QDataStream& operator>>(QDataStream& in, std::map<K, V>& map);
-//
-// template<typename T>
-// QDataStream& operator<<(QDataStream& out, const std::set<T>& set);
-// template<typename T>
-// QDataStream& operator>>(QDataStream& in, std::set<T>& set);
+QDataStream& operator<<(QDataStream& out, const std::map<std::string, int>& map);
+QDataStream& operator>>(QDataStream& in, std::map<std::string, int>& map);
+QDataStream& operator<<(QDataStream& out, const std::map<int, std::string>& map);
+QDataStream& operator>>(QDataStream& in, std::map<int, std::string>& map);
+QDataStream& operator<<(QDataStream& out, const std::set<int>& set);
+QDataStream& operator>>(QDataStream& in, std::set<int>& set);
+QDataStream& operator<<(QDataStream& out, const std::map<std::string, SubcircuitDefinition>& map);
+QDataStream& operator>>(QDataStream& in, std::map<std::string, SubcircuitDefinition>& map);
+
+QDataStream& operator<<(QDataStream& out, const ComponentGraphicalInfo& info);
+QDataStream& operator>>(QDataStream& in, ComponentGraphicalInfo& info);
+QDataStream& operator<<(QDataStream& out, const WireInfo& info);
+QDataStream& operator>>(QDataStream& in, WireInfo& info);
+QDataStream& operator<<(QDataStream& out, const LabelInfo& info);
+QDataStream& operator>>(QDataStream& in, LabelInfo& info);
+QDataStream& operator<<(QDataStream& out, const GroundInfo& info);
+QDataStream& operator>>(QDataStream& in, GroundInfo& info);
+QDataStream& operator<<(QDataStream& out, const SubcircuitDefinition& def);
+QDataStream& operator>>(QDataStream& in, SubcircuitDefinition& def);
+
 
 #endif // CIRCUIT_H

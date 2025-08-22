@@ -405,32 +405,9 @@ CMakeFiles/LTspice.dir/ComponentFactory.cpp.obj: \
  C:/Users/parsa/DOCUME~1/UNIVER~1/PROGRA~1/LTSPIC~1/EIGEN-~1.0/Eigen/src/Eigenvalues/GeneralizedEigenSolver.h \
  C:/Users/parsa/DOCUME~1/UNIVER~1/PROGRA~1/LTSPIC~1/EIGEN-~1.0/Eigen/src/Eigenvalues/./RealQZ.h \
  C:/Users/parsa/DOCUME~1/UNIVER~1/PROGRA~1/LTSPIC~1/EIGEN-~1.0/Eigen/src/Eigenvalues/MatrixBaseEigenvalues.h \
- C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iostream \
- C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/memory \
- C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_raw_storage_iter.h \
- C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/align.h \
- C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unique_ptr.h \
- C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/shared_ptr.h \
- C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/shared_ptr_base.h \
- C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/allocated_ptr.h \
- C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/concurrence.h \
- C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/shared_ptr_atomic.h \
- C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward/auto_ptr.h \
- C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ranges_uninitialized.h \
- C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/glue_memory_defs.h \
- C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/map \
- C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_tree.h \
- C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_map.h \
- C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_multimap.h \
- C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/fstream \
- C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/codecvt.h \
- C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/basic_file.h \
- C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++io.h \
- C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fstream.tcc \
- C:\Users\parsa\Documents\university\Programming\ and\ linux\ltspice_simulator_cpp_sdl2\Circuit.h \
- C:/Qt1/6.9.1/mingw_64/include/QtGui/QMouseEvent \
- C:/Qt1/6.9.1/mingw_64/include/QtGui/qevent.h \
- C:/Qt1/6.9.1/mingw_64/include/QtGui/qtguiglobal.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtCore/QString \
+ C:/Qt1/6.9.1/mingw_64/include/QtCore/qstring.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtCore/qchar.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qglobal.h \
  C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/utility \
  C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_relops.h \
@@ -484,26 +461,15 @@ CMakeFiles/LTspice.dir/ComponentFactory.cpp.obj: \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qtresource.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qttranslation.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qversiontagging.h \
- C:/Qt1/6.9.1/mingw_64/include/QtGui/qtgui-config.h \
- C:/Qt1/6.9.1/mingw_64/include/QtGui/qtguiexports.h \
- C:/Qt1/6.9.1/mingw_64/include/QtCore/qcoreevent.h \
- C:/Qt1/6.9.1/mingw_64/include/QtCore/qbasictimer.h \
- C:/Qt1/6.9.1/mingw_64/include/QtCore/qabstracteventdispatcher.h \
- C:/Qt1/6.9.1/mingw_64/include/QtCore/qobject.h \
- C:/Qt1/6.9.1/mingw_64/include/QtCore/qobjectdefs.h \
- C:/Qt1/6.9.1/mingw_64/include/QtCore/qnamespace.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qcompare.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qstdlibdetection.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qcomparehelpers.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/q20type_traits.h \
- C:/Qt1/6.9.1/mingw_64/include/QtCore/qtmetamacros.h \
- C:/Qt1/6.9.1/mingw_64/include/QtCore/qobjectdefs_impl.h \
- C:/Qt1/6.9.1/mingw_64/include/QtCore/qfunctionaltools_impl.h \
- C:/Qt1/6.9.1/mingw_64/include/QtCore/qstring.h \
- C:/Qt1/6.9.1/mingw_64/include/QtCore/qchar.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qstringview.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qbytearray.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qrefcount.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtCore/qnamespace.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtCore/qtmetamacros.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qarraydata.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qpair.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qarraydatapointer.h \
@@ -512,6 +478,18 @@ CMakeFiles/LTspice.dir/ComponentFactory.cpp.obj: \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qxptype_traits.h \
  C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iterator \
  C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stream_iterator.h \
+ C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/memory \
+ C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_raw_storage_iter.h \
+ C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/align.h \
+ C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unique_ptr.h \
+ C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/shared_ptr.h \
+ C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/shared_ptr_base.h \
+ C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/allocated_ptr.h \
+ C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/concurrence.h \
+ C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/shared_ptr_atomic.h \
+ C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward/auto_ptr.h \
+ C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ranges_uninitialized.h \
+ C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/glue_memory_defs.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/q20functional.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/q20memory.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/q17memory.h \
@@ -528,8 +506,36 @@ CMakeFiles/LTspice.dir/ComponentFactory.cpp.obj: \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qutf8stringview.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qstringtokenizer.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qstringbuilder.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtCore/qstring.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qstringconverter.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qstringconverter_base.h \
+ C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iostream \
+ C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/map \
+ C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_tree.h \
+ C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_map.h \
+ C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_multimap.h \
+ C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/fstream \
+ C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/codecvt.h \
+ C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/basic_file.h \
+ C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++io.h \
+ C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fstream.tcc \
+ C:/Qt1/6.9.1/mingw_64/include/QtCore/QDataStream \
+ C:/Qt1/6.9.1/mingw_64/include/QtCore/qdatastream.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtCore/qscopedpointer.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtCore/qiodevicebase.h \
+ C:\Users\parsa\Documents\university\Programming\ and\ linux\ltspice_simulator_cpp_sdl2\Circuit.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtGui/QMouseEvent \
+ C:/Qt1/6.9.1/mingw_64/include/QtGui/qevent.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtGui/qtguiglobal.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtGui/qtgui-config.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtGui/qtguiexports.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtCore/qcoreevent.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtCore/qbasictimer.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtCore/qabstracteventdispatcher.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtCore/qobject.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtCore/qobjectdefs.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtCore/qobjectdefs_impl.h \
+ C:/Qt1/6.9.1/mingw_64/include/QtCore/qfunctionaltools_impl.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qlist.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qhashfunctions.h \
  C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/numeric \
@@ -540,10 +546,8 @@ CMakeFiles/LTspice.dir/ComponentFactory.cpp.obj: \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qstringlist.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qalgorithms.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qstringmatcher.h \
- C:/Qt1/6.9.1/mingw_64/include/QtCore/qscopedpointer.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qmetatype.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qdatastream.h \
- C:/Qt1/6.9.1/mingw_64/include/QtCore/qiodevicebase.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qfloat16.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qmath.h \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qtformat_impl.h \
@@ -634,8 +638,6 @@ CMakeFiles/LTspice.dir/ComponentFactory.cpp.obj: \
  C:/Qt1/6.9.1/mingw_64/include/QtCore/qlocale.h \
  C:/Qt1/6.9.1/mingw_64/include/QtGui/qguiapplication_platform.h \
  C:/Qt1/6.9.1/mingw_64/include/QtGui/qkeysequence.h \
- C:/Qt1/6.9.1/mingw_64/include/QtCore/QString \
- C:/Qt1/6.9.1/mingw_64/include/QtCore/qstring.h \
  C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/filesystem \
  C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_fwd.h \
  C:/Qt1/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_path.h \
