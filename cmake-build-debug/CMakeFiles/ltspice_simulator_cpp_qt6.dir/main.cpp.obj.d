@@ -524,6 +524,8 @@ CMakeFiles/ltspice_simulator_cpp_qt6.dir/main.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtCore/QString \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qstring.h \
  C:\Users\USER\CLionProjects\ltspice_simulator_cpp_qt6\Circuit.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QDataStream \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qdatastream.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/fstream \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/basic_file.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++io.h \
@@ -534,8 +536,6 @@ CMakeFiles/ltspice_simulator_cpp_qt6.dir/main.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qdir.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/QRegularExpression \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qregularexpression.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/QDataStream \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qdatastream.h \
  C:\Users\USER\CLionProjects\ltspice_simulator_cpp_qt6\component.h \
  C:/Users/USER/CLionProjects/proj_terminal/eigen-3.4.0/Eigen/Dense \
  C:/Users/USER/CLionProjects/proj_terminal/eigen-3.4.0/Eigen/Core \
@@ -836,4 +836,32 @@ CMakeFiles/ltspice_simulator_cpp_qt6.dir/main.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qcolordialog.h \
  C:/Qt/6.9.1/mingw_64/include/QtCharts/QLegendMarker \
  C:/Qt/6.9.1/mingw_64/include/QtCharts/qlegendmarker.h \
- C:/Qt/6.9.1/mingw_64/include/QtWidgets/QStatusBar
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QStatusBar \
+ C:\Users\USER\CLionProjects\ltspice_simulator_cpp_qt6\NetworkManager.h \
+ C:/Qt/6.9.1/mingw_64/include/QtNetwork/QTcpSocket \
+ C:/Qt/6.9.1/mingw_64/include/QtNetwork/qtcpsocket.h \
+ C:/Qt/6.9.1/mingw_64/include/QtNetwork/qtnetworkglobal.h \
+ C:/Qt/6.9.1/mingw_64/include/QtNetwork/qtnetwork-config.h \
+ C:/Qt/6.9.1/mingw_64/include/QtNetwork/qtnetworkexports.h \
+ C:/Qt/6.9.1/mingw_64/include/QtNetwork/qabstractsocket.h \
+ C:/Qt/6.9.1/mingw_64/include/QtNetwork/qhostaddress.h \
+ C:/Qt/6.9.1/mingw_64/include/QtNetwork/QTcpServer \
+ C:/Qt/6.9.1/mingw_64/include/QtNetwork/qtcpserver.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QObject \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QThread \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qthread.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/future \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/mutex \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unique_lock.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/condition_variable \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/stop_token \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_thread.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/semaphore \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/semaphore_base.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/atomic_timed_wait.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/this_thread_sleep.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/x86_64-w64-mingw32/include/semaphore.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/atomic_futex.h \
+ C:\Users\USER\CLionProjects\ltspice_simulator_cpp_qt6\NetworkDialog.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QButtonGroup \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qbuttongroup.h

@@ -1,113 +1,32 @@
 ltspice_simulator_cpp_qt6_autogen/timestamp: \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeCCompiler.cmake.in \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeCCompilerABI.c \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeCInformation.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeCXXCompiler.cmake.in \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeCXXCompilerABI.cpp \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeCXXInformation.cmake \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeCommonLanguageInclude.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeCompilerIdDetection.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeDetermineCCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeDetermineCXXCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeDetermineCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeDetermineCompilerSupport.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeDetermineRCCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeDetermineSystem.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeFindBinUtils.cmake \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeFindDependencyMacro.cmake \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeGenericSystem.cmake \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeInitializeConfigs.cmake \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeLanguageInformation.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeMinGWFindMake.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeParseImplicitIncludeInfo.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeParseImplicitLinkInfo.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeParseLibraryArchitecture.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeRCCompiler.cmake.in \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeRCInformation.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeSystem.cmake.in \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeSystemSpecificInformation.cmake \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeSystemSpecificInitialize.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeTestCCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeTestCXXCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeTestCompilerCommon.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeTestRCCompiler.cmake \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/CheckCSourceCompiles.cmake \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/CheckCXXCompilerFlag.cmake \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/CheckCXXSourceCompiles.cmake \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/CheckIncludeFile.cmake \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/CheckLibraryExists.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/ADSP-DetermineCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/ARMCC-DetermineCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/ARMClang-DetermineCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/AppleClang-DetermineCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/Borland-DetermineCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/Bruce-C-DetermineCompiler.cmake \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/CMakeCommonCompilerMacros.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/Clang-DetermineCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/Clang-DetermineCompilerInternal.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/Compaq-C-DetermineCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/Cray-DetermineCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/CrayClang-DetermineCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/Embarcadero-DetermineCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/Fujitsu-DetermineCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/GHS-DetermineCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/GNU-C-DetermineCompiler.cmake \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/GNU-C.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/GNU-CXX.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/GNU-FindBinUtils.cmake \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/GNU.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/HP-C-DetermineCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/HP-CXX-DetermineCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/IAR-DetermineCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/Intel-DetermineCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/LCC-C-DetermineCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/MSVC-DetermineCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/NVHPC-DetermineCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/NVIDIA-DetermineCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/OrangeC-DetermineCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/PGI-DetermineCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/PathScale-DetermineCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/SCO-DetermineCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/SDCC-C-DetermineCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/SunPro-C-DetermineCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/TI-DetermineCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/TIClang-DetermineCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/Tasking-DetermineCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/Watcom-DetermineCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/XL-C-DetermineCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/XL-CXX-DetermineCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/XLClang-C-DetermineCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/zOS-C-DetermineCompiler.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/FindPackageHandleStandardArgs.cmake \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/FindPackageMessage.cmake \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/FindThreads.cmake \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/FindVulkan.cmake \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/GNUInstallDirs.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Internal/CMakeDetermineLinkerId.cmake \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Internal/CheckCompilerFlag.cmake \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Internal/CheckFlagCommonConfig.cmake \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Internal/CheckSourceCompiles.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Internal/FeatureTesting.cmake \
-	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/Windows-Determine-CXX.cmake \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/Windows-GNU-C-ABI.cmake \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/Windows-GNU-C.cmake \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/Windows-GNU-CXX-ABI.cmake \
@@ -129,7 +48,9 @@ ltspice_simulator_cpp_qt6_autogen/timestamp: \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/allocated_ptr.h \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/allocator.h \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/atomic_base.h \
+	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/atomic_futex.h \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/atomic_lockfree_defines.h \
+	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/atomic_timed_wait.h \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/atomic_wait.h \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_ios.h \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_ios.tcc \
@@ -195,6 +116,7 @@ ltspice_simulator_cpp_qt6_autogen/timestamp: \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ranges_util.h \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/refwrap.h \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/requires_hosted.h \
+	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/semaphore_base.h \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/shared_ptr.h \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/shared_ptr_atomic.h \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/shared_ptr_base.h \
@@ -203,6 +125,7 @@ ltspice_simulator_cpp_qt6_autogen/timestamp: \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_abs.h \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_function.h \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_mutex.h \
+	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_thread.h \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_algo.h \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_algobase.h \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_bvector.h \
@@ -230,7 +153,9 @@ ltspice_simulator_cpp_qt6_autogen/timestamp: \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/streambuf_iterator.h \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/string_view.tcc \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stringfwd.h \
+	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/this_thread_sleep.h \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/uniform_int_dist.h \
+	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unique_lock.h \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unique_ptr.h \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unordered_map.h \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unordered_set.h \
@@ -250,6 +175,7 @@ ltspice_simulator_cpp_qt6_autogen/timestamp: \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/compare \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/complex \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/concepts \
+	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/condition_variable \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstddef \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstdint \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstdio \
@@ -272,6 +198,7 @@ ltspice_simulator_cpp_qt6_autogen/timestamp: \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/format \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/fstream \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/functional \
+	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/future \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/initializer_list \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iomanip \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ios \
@@ -284,6 +211,7 @@ ltspice_simulator_cpp_qt6_autogen/timestamp: \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/locale \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/map \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/memory \
+	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/mutex \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/new \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/numbers \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/numeric \
@@ -294,11 +222,13 @@ ltspice_simulator_cpp_qt6_autogen/timestamp: \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/glue_memory_defs.h \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/glue_numeric_defs.h \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ratio \
+	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/semaphore \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/set \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/span \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/sstream \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/stdexcept \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/stdlib.h \
+	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/stop_token \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/streambuf \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/string \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/string_view \
@@ -376,6 +306,7 @@ ltspice_simulator_cpp_qt6_autogen/timestamp: \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/x86_64-w64-mingw32/include/sec_api/string_s.h \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/x86_64-w64-mingw32/include/sec_api/sys/timeb_s.h \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/x86_64-w64-mingw32/include/sec_api/wchar_s.h \
+	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/x86_64-w64-mingw32/include/semaphore.h \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/x86_64-w64-mingw32/include/signal.h \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/x86_64-w64-mingw32/include/stdio.h \
 	C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/x86_64-w64-mingw32/include/string.h \
@@ -423,6 +354,7 @@ ltspice_simulator_cpp_qt6_autogen/timestamp: \
 	C:/Qt/6.9.1/mingw_64/include/QtCore/QSize \
 	C:/Qt/6.9.1/mingw_64/include/QtCore/QSizeF \
 	C:/Qt/6.9.1/mingw_64/include/QtCore/QString \
+	C:/Qt/6.9.1/mingw_64/include/QtCore/QThread \
 	C:/Qt/6.9.1/mingw_64/include/QtCore/QVariant \
 	C:/Qt/6.9.1/mingw_64/include/QtCore/q17memory.h \
 	C:/Qt/6.9.1/mingw_64/include/QtCore/q20functional.h \
@@ -554,6 +486,7 @@ ltspice_simulator_cpp_qt6_autogen/timestamp: \
 	C:/Qt/6.9.1/mingw_64/include/QtCore/qtenvironmentvariables.h \
 	C:/Qt/6.9.1/mingw_64/include/QtCore/qtextstream.h \
 	C:/Qt/6.9.1/mingw_64/include/QtCore/qtformat_impl.h \
+	C:/Qt/6.9.1/mingw_64/include/QtCore/qthread.h \
 	C:/Qt/6.9.1/mingw_64/include/QtCore/qtimezone.h \
 	C:/Qt/6.9.1/mingw_64/include/QtCore/qtmetamacros.h \
 	C:/Qt/6.9.1/mingw_64/include/QtCore/qtnoop.h \
@@ -630,7 +563,17 @@ ltspice_simulator_cpp_qt6_autogen/timestamp: \
 	C:/Qt/6.9.1/mingw_64/include/QtGui/qvectornd.h \
 	C:/Qt/6.9.1/mingw_64/include/QtGui/qwindowdefs.h \
 	C:/Qt/6.9.1/mingw_64/include/QtGui/qwindowdefs_win.h \
+	C:/Qt/6.9.1/mingw_64/include/QtNetwork/QTcpServer \
+	C:/Qt/6.9.1/mingw_64/include/QtNetwork/QTcpSocket \
+	C:/Qt/6.9.1/mingw_64/include/QtNetwork/qabstractsocket.h \
+	C:/Qt/6.9.1/mingw_64/include/QtNetwork/qhostaddress.h \
+	C:/Qt/6.9.1/mingw_64/include/QtNetwork/qtcpserver.h \
+	C:/Qt/6.9.1/mingw_64/include/QtNetwork/qtcpsocket.h \
+	C:/Qt/6.9.1/mingw_64/include/QtNetwork/qtnetwork-config.h \
+	C:/Qt/6.9.1/mingw_64/include/QtNetwork/qtnetworkexports.h \
+	C:/Qt/6.9.1/mingw_64/include/QtNetwork/qtnetworkglobal.h \
 	C:/Qt/6.9.1/mingw_64/include/QtWidgets/QApplication \
+	C:/Qt/6.9.1/mingw_64/include/QtWidgets/QButtonGroup \
 	C:/Qt/6.9.1/mingw_64/include/QtWidgets/QColorDialog \
 	C:/Qt/6.9.1/mingw_64/include/QtWidgets/QComboBox \
 	C:/Qt/6.9.1/mingw_64/include/QtWidgets/QDialog \
@@ -666,6 +609,7 @@ ltspice_simulator_cpp_qt6_autogen/timestamp: \
 	C:/Qt/6.9.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
 	C:/Qt/6.9.1/mingw_64/include/QtWidgets/qapplication.h \
 	C:/Qt/6.9.1/mingw_64/include/QtWidgets/qboxlayout.h \
+	C:/Qt/6.9.1/mingw_64/include/QtWidgets/qbuttongroup.h \
 	C:/Qt/6.9.1/mingw_64/include/QtWidgets/qcolordialog.h \
 	C:/Qt/6.9.1/mingw_64/include/QtWidgets/qcombobox.h \
 	C:/Qt/6.9.1/mingw_64/include/QtWidgets/qdialog.h \
@@ -965,6 +909,10 @@ ltspice_simulator_cpp_qt6_autogen/timestamp: \
 	C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/ComponentFactory.h \
 	C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/Dialogs.cpp \
 	C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/Dialogs.h \
+	C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/NetworkDialog.cpp \
+	C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/NetworkDialog.h \
+	C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/NetworkManager.cpp \
+	C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/NetworkManager.h \
 	C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/PlotWindow.cpp \
 	C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/PlotWindow.h \
 	C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/SchematicWidget.cpp \

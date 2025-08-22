@@ -477,6 +477,8 @@ CMakeFiles/ltspice_simulator_cpp_qt6.dir/SchematicWidget.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtCore/QString \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qstring.h \
  C:\Users\USER\CLionProjects\ltspice_simulator_cpp_qt6\Circuit.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QDataStream \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qdatastream.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/fstream \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/basic_file.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++io.h \
@@ -500,8 +502,6 @@ CMakeFiles/ltspice_simulator_cpp_qt6.dir/SchematicWidget.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qtimezone.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/QRegularExpression \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qregularexpression.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/QDataStream \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qdatastream.h \
  C:\Users\USER\CLionProjects\ltspice_simulator_cpp_qt6\component.h \
  C:/Users/USER/CLionProjects/proj_terminal/eigen-3.4.0/Eigen/Dense \
  C:/Users/USER/CLionProjects/proj_terminal/eigen-3.4.0/Eigen/Core \

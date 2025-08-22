@@ -11,6 +11,18 @@ QString getSubcircuitLibraryPath() {
 
 MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
     ui->setupUi(this);
+
+    // Initialize network manager
+    networkManager = new NetworkManager(&circuit, this);
+    connect(networkManager, &NetworkManager::connectionStatusChanged,
+            this, &MainWindow::onNetworkStatusChanged);
+    connect(networkManager, &NetworkManager::voltageSourceReceived,
+            this, &MainWindow::onVoltageSourceReceived);
+    connect(networkManager, &NetworkManager::circuitFileReceived,
+            this, &MainWindow::onCircuitFileReceived);
+    connect(networkManager, &NetworkManager::signalDataReceived,
+            this, &MainWindow::onSignalDataReceived);
+
     loadSubcircuitsFromLibrary();
     setWindowIcon(QIcon(":/icon.png"));
     this->resize(900, 600);
@@ -188,6 +200,7 @@ void MainWindow::starterWindow() {
     connect(openAction, &QAction::triggered, this, &MainWindow::hOpenProject);
     connect(quitAction, &QAction::triggered, this, &QApplication::quit);
     connect(settingsAction, &QAction::triggered, this, &MainWindow::hShowSettings);
+    connect(networkAction, &QAction::triggered, this, &MainWindow::hNetworkConnection);  // Add this connection
 
     shortcutRunner();
     implementMenuBar();
@@ -214,6 +227,7 @@ void MainWindow::initializeActions() {
     createSubcircuitAction = new QAction("Create Subcircuit", this);
     subcircuitLibraryAction = new QAction("Open Subcircuit Library", this);
     quitAction = new QAction("Exit", this);
+    networkAction = new QAction(QIcon(":/icon/icons/network.png"), "Network", this);  // Add this
 }
 
 void MainWindow::implementMenuBar() {
@@ -252,6 +266,7 @@ void MainWindow::implementMenuBar() {
 
     QMenu* tools = menuBar()->addMenu(tr("&Tools"));
     tools->addAction(settingsAction);
+    tools->addAction(networkAction);  // Add network action to tools menu
 
     QMenu* window = menuBar()->addMenu(tr("&Window"));
 
@@ -279,6 +294,7 @@ void MainWindow::implementToolBar() {
     mainToolBar->addAction(nodeLibraryAction);
     mainToolBar->addAction(labelAction);
     mainToolBar->addAction(deleteModeAction);
+    mainToolBar->addAction(networkAction);  // Add network action to toolbar
 
     mainToolBar->setIconSize(QSize(40, 40));
 }
@@ -299,4 +315,67 @@ void MainWindow::shortcutRunner() {
     nodeLibraryAction->setShortcut(QKeySequence(Qt::Key_P));
     labelAction->setShortcut(QKeySequence(Qt::Key_T));
     deleteModeAction->setShortcuts({QKeySequence(Qt::Key_Backspace), QKeySequence(Qt::Key_Delete)});
+    networkAction->setShortcut(QKeySequence(Qt::Key_N));  // Add network shortcut
+}
+
+
+void MainWindow::hNetworkConnection() {
+    NetworkDialog dialog(this);
+    if (dialog.exec() == QDialog::Accepted) {
+        if (dialog.isServer()) {
+            if (networkManager->startServer(dialog.getPort())) {
+                statusBar()->showMessage("Server started on port " + QString::number(dialog.getPort()));
+            }
+        } else {
+            if (networkManager->connectToServer(dialog.getHost(), dialog.getPort())) {
+                statusBar()->showMessage("Connecting to " + dialog.getHost() + ":" + QString::number(dialog.getPort()));
+            }
+        }
+    }
+}
+
+void MainWindow::onNetworkStatusChanged(bool connected, const QString& message) {
+    statusBar()->showMessage(message);
+    networkAction->setIcon(connected ? QIcon(":/icon/icons/network_connected.png") : QIcon(":/icon/icons/network.png"));
+}
+
+// void MainWindow::onVoltageSourceReceived(const QString& name, const QString& node1, const QString& node2,
+//                                        double value, bool isSinusoidal, const std::vector<double>& sinParams) {
+//     if (schematic) {
+//         // Add the received voltage source to the circuit
+//         circuit.addComponent("V", name.toStdString(), node1.toStdString(), node2.toStdString(),
+//                            value, sinParams, {}, isSinusoidal);
+//         schematic->update();
+//         statusBar()->showMessage("Received voltage source: " + name);
+//     }
+// }
+void MainWindow::onVoltageSourceReceived(const QString& name, const QString& node1, const QString& node2,
+                                       double value, bool isSinusoidal,
+                                       double offset, double amplitude, double frequency) {
+    if (schematic) {
+        // Add the received voltage source to the circuit
+        std::vector<double> sinParams;
+        if (isSinusoidal) {
+            sinParams = {offset, amplitude, frequency};
+        }
+        circuit.addComponent("V", name.toStdString(), node1.toStdString(), node2.toStdString(),
+                           value, sinParams, {}, isSinusoidal);
+        schematic->update();
+        statusBar()->showMessage("Received voltage source: " + name);
+    }
+}
+
+void MainWindow::onCircuitFileReceived() {
+    if (schematic) {
+        schematic->update();
+        statusBar()->showMessage("Circuit file received and loaded");
+    }
+}
+
+void MainWindow::onSignalDataReceived(const std::map<double, double>& data, const QString& signalName) {
+    // Create a plot window to display the received signal
+    PlotTransientData* plotWindow = new PlotTransientData(this);
+    plotWindow->addSeries(data, signalName);
+    plotWindow->show();
+    statusBar()->showMessage("Signal data received: " + signalName);
 }

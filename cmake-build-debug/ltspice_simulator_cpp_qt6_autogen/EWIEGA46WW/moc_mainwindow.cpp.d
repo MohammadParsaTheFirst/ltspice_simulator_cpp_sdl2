@@ -12,7 +12,9 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/cmake-build-debug/ltspice_
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/allocated_ptr.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/allocator.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/atomic_base.h \
+  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/atomic_futex.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/atomic_lockfree_defines.h \
+  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/atomic_timed_wait.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/atomic_wait.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_ios.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_ios.tcc \
@@ -78,6 +80,7 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/cmake-build-debug/ltspice_
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ranges_util.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/refwrap.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/requires_hosted.h \
+  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/semaphore_base.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/shared_ptr.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/shared_ptr_atomic.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/shared_ptr_base.h \
@@ -86,6 +89,7 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/cmake-build-debug/ltspice_
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_abs.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_function.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_mutex.h \
+  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_thread.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_algo.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_algobase.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_bvector.h \
@@ -113,7 +117,9 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/cmake-build-debug/ltspice_
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/streambuf_iterator.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/string_view.tcc \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stringfwd.h \
+  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/this_thread_sleep.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/uniform_int_dist.h \
+  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unique_lock.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unique_ptr.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unordered_map.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unordered_set.h \
@@ -133,6 +139,7 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/cmake-build-debug/ltspice_
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/compare \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/complex \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/concepts \
+  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/condition_variable \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstddef \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstdint \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstdio \
@@ -155,6 +162,7 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/cmake-build-debug/ltspice_
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/format \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/fstream \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/functional \
+  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/future \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/initializer_list \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iomanip \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ios \
@@ -167,6 +175,7 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/cmake-build-debug/ltspice_
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/locale \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/map \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/memory \
+  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/mutex \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/new \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/numbers \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/numeric \
@@ -177,11 +186,13 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/cmake-build-debug/ltspice_
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/glue_memory_defs.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/glue_numeric_defs.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ratio \
+  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/semaphore \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/set \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/span \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/sstream \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/stdexcept \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/stdlib.h \
+  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/stop_token \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/streambuf \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/string \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/string_view \
@@ -259,6 +270,7 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/cmake-build-debug/ltspice_
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/x86_64-w64-mingw32/include/sec_api/string_s.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/x86_64-w64-mingw32/include/sec_api/sys/timeb_s.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/x86_64-w64-mingw32/include/sec_api/wchar_s.h \
+  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/x86_64-w64-mingw32/include/semaphore.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/x86_64-w64-mingw32/include/signal.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/x86_64-w64-mingw32/include/stdio.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/x86_64-w64-mingw32/include/string.h \
@@ -306,6 +318,7 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/cmake-build-debug/ltspice_
   C:/Qt/6.9.1/mingw_64/include/QtCore/QSize \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QSizeF \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QString \
+  C:/Qt/6.9.1/mingw_64/include/QtCore/QThread \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QVariant \
   C:/Qt/6.9.1/mingw_64/include/QtCore/q17memory.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/q20functional.h \
@@ -437,6 +450,7 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/cmake-build-debug/ltspice_
   C:/Qt/6.9.1/mingw_64/include/QtCore/qtenvironmentvariables.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qtextstream.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qtformat_impl.h \
+  C:/Qt/6.9.1/mingw_64/include/QtCore/qthread.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qtimezone.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qtmetamacros.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qtnoop.h \
@@ -513,7 +527,17 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/cmake-build-debug/ltspice_
   C:/Qt/6.9.1/mingw_64/include/QtGui/qvectornd.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qwindowdefs_win.h \
+  C:/Qt/6.9.1/mingw_64/include/QtNetwork/QTcpServer \
+  C:/Qt/6.9.1/mingw_64/include/QtNetwork/QTcpSocket \
+  C:/Qt/6.9.1/mingw_64/include/QtNetwork/qabstractsocket.h \
+  C:/Qt/6.9.1/mingw_64/include/QtNetwork/qhostaddress.h \
+  C:/Qt/6.9.1/mingw_64/include/QtNetwork/qtcpserver.h \
+  C:/Qt/6.9.1/mingw_64/include/QtNetwork/qtcpsocket.h \
+  C:/Qt/6.9.1/mingw_64/include/QtNetwork/qtnetwork-config.h \
+  C:/Qt/6.9.1/mingw_64/include/QtNetwork/qtnetworkexports.h \
+  C:/Qt/6.9.1/mingw_64/include/QtNetwork/qtnetworkglobal.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QApplication \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QButtonGroup \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QColorDialog \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QComboBox \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QDialog \
@@ -549,6 +573,7 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/cmake-build-debug/ltspice_
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qapplication.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qboxlayout.h \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qbuttongroup.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qcolordialog.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qcombobox.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qdialog.h \
@@ -594,6 +619,8 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/cmake-build-debug/ltspice_
   C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/Component.h \
   C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/ComponentFactory.h \
   C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/Dialogs.h \
+  C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/NetworkDialog.h \
+  C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/NetworkManager.h \
   C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/PlotWindow.h \
   C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/SchematicWidget.h \
   C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/component.h \

@@ -25,6 +25,10 @@ set(SOURCES
         Dialogs.cpp Dialogs.h
         PlotWindow.cpp PlotWindow.h
         resources.qrc
+        NetworkManager.cpp
+        NetworkManager.h
+        NetworkDialog.cpp
+        NetworkDialog.h
 )
 
 # Build executable

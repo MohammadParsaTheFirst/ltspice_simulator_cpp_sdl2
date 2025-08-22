@@ -250,6 +250,54 @@ Dialogs.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ltspice_simulator_cpp_qt6.dir\build.make CMakeFiles/ltspice_simulator_cpp_qt6.dir/Dialogs.cpp.s
 .PHONY : Dialogs.cpp.s
 
+NetworkDialog.obj: NetworkDialog.cpp.obj
+.PHONY : NetworkDialog.obj
+
+# target to build an object file
+NetworkDialog.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ltspice_simulator_cpp_qt6.dir\build.make CMakeFiles/ltspice_simulator_cpp_qt6.dir/NetworkDialog.cpp.obj
+.PHONY : NetworkDialog.cpp.obj
+
+NetworkDialog.i: NetworkDialog.cpp.i
+.PHONY : NetworkDialog.i
+
+# target to preprocess a source file
+NetworkDialog.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ltspice_simulator_cpp_qt6.dir\build.make CMakeFiles/ltspice_simulator_cpp_qt6.dir/NetworkDialog.cpp.i
+.PHONY : NetworkDialog.cpp.i
+
+NetworkDialog.s: NetworkDialog.cpp.s
+.PHONY : NetworkDialog.s
+
+# target to generate assembly for a file
+NetworkDialog.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ltspice_simulator_cpp_qt6.dir\build.make CMakeFiles/ltspice_simulator_cpp_qt6.dir/NetworkDialog.cpp.s
+.PHONY : NetworkDialog.cpp.s
+
+NetworkManager.obj: NetworkManager.cpp.obj
+.PHONY : NetworkManager.obj
+
+# target to build an object file
+NetworkManager.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ltspice_simulator_cpp_qt6.dir\build.make CMakeFiles/ltspice_simulator_cpp_qt6.dir/NetworkManager.cpp.obj
+.PHONY : NetworkManager.cpp.obj
+
+NetworkManager.i: NetworkManager.cpp.i
+.PHONY : NetworkManager.i
+
+# target to preprocess a source file
+NetworkManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ltspice_simulator_cpp_qt6.dir\build.make CMakeFiles/ltspice_simulator_cpp_qt6.dir/NetworkManager.cpp.i
+.PHONY : NetworkManager.cpp.i
+
+NetworkManager.s: NetworkManager.cpp.s
+.PHONY : NetworkManager.s
+
+# target to generate assembly for a file
+NetworkManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ltspice_simulator_cpp_qt6.dir\build.make CMakeFiles/ltspice_simulator_cpp_qt6.dir/NetworkManager.cpp.s
+.PHONY : NetworkManager.cpp.s
+
 PlotWindow.obj: PlotWindow.cpp.obj
 .PHONY : PlotWindow.obj
 
@@ -417,6 +465,12 @@ help:
 	@echo ... Dialogs.obj
 	@echo ... Dialogs.i
 	@echo ... Dialogs.s
+	@echo ... NetworkDialog.obj
+	@echo ... NetworkDialog.i
+	@echo ... NetworkDialog.s
+	@echo ... NetworkManager.obj
+	@echo ... NetworkManager.i
+	@echo ... NetworkManager.s
 	@echo ... PlotWindow.obj
 	@echo ... PlotWindow.i
 	@echo ... PlotWindow.s

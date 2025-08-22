@@ -479,6 +479,8 @@ CMakeFiles/ltspice_simulator_cpp_qt6.dir/ltspice_simulator_cpp_qt6_autogen/mocs_
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QComboBox \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qcombobox.h \
  C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/Circuit.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QDataStream \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qdatastream.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/QMouseEvent \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qevent.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qcoreevent.h \
@@ -536,8 +538,6 @@ CMakeFiles/ltspice_simulator_cpp_qt6.dir/ltspice_simulator_cpp_qt6_autogen/mocs_
  C:/Qt/6.9.1/mingw_64/include/QtCore/qtimezone.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/QRegularExpression \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qregularexpression.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/QDataStream \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qdatastream.h \
  C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/component.h \
  C:/Users/USER/CLionProjects/proj_terminal/eigen-3.4.0/Eigen/Dense \
  C:/Users/USER/CLionProjects/proj_terminal/eigen-3.4.0/Eigen/Core \
@@ -742,6 +742,36 @@ CMakeFiles/ltspice_simulator_cpp_qt6.dir/ltspice_simulator_cpp_qt6_autogen/mocs_
  C:/Qt/6.9.1/mingw_64/include/QtCore/qtmocconstants.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/q20algorithm.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/q23type_traits.h \
+ C:\Users\USER\CLionProjects\ltspice_simulator_cpp_qt6\cmake-build-debug\ltspice_simulator_cpp_qt6_autogen\EWIEGA46WW/moc_NetworkDialog.cpp \
+ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/NetworkDialog.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QButtonGroup \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qbuttongroup.h \
+ C:\Users\USER\CLionProjects\ltspice_simulator_cpp_qt6\cmake-build-debug\ltspice_simulator_cpp_qt6_autogen\EWIEGA46WW/moc_NetworkManager.cpp \
+ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/NetworkManager.h \
+ C:/Qt/6.9.1/mingw_64/include/QtNetwork/QTcpSocket \
+ C:/Qt/6.9.1/mingw_64/include/QtNetwork/qtcpsocket.h \
+ C:/Qt/6.9.1/mingw_64/include/QtNetwork/qtnetworkglobal.h \
+ C:/Qt/6.9.1/mingw_64/include/QtNetwork/qtnetwork-config.h \
+ C:/Qt/6.9.1/mingw_64/include/QtNetwork/qtnetworkexports.h \
+ C:/Qt/6.9.1/mingw_64/include/QtNetwork/qabstractsocket.h \
+ C:/Qt/6.9.1/mingw_64/include/QtNetwork/qhostaddress.h \
+ C:/Qt/6.9.1/mingw_64/include/QtNetwork/QTcpServer \
+ C:/Qt/6.9.1/mingw_64/include/QtNetwork/qtcpserver.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QObject \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QThread \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qthread.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/future \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/mutex \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unique_lock.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/condition_variable \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/stop_token \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_thread.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/semaphore \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/semaphore_base.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/atomic_timed_wait.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/this_thread_sleep.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/x86_64-w64-mingw32/include/semaphore.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/atomic_futex.h \
  C:\Users\USER\CLionProjects\ltspice_simulator_cpp_qt6\cmake-build-debug\ltspice_simulator_cpp_qt6_autogen\EWIEGA46WW/moc_PlotWindow.cpp \
  C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/PlotWindow.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QMainWindow \
@@ -847,4 +877,6 @@ CMakeFiles/ltspice_simulator_cpp_qt6.dir/ltspice_simulator_cpp_qt6_autogen/mocs_
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QMenuBar \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QStatusBar \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QWidget \
- C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/SchematicWidget.h
+ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/SchematicWidget.h \
+ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/NetworkManager.h \
+ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/NetworkDialog.h

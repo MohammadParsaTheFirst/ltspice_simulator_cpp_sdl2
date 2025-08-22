@@ -44,7 +44,25 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
         "",
         "hShowSettings",
         "hSaveProject",
-        "hOpenProject"
+        "hOpenProject",
+        "hNetworkConnection",
+        "onNetworkStatusChanged",
+        "connected",
+        "message",
+        "onVoltageSourceReceived",
+        "name",
+        "node1",
+        "node2",
+        "value",
+        "isSinusoidal",
+        "offset",
+        "amplitude",
+        "frequency",
+        "onCircuitFileReceived",
+        "onSignalDataReceived",
+        "std::map<double,double>",
+        "data",
+        "signalName"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -56,6 +74,23 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
         QtMocHelpers::SlotData<void()>(4, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'hOpenProject'
         QtMocHelpers::SlotData<void()>(5, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'hNetworkConnection'
+        QtMocHelpers::SlotData<void()>(6, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'onNetworkStatusChanged'
+        QtMocHelpers::SlotData<void(bool, const QString &)>(7, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::Bool, 8 }, { QMetaType::QString, 9 },
+        }}),
+        // Slot 'onVoltageSourceReceived'
+        QtMocHelpers::SlotData<void(const QString &, const QString &, const QString &, double, bool, double, double, double)>(10, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::QString, 11 }, { QMetaType::QString, 12 }, { QMetaType::QString, 13 }, { QMetaType::Double, 14 },
+            { QMetaType::Bool, 15 }, { QMetaType::Double, 16 }, { QMetaType::Double, 17 }, { QMetaType::Double, 18 },
+        }}),
+        // Slot 'onCircuitFileReceived'
+        QtMocHelpers::SlotData<void()>(19, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'onSignalDataReceived'
+        QtMocHelpers::SlotData<void(const std::map<double,double> &, const QString &)>(20, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { 0x80000000 | 21, 22 }, { QMetaType::QString, 23 },
+        }}),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -83,10 +118,14 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 1: _t->hShowSettings(); break;
         case 2: _t->hSaveProject(); break;
         case 3: _t->hOpenProject(); break;
+        case 4: _t->hNetworkConnection(); break;
+        case 5: _t->onNetworkStatusChanged((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
+        case 6: _t->onVoltageSourceReceived((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[3])),(*reinterpret_cast< std::add_pointer_t<double>>(_a[4])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[5])),(*reinterpret_cast< std::add_pointer_t<double>>(_a[6])),(*reinterpret_cast< std::add_pointer_t<double>>(_a[7])),(*reinterpret_cast< std::add_pointer_t<double>>(_a[8]))); break;
+        case 7: _t->onCircuitFileReceived(); break;
+        case 8: _t->onSignalDataReceived((*reinterpret_cast< std::add_pointer_t<std::map<double,double>>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
         default: ;
         }
     }
-    (void)_a;
 }
 
 const QMetaObject *MainWindow::metaObject() const
@@ -108,14 +147,14 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 4)
+        if (_id < 9)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 9;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 4)
+        if (_id < 9)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 4;
+        _id -= 9;
     }
     return _id;
 }

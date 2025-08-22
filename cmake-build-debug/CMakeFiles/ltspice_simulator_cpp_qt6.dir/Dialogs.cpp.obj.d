@@ -478,6 +478,8 @@ CMakeFiles/ltspice_simulator_cpp_qt6.dir/Dialogs.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QComboBox \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qcombobox.h \
  C:\Users\USER\CLionProjects\ltspice_simulator_cpp_qt6\Circuit.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QDataStream \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qdatastream.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/QMouseEvent \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qevent.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qcoreevent.h \
@@ -535,8 +537,6 @@ CMakeFiles/ltspice_simulator_cpp_qt6.dir/Dialogs.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qtimezone.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/QRegularExpression \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qregularexpression.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/QDataStream \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qdatastream.h \
  C:\Users\USER\CLionProjects\ltspice_simulator_cpp_qt6\component.h \
  C:/Users/USER/CLionProjects/proj_terminal/eigen-3.4.0/Eigen/Dense \
  C:/Users/USER/CLionProjects/proj_terminal/eigen-3.4.0/Eigen/Core \

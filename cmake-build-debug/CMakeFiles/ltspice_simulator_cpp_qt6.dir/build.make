@@ -78,10 +78,12 @@ ltspice_simulator_cpp_qt6_autogen/timestamp: CMakeFiles/ltspice_simulator_cpp_qt
 ltspice_simulator_cpp_qt6_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/resources.qrc
 ltspice_simulator_cpp_qt6_autogen/EWIEGA46WW/qrc_resources.cpp: CMakeFiles/ltspice_simulator_cpp_qt6_autogen.dir/AutoRcc_resources_EWIEGA46WW_Info.json
 ltspice_simulator_cpp_qt6_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/background.jpg
+ltspice_simulator_cpp_qt6_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/icons/network_connected.png
 ltspice_simulator_cpp_qt6_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/icons/wire.png
 ltspice_simulator_cpp_qt6_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/icons/run.png
 ltspice_simulator_cpp_qt6_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/icons/save.png
 ltspice_simulator_cpp_qt6_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/icons/open.png
+ltspice_simulator_cpp_qt6_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/icons/network.png
 ltspice_simulator_cpp_qt6_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/icons/diode.png
 ltspice_simulator_cpp_qt6_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/icons/settings.png
 ltspice_simulator_cpp_qt6_autogen/EWIEGA46WW/qrc_resources.cpp: C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/icons/newSchematic.png
@@ -235,11 +237,41 @@ CMakeFiles/ltspice_simulator_cpp_qt6.dir/PlotWindow.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ltspice_simulator_cpp_qt6.dir/PlotWindow.cpp.s"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\USER\CLionProjects\ltspice_simulator_cpp_qt6\PlotWindow.cpp -o CMakeFiles\ltspice_simulator_cpp_qt6.dir\PlotWindow.cpp.s
 
+CMakeFiles/ltspice_simulator_cpp_qt6.dir/NetworkManager.cpp.obj: CMakeFiles/ltspice_simulator_cpp_qt6.dir/flags.make
+CMakeFiles/ltspice_simulator_cpp_qt6.dir/NetworkManager.cpp.obj: CMakeFiles/ltspice_simulator_cpp_qt6.dir/includes_CXX.rsp
+CMakeFiles/ltspice_simulator_cpp_qt6.dir/NetworkManager.cpp.obj: C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/NetworkManager.cpp
+CMakeFiles/ltspice_simulator_cpp_qt6.dir/NetworkManager.cpp.obj: CMakeFiles/ltspice_simulator_cpp_qt6.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\USER\CLionProjects\ltspice_simulator_cpp_qt6\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/ltspice_simulator_cpp_qt6.dir/NetworkManager.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ltspice_simulator_cpp_qt6.dir/NetworkManager.cpp.obj -MF CMakeFiles\ltspice_simulator_cpp_qt6.dir\NetworkManager.cpp.obj.d -o CMakeFiles\ltspice_simulator_cpp_qt6.dir\NetworkManager.cpp.obj -c C:\Users\USER\CLionProjects\ltspice_simulator_cpp_qt6\NetworkManager.cpp
+
+CMakeFiles/ltspice_simulator_cpp_qt6.dir/NetworkManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ltspice_simulator_cpp_qt6.dir/NetworkManager.cpp.i"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\USER\CLionProjects\ltspice_simulator_cpp_qt6\NetworkManager.cpp > CMakeFiles\ltspice_simulator_cpp_qt6.dir\NetworkManager.cpp.i
+
+CMakeFiles/ltspice_simulator_cpp_qt6.dir/NetworkManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ltspice_simulator_cpp_qt6.dir/NetworkManager.cpp.s"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\USER\CLionProjects\ltspice_simulator_cpp_qt6\NetworkManager.cpp -o CMakeFiles\ltspice_simulator_cpp_qt6.dir\NetworkManager.cpp.s
+
+CMakeFiles/ltspice_simulator_cpp_qt6.dir/NetworkDialog.cpp.obj: CMakeFiles/ltspice_simulator_cpp_qt6.dir/flags.make
+CMakeFiles/ltspice_simulator_cpp_qt6.dir/NetworkDialog.cpp.obj: CMakeFiles/ltspice_simulator_cpp_qt6.dir/includes_CXX.rsp
+CMakeFiles/ltspice_simulator_cpp_qt6.dir/NetworkDialog.cpp.obj: C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/NetworkDialog.cpp
+CMakeFiles/ltspice_simulator_cpp_qt6.dir/NetworkDialog.cpp.obj: CMakeFiles/ltspice_simulator_cpp_qt6.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\USER\CLionProjects\ltspice_simulator_cpp_qt6\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/ltspice_simulator_cpp_qt6.dir/NetworkDialog.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ltspice_simulator_cpp_qt6.dir/NetworkDialog.cpp.obj -MF CMakeFiles\ltspice_simulator_cpp_qt6.dir\NetworkDialog.cpp.obj.d -o CMakeFiles\ltspice_simulator_cpp_qt6.dir\NetworkDialog.cpp.obj -c C:\Users\USER\CLionProjects\ltspice_simulator_cpp_qt6\NetworkDialog.cpp
+
+CMakeFiles/ltspice_simulator_cpp_qt6.dir/NetworkDialog.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ltspice_simulator_cpp_qt6.dir/NetworkDialog.cpp.i"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\USER\CLionProjects\ltspice_simulator_cpp_qt6\NetworkDialog.cpp > CMakeFiles\ltspice_simulator_cpp_qt6.dir\NetworkDialog.cpp.i
+
+CMakeFiles/ltspice_simulator_cpp_qt6.dir/NetworkDialog.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ltspice_simulator_cpp_qt6.dir/NetworkDialog.cpp.s"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\USER\CLionProjects\ltspice_simulator_cpp_qt6\NetworkDialog.cpp -o CMakeFiles\ltspice_simulator_cpp_qt6.dir\NetworkDialog.cpp.s
+
 CMakeFiles/ltspice_simulator_cpp_qt6.dir/ltspice_simulator_cpp_qt6_autogen/EWIEGA46WW/qrc_resources.cpp.obj: CMakeFiles/ltspice_simulator_cpp_qt6.dir/flags.make
 CMakeFiles/ltspice_simulator_cpp_qt6.dir/ltspice_simulator_cpp_qt6_autogen/EWIEGA46WW/qrc_resources.cpp.obj: CMakeFiles/ltspice_simulator_cpp_qt6.dir/includes_CXX.rsp
 CMakeFiles/ltspice_simulator_cpp_qt6.dir/ltspice_simulator_cpp_qt6_autogen/EWIEGA46WW/qrc_resources.cpp.obj: ltspice_simulator_cpp_qt6_autogen/EWIEGA46WW/qrc_resources.cpp
 CMakeFiles/ltspice_simulator_cpp_qt6.dir/ltspice_simulator_cpp_qt6_autogen/EWIEGA46WW/qrc_resources.cpp.obj: CMakeFiles/ltspice_simulator_cpp_qt6.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\USER\CLionProjects\ltspice_simulator_cpp_qt6\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/ltspice_simulator_cpp_qt6.dir/ltspice_simulator_cpp_qt6_autogen/EWIEGA46WW/qrc_resources.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\USER\CLionProjects\ltspice_simulator_cpp_qt6\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/ltspice_simulator_cpp_qt6.dir/ltspice_simulator_cpp_qt6_autogen/EWIEGA46WW/qrc_resources.cpp.obj"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ltspice_simulator_cpp_qt6.dir/ltspice_simulator_cpp_qt6_autogen/EWIEGA46WW/qrc_resources.cpp.obj -MF CMakeFiles\ltspice_simulator_cpp_qt6.dir\ltspice_simulator_cpp_qt6_autogen\EWIEGA46WW\qrc_resources.cpp.obj.d -o CMakeFiles\ltspice_simulator_cpp_qt6.dir\ltspice_simulator_cpp_qt6_autogen\EWIEGA46WW\qrc_resources.cpp.obj -c C:\Users\USER\CLionProjects\ltspice_simulator_cpp_qt6\cmake-build-debug\ltspice_simulator_cpp_qt6_autogen\EWIEGA46WW\qrc_resources.cpp
 
 CMakeFiles/ltspice_simulator_cpp_qt6.dir/ltspice_simulator_cpp_qt6_autogen/EWIEGA46WW/qrc_resources.cpp.i: cmake_force
@@ -261,6 +293,8 @@ ltspice_simulator_cpp_qt6_OBJECTS = \
 "CMakeFiles/ltspice_simulator_cpp_qt6.dir/mainwindow.cpp.obj" \
 "CMakeFiles/ltspice_simulator_cpp_qt6.dir/Dialogs.cpp.obj" \
 "CMakeFiles/ltspice_simulator_cpp_qt6.dir/PlotWindow.cpp.obj" \
+"CMakeFiles/ltspice_simulator_cpp_qt6.dir/NetworkManager.cpp.obj" \
+"CMakeFiles/ltspice_simulator_cpp_qt6.dir/NetworkDialog.cpp.obj" \
 "CMakeFiles/ltspice_simulator_cpp_qt6.dir/ltspice_simulator_cpp_qt6_autogen/EWIEGA46WW/qrc_resources.cpp.obj"
 
 # External object files for target ltspice_simulator_cpp_qt6
@@ -275,6 +309,8 @@ ltspice_simulator_cpp_qt6.exe: CMakeFiles/ltspice_simulator_cpp_qt6.dir/Schemati
 ltspice_simulator_cpp_qt6.exe: CMakeFiles/ltspice_simulator_cpp_qt6.dir/mainwindow.cpp.obj
 ltspice_simulator_cpp_qt6.exe: CMakeFiles/ltspice_simulator_cpp_qt6.dir/Dialogs.cpp.obj
 ltspice_simulator_cpp_qt6.exe: CMakeFiles/ltspice_simulator_cpp_qt6.dir/PlotWindow.cpp.obj
+ltspice_simulator_cpp_qt6.exe: CMakeFiles/ltspice_simulator_cpp_qt6.dir/NetworkManager.cpp.obj
+ltspice_simulator_cpp_qt6.exe: CMakeFiles/ltspice_simulator_cpp_qt6.dir/NetworkDialog.cpp.obj
 ltspice_simulator_cpp_qt6.exe: CMakeFiles/ltspice_simulator_cpp_qt6.dir/ltspice_simulator_cpp_qt6_autogen/EWIEGA46WW/qrc_resources.cpp.obj
 ltspice_simulator_cpp_qt6.exe: CMakeFiles/ltspice_simulator_cpp_qt6.dir/build.make
 ltspice_simulator_cpp_qt6.exe: C:/Qt/6.9.1/mingw_64/lib/libQt6Charts.a
@@ -287,7 +323,7 @@ ltspice_simulator_cpp_qt6.exe: C:/Qt/6.9.1/mingw_64/lib/libQt6Core.a
 ltspice_simulator_cpp_qt6.exe: CMakeFiles/ltspice_simulator_cpp_qt6.dir/linkLibs.rsp
 ltspice_simulator_cpp_qt6.exe: CMakeFiles/ltspice_simulator_cpp_qt6.dir/objects1.rsp
 ltspice_simulator_cpp_qt6.exe: CMakeFiles/ltspice_simulator_cpp_qt6.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\USER\CLionProjects\ltspice_simulator_cpp_qt6\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable ltspice_simulator_cpp_qt6.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\USER\CLionProjects\ltspice_simulator_cpp_qt6\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX executable ltspice_simulator_cpp_qt6.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\ltspice_simulator_cpp_qt6.dir\link.txt --verbose=$(VERBOSE)
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold "Running windeployqt to deploy Qt dependencies..."
 	C:\Qt\6.9.1\mingw_64\bin\windeployqt.exe C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/cmake-build-debug/ltspice_simulator_cpp_qt6.exe

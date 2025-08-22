@@ -1,6 +1,7 @@
 #ifndef CIRCUIT_H
 #define CIRCUIT_H
 
+#include <QDataStream>
 #include <vector>
 #include <QMouseEvent>
 #include <QString>

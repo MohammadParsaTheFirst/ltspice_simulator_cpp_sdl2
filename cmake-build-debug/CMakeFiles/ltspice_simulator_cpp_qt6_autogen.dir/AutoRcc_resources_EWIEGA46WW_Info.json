@@ -10,10 +10,12 @@
 	"INPUTS" : 
 	[
 		"C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/background.jpg",
+		"C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/icons/network_connected.png",
 		"C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/icons/wire.png",
 		"C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/icons/run.png",
 		"C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/icons/save.png",
 		"C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/icons/open.png",
+		"C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/icons/network.png",
 		"C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/icons/diode.png",
 		"C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/icons/settings.png",
 		"C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/icons/newSchematic.png",

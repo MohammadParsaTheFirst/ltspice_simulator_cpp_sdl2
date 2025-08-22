@@ -20,5 +20,7 @@
         <file>icons/diode.png</file>
         <file>icons/deleteMode.png</file>
         <file>icons/save.png</file>
+        <file>icons/network.png</file>
+        <file>icons/network_connected.png</file>
     </qresource>
 </RCC>
