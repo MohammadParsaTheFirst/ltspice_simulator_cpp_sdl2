@@ -1,22 +1,15 @@
 #include <iomanip>
 #include <utility>
 #include <cctype>
-#include "circuit.h"
+#include <QFile>
+#include <QFileDialog>
 #include <fstream>
+#include "circuit.h"
 namespace fs = std::filesystem;
 
 
 // -------------------------------- Helper for parsing values --------------------------------
-bool containsOnlyNonEnglishOrNumbers(const std::string& str) {
-    for (char c : str)
-        if (!std::isalnum(static_cast<unsigned char>(c)))
-            return true;
-    return false;
-}
-
 double parseSpiceValue(const std::string& valueStr) {
-    if (containsOnlyNonEnglishOrNumbers(valueStr))
-        throw std::runtime_error("Invalid spice value. Use english and numbers only.");
     if (valueStr.empty())
         throw std::runtime_error("Empty value.");
 
@@ -58,260 +51,13 @@ double parseSpiceValue(const std::string& valueStr) {
 
 
 // -------------------------------- Constructors and Destructors --------------------------------
-Circuit::Circuit() : nextNodeId(0), numCurrentUnknowns(0), hasNonlinearComponents(false) {/* loadSubcircuits();*/ }
+Circuit::Circuit() : nextNodeId(0), numCurrentUnknowns(0), hasNonlinearComponents(false) { }
 
 Circuit::~Circuit() {}
 // -------------------------------- Constructors and Destructors --------------------------------
 
-std::string Circuit::formatValue(double value) const {
-    std::ostringstream oss;
-    oss << std::fixed << std::setprecision(6) << value;
-    std::string str = oss.str();
-    // Remove trailing zeros and decimal if integer
-    str.erase(str.find_last_not_of('0') + 1, std::string::npos);
-    if (str.back() == '.') str.pop_back();
-    return str;
-}
+
 // -------------------------------- File Management --------------------------------
-QString Circuit::getProjectDirectory() const {
-    return QCoreApplication::applicationDirPath() + QDir::separator() + "Schematics";
-}
-
-void Circuit::newProject(const std::string& projectName) {
-    qDebug() << "newProject: circuit=" << this;
-    clearSchematic();
-    currentProjectName = QString::fromStdString(projectName);
-    projectDirectoryPath = getProjectDirectory() + QDir::separator() + currentProjectName;
-    projectLogPath = projectDirectoryPath + QDir::separator() + "project.log.txt";
-
-    QDir dir(projectDirectoryPath);
-    if (!dir.exists())
-        dir.mkpath(".");
-
-    pendingActions.clear();
-
-    qDebug() << "After newProject: Components=" << components.size()
-             << " ComponentGraphics=" << componentGraphics.size()
-             << " Wires=" << wires.size()
-             << " Grounds=" << grounds.size()
-             << " Labels=" << labels.size();
-}
-
-void save_qpoint(std::ofstream& file, const QPoint& p) {
-    int x = p.x(), y = p.y();
-    file.write(reinterpret_cast<const char*>(&x), sizeof(x));
-    file.write(reinterpret_cast<const char*>(&y), sizeof(y));
-}
-
-void save_string(std::ofstream& file, const std::string& s) {
-    size_t len = s.length();
-    file.write(reinterpret_cast<const char*>(&len), sizeof(len));
-    file.write(s.c_str(), len);
-}
-
-void Circuit::saveProject() const {
-    if (currentProjectName.isEmpty()) {
-        std::cerr << "Error: No project is open to save." << std::endl;
-        return;
-    }
-
-    std::ofstream os(projectLogPath.toStdString(), std::ios::app);
-    if (!os.is_open()) {
-        std::cerr << "Error: Could not open log file for saving." << std::endl;
-        return;
-    }
-
-    for (const auto& action : pendingActions) {
-        os << action << std::endl;
-    }
-    os.close();
-
-    std::cout << "Project '" << currentProjectName.toStdString() << "' saved successfully." << std::endl;
-}
-// void Circuit::saveProject() const {
-//     if (currentProjectName.isEmpty()) {
-//         std::cerr << "Error: No project is open to save." << std::endl;
-//         return;
-//     }
-//
-//     QString componentsFilePath = projectDirectoryPath + QDir::separator() + "components.bin";
-//     std::ofstream os_comp(componentsFilePath.toStdString(), std::ios::binary);
-//     size_t num_components = components.size();
-//     os_comp.write(reinterpret_cast<const char*>(&num_components), sizeof(num_components));
-//     for (const auto& comp : components) {
-//         comp->save_binary(os_comp);
-//     }
-//     os_comp.close();
-//
-//     QString graphicsFilePath = projectDirectoryPath + QDir::separator() + "graphics.bin";
-//     std::ofstream os_graphics(graphicsFilePath.toStdString(), std::ios::binary);
-//     size_t num_graphics = componentGraphics.size();
-//     os_graphics.write(reinterpret_cast<const char*>(&num_graphics), sizeof(num_graphics));
-//     for (const auto& graphic : componentGraphics) {
-//         save_qpoint(os_graphics, graphic.startPoint);
-//         os_graphics.write(reinterpret_cast<const char*>(&graphic.isHorizontal), sizeof(graphic.isHorizontal));
-//         save_string(os_graphics, graphic.name);
-//     }
-//     os_graphics.close();
-//
-//     QString wiresFilePath = projectDirectoryPath + QDir::separator() + "wires.bin";
-//     std::ofstream os_wires(wiresFilePath.toStdString(), std::ios::binary);
-//     size_t num_wires = wires.size();
-//     os_wires.write(reinterpret_cast<const char*>(&num_wires), sizeof(num_wires));
-//     for (const auto& wire : wires) {
-//         save_qpoint(os_wires, wire.startPoint);
-//         save_qpoint(os_wires, wire.endPoint);
-//         save_string(os_wires, wire.nodeName);
-//     }
-//     os_wires.close();
-//
-//     QString labelsFilePath = projectDirectoryPath + QDir::separator() + "labels.bin";
-//     std::ofstream os_labels(labelsFilePath.toStdString(), std::ios::binary);
-//     size_t num_labels = labels.size();
-//     os_labels.write(reinterpret_cast<const char*>(&num_labels), sizeof(num_labels));
-//     for (const auto& label : labels) {
-//         save_qpoint(os_labels, label.position);
-//         save_string(os_labels, label.name);
-//         save_string(os_labels, label.connectedNodeName);
-//     }
-//     os_labels.close();
-//
-//     std::cout << "Project '" << currentProjectName.toStdString() << "' saved successfully." << std::endl;
-// }
-//
-// QPoint load_qpoint(std::ifstream& file) {
-//     int x, y;
-//     file.read(reinterpret_cast<char*>(&x), sizeof(x));
-//     file.read(reinterpret_cast<char*>(&y), sizeof(y));
-//     return QPoint(x, y);
-// }
-
-std::string load_string(std::ifstream& file) {
-    size_t len;
-    file.read(reinterpret_cast<char*>(&len), sizeof(len));
-    if (len > 1024) {
-        throw std::runtime_error("Invalid string length in save file.");
-    }
-    char* buf = new char[len + 1];
-    file.read(buf, len);
-    buf[len] = '\0';
-    std::string s(buf);
-    delete[] buf;
-    return s;
-}
-
-void Circuit::loadProject(const std::string& projectName) {
-    newProject(projectName);
-
-    std::ifstream is(projectLogPath.toStdString());
-    if (!is.is_open()) {
-        std::cout << "Starting new empty project: " << projectName << std::endl;
-        return;
-    }
-
-    std::string line;
-    while (std::getline(is, line)) {
-        if (!line.empty() && line[0] != '*' && line[0] != ';') {
-            parseAction(line, is);
-        }
-    }
-    is.close();
-
-    // Debug: Print sizes of graphical data
-    std::cout << "After loading: Components=" << components.size()
-              << ", ComponentGraphics=" << componentGraphics.size()
-              << ", Wires=" << wires.size()
-              << ", Grounds=" << grounds.size()
-              << ", Labels=" << labels.size() << std::endl;
-
-    this->debugPrintGraphics();
-    std::cout << "Project '" << projectName << "' loaded successfully." << std::endl;
-    std::cout << "Project '" << projectName << "' loaded successfully." << std::endl;
-}
-
-
-// void Circuit::loadProject(const std::string& projectName) {
-//     newProject(projectName);
-//
-//     QString componentFilePath = projectDirectoryPath + QDir::separator() + "components.bin";
-//     std::ifstream is_comp(componentFilePath.toStdString(), std::ios::binary);
-//     if (!is_comp.is_open()) {
-//         std::cout << "Starting new empty project: " << projectName << std::endl;
-//         return;
-//     }
-//     components.clear();
-//     size_t num_components;
-//     is_comp.read(reinterpret_cast<char*>(&num_components), sizeof(num_components));
-//     for (size_t i = 0; i < num_components; ++i) {
-//         Component::Type type;
-//         is_comp.read(reinterpret_cast<char*>(&type), sizeof(type));
-//
-//         std::shared_ptr<Component> newComp = nullptr;
-//         switch (type) {
-//             case Component::Type::RESISTOR: newComp = std::make_shared<Resistor>("", 0, 0, 0); break;
-//             case Component::Type::CAPACITOR: newComp = std::make_shared<Capacitor>("", 0, 0, 0); break;
-//             case Component::Type::INDUCTOR: newComp = std::make_shared<Inductor>("", 0, 0, 0); break;
-//             case Component::Type::DIODE: newComp = std::make_shared<Diode>("", 0, 0); break;
-//             case Component::Type::VOLTAGE_SOURCE: newComp = std::make_shared<VoltageSource>("", 0, 0, VoltageSource::SourceType::DC, 0, 0, 0); break;
-//             case Component::Type::CURRENT_SOURCE: newComp = std::make_shared<CurrentSource>("", 0, 0, CurrentSource::SourceType::DC, 0, 0, 0); break;
-//             case Component::Type::VCVS: newComp = std::make_shared<VCVS>("", 0, 0, 0, 0, 0); break;
-//             case Component::Type::VCCS: newComp = std::make_shared<VCCS>("", 0, 0, 0, 0, 0); break;
-//             case Component::Type::CCVS: newComp = std::make_shared<CCVS>("", 0, 0, "", 0); break;
-//             case Component::Type::CCCS: newComp = std::make_shared<CCCS>("", 0, 0, "", 0); break;
-//         }
-//
-//         if (newComp) {
-//             newComp->load_binary(is_comp);
-//             components.push_back(newComp);
-//         }
-//     }
-//     is_comp.close();
-//
-//     QString graphicsFilePath = projectDirectoryPath + QDir::separator() + "graphics.bin";
-//     std::ifstream is_graphics(graphicsFilePath.toStdString(), std::ios::binary);
-//     componentGraphics.clear();
-//     size_t num_graphics;
-//     is_graphics.read(reinterpret_cast<char*>(&num_graphics), sizeof(num_graphics));
-//     for(size_t i = 0; i < num_graphics; ++i) {
-//         ComponentGraphicalInfo graphic;
-//         graphic.startPoint = load_qpoint(is_graphics);
-//         is_graphics.read(reinterpret_cast<char*>(&graphic.isHorizontal), sizeof(graphic.isHorizontal));
-//         graphic.name = load_string(is_graphics);
-//         componentGraphics.push_back(graphic);
-//     }
-//     is_graphics.close();
-//
-//     QString wiresFilePath = projectDirectoryPath + QDir::separator() + "wires.bin";
-//     std::ifstream is_wires(wiresFilePath.toStdString(), std::ios::binary);
-//     wires.clear();
-//     size_t num_wires;
-//     is_wires.read(reinterpret_cast<char*>(&num_wires), sizeof(num_wires));
-//     for(size_t i = 0; i < num_wires; ++i) {
-//         WireInfo wire;
-//         wire.startPoint = load_qpoint(is_wires);
-//         wire.endPoint = load_qpoint(is_wires);
-//         wire.nodeName = load_string(is_wires);
-//         wires.push_back(wire);
-//     }
-//     is_wires.close();
-//
-//     QString labelsFilePath = projectDirectoryPath + QDir::separator() + "labels.bin";
-//     std::ifstream is_labels(labelsFilePath.toStdString(), std::ios::binary);
-//     labels.clear();
-//     size_t num_labels;
-//     is_labels.read(reinterpret_cast<char*>(&num_labels), sizeof(num_labels));
-//     for(size_t i = 0; i < num_labels; ++i) {
-//         LabelInfo label;
-//         label.position = load_qpoint(is_labels);
-//         label.name = load_string(is_labels);
-//         label.connectedNodeName = load_string(is_labels);
-//         labels.push_back(label);
-//     }
-//     is_labels.close();
-//
-//     std::cout << "Project '" << projectName << "' loaded successfully." << std::endl;
-// }
-
 const std::vector<ComponentGraphicalInfo>& Circuit::getComponentGraphics() const {
     return componentGraphics;
 }
@@ -328,101 +74,85 @@ const std::vector<GroundInfo>& Circuit::getGrounds() const {
     return grounds;
 }
 
-void Circuit::makeComponentFromLine(const std::string& line) {
-    if (line.empty() || line[0] == '*' || line[0] == ';')
-        return;
+QString getSubcircuitLibraryPath();
+void Circuit::saveSubcircuitToFile(const SubcircuitDefinition& subDef) {
+    QString libraryPath = getSubcircuitLibraryPath();
+    QString filePath = libraryPath + "/" + QString::fromStdString(subDef.name) + ".sub";
 
-    std::stringstream ss(line);
-    std::string component_model, comp_name, node1_str, node2_str;
-    if (!(ss >> component_model >> comp_name >> node1_str >> node2_str))
-        throw std::runtime_error("Invalid 'add' format. Expected: add <type><name> <node1> <node2> ...");
-    if (node1_str == node2_str)
-        throw std::runtime_error("Nodes cannot be the same.");
-
-    char type_char = component_model[0];
-
-    double value = 0.0;
-    std::string value_str;
-
-    std::vector<double> numericParams;
-    std::vector<std::string> stringParams;
-
-    bool isSinusoidal = false;
-    std::string model;
-
-    if (type_char == 'R' || type_char == 'C' || type_char == 'L') {
-        if (!(ss >> value_str))
-            throw std::runtime_error("Missing value.");
-        value = parseSpiceValue(value_str);
+    QFile file(filePath);
+    if (!file.open(QIODevice::WriteOnly)) {
+        throw std::runtime_error("Cannot open file for writing subcircuit: " + filePath.toStdString());
     }
-    else if (type_char == 'V' || type_char == 'I') {
-        std::string next_token;
-        if (!(ss >> next_token))
-            throw std::runtime_error("Missing source parameters.");
-        if (next_token.find("SIN(") != std::string::npos) {
-            isSinusoidal = true;
-            std::string offset_str, amplitude_str, freq_str;
-            offset_str = next_token.substr(4);
-            ss >> amplitude_str;
-            ss >> next_token;
-            if (next_token.back() == ')')
-                freq_str = next_token.substr(0, next_token.size() - 1);
-            numericParams = {parseSpiceValue(offset_str), parseSpiceValue(amplitude_str), parseSpiceValue(freq_str)};
-        }
-        else
-            value = parseSpiceValue(next_token);
-    }
-    else if (type_char == 'D') {
-        if (!(ss >> model))
-            throw std::runtime_error("Missing value.");
-        if (model != "D" && model != "Z")
-            throw std::runtime_error("Model " + model + " not found in library.");
-    }
-    else if (type_char == 'E' || type_char == 'G') {
-        std::string c_n1, c_n2;
-        if (!(ss >> c_n1 >> c_n2 >> value_str))
-            throw std::runtime_error("Missing parameters for dependent source.");
-        value = parseSpiceValue(value_str);
-        stringParams = {c_n1, c_n2};
-    }
-    else if (type_char == 'H' || type_char == 'F') {
-        std::string c_name;
-        if (!(ss >> c_name >> value_str))
-            throw std::runtime_error("Missing parameters for dependent source.");
-        value = parseSpiceValue(value_str);
-        stringParams = {c_name};
-    }
-
-    addComponent(std::string(1, type_char), comp_name, node1_str, node2_str, value, numericParams, stringParams, isSinusoidal);
+    QDataStream out(&file);
+    out.setVersion(QDataStream::Qt_6_5);
+    out << subDef; // We already have the stream operator for this
+    file.close();
 }
 
-// void Circuit::saveSubcircuit(const SubcircuitDefinition& subDef) const {
-//     QString libDirPath = QCoreApplication::applicationDirPath() + QDir::separator() + "lib";
-//     QDir libDir(libDirPath);
-//     if (!libDir.exists())
-//         libDir.mkpath(".");
-//     QString filePath = libDirPath + QDir::separator() + QString::fromStdString(subDef.name) + ".sub";
-//     std::ofstream os(filePath.toStdString(), std::ios::binary);
-//     if (!os.is_open()) {
-//         std::cerr << "Error: Could not open file for saving subcircuit." << std::endl;
-//         return;
-//     }
-// }
-//
-// void Circuit::loadSubcircuits() {
-//     QString libDirPath = QCoreApplication::applicationDirPath() + QDir::separator() + "lib";
-//     QDir libDir(libDirPath);
-//     if (!libDir.exists())
-//         return;
-//     for (const QString& fileName: libDir.entryList(QStringList() << "*.sub", QDir::Files)) {
-//         std::ifstream is(libDir.filePath(fileName).toStdString(), std::ios::binary);
-//         cereal::BinaryInputArchive archive(is);
-//         SubcircuitDefinition subDef;
-//         archive(subDef);
-//         subcircuitDefinitions[subDef.name] = subDef;
-//     }
-//     std::cout << subcircuitDefinitions.size() << " subcircuits loaded from directory 'lib'." << std::endl;
-// }
+void Circuit::saveToFile(const QString& filePath) {
+    QFile file(filePath);
+    if (!file.open(QIODevice::WriteOnly))
+        throw std::runtime_error("Cannot open file for writing: " + filePath.toStdString());
+    QDataStream out(&file);
+    out.setVersion(QDataStream::Qt_6_5);
+
+    out << componentGraphics;
+    out << wires;
+    out << labels;
+    out << grounds;
+    out << subcircuitDefinitions;
+    out << (quint32)components.size()
+    ;
+    for (const auto& comp : components) {
+        out << comp->getTypeString();
+        comp->serialize(out);
+    }
+
+    out << nodeNameToId;
+    out << idToNodeName;
+    out << (qint32)nextNodeId;
+    out << groundNodeIds;
+}
+
+void Circuit::loadFromFile(const QString& filePath) {
+    QFile file(filePath);
+    if (!file.open(QIODevice::ReadOnly))
+        throw std::runtime_error("Cannot open file for reading: " + filePath.toStdString());
+
+    QDataStream in(&file);
+    in.setVersion(QDataStream::Qt_6_5);
+
+    clearSchematic();
+
+    in >> componentGraphics;
+    in >> wires;
+    in >> labels;
+    in >> grounds;
+    in >> subcircuitDefinitions;
+
+    quint32 componentCount;
+    in >> componentCount;
+    for (quint32 i = 0; i < componentCount; ++i) {
+        QString typeString;
+        in >> typeString;
+        std::shared_ptr<Component> newComp = ComponentFactory::createComponentFromType(typeString);
+        if (newComp) {
+            newComp->deserialize(in);
+            components.push_back(newComp);
+            if (newComp->isNonlinear())
+                hasNonlinearComponents = true;
+        }
+        else
+            throw std::runtime_error("Unknown component type in file: " + typeString.toStdString());
+    }
+
+    qint32 loadedNextNodeId;
+    in >> nodeNameToId;
+    in >> idToNodeName;
+    in >> loadedNextNodeId;
+    in >> groundNodeIds;
+    nextNodeId = loadedNextNodeId;
+}
 // -------------------------------- File Management --------------------------------
 
 
@@ -448,6 +178,11 @@ void Circuit::mergeNodes(int sourceNodeId, int destNodeId) {
         }
     }
 
+    if (groundNodeIds.count(sourceNodeId)) {
+        groundNodeIds.erase(sourceNodeId);
+        groundNodeIds.insert(destNodeId);
+    }
+
     idToNodeName.erase(sourceNodeId);
 }
 
@@ -465,7 +200,7 @@ void Circuit::clearSchematic() {
     wires.clear();
     labels.clear();
     grounds.clear();
-    componentGraphics.clear();  //componentcounter?
+    componentGraphics.clear();
 }
 
 int Circuit::getNodeId(const std::string& nodeName, bool create) {
@@ -509,7 +244,7 @@ void Circuit::addComponent(const std::string& typeStr, const std::string& name, 
     }
 }
 
-void Circuit::addComponent(const std::string& typeStr, const std::string& name,
+    void Circuit::addComponent(const std::string& typeStr, const std::string& name,
                            const std::string& node1Str, const std::string& node2Str,
                            const QPoint& startPoint, bool isHorizontal,
                            double value, const std::vector<double>& numericParams,
@@ -544,23 +279,23 @@ void Circuit::addComponent(const std::string& typeStr, const std::string& name,
         std::map<std::string, std::string> nodeMap;
         nodeMap[subDef.port1NodeName] = node1Str;
         nodeMap[subDef.port2NodeName] = node2Str;
+
         for (const std::string& line : subDef.netlist) {
             std::stringstream ss(line);
-            std::string subCompType, subCompName, subNode1, subNode2;
-            ss >> subCompType >> subCompName >> subNode1 >> subNode2;
+            std::string subCompTypeStr, subCompName, subNode1, subNode2, subValueStr;
+            ss >> subCompTypeStr >> subCompName >> subNode1 >> subNode2 >> subValueStr;
+
             std::string newCompName = name + "_" + subCompName;
+
             if (!nodeMap.count(subNode1))
                 nodeMap[subNode1] = name + "_" + subNode1;
             if (!nodeMap.count(subNode2))
                 nodeMap[subNode2] = name + "_" + subNode2;
-            std::string newLine = subCompType + " " + newCompName + " " + nodeMap[subNode1] + " " + nodeMap[subNode2];
-            std::string remaining_params;
-            std::getline(ss, remaining_params);
-            newLine += remaining_params;
-            circuitNetList.push_back(newLine);
+
+            addComponent(subCompTypeStr, newCompName, nodeMap.at(subNode1), nodeMap.at(subNode2), parseSpiceValue(subValueStr), {}, {}, false);
         }
-        for (const auto& line: subDef.netlist)
-            makeComponentFromLine(line);
+
+        componentGraphics.push_back({startPoint, isHorizontal, name});
         return;
     }
 
@@ -575,33 +310,8 @@ void Circuit::addComponent(const std::string& typeStr, const std::string& name,
             if (newComp->isNonlinear())
                 hasNonlinearComponents = true;
             std::cout << "Added " << name << "." << std::endl;
-
-            /* --------------------------------------------------------------------------------- */
-            // Log the action
-            std::string action = ".add " + typeStr + " " + name + " " + node1Str + " " + node2Str;
-            if (typeStr == "AC") {
-                // No value or params
-            } else if (typeStr == "D") {
-                action += " D";  // Model (fixed, ignored in parse)
-            } else if (isSinusoidal) {
-                action += " SIN(" + formatValue(numericParams[0]) + " " + formatValue(numericParams[1]) + " " + formatValue(numericParams[2]) + ")";
-            } else if (!stringParams.empty()) {
-                for (const auto& p : stringParams) {
-                    action += " " + p;
-                }
-                action += " " + formatValue(value);
-            } else {
-                action += " " + formatValue(value);
-            }
-            std::string temp = (isHorizontal ? "horizontal" : "vertical");
-            action += " " + temp + " " + std::to_string(startPoint.x()) + " " + std::to_string(startPoint.y());
-            pendingActions.push_back(action);
-            /* --------------------------------------------------------------------------------- */
         }
     }
-
-
-
     catch (const std::exception& e) {
         std::cout << "ERROR: " << e.what() << std::endl;
     }
@@ -626,25 +336,15 @@ void Circuit::addGround(const std::string& nodeName, const QPoint& position) {
         groundNodeIds.insert(nodeId);
         grounds.push_back({position});
         std::cout << "Ground added." << std::endl;
-        /* ---------------------------------------------------------------------------- */
-        // Log the action
-        std::string action = ".ground " + nodeName + " " + std::to_string(position.x()) + " " + std::to_string(position.y());
-        pendingActions.push_back(action);
-        /* ---------------------------------------------------------------------------- */
     }
 }
 
 void Circuit::addWire(const QPoint& start, const QPoint& end, const std::string& nodeName) {
     wires.push_back({start, end, nodeName});
-    /* --------------------------------------------------------------------------------- */
-    // Log the action
-    std::string action = ".wire " + std::to_string(start.x()) + " " + std::to_string(start.y()) + " " + std::to_string(end.x()) + " " + std::to_string(end.y()) + " " + nodeName;
-    pendingActions.push_back(action);
-    /* --------------------------------------------------------------------------------- */
 }
 
 void Circuit::deleteComponent(const std::string& componentName, char typeChar) {
-    components.erase(std::remove_if(components.begin(), components.end(), [&](const std::shared_ptr<Component>& comp) {
+components.erase(std::remove_if(components.begin(), components.end(), [&](const std::shared_ptr<Component>& comp) {
     if (comp->getName() == componentName) {
             return true;
         }
@@ -656,22 +356,34 @@ void Circuit::deleteComponent(const std::string& componentName, char typeChar) {
     circuitNetList.erase(std::remove_if(circuitNetList.begin(), circuitNetList.end(), [&](const std::string& line) {
         return line.find(componentName) != std::string::npos;
     }), circuitNetList.end());
-    /* --------------------------------------------------------------------------------- */
-    // Log the action
-    std::string action = ".delete " + componentName + " " + std::string(1, typeChar);
-    pendingActions.push_back(action);
-    /* --------------------------------------------------------------------------------- */
 }
 
-void Circuit::deleteGround(const std::string& ground_node_name) {
-    if (!hasNode(ground_node_name))
-        std::cout << "Node does not exist." << std::endl;
-    else if (!isGround(nodeNameToId[ground_node_name]))
-        std::cout << "This node isn't ground!" << std::endl;
-    else {
-        groundNodeIds.erase(nodeNameToId[ground_node_name]);
-        std::cout << "Ground deleted." << std::endl;
+void Circuit::deleteGround(const std::string& nodeName) {
+    if (!nodeNameToId.count(nodeName)) {
+        std::cerr << "Cannot delete ground: Node '" << nodeName << "' does not exist." << std::endl;
+        return;
     }
+
+    int nodeId = nodeNameToId.at(nodeName);
+    if (!groundNodeIds.count(nodeId)) {
+        std::cerr << "Cannot delete ground: Node '" << nodeName << "' is not a ground node." << std::endl;
+        return;
+    }
+
+    groundNodeIds.erase(nodeId);
+    QPoint groundPos;
+    QString qNodeName = QString::fromStdString(nodeName);
+    QStringList parts = qNodeName.split('_');
+    if (parts.size() == 3) {
+        groundPos.setX(parts[1].toInt() * 40); // gridSize = 40
+        groundPos.setY(parts[2].toInt() * 40);
+    }
+
+    grounds.erase(std::remove_if(grounds.begin(), grounds.end(), [&](const GroundInfo& g) {
+        return g.position == groundPos;
+    }), grounds.end());
+
+    std::cout << "Ground at node '" << nodeName << "' deleted." << std::endl;
 }
 
 void Circuit::listNodes() const {
@@ -721,6 +433,42 @@ void Circuit::renameNode(const std::string& oldName, const std::string& newName)
     }
 }
 
+std::vector<std::string> Circuit::generateNetlistFromComponents() const {
+    std::vector<std::string> netlist;
+    for (const auto& comp : components) {
+        std::string line;
+        std::string type_char = comp->name.substr(0, 1);
+        std::string n1_name = idToNodeName.at(comp->node1);
+        std::string n2_name = idToNodeName.at(comp->node2);
+
+        if (dynamic_cast<Resistor*>(comp.get()) || dynamic_cast<Capacitor*>(comp.get()) || dynamic_cast<Inductor*>(comp.get()))
+            line = type_char + " " + comp->name + " " + n1_name + " " + n2_name + " " + std::to_string(comp->value);
+        else if (auto* vs = dynamic_cast<VoltageSource*>(comp.get())) {
+            if (vs->getSourceType() == VoltageSource::SourceType::DC)
+                line = type_char + " " + comp->name + " " + n1_name + " " + n2_name + " " + std::to_string(vs->getParam1());
+            else
+                line = type_char + " " + comp->name + " " + n1_name + " " + n2_name + " SIN(" + std::to_string(vs->getParam1()) + " " + std::to_string(vs->getParam2()) + " " + std::to_string(vs->getParam3()) + ")";
+        }
+        else if (auto* cs = dynamic_cast<CurrentSource*>(comp.get())) {
+            if (cs->getSourceType() == CurrentSource::SourceType::DC)
+                line = type_char + " " + comp->name + " " + n1_name + " " + n2_name + " " + std::to_string(cs->getParam1());
+            else
+                line = type_char + " " + comp->name + " " + n1_name + " " + n2_name + " SIN(" + std::to_string(cs->getParam1()) + " " + std::to_string(cs->getParam2()) + " " + std::to_string(cs->getParam3()) + ")";
+        }
+        else if (dynamic_cast<Diode*>(comp.get()))
+            line = type_char + " " + comp->name + " " + n1_name + " " + n2_name + " D";
+        else if (auto* vcvs = dynamic_cast<VCVS*>(comp.get()))
+            line = type_char + " " + comp->name + " " + n1_name + " " + n2_name + " " + idToNodeName.at(vcvs->getCtrlNode1()) + " " + idToNodeName.at(vcvs->getCtrlNode2()) + " " + std::to_string(vcvs->getGain());
+        else if (auto* vccs = dynamic_cast<VCCS*>(comp.get()))
+            line = type_char + " " + comp->name + " " + n1_name + " " + n2_name + " " + idToNodeName.at(vccs->getCtrlNode1()) + " " + idToNodeName.at(vccs->getCtrlNode2()) + " " + std::to_string(vccs->getGain());
+// TODO: Other sources
+        if (!line.empty()) {
+            netlist.push_back(line);
+        }
+    }
+    return netlist;
+}
+
 void Circuit::connectNodes(const std::string& nodeAStr, const std::string& nodeBStr) {
     int nodeAInt = getNodeId(nodeAStr, true);
     int nodeBInt = getNodeId(nodeBStr, true);
@@ -730,34 +478,25 @@ void Circuit::connectNodes(const std::string& nodeAStr, const std::string& nodeB
         mergeNodes(sourceNodeId, destNodeId);
     }
     std::cout << "Node '" << nodeAStr << "' successfully connected to '" << nodeBStr << "'." << std::endl;
-    /* ------------------------------------------------------------------------------ */
-    // Log the action (only if nodes were actually merged)
-    if (sourceNodeId != destNodeId) {
-        std::string action = ".connect " + nodeAStr + " " + nodeBStr;
-        pendingActions.push_back(action);
-    }
-    /* ------------------------------------------------------------------------------ */
 }
 
-// void Circuit::addLabel(const std::string& labelName, const std::string& nodeName) {
-//     int nodeId = getNodeId(nodeName, true);
-//     if (nodeId != -1) {
-//         labelToNodes[labelName].insert(nodeId);
-//         std::cout << "Label '" << labelName << "' added to node " << nodeName << std::endl;
-//     }
-// }
-
-void Circuit::addLabel(const std::string& labelName, const std::string& nodeName, const QPoint& position) {
+void Circuit::addLabel(const QPoint& pos, const std::string& labelName, const std::string& nodeName) {
     int nodeId = getNodeId(nodeName, true);
     if (nodeId != -1) {
         labelToNodes[labelName].insert(nodeId);
-        labels.push_back({position, labelName, nodeName});
+        labels.push_back({pos, labelName, nodeName});
         std::cout << "Label '" << labelName << "' added to node " << nodeName << std::endl;
-        /* -------------------------------------------------------------------------- */
-        // Log the action
-        std::string action = ".label " + labelName + " " + nodeName + " " + std::to_string(position.x()) + " " + std::to_string(position.y());
-        pendingActions.push_back(action);
-        /* -------------------------------------------------------------------------- */
+    }
+}
+
+void Circuit::processLabelConnections() {
+    for (const auto& pair : labelToNodes) {
+        const std::set<int>& nodes = pair.second;
+        if (nodes.size() > 1) {
+            int destNodeId = *nodes.begin();
+            for (auto it = std::next(nodes.begin()); it != nodes.end(); ++it)
+                mergeNodes(*it, destNodeId);
+        }
     }
 }
 
@@ -770,25 +509,15 @@ void Circuit::createSubcircuitDefinition(const std::string& name, const std::str
     newSubcircuit.name = name;
     newSubcircuit.port1NodeName = node1;
     newSubcircuit.port2NodeName = node2;
-    newSubcircuit.netlist = circuitNetList;
+    newSubcircuit.netlist = generateNetlistFromComponents();
     subcircuitDefinitions[name] = newSubcircuit;
-    // saveSubcircuit(newSubcircuit);
-
-    /* -------------------------------------------------------------- */
-    // Log the subcircuit definition
-    std::string action = ".sub " + name + " " + node1 + " " + node2;
-    pendingActions.push_back(action);
-    for (const auto& netLine : circuitNetList) {
-        pendingActions.push_back(netLine);
-    }
-    pendingActions.push_back(".ends");
-    /* -------------------------------------------------------------- */
 }
 // -------------------------------- Component and Node Management --------------------------------
 
 
 // -------------------------------- MNA and Solver --------------------------------
 void Circuit::buildMNAMatrix(double time, double h) {
+    processLabelConnections();
     std::map<int, int> nodeIdToMnaIndex;
     int currentMnaIndex = 0;
     for (int i = 0; i < nextNodeId; ++i) {
@@ -831,6 +560,7 @@ void Circuit::buildMNAMatrix(double time, double h) {
 }
 
 void Circuit::buildMNAMatrix_AC(double omega) {
+    processLabelConnections();
     std::map<int, int> nodeIdToMnaIndex;
     int currentMnaIndex = 0;
     for (int i = 0; i < nextNodeId; ++i) {
@@ -897,83 +627,6 @@ void Circuit::updateNonlinearComponentStates(const Eigen::VectorXd& solution,
 
 
 // -------------------------------- Analysis Methods --------------------------------
-// void Circuit::performDCAnalysis(const std::string& sourceName, double startValue, double endValue, double increment) {
-//     std::shared_ptr<Component> sweepSource = getComponent(sourceName);
-//
-//     if (!sweepSource)
-//         throw std::runtime_error("Source '" + sourceName + "' for DC sweep not found.");
-//     if (groundNodeIds.empty())
-//         throw std::runtime_error("No ground node detected.");
-//
-//     std::cout << "\n--- Performing DC Sweep Analysis on " << sourceName << " ---" << std::endl;
-//     std::cout << "Start: " << startValue << ", Stop: " << endValue << ", Increment: " << increment << std::endl;
-//
-//     dcSweepSolutions.clear();
-//     for (const auto& component : components)
-//         component->reset();
-//
-//     std::map<int, int> nodeIdToMnaIndex;
-//
-//     for (double sweepValue = startValue; sweepValue <= endValue; sweepValue += increment) {
-//         if (auto vs = dynamic_cast<VoltageSource*>(sweepSource.get()))
-//             vs->setValue(sweepValue);
-//         else if (auto cs = dynamic_cast<CurrentSource*>(sweepSource.get()))
-//             cs->setValue(sweepValue);
-//         else
-//             throw std::runtime_error("Component '" + sourceName + "' is not a sweepable source.");
-//
-//         Eigen::VectorXd solution;
-//         buildMNAMatrix(0.0, 0.0);
-//         nodeIdToMnaIndex.clear();
-//         int currentMnaIndex = 0;
-//         for (int i = 0; i < nextNodeId; ++i) {
-//             if (idToNodeName.count(i) && !isGround(i)) {
-//                 nodeIdToMnaIndex[i] = currentMnaIndex++;
-//             }
-//         }
-//
-//         if (!hasNonlinearComponents) {
-//             solution = solveMNASystem();
-//         }
-//         else {
-//             const int MAX_ITERATIONS = 100;
-//             const double TOLERANCE = 1e-6;
-//             bool converged = false;
-//
-//             Eigen::VectorXd lastSolution;
-//
-//             for (const auto& comp : components) {
-//                 if (auto* diode = dynamic_cast<Diode*>(comp.get())) {
-//                     diode->reset();
-//                 }
-//             }
-//
-//             for (int i = 0; i < MAX_ITERATIONS; ++i) {
-//                 buildMNAMatrix(0.0, 0.0);
-//                 solution = solveMNASystem();
-//                 if (solution.size() == 0) {
-//                     std::cout << "DC sweep failed to solve at " << sourceName << " = " << sweepValue << std::endl;
-//                     break;
-//                 }
-//                 if (i > 0 && (solution - lastSolution).norm() < TOLERANCE) {
-//                     converged = true;
-//                     break;
-//                 }
-//                 lastSolution = solution;
-//                 updateNonlinearComponentStates(solution, nodeIdToMnaIndex);
-//             }
-//
-//             if (!converged)
-//                 std::cout << "Warning: DC analysis did not converge at sweep value " << sweepValue << std::endl;
-//         }
-//         if (solution.size() > 0) {
-//             dcSweepSolutions[sweepValue] = solution;
-//         }
-//         dcSweepSolutions[sweepValue] = solution;
-//     }
-//     std::cout << "DC Sweep complete. " << dcSweepSolutions.size() << " points calculated." << std::endl;
-// }
-
 void Circuit::runTransientAnalysis(double stopTime, double startTime, double maxTimeStep) {
     if (maxTimeStep == 0.0)
         maxTimeStep = (stopTime - startTime) / 100;
@@ -1066,8 +719,8 @@ void Circuit::runACAnalysis(double startOmega, double stopOmega, int numPoints) 
 
 
 // -------------------------------- Output Results --------------------------------
-std::map<double, double> Circuit::getTransientResults(const std::vector<std::string>& variablesToPrint) const {
-    std::map<double, double> results;
+std::map<std::string, std::map<double, double>> Circuit::getTransientResults(const std::vector<std::string>& variablesToPrint) const {
+    std::map<std::string, std::map<double, double>> results;
 
     if (transientSolutions.empty()) {
         std::cout << "No analysis results found. Run .TRAN or .DC first." << std::endl;
@@ -1130,6 +783,9 @@ std::map<double, double> Circuit::getTransientResults(const std::vector<std::str
     if (printJobs.empty())
         return {};
 
+    for (const auto& job : printJobs)
+        results[job.header];
+
     auto itPrev = transientSolutions.begin();
     for (auto it = transientSolutions.begin(); it != transientSolutions.end(); ++it) {
         double t = it->first;
@@ -1162,15 +818,15 @@ std::map<double, double> Circuit::getTransientResults(const std::vector<std::str
                     }
                 }
             }
-            results[t] = result;
+            results.at(job.header)[t] = result;
         }
         itPrev = it;
     }
     return results;
 }
 
-std::map<double, double> Circuit::getACSweepResults(const std::string& variable) const {
-     std::map<double, double> results;
+std::map<std::string, std::map<double, double>> Circuit::getACSweepResults(const std::vector<std::string>& variables) const {
+    std::map<std::string, std::map<double, double>> results;
 
     if (acSweepSolutions.empty())
         throw std::runtime_error("No AC analysis results found. Run .AC analysis first.");
@@ -1183,263 +839,208 @@ std::map<double, double> Circuit::getACSweepResults(const std::string& variable)
         }
     }
 
-    char varType = variable.front();
-    std::string varName = variable.substr(2, variable.length() - 3);
+    for (const auto& var : variables)
+        results[var];
 
     for (const auto& pair : acSweepSolutions) {
         double omega = pair.first;
         const Eigen::VectorXd& solution = pair.second;
         double resultValue = 0.0;
 
-        if (varType == 'V') {
-            int nodeId = getNodeId(varName);
-            if (nodeId == -1)
-                throw std::runtime_error("Node not found");
-            resultValue = isGround(nodeId) ? 0.0 : solution(nodeIdToMnaIndex.at(nodeId));
-        }
-        else if (varType == 'I') {
-            auto comp = getComponent(varName);
-            if (!comp)
-                throw std::runtime_error("Component not found.");
+        for (const auto& variable : variables) {
+            if (variable.length() < 4)
+                continue;
 
-            if (comp->needsCurrentUnknown() && componentCurrentIndices.count(varName)) {
-                resultValue = solution(componentCurrentIndices.at(varName));
-            }
-            else {
-                double v1 = isGround(comp->node1) ? 0.0 : solution(nodeIdToMnaIndex.at(comp->node1));
-                double v2 = isGround(comp->node2) ? 0.0 : solution(nodeIdToMnaIndex.at(comp->node2));
-                double voltage_diff = v1 - v2;
+            char varType = variable.front();
+            std::string varName = variable.substr(2, variable.length() - 3);
+            double resultValue = 0.0;
 
-                if (auto* resistor = dynamic_cast<Resistor*>(comp.get()))
-                    resultValue = voltage_diff / resistor->value;
-                else if (auto* capacitor = dynamic_cast<Capacitor*>(comp.get()))
-                    resultValue = voltage_diff * omega * capacitor->value;
-                else
-                    std::cerr << "Current plotting for this component type is not supported yet." << std::endl;
+            if (varType == 'V') {
+                int nodeId = getNodeId(varName);
+                if (nodeId != -1)
+                    resultValue = isGround(nodeId) ? 0.0 : solution(nodeIdToMnaIndex.at(nodeId));
             }
+            else if (varType == 'I') {
+                auto comp = getComponent(varName);
+                if (!comp) continue;
+
+                if (comp->needsCurrentUnknown() && componentCurrentIndices.count(varName))
+                    resultValue = solution(componentCurrentIndices.at(varName));
+                else {
+                    double v1 = isGround(comp->node1) ? 0.0 : solution(nodeIdToMnaIndex.at(comp->node1));
+                    double v2 = isGround(comp->node2) ? 0.0 : solution(nodeIdToMnaIndex.at(comp->node2));
+                    double voltage_diff = v1 - v2;
+
+                    if (auto* resistor = dynamic_cast<Resistor*>(comp.get()))
+                        resultValue = voltage_diff / resistor->value;
+                    else if (auto* capacitor = dynamic_cast<Capacitor*>(comp.get()))
+                        resultValue = voltage_diff * omega * capacitor->value;
+                }
+            }
+            results.at(variable)[omega] = resultValue;
         }
-        results[omega] = resultValue;
     }
+
     return results;
 }
-
-
-void Circuit::debugPrintGraphics() const {
-    qDebug() << "Circuit contents: Components=" << components.size()
-             << " ComponentGraphics=" << componentGraphics.size()
-             << " Wires=" << wires.size()
-             << " Grounds=" << grounds.size()
-             << " Labels=" << labels.size();
-    for (const auto& comp : componentGraphics) {
-        qDebug() << "ComponentGraphics:" << QString::fromStdString(comp.name)
-                 << "at" << comp.startPoint ;//<< "type=" << QString::fromStdString(comp.type);
-    }
-    // for (const auto& wire : wires) {
-    //     qDebug() << "Wire: " << wire;//.start << "to" << wire.end;
-    // }
-    // for (const auto& ground : grounds) {
-    //     qDebug() << "Ground: at" << ground.position;
-    // }
-}
-
-
-void Circuit::parseAction(const std::string& line, std::ifstream& is) {
-    if (line.empty() || line[0] == '*' || line[0] == ';') return;
-
-    std::stringstream ss(line);
-    std::string cmd;
-    ss >> cmd;
-
-    if (cmd == ".add") {
-        std::string type, name, node1, node2, nextToken;
-        ss >> type >> name >> node1 >> node2;
-
-        double value = 0.0;
-        std::vector<double> numParams;
-        std::vector<std::string> strParams;
-        bool isSin = false;
-
-        if (type == "R" || type == "C" || type == "L" || type == "V" || type == "I") {
-            ss >> nextToken;
-            if (nextToken.find("SIN(") == 0) {
-                isSin = true;
-                size_t parenPos = nextToken.find(')');
-                std::string sinStr = (parenPos != std::string::npos) ? nextToken.substr(4, parenPos - 4) : nextToken.substr(4);
-                std::stringstream sinSs(sinStr);
-                double off, amp, freq;
-                sinSs >> off >> amp >> freq;
-                numParams = {off, amp, freq};
-            } else {
-                value = parseSpiceValue(nextToken);
-            }
-        } else if (type == "D") {
-            ss >> nextToken;  // model, ignore
-        } else if (type == "E" || type == "G") {
-            std::string cn1, cn2, valStr;
-            ss >> cn1 >> cn2 >> valStr;
-            value = parseSpiceValue(valStr);
-            strParams = {cn1, cn2};
-        } else if (type == "H" || type == "F") {
-            std::string cname, valStr;
-            ss >> cname >> valStr;
-            value = parseSpiceValue(valStr);
-            strParams = {cname};
-        } else {
-            // AC or subcircuit: no extra params before orient
-        }
-
-        std::string orient;
-        int x, y;
-        ss >> orient >> x >> y;
-        bool horizontal = (orient == "horizontal");
-
-        // Call addComponent with graphical info
-        addComponent(type, name, node1, node2, QPoint(x, y), horizontal, value, numParams, strParams, isSin);
-        std::cout << "Parsed .add: " << type << " " << name << " at (" << x << "," << y << "), horizontal=" << horizontal << std::endl;
-    } else if (cmd == ".wire") {
-        int sx, sy, ex, ey;
-        std::string nodeN;
-        ss >> sx >> sy >> ex >> ey >> nodeN;
-        addWire(QPoint(sx, sy), QPoint(ex, ey), nodeN);
-        std::cout << "Parsed .wire: from (" << sx << "," << sy << ") to (" << ex << "," << ey << ")" << std::endl;
-    } else if (cmd == ".ground") {
-        std::string nodeN;
-        int x, y;
-        ss >> nodeN >> x >> y;
-        addGround(nodeN, QPoint(x, y));
-        std::cout << "Parsed .ground: at (" << x << "," << y << ")" << std::endl;
-    } else if (cmd == ".label") {
-        std::string labelN, connNode;
-        int x, y;
-        ss >> labelN >> connNode >> x >> y;
-        addLabel(labelN, connNode, QPoint(x, y));
-        std::cout << "Parsed .label: " << labelN << " at (" << x << "," << y << ")" << std::endl;
-    } else if (cmd == ".delete") {
-        std::string name;
-        char typeC;
-        std::string typeStr;
-        ss >> name >> typeStr;
-        typeC = typeStr[0];
-        deleteComponent(name, typeC);
-        std::cout << "Parsed .delete: " << name << std::endl;
-    } else if (cmd == ".connect") {
-        std::string nodeA, nodeB;
-        ss >> nodeA >> nodeB;
-        connectNodes(nodeA, nodeB);
-        std::cout << "Parsed .connect: " << nodeA << " to " << nodeB << std::endl;
-    } else if (cmd == ".sub") {
-        std::string subName, port1, port2;
-        ss >> subName >> port1 >> port2;
-        std::vector<std::string> netlist;
-        std::string subLine;
-        while (std::getline(is, subLine) && subLine != ".ends") {
-            if (!subLine.empty() && subLine[0] != '*' && subLine[0] != ';') {
-                netlist.push_back(subLine);
-            }
-        }
-        SubcircuitDefinition subDef;
-        subDef.name = subName;
-        subDef.port1NodeName = port1;
-        subDef.port2NodeName = port2;
-        subDef.netlist = netlist;
-        subcircuitDefinitions[subName] = subDef;
-        std::cout << "Parsed .sub: " << subName << std::endl;
-    }
-}
-// void Circuit::parseAction(const std::string& line, std::ifstream& is) {
-//     if (line.empty() || line[0] == '*' || line[0] == ';') return;
-//
-//     std::stringstream ss(line);
-//     std::string cmd;
-//     ss >> cmd;
-//
-//     if (cmd == ".add") {
-//         std::string type, name, node1, node2, nextToken;
-//         ss >> type >> name >> node1 >> node2;
-//
-//         double value = 0.0;
-//         std::vector<double> numParams;
-//         std::vector<std::string> strParams;
-//         bool isSin = false;
-//
-//         if (type == "R" || type == "C" || type == "L" || type == "V" || type == "I") {
-//             ss >> nextToken;
-//             if (nextToken.find("SIN(") == 0) {
-//                 isSin = true;
-//                 size_t parenPos = nextToken.find(')');
-//                 std::string sinStr = (parenPos != std::string::npos) ? nextToken.substr(4, parenPos - 4) : nextToken.substr(4);
-//                 std::stringstream sinSs(sinStr);
-//                 double off, amp, freq;
-//                 sinSs >> off >> amp >> freq;
-//                 numParams = {off, amp, freq};
-//             } else {
-//                 value = parseSpiceValue(nextToken);
-//             }
-//         } else if (type == "D") {
-//             ss >> nextToken;  // model, ignore
-//         } else if (type == "E" || type == "G") {
-//             std::string cn1, cn2, valStr;
-//             ss >> cn1 >> cn2 >> valStr;
-//             value = parseSpiceValue(valStr);
-//             strParams = {cn1, cn2};
-//         } else if (type == "H" || type == "F") {
-//             std::string cname, valStr;
-//             ss >> cname >> valStr;
-//             value = parseSpiceValue(valStr);
-//             strParams = {cname};
-//         } else {
-//             // AC or subcircuit: no extra params before orient
-//         }
-//
-//         std::string orient;
-//         int x, y;
-//         ss >> orient >> x >> y;
-//         bool horizontal = (orient == "horizontal");
-//
-//         addComponent(type, name, node1, node2, QPoint(x, y), horizontal, value, numParams, strParams, isSin);
-//     } else if (cmd == ".wire") {
-//         int sx, sy, ex, ey;
-//         std::string nodeN;
-//         ss >> sx >> sy >> ex >> ey >> nodeN;
-//         addWire(QPoint(sx, sy), QPoint(ex, ey), nodeN);
-//     } else if (cmd == ".ground") {
-//         std::string nodeN;
-//         int x, y;
-//         ss >> nodeN >> x >> y;
-//         addGround(nodeN, QPoint(x, y));
-//     } else if (cmd == ".label") {
-//         std::string labelN, connNode;
-//         int x, y;
-//         ss >> labelN >> connNode >> x >> y;
-//         addLabel(labelN, connNode, QPoint(x, y));
-//     } else if (cmd == ".delete") {
-//         std::string name;
-//         char typeC;
-//         std::string typeStr;
-//         ss >> name >> typeStr;
-//         typeC = typeStr[0];
-//         deleteComponent(name, typeC);
-//     } else if (cmd == ".connect") {
-//         std::string nodeA, nodeB;
-//         ss >> nodeA >> nodeB;
-//         connectNodes(nodeA, nodeB);
-//     } else if (cmd == ".sub") {
-//         std::string subName, port1, port2;
-//         ss >> subName >> port1 >> port2;
-//         std::vector<std::string> netlist;
-//         std::string subLine;
-//         while (std::getline(is, subLine) && subLine != ".ends") {
-//             if (!subLine.empty() && subLine[0] != '*' && subLine[0] != ';') {
-//                 netlist.push_back(subLine);
-//             }
-//         }
-//         SubcircuitDefinition subDef;
-//         subDef.name = subName;
-//         subDef.port1NodeName = port1;
-//         subDef.port2NodeName = port2;
-//         subDef.netlist = netlist;
-//         subcircuitDefinitions[subName] = subDef;
-//     }
-// }
-
 // -------------------------------- Output Results --------------------------------
+
+template<typename T>
+QDataStream& operator<<(QDataStream& out, const std::vector<T>& vec) {
+    out << (quint32)vec.size();
+    for (const T& item : vec) { out << item; }
+    return out;
+}
+template<typename T>
+QDataStream& operator>>(QDataStream& in, std::vector<T>& vec) {
+    quint32 size;
+    in >> size;
+    vec.clear();
+    vec.reserve(size);
+    for (quint32 i = 0; i < size; ++i) {
+        T item;
+        in >> item;
+        vec.push_back(item);
+    }
+    return in;
+}
+
+QDataStream& operator<<(QDataStream& out, const std::map<std::string, int>& map) {
+    out << (quint32)map.size();
+    for(const auto& pair : map) { out << QString::fromStdString(pair.first) << (qint32)pair.second; }
+    return out;
+}
+QDataStream& operator>>(QDataStream& in, std::map<std::string, int>& map) {
+    map.clear();
+    quint32 size;
+    in >> size;
+    for(quint32 i=0; i<size; ++i) {
+        QString key;
+        qint32 val;
+        in >> key >> val;
+        map[key.toStdString()] = val;
+    }
+    return in;
+}
+
+QDataStream& operator<<(QDataStream& out, const std::map<int, std::string>& map) {
+    out << (quint32)map.size();
+    for(const auto& pair : map) { out << (qint32)pair.first << QString::fromStdString(pair.second); }
+    return out;
+}
+QDataStream& operator>>(QDataStream& in, std::map<int, std::string>& map) {
+    map.clear();
+    quint32 size;
+    in >> size;
+    for(quint32 i=0; i<size; ++i) {
+        qint32 key;
+        QString val;
+        in >> key >> val;
+        map[key] = val.toStdString();
+    }
+    return in;
+}
+
+QDataStream& operator<<(QDataStream& out, const std::set<int>& set) {
+    out << (quint32)set.size();
+    for(int item : set) { out << (qint32)item; }
+    return out;
+}
+QDataStream& operator>>(QDataStream& in, std::set<int>& set) {
+    set.clear();
+    quint32 size;
+    in >> size;
+    for(quint32 i=0; i<size; ++i) {
+        qint32 item;
+        in >> item;
+        set.insert(item);
+    }
+    return in;
+}
+
+QDataStream& operator<<(QDataStream& out, const std::map<std::string, SubcircuitDefinition>& map) {
+    out << (quint32)map.size();
+    for (const auto& pair : map) { out << QString::fromStdString(pair.first) << pair.second; }
+    return out;
+}
+QDataStream& operator>>(QDataStream& in, std::map<std::string, SubcircuitDefinition>& map) {
+    map.clear();
+    quint32 size;
+    in >> size;
+    for (quint32 i = 0; i < size; ++i) {
+        QString key;
+        SubcircuitDefinition val;
+        in >> key >> val;
+        map[key.toStdString()] = val;
+    }
+    return in;
+}
+
+QDataStream& operator<<(QDataStream& out, const ComponentGraphicalInfo& info) {
+    out << info.startPoint << info.isHorizontal << QString::fromStdString(info.name);
+    return out;
+}
+QDataStream& operator>>(QDataStream& in, ComponentGraphicalInfo& info) {
+    QString name;
+    in >> info.startPoint >> info.isHorizontal >> name;
+    info.name = name.toStdString();
+    return in;
+}
+
+QDataStream& operator<<(QDataStream& out, const WireInfo& info) {
+    out << info.startPoint << info.endPoint << QString::fromStdString(info.nodeName);
+    return out;
+}
+QDataStream& operator>>(QDataStream& in, WireInfo& info) {
+    QString nodeName;
+    in >> info.startPoint >> info.endPoint >> nodeName;
+    info.nodeName = nodeName.toStdString();
+    return in;
+}
+
+QDataStream& operator<<(QDataStream& out, const LabelInfo& info) {
+    out << info.position << QString::fromStdString(info.name) << QString::fromStdString(info.connectedNodeName);
+    return out;
+}
+QDataStream& operator>>(QDataStream& in, LabelInfo& info) {
+    QString name, connectedNodeName;
+    in >> info.position >> name >> connectedNodeName;
+    info.name = name.toStdString();
+    info.connectedNodeName = connectedNodeName.toStdString();
+    return in;
+}
+
+QDataStream& operator<<(QDataStream& out, const GroundInfo& info) {
+    out << info.position;
+    return out;
+}
+QDataStream& operator>>(QDataStream& in, GroundInfo& info) {
+    in >> info.position;
+    return in;
+}
+
+QDataStream& operator<<(QDataStream& out, const SubcircuitDefinition& def) {
+    out << QString::fromStdString(def.name);
+    out << (quint32)def.netlist.size();
+    for(const auto& s : def.netlist) { out << QString::fromStdString(s); }
+    out << QString::fromStdString(def.port1NodeName) << QString::fromStdString(def.port2NodeName);
+    return out;
+}
+QDataStream& operator>>(QDataStream& in, SubcircuitDefinition& def) {
+    QString name, port1, port2;
+    in >> name;
+    def.name = name.toStdString();
+    quint32 netlistSize;
+    in >> netlistSize;
+    def.netlist.clear();
+    def.netlist.reserve(netlistSize);
+    for(quint32 i=0; i<netlistSize; ++i) {
+        QString s;
+        in >> s;
+        def.netlist.push_back(s.toStdString());
+    }
+    in >> port1 >> port2;
+    def.port1NodeName = port1.toStdString();
+    def.port2NodeName = port2.toStdString();
+    return in;
+}

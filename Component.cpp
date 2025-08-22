@@ -1,3 +1,5 @@
+#include <QString>
+
 #include "component.h"
 
 // -------------------------------- Constructor impementation --------------------------------
@@ -450,167 +452,110 @@ double ACVoltageSource::getValueAtFrequency(double omega) const {
 // -------------------------------- Get Values of independent sources --------------------------------
 
 
-// -------------------------------- Saving data with binary files with fstream --------------------------------
-void Component::save_binary(std::ofstream& file) const {
-    file.write(reinterpret_cast<const char*>(&type), sizeof(type));
-    size_t name_len = name.size();
-    file.write(reinterpret_cast<const char*>(&name_len), sizeof(name_len));
-    file.write(name.c_str(), name_len);
-    file.write(reinterpret_cast<const char*>(&node1), sizeof(node1));
-    file.write(reinterpret_cast<const char*>(&node2), sizeof(node2));
-    file.write(reinterpret_cast<const char*>(&value), sizeof(value));
+// -------------------------------- Fuck --------------------------------
+void Component::serialize(QDataStream& out) const {
+    out << QString::fromStdString(name) << (qint32)node1 << (qint32)node2 << value;
+}
+void Component::deserialize(QDataStream& in) {
+    QString qName;
+    qint32 n1, n2;
+    in >> qName >> n1 >> n2 >> value;
+    name = qName.toStdString();
+    node1 = n1;
+    node2 = n2;
 }
 
-void Capacitor::save_binary(std::ofstream& file) const {
-    Component::save_binary(file);
-    file.write(reinterpret_cast<const char*>(&V_prev), sizeof(V_prev));
+void Capacitor::serialize(QDataStream& out) const {
+    Component::serialize(out);
+    out << V_prev;
+}
+void Capacitor::deserialize(QDataStream& in) {
+    Component::deserialize(in);
+    in >> V_prev;
 }
 
-void Inductor::save_binary(std::ofstream& file) const {
-    Component::save_binary(file);
-    file.write(reinterpret_cast<const char*>(&I_prev), sizeof(I_prev));
+void VoltageSource::serialize(QDataStream& out) const {
+    Component::serialize(out);
+    out << (qint32)sourceType << param1 << param2 << param3;
+}
+void VoltageSource::deserialize(QDataStream& in) {
+    Component::deserialize(in);
+    qint32 st;
+    in >> st >> param1 >> param2 >> param3;
+    sourceType = (SourceType)st;
 }
 
-void Diode::save_binary(std::ofstream& file) const {
-    Component::save_binary(file);
-    file.write(reinterpret_cast<const char*>(&Is), sizeof(Is));
-    file.write(reinterpret_cast<const char*>(&Vt), sizeof(Vt));
-    file.write(reinterpret_cast<const char*>(&eta), sizeof(eta));
-    file.write(reinterpret_cast<const char*>(&V_prev), sizeof(V_prev));
+void Inductor::serialize(QDataStream& out) const {
+    Component::serialize(out);
+    out << I_prev;
+}
+void Inductor::deserialize(QDataStream& in) {
+    Component::deserialize(in);
+    in >> I_prev;
 }
 
-void VoltageSource::save_binary(std::ofstream& file) const {
-    Component::save_binary(file);
-    file.write(reinterpret_cast<const char*>(&sourceType), sizeof(sourceType));
-    file.write(reinterpret_cast<const char*>(&param1), sizeof(param1));
-    file.write(reinterpret_cast<const char*>(&param2), sizeof(param2));
-    file.write(reinterpret_cast<const char*>(&param3), sizeof(param3));
+void Diode::serialize(QDataStream& out) const {
+    Component::serialize(out);
+    out << Is << Vt << eta << V_prev;
+}
+void Diode::deserialize(QDataStream& in) {
+    Component::deserialize(in);
+    in >> Is >> Vt >> eta >> V_prev;
 }
 
-void CurrentSource::save_binary(std::ofstream& file) const {
-    Component::save_binary(file);
-    file.write(reinterpret_cast<const char*>(&sourceType), sizeof(sourceType));
-    file.write(reinterpret_cast<const char*>(&param1), sizeof(param1));
-    file.write(reinterpret_cast<const char*>(&param2), sizeof(param2));
-    file.write(reinterpret_cast<const char*>(&param3), sizeof(param3));
+void CurrentSource::serialize(QDataStream& out) const {
+    Component::serialize(out);
+    out << (qint32)sourceType << param1 << param2 << param3;
+}
+void CurrentSource::deserialize(QDataStream& in) {
+    Component::deserialize(in);
+    qint32 st;
+    in >> st >> param1 >> param2 >> param3;
+    sourceType = (SourceType)st;
 }
 
-void VCVS::save_binary(std::ofstream& file) const {
-    Component::save_binary(file);
-    file.write(reinterpret_cast<const char*>(&ctrlNode1), sizeof(ctrlNode1));
-    file.write(reinterpret_cast<const char*>(&ctrlNode2), sizeof(ctrlNode2));
-    file.write(reinterpret_cast<const char*>(&gain), sizeof(gain));
+void VCVS::serialize(QDataStream& out) const {
+    Component::serialize(out);
+    out << (qint32)ctrlNode1 << (qint32)ctrlNode2 << gain;
+}
+void VCVS::deserialize(QDataStream& in) {
+    Component::deserialize(in);
+    qint32 cn1, cn2;
+    in >> cn1 >> cn2 >> gain;
+    ctrlNode1 = cn1;
+    ctrlNode2 = cn2;
 }
 
-void VCCS::save_binary(std::ofstream& file) const {
-    Component::save_binary(file);
-    file.write(reinterpret_cast<const char*>(&ctrlNode1), sizeof(ctrlNode1));
-    file.write(reinterpret_cast<const char*>(&ctrlNode2), sizeof(ctrlNode2));
-    file.write(reinterpret_cast<const char*>(&gain), sizeof(gain));
+void VCCS::serialize(QDataStream& out) const {
+    Component::serialize(out);
+    out << (qint32)ctrlNode1 << (qint32)ctrlNode2 << gain;
+}
+void VCCS::deserialize(QDataStream& in) {
+    Component::deserialize(in);
+    qint32 cn1, cn2;
+    in >> cn1 >> cn2 >> gain;
+    ctrlNode1 = cn1;
+    ctrlNode2 = cn2;
 }
 
-void save_string_binary(std::ofstream& file, const std::string& str) {
-    size_t len = str.size();
-    file.write(reinterpret_cast<const char*>(&len), sizeof(len));
-    file.write(str.c_str(), len);
+void CCVS::serialize(QDataStream& out) const {
+    Component::serialize(out);
+    out << QString::fromStdString(ctrlCompName) << gain;
+}
+void CCVS::deserialize(QDataStream& in) {
+    Component::deserialize(in);
+    QString ctrlName;
+    in >> ctrlName >> gain;
+    ctrlCompName = ctrlName.toStdString();
 }
 
-void CCVS::save_binary(std::ofstream& file) const {
-    Component::save_binary(file);
-    save_string_binary(file, ctrlCompName);
-    file.write(reinterpret_cast<const char*>(&gain), sizeof(gain));
+void CCCS::serialize(QDataStream& out) const {
+    Component::serialize(out);
+    out << QString::fromStdString(ctrlCompName) << gain;
 }
-
-void CCCS::save_binary(std::ofstream& file) const {
-    Component::save_binary(file);
-    save_string_binary(file, ctrlCompName);
-    file.write(reinterpret_cast<const char*>(&gain), sizeof(gain));
+void CCCS::deserialize(QDataStream& in) {
+    Component::deserialize(in);
+    QString ctrlName;
+    in >> ctrlName >> gain;
+    ctrlCompName = ctrlName.toStdString();
 }
-// -------------------------------- Saving data with binary files with fstream --------------------------------
-
-
-// -------------------------------- Loading data from binary files with fstream --------------------------------
-void Component::load_binary(std::ifstream& file) {
-    size_t name_len;
-    file.read(reinterpret_cast<char*>(&name_len), sizeof(name_len));
-    char* name_buf = new char[name_len + 1];
-    file.read(name_buf, name_len);
-    name_buf[name_len] = '\0';
-    name = name_buf;
-    delete[] name_buf;
-    file.read(reinterpret_cast<char*>(&node1), sizeof(node1));
-    file.read(reinterpret_cast<char*>(&node2), sizeof(node2));
-    file.read(reinterpret_cast<char*>(&value), sizeof(value));
-}
-
-void Capacitor::load_binary(std::ifstream& file) {
-    Component::load_binary(file);
-    file.read(reinterpret_cast<char*>(&V_prev), sizeof(V_prev));
-}
-
-void Inductor::load_binary(std::ifstream& file) {
-    Component::load_binary(file);
-    file.read(reinterpret_cast<char*>(&I_prev), sizeof(I_prev));
-}
-
-void Diode::load_binary(std::ifstream& file) {
-    Component::load_binary(file);
-    file.read(reinterpret_cast<char*>(&Is), sizeof(Is));
-    file.read(reinterpret_cast<char*>(&Vt), sizeof(Vt));
-    file.read(reinterpret_cast<char*>(&eta), sizeof(eta));
-    file.read(reinterpret_cast<char*>(&V_prev), sizeof(V_prev));
-}
-
-void VoltageSource::load_binary(std::ifstream& file) {
-    Component::load_binary(file);
-    file.read(reinterpret_cast<char*>(&sourceType), sizeof(sourceType));
-    file.read(reinterpret_cast<char*>(&param1), sizeof(param1));
-    file.read(reinterpret_cast<char*>(&param2), sizeof(param2));
-    file.read(reinterpret_cast<char*>(&param3), sizeof(param3));
-}
-
-void CurrentSource::load_binary(std::ifstream& file) {
-    Component::load_binary(file);
-    file.read(reinterpret_cast<char*>(&sourceType), sizeof(sourceType));
-    file.read(reinterpret_cast<char*>(&param1), sizeof(param1));
-    file.read(reinterpret_cast<char*>(&param2), sizeof(param2));
-    file.read(reinterpret_cast<char*>(&param3), sizeof(param3));
-}
-
-void VCVS::load_binary(std::ifstream& file) {
-    Component::load_binary(file);
-    file.read(reinterpret_cast<char*>(&ctrlNode1), sizeof(ctrlNode1));
-    file.read(reinterpret_cast<char*>(&ctrlNode2), sizeof(ctrlNode2));
-    file.read(reinterpret_cast<char*>(&gain), sizeof(gain));
-}
-
-void VCCS::load_binary(std::ifstream& file) {
-    Component::load_binary(file);
-    file.read(reinterpret_cast<char*>(&ctrlNode1), sizeof(ctrlNode1));
-    file.read(reinterpret_cast<char*>(&ctrlNode2), sizeof(ctrlNode2));
-    file.read(reinterpret_cast<char*>(&gain), sizeof(gain));
-}
-
-std::string load_string_binary(std::ifstream& file) {
-    size_t len;
-    file.read(reinterpret_cast<char*>(&len), sizeof(len));
-    char* buf = new char[len + 1];
-    file.read(buf, len);
-    buf[len] = '\0';
-    std::string str = buf;
-    delete[] buf;
-    return str;
-}
-
-void CCVS::load_binary(std::ifstream& file) {
-    Component::load_binary(file);
-    ctrlCompName = load_string_binary(file);
-    file.read(reinterpret_cast<char*>(&gain), sizeof(gain));
-}
-
-void CCCS::load_binary(std::ifstream& file) {
-    Component::load_binary(file);
-    ctrlCompName = load_string_binary(file);
-    file.read(reinterpret_cast<char*>(&gain), sizeof(gain));
-}
-// -------------------------------- Loading data with binary files with fstream --------------------------------

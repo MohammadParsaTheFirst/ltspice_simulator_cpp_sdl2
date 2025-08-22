@@ -1,9 +1,7 @@
 #include <cmath>
-#include <QDebug>
 #include "SchematicWidget.h"
 
 SchematicWidget::SchematicWidget(Circuit* circuit, QWidget* parent) : circuit_ptr(circuit), QWidget(parent) {
-    qDebug() << "SchematicWidget constructor: circuit_ptr=" << circuit_ptr;
     setMouseTracking(true);
     QPalette pal = palette();
     pal.setColor(QPalette::Window, Qt::gray);
@@ -11,7 +9,6 @@ SchematicWidget::SchematicWidget(Circuit* circuit, QWidget* parent) : circuit_pt
     setPalette(pal);
 
     setFocusPolicy(Qt::StrongFocus); // Keyboard Events
-    circuit_ptr->clearSchematic();
 
     componentCounters["R"] = 0;
     componentCounters["C"] = 0;
@@ -23,6 +20,7 @@ SchematicWidget::SchematicWidget(Circuit* circuit, QWidget* parent) : circuit_pt
     componentCounters["F"] = 0;
     componentCounters["G"] = 0;
     componentCounters["H"] = 0;
+    componentCounters["AC"] = 0;
 }
 
 QString SchematicWidget::getNodeNameFromPoint(const QPoint& pos) const {
@@ -39,23 +37,11 @@ QString SchematicWidget::getNextComponentName(const QString& type) {
 void SchematicWidget::paintEvent(QPaintEvent* event) {
     QWidget::paintEvent(event);
     QPainter painter(this);
-    /* --------------------------------------------------------------------------------- */
-    // Debug: Print what we're about to draw
-    qDebug() << "Painting: Components=" << circuit_ptr->getComponentGraphics().size()
-             << " Wires=" << circuit_ptr->getWires().size()
-             << " Grounds=" << circuit_ptr->getGrounds().size()
-             << " Labels=" << circuit_ptr->getLabels().size();
-    /* ----------------------------------------------------------------------------------*/
     drawGridDots(painter);
     drawComponents(painter);
     drawWires(painter);
     drawLabels(painter);
     drawGrounds(painter);
-
-    // if (currentMode == Mode::PLACING_WIRE) {
-    //     painter.setPen(QPen(Qt::black, 2));
-    //     painter.drawLine(wireStartPos, wireEndPos);
-    // }
 }
 
 void SchematicWidget::drawGridDots(QPainter& painter) {
@@ -65,64 +51,26 @@ void SchematicWidget::drawGridDots(QPainter& painter) {
     painter.setPen(gridPen);
     int width = this->width();
     int height = this->height();
-    for (int x = 0; x < width; x += gridSize) {
-        for (int y = 0; y < height; y += gridSize) {
+    for (int x = 0; x < width; x += gridSize)
+        for (int y = 0; y < height; y += gridSize)
             painter.drawPoint(x, y);
-        }
-    }
 }
 
 void SchematicWidget::drawComponents(QPainter& painter) {
-    if (!circuit_ptr) return;
-
     const auto& componentGraphics = circuit_ptr->getComponentGraphics();
-    qDebug() << "drawComponents: Processing" << componentGraphics.size() << "components";
-
     for (int i = 0; i < componentGraphics.size(); i++) {
         bool isHovered = (i == hoveredComponentIndex && currentMode == InteractionMode::deleteMode);
-        qDebug() << "Drawing component:" << QString::fromStdString(componentGraphics[i].name)
-                 << "at" << componentGraphics[i].startPoint
-                 << "horizontal=" << componentGraphics[i].isHorizontal;
-
-        drawComponent(painter,
-                      componentGraphics[i].startPoint,
-                      componentGraphics[i].isHorizontal,
-                      QString::fromStdString(componentGraphics[i].name),
-                      isHovered);
+        drawComponent(painter, componentGraphics[i].startPoint, componentGraphics[i].isHorizontal, QString::fromStdString(componentGraphics[i].name), isHovered);
     }
-
-    if (currentMode != InteractionMode::Normal &&
-        currentMode != InteractionMode::deleteMode &&
-        currentMode != InteractionMode::placingWire &&
-        currentMode != InteractionMode::placingLabel &&
-        currentMode != InteractionMode::placingGround &&
+    if (currentMode != InteractionMode::Normal && currentMode != InteractionMode::deleteMode && currentMode !=
+        InteractionMode::placingWire && currentMode != InteractionMode::placingLabel && currentMode != InteractionMode::placingGround &&
         currentMode != InteractionMode::placingSubcircuitNodes) {
-
         QPoint startPos = stickToGrid(currentMousePos);
-        qDebug() << "Drawing preview component at" << startPos;
-
         drawComponent(painter, startPos, placementIsHorizontal, currentCompType);
-        }
+    }
 }
 
-// void SchematicWidget::drawComponents(QPainter& painter) {
-//     const auto& componentGraphics = circuit_ptr->getComponentGraphics();
-//     std::cout << "ComponetGraphics size: " << componentGraphics.size() << std::endl;
-//     for (int i = 0; i < componentGraphics.size(); i++) {
-//         bool isHovered = (i == hoveredComponentIndex && currentMode == InteractionMode::deleteMode);
-//         drawComponent(painter, componentGraphics[i].startPoint, componentGraphics[i].isHorizontal, QString::fromStdString(componentGraphics[i].name), isHovered);
-//     }
-//     if (currentMode != InteractionMode::Normal && currentMode != InteractionMode::deleteMode && currentMode !=
-//         InteractionMode::placingWire && currentMode != InteractionMode::placingLabel && currentMode != InteractionMode::placingGround &&
-//         currentMode != InteractionMode::placingSubcircuitNodes) {
-//         QPoint startPos = stickToGrid(currentMousePos);
-//         drawComponent(painter, startPos, placementIsHorizontal, currentCompType);
-//     }
-// }
-
 void SchematicWidget::drawWires(QPainter& painter) {
-    const auto& wires = circuit_ptr->getWires();
-    qDebug() << "drawWires: Processing" << wires.size() << "wires";
     QPen wirePen(Qt::darkBlue, 2);
     painter.setPen(wirePen);
     for (const auto& wire : circuit_ptr->getWires())
@@ -132,9 +80,6 @@ void SchematicWidget::drawWires(QPainter& painter) {
 }
 
 void SchematicWidget::drawGrounds(QPainter& painter) {
-    const auto& grounds = circuit_ptr->getGrounds();
-    qDebug() << "drawGrounds: Processing" << grounds.size() << "grounds";
-
     QPen groundPen(Qt::darkGreen, 2);
     painter.setPen(groundPen);
 
@@ -155,9 +100,6 @@ void SchematicWidget::drawGroundSymbol(QPainter& painter, const QPoint& pos) {
 }
 
 void SchematicWidget::drawLabels(QPainter& painter) {
-    const auto& labels = circuit_ptr->getLabels();
-    qDebug() << "drawLabels: Processing" << labels.size() << "labels";
-
     QPen labelPen(Qt::blue, 2);
     painter.setPen(labelPen);
     painter.setFont(QFont("Arial", 10, QFont::Bold));
@@ -175,23 +117,33 @@ void SchematicWidget::startOpenConfigureAnalysis() {
                 transientTStop = parseSpiceValue(dialog.getTransientTstop().toStdString());
                 transientTStart = parseSpiceValue(dialog.getTransientTstart().toStdString());
                 transientTStep = parseSpiceValue(dialog.getTransientTstep().toStdString());
-                parameterForAnalysis = dialog.getTransientParameter();
+
+                QString params = dialog.getTransientParameter();
+                std::string paramStr = params.toStdString();
+                std::stringstream ss(paramStr);
+                std::string word;
+                std::vector<std::string> paramsStr;
+                while (ss >> word) {
+                    parametersForAnalysis.push_back(QString::fromStdString(word));
+                    paramsStr.push_back(word);
+                }
 
                 if (transientTStep <= 0)
                     throw std::runtime_error("Step time must be greater than zero.");
                 if (transientTStop <= transientTStart)
                     throw std::runtime_error("Start time should less than stop time.");
-                if (parameterForAnalysis.isEmpty())
+                if (parametersForAnalysis.empty())
                     throw std::runtime_error("No parameters added for analysis.");
 
                 QMessageBox::information(this, "Info", "Transient Analysis variables updated.");
 
                 circuit_ptr->runTransientAnalysis(transientTStop, transientTStart, transientTStep);
-                std::map<double, double> results = circuit_ptr->getTransientResults({parameterForAnalysis.toStdString()});
+                std::map<std::string, std::map<double, double>> results = circuit_ptr->getTransientResults(paramsStr);
 
                 if (!results.empty()) {
                     PlotTransientData *plotWindow = new PlotTransientData(this);
-                    plotWindow->plotData(results, parameterForAnalysis);
+                    for (const auto& pair : results)
+                        plotWindow->addSeries(pair.second, QString::fromStdString(pair.first));
                     plotWindow->show();
                 }
                 else
@@ -201,23 +153,33 @@ void SchematicWidget::startOpenConfigureAnalysis() {
                 acSweepStartFrequency = parseSpiceValue(dialog.getACOmegaStart().toStdString());
                 acSweepStopFrequency = parseSpiceValue(dialog.getACOmegaStop().toStdString());
                 acSweepNPoints = parseSpiceValue(dialog.getACNPoints().toStdString());
-                parameterForAnalysis = dialog.getACParameter();
+
+                QString params = dialog.getTransientParameter();
+                std::string paramStr = params.toStdString();
+                std::stringstream ss(paramStr);
+                std::string word;
+                std::vector<std::string> paramsStr;
+                while (ss >> word) {
+                    parametersForAnalysis.push_back(QString::fromStdString(word));
+                    paramsStr.push_back(word);
+                }
 
                 if (acSweepStartFrequency <= 0 || acSweepStopFrequency <=0)
                     throw std::runtime_error("Frequency must be greater than zero.");
                 if (acSweepStopFrequency <= acSweepStartFrequency)
                     throw std::runtime_error("Start frequency should less than stop frequency.");
-                if (parameterForAnalysis.isEmpty())
+                if (parametersForAnalysis.empty())
                     throw std::runtime_error("No parameters added for analysis.");
 
                 QMessageBox::information(this, "Info", "AC Sweep Analysis variables updated.");
 
                 circuit_ptr->runACAnalysis(acSweepStartFrequency, acSweepStopFrequency, acSweepNPoints);
-                std::map<double, double> results = circuit_ptr->getACSweepResults(parameterForAnalysis.toStdString());
+                std::map<std::string, std::map<double, double>> results = circuit_ptr->getACSweepResults(paramsStr);
 
                 if (!results.empty()) {
                     PlotACData *plotWindow = new PlotACData(this);
-                    plotWindow->plotData(results, parameterForAnalysis);
+                    for (const auto& pair : results)
+                        plotWindow->addSeries(pair.second, QString::fromStdString(pair.first));
                     plotWindow->show();
                 }
                 else
@@ -320,21 +282,27 @@ void SchematicWidget::startPlacingLabel() {
     setFocus();
 }
 
-// void SchematicWidget::startCreateSubcircuit() {
-//     currentMode = InteractionMode::placingSubcircuitNodes;
-//     subcircuitNodes.clear();
-//     setCursor(Qt::PointingHandCursor);
-//     QMessageBox::information(this, "Create Subcircuit", "Please select the first node.");
-//     update();
-// }
-//
-// void SchematicWidget::startPlacingSubcircuit() {
-//     currentMode = InteractionMode::placingSubcircuit;
-//     currentCompType = currentSubcircuitName;
-//     placementIsHorizontal = true;
-//     setCursor(Qt::CrossCursor);
-//     setFocus();
-// }
+void SchematicWidget::startCreateSubcircuit() {
+    currentMode = InteractionMode::placingSubcircuitNodes;
+    subcircuitNodes.clear();
+    setCursor(Qt::PointingHandCursor);
+    QMessageBox::information(this, "Create Subcircuit", "Please select the first node.");
+    update();
+}
+
+void SchematicWidget::startPlacingSubcircuit() {
+    currentMode = InteractionMode::placingSubcircuit;
+    currentCompType = currentSubcircuitName;
+    placementIsHorizontal = true;
+    setCursor(Qt::CrossCursor);
+    setFocus();
+}
+
+void SchematicWidget::startOpeningSubcircuitLibrary() {
+    SubcircuitLibarary dialog(circuit_ptr, this);
+    connect(&dialog, &SubcircuitLibarary::componentSelected, this, &SchematicWidget::handleNodeLibraryItemSelection);
+    dialog.exec();
+}
 
 void SchematicWidget::keyPressEvent(QKeyEvent* event) {
     if (currentMode != InteractionMode::Normal) {
@@ -463,7 +431,7 @@ void SchematicWidget::showSourceValueDialog(QMouseEvent* event) {
     }
 }
 
-void SchematicWidget::placingACVoltageSource(QMouseEvent* event) {
+void SchematicWidget::placingOtherComp(QMouseEvent* event) {
     QPoint startPoint = stickToGrid(event->pos());
     QPoint endPoint = placementIsHorizontal
                           ? startPoint + QPoint(componentLength, 0)
@@ -482,11 +450,11 @@ void SchematicWidget::placingComponentMouseEvent(QMouseEvent* event) {
         showSimpleValueDialog(event);
     else if (currentCompType == "V" || currentCompType == "I")
         showSourceValueDialog(event);
-    else if (currentCompType == "AC")
-        placingACVoltageSource(event);
+    else if (currentCompType == "AC" || currentCompType == "D")
+        placingOtherComp(event);
 }
 
-void SchematicWidget::deletingComponentMouseEvent(QMouseEvent* event) {
+bool SchematicWidget::deletingComponentMouseEvent(QMouseEvent* event) {
     QPoint clickPos = event->pos();
 
     const auto& componentGraphics = circuit_ptr->getComponentGraphics();
@@ -500,6 +468,20 @@ void SchematicWidget::deletingComponentMouseEvent(QMouseEvent* event) {
 
         if (componentRect.contains(clickPos)) {
             circuit_ptr->deleteComponent(it->name, it->name[0]);
+            return true;
+        }
+    }
+    return false;
+}
+
+void SchematicWidget::deletingGroundMouseEvent(QMouseEvent* event) {
+    QPoint clickPos = event->pos();
+
+    for (const auto& groundInfo : circuit_ptr->getGrounds()) {
+        QRect groundRect(groundInfo.position - QPoint(15, 0), QSize(30, 30));
+        if (groundRect.contains(clickPos)) {
+            QString nodeName = getNodeNameFromPoint(groundInfo.position);
+            circuit_ptr->deleteGround(nodeName.toStdString());
             return;
         }
     }
@@ -514,17 +496,14 @@ void SchematicWidget::placingLabelMouseEvent(QMouseEvent* event) {
         QString valueString = dialog.getLabel();
         if (valueString.isEmpty())
             return;
-        /* ------------------------------------------------------------------------------------- */
-        //circuit_ptr->addLabel(valueString.toStdString(), nodeName.toStdString());
-        circuit_ptr->addLabel(valueString.toStdString(), nodeName.toStdString(), clickPos);
-        /* ------------------------------------------------------------------------------------- */
+
+        circuit_ptr->addLabel(clickPos, valueString.toStdString(), nodeName.toStdString());
     }
 }
 
 void SchematicWidget::placingGroundMouseEvent(QMouseEvent* event) {
     QPoint clickPos = stickToGrid(event->pos());
-    QString nodeName = getNodeNameFromPoint(clickPos);
-
+    QString nodeName = findNodeAt(clickPos);
     circuit_ptr->addGround(nodeName.toStdString(), clickPos);
 }
 
@@ -549,16 +528,19 @@ void SchematicWidget::mousePressEvent(QMouseEvent* event) {
                 placingLabelMouseEvent(event);
             }
             else if (currentMode == InteractionMode::deleteMode) {
-                deletingComponentMouseEvent(event);
+                bool itemDeleted = deletingComponentMouseEvent(event);
+                if (!itemDeleted)
+                    deletingGroundMouseEvent(event);
+                update();
             }
             else if (currentMode == InteractionMode::placingGround) {
                 placingGroundMouseEvent(event);
             }
             else if (currentMode == InteractionMode::placingSubcircuitNodes) {
-                // selectingSubcircuitNodesMouseEvent(event);
+                selectingSubcircuitNodesMouseEvent(event);
             }
             else if (currentMode == InteractionMode::placingSubcircuit) {
-                // placingSubcircuitMouseEvent(event);
+                placingSubcircuitMouseEvent(event);
             }
             else {
                 placingComponentMouseEvent(event);
@@ -570,18 +552,17 @@ void SchematicWidget::mousePressEvent(QMouseEvent* event) {
     }
 }
 
-// void SchematicWidget::placingSubcircuitMouseEvent(QMouseEvent* event) {
-//     QPoint startPoint = stickToGrid(event->pos());
-//     QPoint endPoint = placementIsHorizontal ? startPoint + QPoint(componentLength, 0) : startPoint + QPoint(0, componentLength);
-//     QString componentName = getNextComponentName(currentSubcircuitName);
-//     QString node1Name = getNodeNameFromPoint(startPoint);
-//     QString node2Name = getNodeNameFromPoint(endPoint);
-//     circuit_ptr->addComponent(currentSubcircuitName.toStdString(), componentName.toStdString(), node1Name.toStdString(), node2Name.toStdString(), startPoint, placementIsHorizontal, 0.0, {}, {}, false);
-// }
+void SchematicWidget::placingSubcircuitMouseEvent(QMouseEvent* event) {
+    QPoint startPoint = stickToGrid(event->pos());
+    QPoint endPoint = placementIsHorizontal ? startPoint + QPoint(componentLength, 0) : startPoint + QPoint(0, componentLength);
+    QString componentName = getNextComponentName(currentSubcircuitName);
+    QString node1Name = getNodeNameFromPoint(startPoint);
+    QString node2Name = getNodeNameFromPoint(endPoint);
+    circuit_ptr->addComponent(currentSubcircuitName.toStdString(), componentName.toStdString(), node1Name.toStdString(), node2Name.toStdString(), startPoint, placementIsHorizontal, 0.0, {}, {}, false);
+}
 
 void SchematicWidget::drawComponent(QPainter& painter, const QPoint& start, bool isHorizontal, QString type,
                                     bool isHovered) const {
-
     QPoint end = isHorizontal ? start + QPoint(componentLength, 0) : start + QPoint(0, componentLength);
 
     QPen componentPen(Qt::black, 2);
@@ -659,8 +640,8 @@ QString SchematicWidget::findNodeAt(const QPoint& nodePos) {
 
 void SchematicWidget::handleNodeLibraryItemSelection(const QString& compType) {
     if (compType.startsWith("U:")) {
-        // currentSubcircuitName = compType.mid(2);
-        // startPlacingSubcircuit();
+        currentSubcircuitName = compType.mid(2);
+        startPlacingSubcircuit();
     }
     else if (compType == "R")
         startPlacingResistor();
@@ -693,39 +674,42 @@ QString SchematicWidget::findOrCreateNodeAtPoint(const QPoint& point) {
             return getNodeNameFromPoint(end);
     }
 
+    for (const auto& wire : circuit_ptr->getWires()) {
+        QRect wireRect(wire.startPoint, wire.endPoint);
+        wireRect = wireRect.normalized().adjusted(-5, -5, 5, 5);
+        if (wireRect.contains(point))
+            return QString::fromStdString(wire.nodeName);
+    }
+
     return getNodeNameFromPoint(point);
 }
 
-// void SchematicWidget::selectingSubcircuitNodesMouseEvent(QMouseEvent* event) {
-//     QPoint clickPos = stickToGrid(event->pos());
-//     QString nodeName = findNodeAt(clickPos);
-//
-//     if (nodeName.isEmpty()) {
-//         QMessageBox::warning(this, "Node Selection Error", "No node found at this position. Please click on a valid node.");
-//         return;
-//     }
-//     subcircuitNodes.push_back(nodeName);
-//     if (subcircuitNodes.size() == 1) {
-//         QMessageBox::information(this, "Create Subcircuit", QString("First node '%1' selected. Please select the second node.").arg(nodeName));
-//     }
-//     else if (subcircuitNodes.size() == 2) {
-//         bool ok;
-//         QString subcircuitName = QInputDialog::getText(this, "Subcircuit Name", "Enter a name for the new subcircuit:", QLineEdit::Normal, "", &ok);
-//         if (ok && !subcircuitName.isEmpty()) {
-//             circuit_ptr->createSubcircuitDefinition(subcircuitName.toStdString(), subcircuitNodes[0].toStdString(), subcircuitNodes[1].toStdString());
-//             QMessageBox::information(this, "Success", QString("Subcircuit '%1' created successfully.").arg(subcircuitName));
-//         }
-//         currentMode = InteractionMode::Normal;
-//         setCursor(Qt::ArrowCursor);
-//     }
-// }
+void SchematicWidget::selectingSubcircuitNodesMouseEvent(QMouseEvent* event) {
+    QPoint clickPos = stickToGrid(event->pos());
+    QString nodeName = findNodeAt(clickPos);
 
-void SchematicWidget::reloadFromCircuit() {
-    qDebug() << "reloadFromCircuit: circuit_ptr=" << circuit_ptr;
-    if (circuit_ptr) {
-        componentCounters.clear();
-        qDebug() << "Cleared componentCounters, Components=" << circuit_ptr->getComponentGraphics().size();
+    if (nodeName.isEmpty()) {
+        QMessageBox::warning(this, "Node Selection Error", "No node found at this position. Please click on a valid node.");
+        return;
     }
-    //componentCounters.clear();
-    update();
+    subcircuitNodes.push_back(nodeName);
+    if (subcircuitNodes.size() == 1) {
+        QMessageBox::information(this, "Create Subcircuit", QString("First node '%1' selected. Please select the second node.").arg(nodeName));
+    }
+    else if (subcircuitNodes.size() == 2) {
+        bool ok;
+        QString subcircuitName = QInputDialog::getText(this, "Subcircuit Name", "Enter a name for the new subcircuit:", QLineEdit::Normal, "", &ok);
+        if (ok && !subcircuitName.isEmpty()) {
+            circuit_ptr->createSubcircuitDefinition(subcircuitName.toStdString(), subcircuitNodes[0].toStdString(), subcircuitNodes[1].toStdString());
+            try {
+                const auto& newSubDef = circuit_ptr->subcircuitDefinitions.at(subcircuitName.toStdString());
+                circuit_ptr->saveSubcircuitToFile(newSubDef);
+                QMessageBox::information(this, "Success", QString("Subcircuit '%1' created and saved to library.").arg(subcircuitName));
+            } catch (const std::exception& e) {
+                QMessageBox::critical(this, "Error", QString("Failed to save subcircuit to file: %1").arg(e.what()));
+            }
+        }
+        currentMode = InteractionMode::Normal;
+        setCursor(Qt::ArrowCursor);
+    }
 }

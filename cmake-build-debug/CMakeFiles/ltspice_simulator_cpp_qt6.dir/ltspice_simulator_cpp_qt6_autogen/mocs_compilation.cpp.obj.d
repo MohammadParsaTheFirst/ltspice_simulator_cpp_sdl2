@@ -536,6 +536,8 @@ CMakeFiles/ltspice_simulator_cpp_qt6.dir/ltspice_simulator_cpp_qt6_autogen/mocs_
  C:/Qt/6.9.1/mingw_64/include/QtCore/qtimezone.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/QRegularExpression \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qregularexpression.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QDataStream \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qdatastream.h \
  C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/component.h \
  C:/Users/USER/CLionProjects/proj_terminal/eigen-3.4.0/Eigen/Dense \
  C:/Users/USER/CLionProjects/proj_terminal/eigen-3.4.0/Eigen/Core \
@@ -789,6 +791,9 @@ CMakeFiles/ltspice_simulator_cpp_qt6.dir/ltspice_simulator_cpp_qt6_autogen/mocs_
  C:/Qt/6.9.1/mingw_64/include/QtCharts/qvalueaxis.h \
  C:/Qt/6.9.1/mingw_64/include/QtCharts/QLogValueAxis \
  C:/Qt/6.9.1/mingw_64/include/QtCharts/qlogvalueaxis.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCharts/QScatterSeries \
+ C:/Qt/6.9.1/mingw_64/include/QtCharts/qscatterseries.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCharts/qxyseries.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QSlider \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qslider.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGridLayout \
@@ -801,6 +806,17 @@ CMakeFiles/ltspice_simulator_cpp_qt6.dir/ltspice_simulator_cpp_qt6_autogen/mocs_
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QInputDialog \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qinputdialog.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlineedit.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCharts/QLegendMarker \
+ C:/Qt/6.9.1/mingw_64/include/QtCharts/qlegendmarker.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QStatusBar \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qstatusbar.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QToolBar \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtoolbar.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/QAction \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qaction.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QFileDialog \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qfiledialog.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qdir.h \
  C:\Users\USER\CLionProjects\ltspice_simulator_cpp_qt6\cmake-build-debug\ltspice_simulator_cpp_qt6_autogen\EWIEGA46WW/moc_SchematicWidget.cpp \
  C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/SchematicWidget.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QWidget \
@@ -816,8 +832,6 @@ CMakeFiles/ltspice_simulator_cpp_qt6.dir/ltspice_simulator_cpp_qt6_autogen/mocs_
  C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/PlotWindow.h \
  C:\Users\USER\CLionProjects\ltspice_simulator_cpp_qt6\cmake-build-debug\ltspice_simulator_cpp_qt6_autogen\EWIEGA46WW/moc_mainwindow.cpp \
  C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/mainwindow.h \
- C:/Qt/6.9.1/mingw_64/include/QtGui/QAction \
- C:/Qt/6.9.1/mingw_64/include/QtGui/qaction.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QMenuBar \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qmenubar.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qmenu.h \
@@ -825,19 +839,12 @@ CMakeFiles/ltspice_simulator_cpp_qt6.dir/ltspice_simulator_cpp_qt6_autogen/mocs_
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qapplication.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/QPixmap \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qpixmap.h \
- C:/Qt/6.9.1/mingw_64/include/QtWidgets/QToolBar \
- C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtoolbar.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/QIcon \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qicon.h \
- C:/Qt/6.9.1/mingw_64/include/QtWidgets/QFileDialog \
- C:/Qt/6.9.1/mingw_64/include/QtWidgets/qfiledialog.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qdir.h \
- C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/SchematicWidget.h \
- C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/mainwindow.h \
  C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/cmake-build-debug/ltspice_simulator_cpp_qt6_autogen/include/ui_mainwindow.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QApplication \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QMainWindow \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QMenuBar \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QStatusBar \
- C:/Qt/6.9.1/mingw_64/include/QtWidgets/qstatusbar.h \
- C:/Qt/6.9.1/mingw_64/include/QtWidgets/QWidget
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QWidget \
+ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/SchematicWidget.h

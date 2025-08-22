@@ -1,7 +1,3 @@
-//
-// Created by parsa on 8/5/2025.
-//
-
 #ifndef COMPONENTFACTORY_H
 #define COMPONENTFACTORY_H
 
@@ -21,8 +17,8 @@ public:
         bool isSinusoidal,
         Circuit* circuit
     );
+
+    static std::shared_ptr<Component> createComponentFromType(const QString& typeStr);
 };
-
-
 
 #endif //COMPONENTFACTORY_H

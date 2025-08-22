@@ -163,15 +163,10 @@ CMakeFiles/ltspice_simulator_cpp_qt6.dir/Circuit.cpp.obj: \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/sstream.tcc \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/utility \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_relops.h \
- C:\Users\USER\CLionProjects\ltspice_simulator_cpp_qt6\circuit.h \
- C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/vector \
- C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_uninitialized.h \
- C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_vector.h \
- C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_bvector.h \
- C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/vector.tcc \
- C:/Qt/6.9.1/mingw_64/include/QtGui/QMouseEvent \
- C:/Qt/6.9.1/mingw_64/include/QtGui/qevent.h \
- C:/Qt/6.9.1/mingw_64/include/QtGui/qtguiglobal.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QFile \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qfile.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qfiledevice.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qiodevice.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qglobal.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstdint \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stdint.h \
@@ -259,11 +254,7 @@ CMakeFiles/ltspice_simulator_cpp_qt6.dir/Circuit.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qtresource.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qttranslation.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qversiontagging.h \
- C:/Qt/6.9.1/mingw_64/include/QtGui/qtgui-config.h \
- C:/Qt/6.9.1/mingw_64/include/QtGui/qtguiexports.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qcoreevent.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qbasictimer.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qabstracteventdispatcher.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qiodevicebase.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qobject.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qobjectdefs.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qnamespace.h \
@@ -280,6 +271,11 @@ CMakeFiles/ltspice_simulator_cpp_qt6.dir/Circuit.cpp.obj: \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/aligned_buffer.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/node_handle.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/erase_if.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/vector \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_uninitialized.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_vector.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_bvector.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/vector.tcc \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/array \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qtmetamacros.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qobjectdefs_impl.h \
@@ -343,7 +339,6 @@ CMakeFiles/ltspice_simulator_cpp_qt6.dir/Circuit.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qscopedpointer.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qmetatype.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qdatastream.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qiodevicebase.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qfloat16.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qmath.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qtformat_impl.h \
@@ -368,14 +363,28 @@ CMakeFiles/ltspice_simulator_cpp_qt6.dir/Circuit.cpp.obj: \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/chrono.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ratio \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/chrono_io.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qeventloop.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qdeadlinetimer.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qelapsedtimer.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qiodevice.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qspan.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cassert \
  C:/Qt/6.9.1/mingw_64/include/QtCore/q20iterator.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qurl.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/filesystem \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_fwd.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_path.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/codecvt \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_dir.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_ops.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QFileDialog \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qfiledialog.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qtguiglobal.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qtgui-config.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qtguiexports.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtwidgets-config.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtwidgetsexports.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qdir.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qdirlisting.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qdatetime.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qcalendar.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qlocale.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qvariant.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qdebug.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qtextstream.h \
@@ -396,13 +405,58 @@ CMakeFiles/ltspice_simulator_cpp_qt6.dir/Circuit.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qvarlengtharray.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/q23utility.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/q20utility.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qfile.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qfileinfo.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qtimezone.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qurl.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qdialog.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qwidget.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qwindowdefs.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qwindowdefs_win.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qmargins.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qaction.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qkeysequence.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qicon.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qsize.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qpixmap.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qpaintdevice.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qrect.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qpoint.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qcolor.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qrgb.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qrgba64.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qimage.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qpixelformat.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qtransform.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qpolygon.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qregion.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qline.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qpalette.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qbrush.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qfont.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qendian.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qfontmetrics.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qfontinfo.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qfontvariableaxis.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qsizepolicy.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qcursor.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qbitmap.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/fstream \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/basic_file.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++io.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fstream.tcc \
+ C:\Users\USER\CLionProjects\ltspice_simulator_cpp_qt6\circuit.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/QMouseEvent \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qevent.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qcoreevent.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qbasictimer.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qabstracteventdispatcher.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qeventloop.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qdeadlinetimer.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qelapsedtimer.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qeventpoint.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qvector2d.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qvectornd.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qpoint.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qrect.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qmargins.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qsize.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qpointingdevice.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qinputdevice.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qscreen.h \
@@ -417,45 +471,23 @@ CMakeFiles/ltspice_simulator_cpp_qt6.dir/Circuit.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtCore/QSizeF \
  C:/Qt/6.9.1/mingw_64/include/QtGui/QTransform \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qtransform.h \
- C:/Qt/6.9.1/mingw_64/include/QtGui/qpolygon.h \
- C:/Qt/6.9.1/mingw_64/include/QtGui/qregion.h \
- C:/Qt/6.9.1/mingw_64/include/QtGui/qwindowdefs.h \
- C:/Qt/6.9.1/mingw_64/include/QtGui/qwindowdefs_win.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qline.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qnativeinterface.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qscreen_platform.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qguiapplication.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qcoreapplication.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qcoreapplication_platform.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qinputmethod.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qlocale.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qguiapplication_platform.h \
- C:/Qt/6.9.1/mingw_64/include/QtGui/qkeysequence.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/QString \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qstring.h \
- C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/fstream \
- C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/basic_file.h \
- C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++io.h \
- C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fstream.tcc \
- C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/filesystem \
- C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_fwd.h \
- C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_path.h \
- C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/codecvt \
- C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_dir.h \
- C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_ops.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/QCoreApplication \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qcoreapplication.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/QDir \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qdir.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qdirlisting.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qfiledevice.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qdatetime.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qcalendar.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qfile.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qfileinfo.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qtimezone.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/QRegularExpression \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qregularexpression.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QDataStream \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qdatastream.h \
  C:\Users\USER\CLionProjects\ltspice_simulator_cpp_qt6\component.h \
  C:/Users/USER/CLionProjects/proj_terminal/eigen-3.4.0/Eigen/Dense \
  C:/Users/USER/CLionProjects/proj_terminal/eigen-3.4.0/Eigen/Core \

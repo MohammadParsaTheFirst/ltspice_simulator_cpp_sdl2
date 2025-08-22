@@ -275,8 +275,10 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/cmake-build-debug/ltspice_
   C:/Qt/6.9.1/mingw_64/include/QtCharts/QChartGlobal \
   C:/Qt/6.9.1/mingw_64/include/QtCharts/QChartView \
   C:/Qt/6.9.1/mingw_64/include/QtCharts/QLegend \
+  C:/Qt/6.9.1/mingw_64/include/QtCharts/QLegendMarker \
   C:/Qt/6.9.1/mingw_64/include/QtCharts/QLineSeries \
   C:/Qt/6.9.1/mingw_64/include/QtCharts/QLogValueAxis \
+  C:/Qt/6.9.1/mingw_64/include/QtCharts/QScatterSeries \
   C:/Qt/6.9.1/mingw_64/include/QtCharts/QValueAxis \
   C:/Qt/6.9.1/mingw_64/include/QtCharts/QXYSeries \
   C:/Qt/6.9.1/mingw_64/include/QtCharts/qabstractaxis.h \
@@ -285,13 +287,16 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/cmake-build-debug/ltspice_
   C:/Qt/6.9.1/mingw_64/include/QtCharts/qchartglobal.h \
   C:/Qt/6.9.1/mingw_64/include/QtCharts/qchartview.h \
   C:/Qt/6.9.1/mingw_64/include/QtCharts/qlegend.h \
+  C:/Qt/6.9.1/mingw_64/include/QtCharts/qlegendmarker.h \
   C:/Qt/6.9.1/mingw_64/include/QtCharts/qlineseries.h \
   C:/Qt/6.9.1/mingw_64/include/QtCharts/qlogvalueaxis.h \
+  C:/Qt/6.9.1/mingw_64/include/QtCharts/qscatterseries.h \
   C:/Qt/6.9.1/mingw_64/include/QtCharts/qtcharts-config.h \
   C:/Qt/6.9.1/mingw_64/include/QtCharts/qtchartsexports.h \
   C:/Qt/6.9.1/mingw_64/include/QtCharts/qvalueaxis.h \
   C:/Qt/6.9.1/mingw_64/include/QtCharts/qxyseries.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QCoreApplication \
+  C:/Qt/6.9.1/mingw_64/include/QtCore/QDataStream \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QDir \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QList \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QMargins \
@@ -450,6 +455,7 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/cmake-build-debug/ltspice_
   C:/Qt/6.9.1/mingw_64/include/QtCore/qversiontagging.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qxptype_traits.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qyieldcpu.h \
+  C:/Qt/6.9.1/mingw_64/include/QtGui/QAction \
   C:/Qt/6.9.1/mingw_64/include/QtGui/QBrush \
   C:/Qt/6.9.1/mingw_64/include/QtGui/QFont \
   C:/Qt/6.9.1/mingw_64/include/QtGui/QImage \
@@ -509,6 +515,7 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/cmake-build-debug/ltspice_
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QComboBox \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QDialog \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QDialogButtonBox \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QFileDialog \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QFormLayout \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsView \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsWidget \
@@ -525,7 +532,9 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/cmake-build-debug/ltspice_
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QPushButton \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QRadioButton \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QSlider \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QStatusBar \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QTabWidget \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QToolBar \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QVBoxLayout \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QWidget \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qabstractbutton.h \
@@ -539,6 +548,7 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/cmake-build-debug/ltspice_
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qcombobox.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qdialog.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qfiledialog.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qformlayout.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qframe.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgraphicsitem.h \
@@ -564,10 +574,12 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/cmake-build-debug/ltspice_
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qscrollarea.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qsizepolicy.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qslider.h \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qstatusbar.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qstyle.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qstyleoption.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtabbar.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtabwidget.h \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtoolbar.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtwidgets-config.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtwidgetsexports.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtwidgetsglobal.h \

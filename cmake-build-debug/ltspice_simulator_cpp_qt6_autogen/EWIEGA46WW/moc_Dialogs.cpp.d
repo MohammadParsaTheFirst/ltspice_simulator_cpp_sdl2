@@ -270,6 +270,7 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/cmake-build-debug/ltspice_
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/x86_64-w64-mingw32/include/wchar.h \
   C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/x86_64-w64-mingw32/include/wctype.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QCoreApplication \
+  C:/Qt/6.9.1/mingw_64/include/QtCore/QDataStream \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QDir \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QList \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QObject \

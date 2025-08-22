@@ -33,6 +33,11 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/PlotWindow.h
  mdp:C:/Program Files/JetBrains/CLion 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/exception.h
  mdp:C:/Program Files/JetBrains/CLion 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/exception_defines.h
  mdp:C:/Program Files/JetBrains/CLion 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/exception_ptr.h
+ mdp:C:/Program Files/JetBrains/CLion 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_dir.h
+ mdp:C:/Program Files/JetBrains/CLion 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_fwd.h
+ mdp:C:/Program Files/JetBrains/CLion 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_ops.h
+ mdp:C:/Program Files/JetBrains/CLion 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_path.h
+ mdp:C:/Program Files/JetBrains/CLion 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fstream.tcc
  mdp:C:/Program Files/JetBrains/CLion 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/functexcept.h
  mdp:C:/Program Files/JetBrains/CLion 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/functional_hash.h
  mdp:C:/Program Files/JetBrains/CLion 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/hash_bytes.h
@@ -125,6 +130,7 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/PlotWindow.h
  mdp:C:/Program Files/JetBrains/CLion 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/climits
  mdp:C:/Program Files/JetBrains/CLion 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/clocale
  mdp:C:/Program Files/JetBrains/CLion 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cmath
+ mdp:C:/Program Files/JetBrains/CLion 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/codecvt
  mdp:C:/Program Files/JetBrains/CLion 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/compare
  mdp:C:/Program Files/JetBrains/CLion 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/concepts
  mdp:C:/Program Files/JetBrains/CLion 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstddef
@@ -145,7 +151,9 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/PlotWindow.h
  mdp:C:/Program Files/JetBrains/CLion 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/numeric_traits.h
  mdp:C:/Program Files/JetBrains/CLion 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/string_conversions.h
  mdp:C:/Program Files/JetBrains/CLion 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/type_traits.h
+ mdp:C:/Program Files/JetBrains/CLion 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/filesystem
  mdp:C:/Program Files/JetBrains/CLion 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/format
+ mdp:C:/Program Files/JetBrains/CLion 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/fstream
  mdp:C:/Program Files/JetBrains/CLion 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/functional
  mdp:C:/Program Files/JetBrains/CLion 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/initializer_list
  mdp:C:/Program Files/JetBrains/CLion 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iomanip
@@ -198,8 +206,10 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/PlotWindow.h
  mdp:C:/Program Files/JetBrains/CLion 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/variant
  mdp:C:/Program Files/JetBrains/CLion 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/vector
  mdp:C:/Program Files/JetBrains/CLion 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/atomic_word.h
+ mdp:C:/Program Files/JetBrains/CLion 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/basic_file.h
  mdp:C:/Program Files/JetBrains/CLion 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++allocator.h
  mdp:C:/Program Files/JetBrains/CLion 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++config.h
+ mdp:C:/Program Files/JetBrains/CLion 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++io.h
  mdp:C:/Program Files/JetBrains/CLion 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++locale.h
  mdp:C:/Program Files/JetBrains/CLion 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/cpu_defines.h
  mdp:C:/Program Files/JetBrains/CLion 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_base.h
@@ -258,8 +268,10 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/PlotWindow.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/QChartGlobal
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/QChartView
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/QLegend
+ mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/QLegendMarker
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/QLineSeries
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/QLogValueAxis
+ mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/QScatterSeries
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/QValueAxis
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/QXYSeries
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/qabstractaxis.h
@@ -268,8 +280,10 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/PlotWindow.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/qchartglobal.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/qchartview.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/qlegend.h
+ mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/qlegendmarker.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/qlineseries.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/qlogvalueaxis.h
+ mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/qscatterseries.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/qtcharts-config.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/qtchartsexports.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/qvalueaxis.h
@@ -304,6 +318,7 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/PlotWindow.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/qbytearrayalgorithms.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/qbytearraylist.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/qbytearrayview.h
+ mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/qcalendar.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/qchar.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/qcompare.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/qcompare_impl.h
@@ -320,12 +335,18 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/PlotWindow.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/qcoreevent.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/qdarwinhelpers.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/qdatastream.h
+ mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/qdatetime.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/qdeadlinetimer.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/qdebug.h
+ mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/qdir.h
+ mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/qdirlisting.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/qelapsedtimer.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/qendian.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/qeventloop.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/qexceptionhandling.h
+ mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/qfile.h
+ mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/qfiledevice.h
+ mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/qfileinfo.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/qflags.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/qfloat16.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/qforeach.h
@@ -401,6 +422,7 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/PlotWindow.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/qtenvironmentvariables.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/qtextstream.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/qtformat_impl.h
+ mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/qtimezone.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/qtmetamacros.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/qtnoop.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/qtpreprocessorsupport.h
@@ -418,6 +440,7 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/PlotWindow.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/qversiontagging.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/qxptype_traits.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/qyieldcpu.h
+ mdp:C:/Qt/6.9.1/mingw_64/include/QtGui/QAction
  mdp:C:/Qt/6.9.1/mingw_64/include/QtGui/QBrush
  mdp:C:/Qt/6.9.1/mingw_64/include/QtGui/QFont
  mdp:C:/Qt/6.9.1/mingw_64/include/QtGui/QImage
@@ -469,6 +492,7 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/PlotWindow.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtGui/qwindowdefs.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtGui/qwindowdefs_win.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/QColorDialog
+ mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/QFileDialog
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsView
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsWidget
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGridLayout
@@ -477,12 +501,15 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/PlotWindow.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/QMainWindow
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/QMenu
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/QSlider
+ mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/QStatusBar
+ mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/QToolBar
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/QVBoxLayout
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/qabstractscrollarea.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/qabstractslider.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/qboxlayout.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/qcolordialog.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/qdialog.h
+ mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/qfiledialog.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/qframe.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgraphicsitem.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgraphicslayoutitem.h
@@ -500,7 +527,9 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/PlotWindow.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/qscrollarea.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/qsizepolicy.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/qslider.h
+ mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/qstatusbar.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtabwidget.h
+ mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtoolbar.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtwidgets-config.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtwidgetsexports.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtwidgetsglobal.h
@@ -787,8 +816,10 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/mainwindow.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/QChartGlobal
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/QChartView
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/QLegend
+ mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/QLegendMarker
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/QLineSeries
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/QLogValueAxis
+ mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/QScatterSeries
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/QValueAxis
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/QXYSeries
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/qabstractaxis.h
@@ -797,13 +828,16 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/mainwindow.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/qchartglobal.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/qchartview.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/qlegend.h
+ mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/qlegendmarker.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/qlineseries.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/qlogvalueaxis.h
+ mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/qscatterseries.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/qtcharts-config.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/qtchartsexports.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/qvalueaxis.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/qxyseries.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/QCoreApplication
+ mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/QDataStream
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/QDir
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/QList
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/QMargins
@@ -1043,6 +1077,7 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/mainwindow.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/QPushButton
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/QRadioButton
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/QSlider
+ mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/QStatusBar
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/QTabWidget
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/QToolBar
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/QVBoxLayout
@@ -1086,6 +1121,7 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/mainwindow.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/qscrollarea.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/qsizepolicy.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/qslider.h
+ mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/qstatusbar.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/qstyle.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/qstyleoption.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtabbar.h
@@ -1560,6 +1596,7 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/Dialogs.h
  mdp:C:/Program Files/JetBrains/CLion 2024.3.3/bin/mingw/x86_64-w64-mingw32/include/wchar.h
  mdp:C:/Program Files/JetBrains/CLion 2024.3.3/bin/mingw/x86_64-w64-mingw32/include/wctype.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/QCoreApplication
+ mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/QDataStream
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/QDir
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/QList
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/QObject
@@ -2274,8 +2311,10 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/SchematicWidget.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/QChartGlobal
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/QChartView
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/QLegend
+ mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/QLegendMarker
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/QLineSeries
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/QLogValueAxis
+ mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/QScatterSeries
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/QValueAxis
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/QXYSeries
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/qabstractaxis.h
@@ -2284,13 +2323,16 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/SchematicWidget.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/qchartglobal.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/qchartview.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/qlegend.h
+ mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/qlegendmarker.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/qlineseries.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/qlogvalueaxis.h
+ mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/qscatterseries.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/qtcharts-config.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/qtchartsexports.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/qvalueaxis.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCharts/qxyseries.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/QCoreApplication
+ mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/QDataStream
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/QDir
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/QList
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/QMargins
@@ -2449,6 +2491,7 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/SchematicWidget.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/qversiontagging.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/qxptype_traits.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtCore/qyieldcpu.h
+ mdp:C:/Qt/6.9.1/mingw_64/include/QtGui/QAction
  mdp:C:/Qt/6.9.1/mingw_64/include/QtGui/QBrush
  mdp:C:/Qt/6.9.1/mingw_64/include/QtGui/QFont
  mdp:C:/Qt/6.9.1/mingw_64/include/QtGui/QImage
@@ -2508,6 +2551,7 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/SchematicWidget.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/QComboBox
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/QDialog
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/QDialogButtonBox
+ mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/QFileDialog
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/QFormLayout
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsView
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsWidget
@@ -2524,7 +2568,9 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/SchematicWidget.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/QPushButton
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/QRadioButton
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/QSlider
+ mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/QStatusBar
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/QTabWidget
+ mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/QToolBar
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/QVBoxLayout
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/QWidget
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/qabstractbutton.h
@@ -2538,6 +2584,7 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/SchematicWidget.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/qcombobox.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/qdialog.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/qdialogbuttonbox.h
+ mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/qfiledialog.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/qformlayout.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/qframe.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgraphicsitem.h
@@ -2563,10 +2610,12 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/SchematicWidget.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/qscrollarea.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/qsizepolicy.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/qslider.h
+ mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/qstatusbar.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/qstyle.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/qstyleoption.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtabbar.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtabwidget.h
+ mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtoolbar.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtwidgets-config.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtwidgetsexports.h
  mdp:C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtwidgetsglobal.h

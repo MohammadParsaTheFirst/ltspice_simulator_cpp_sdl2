@@ -478,13 +478,27 @@ CMakeFiles/ltspice_simulator_cpp_qt6.dir/mainwindow.cpp.obj: \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_ops.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qfileinfo.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qtimezone.h \
- C:\Users\USER\CLionProjects\ltspice_simulator_cpp_qt6\SchematicWidget.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QInputDialog \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qinputdialog.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlineedit.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qtextcursor.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qtextformat.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qpen.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qtextoption.h \
+ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/cmake-build-debug/ltspice_simulator_cpp_qt6_autogen/include/ui_mainwindow.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QVariant \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qvariant.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QApplication \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QMainWindow \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QMenuBar \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QStatusBar \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qstatusbar.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QWidget \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qwidget.h \
+ C:\Users\USER\CLionProjects\ltspice_simulator_cpp_qt6\SchematicWidget.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QWidget \
  C:/Qt/6.9.1/mingw_64/include/QtGui/QPainter \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qpainter.h \
- C:/Qt/6.9.1/mingw_64/include/QtGui/qtextoption.h \
- C:/Qt/6.9.1/mingw_64/include/QtGui/qpen.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/QPaintEvent \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qevent.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qeventpoint.h \
@@ -507,11 +521,6 @@ CMakeFiles/ltspice_simulator_cpp_qt6.dir/mainwindow.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qscreen_platform.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/QMouseEvent \
  C:/Qt/6.9.1/mingw_64/include/QtGui/QKeyEvent \
- C:/Qt/6.9.1/mingw_64/include/QtWidgets/QInputDialog \
- C:/Qt/6.9.1/mingw_64/include/QtWidgets/qinputdialog.h \
- C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlineedit.h \
- C:/Qt/6.9.1/mingw_64/include/QtGui/qtextcursor.h \
- C:/Qt/6.9.1/mingw_64/include/QtGui/qtextformat.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/QString \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qstring.h \
  C:\Users\USER\CLionProjects\ltspice_simulator_cpp_qt6\Circuit.h \
@@ -525,6 +534,8 @@ CMakeFiles/ltspice_simulator_cpp_qt6.dir/mainwindow.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qdir.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/QRegularExpression \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qregularexpression.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QDataStream \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qdatastream.h \
  C:\Users\USER\CLionProjects\ltspice_simulator_cpp_qt6\component.h \
  C:/Users/USER/CLionProjects/proj_terminal/eigen-3.4.0/Eigen/Dense \
  C:/Users/USER/CLionProjects/proj_terminal/eigen-3.4.0/Eigen/Core \
@@ -785,8 +796,6 @@ CMakeFiles/ltspice_simulator_cpp_qt6.dir/mainwindow.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qpen.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/QFont \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qfont.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/QVariant \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qvariant.h \
  C:/Qt/6.9.1/mingw_64/include/QtCharts/QLegend \
  C:/Qt/6.9.1/mingw_64/include/QtCharts/qlegend.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsWidget \
@@ -816,18 +825,15 @@ CMakeFiles/ltspice_simulator_cpp_qt6.dir/mainwindow.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtCharts/qvalueaxis.h \
  C:/Qt/6.9.1/mingw_64/include/QtCharts/QLogValueAxis \
  C:/Qt/6.9.1/mingw_64/include/QtCharts/qlogvalueaxis.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCharts/QScatterSeries \
+ C:/Qt/6.9.1/mingw_64/include/QtCharts/qscatterseries.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCharts/qxyseries.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QSlider \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qslider.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGridLayout \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgridlayout.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QColorDialog \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qcolordialog.h \
- C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/cmake-build-debug/ltspice_simulator_cpp_qt6_autogen/include/ui_mainwindow.h \
- C:/Qt/6.9.1/mingw_64/include/QtWidgets/QApplication \
- C:/Qt/6.9.1/mingw_64/include/QtWidgets/QMainWindow \
- C:/Qt/6.9.1/mingw_64/include/QtWidgets/QMenuBar \
- C:/Qt/6.9.1/mingw_64/include/QtWidgets/QStatusBar \
- C:/Qt/6.9.1/mingw_64/include/QtWidgets/qstatusbar.h \
- C:/Qt/6.9.1/mingw_64/include/QtWidgets/QWidget \
- C:/Qt/6.9.1/mingw_64/include/QtCore/QDebug \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qdebug.h
+ C:/Qt/6.9.1/mingw_64/include/QtCharts/QLegendMarker \
+ C:/Qt/6.9.1/mingw_64/include/QtCharts/qlegendmarker.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QStatusBar

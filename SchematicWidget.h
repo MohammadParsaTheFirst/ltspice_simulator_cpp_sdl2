@@ -35,8 +35,6 @@ class SchematicWidget : public QWidget {
 public:
     SchematicWidget(Circuit* circuit, QWidget* parent = Q_NULLPTR);
     void reloadFromCircuit();
-    void setCircuitPtr(Circuit* ptr) { circuit_ptr = ptr; }
-    Circuit* getCircuitPtr() const { return circuit_ptr; }
 
 public slots:
     void startOpenConfigureAnalysis();
@@ -53,8 +51,9 @@ public slots:
     void startPlacingWire();
     void startOpenNodeLibrary();
     void startPlacingLabel();
-    // void startCreateSubcircuit();
-    // void startPlacingSubcircuit();
+    void startCreateSubcircuit();
+    void startPlacingSubcircuit();
+    void startOpeningSubcircuitLibrary();
 
 private slots:
     void handleNodeLibraryItemSelection(const QString& compType);
@@ -72,23 +71,26 @@ private:
     QString getNodeNameFromPoint(const QPoint& pos) const;
     QString getNextComponentName(const QString& type);
     QString findNodeAt(const QPoint& nodePos);
+    QString findOrCreateNodeAtPoint(const QPoint& point);
+
     void placingWireMouseEvent(QMouseEvent* event);
     void placingComponentMouseEvent(QMouseEvent* event);
-    void deletingComponentMouseEvent(QMouseEvent* event);
+    bool deletingComponentMouseEvent(QMouseEvent* event);
+    void deletingGroundMouseEvent(QMouseEvent* event);
     void placingLabelMouseEvent(QMouseEvent* event);
     void placingGroundMouseEvent(QMouseEvent* event);
     void showSimpleValueDialog(QMouseEvent* event);
     void showSourceValueDialog(QMouseEvent* event);
-    void placingACVoltageSource(QMouseEvent* event);
-    // void placingSubcircuitMouseEvent(QMouseEvent* event);
+    void placingOtherComp(QMouseEvent* event);
+    void placingSubcircuitMouseEvent(QMouseEvent* event);
+    void selectingSubcircuitNodesMouseEvent(QMouseEvent* event);
+
     void drawGridDots(QPainter& painter);
     void drawComponents(QPainter& painter);
     void drawLabels(QPainter& painter);
     void drawWires(QPainter& painter);
     void drawGrounds(QPainter& painter);
     void drawGroundSymbol(QPainter& painer, const QPoint& pos);
-    QString findOrCreateNodeAtPoint(const QPoint& point);
-    // void selectingSubcircuitNodesMouseEvent(QMouseEvent* event);
 
     const int gridSize = 40;
     InteractionMode currentMode = InteractionMode::Normal;
@@ -105,7 +107,7 @@ private:
     QPoint wireStartPoint;
 
     // Analysis
-    QString parameterForAnalysis;
+    std::vector<QString> parametersForAnalysis;
     // Transient analysis
     double transientTStop = 0.0;
     double transientTStart = 0.0;
@@ -114,10 +116,9 @@ private:
     double acSweepStartFrequency = 0.0;
     double acSweepStopFrequency = 0.0;
     double acSweepNPoints = 0.0;
-    
-    // QString currentSubcircuitName;
-    // std::vector<QString> subcircuitNodes;
-};
 
+    QString currentSubcircuitName;
+    std::vector<QString> subcircuitNodes;
+};
 
 #endif //SCHEMATICWIDGET_H

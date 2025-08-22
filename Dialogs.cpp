@@ -237,3 +237,30 @@ QString ConfigureAnalysisDialog::getACOmegaStart() const {return ACOmegaStart->t
 QString ConfigureAnalysisDialog::getACOmegaStop() const {return ACOmegaStop->text();}
 QString ConfigureAnalysisDialog::getACNPoints() const {return ACNPoint->text();}
 QString ConfigureAnalysisDialog::getACParameter() const {return ACSweepParameterEdit->text();}
+
+
+SubcircuitLibarary::SubcircuitLibarary(Circuit* circuit, QWidget* parent) : QDialog(parent) {
+    setWindowTitle("Subcircuit Library");
+    setMinimumSize(300,400);
+
+    listWidget = new QListWidget(this);
+    connect(listWidget, &QListWidget::itemDoubleClicked, this, &SubcircuitLibarary::doubleClickedOnItem);
+
+    if (circuit) {
+        for (const auto& pair: circuit->subcircuitDefinitions) {
+            QString subcircuitName = QString::fromStdString(pair.first);
+            QListWidgetItem* subcircuitItem = new QListWidgetItem(subcircuitName);
+            subcircuitItem->setData(Qt::UserRole, "U:" + subcircuitName);
+            listWidget->addItem(subcircuitItem);
+        }
+    }
+
+    QVBoxLayout* layout = new QVBoxLayout(this);
+    layout->addWidget(listWidget);
+}
+
+void SubcircuitLibarary::doubleClickedOnItem(QListWidgetItem* item) {
+    QString componentType = item->data(Qt::UserRole).toString();
+    emit componentSelected(componentType);
+    accept();
+}

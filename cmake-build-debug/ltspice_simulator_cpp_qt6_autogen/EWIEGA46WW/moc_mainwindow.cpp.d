@@ -275,8 +275,10 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/cmake-build-debug/ltspice_
   C:/Qt/6.9.1/mingw_64/include/QtCharts/QChartGlobal \
   C:/Qt/6.9.1/mingw_64/include/QtCharts/QChartView \
   C:/Qt/6.9.1/mingw_64/include/QtCharts/QLegend \
+  C:/Qt/6.9.1/mingw_64/include/QtCharts/QLegendMarker \
   C:/Qt/6.9.1/mingw_64/include/QtCharts/QLineSeries \
   C:/Qt/6.9.1/mingw_64/include/QtCharts/QLogValueAxis \
+  C:/Qt/6.9.1/mingw_64/include/QtCharts/QScatterSeries \
   C:/Qt/6.9.1/mingw_64/include/QtCharts/QValueAxis \
   C:/Qt/6.9.1/mingw_64/include/QtCharts/QXYSeries \
   C:/Qt/6.9.1/mingw_64/include/QtCharts/qabstractaxis.h \
@@ -285,13 +287,16 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/cmake-build-debug/ltspice_
   C:/Qt/6.9.1/mingw_64/include/QtCharts/qchartglobal.h \
   C:/Qt/6.9.1/mingw_64/include/QtCharts/qchartview.h \
   C:/Qt/6.9.1/mingw_64/include/QtCharts/qlegend.h \
+  C:/Qt/6.9.1/mingw_64/include/QtCharts/qlegendmarker.h \
   C:/Qt/6.9.1/mingw_64/include/QtCharts/qlineseries.h \
   C:/Qt/6.9.1/mingw_64/include/QtCharts/qlogvalueaxis.h \
+  C:/Qt/6.9.1/mingw_64/include/QtCharts/qscatterseries.h \
   C:/Qt/6.9.1/mingw_64/include/QtCharts/qtcharts-config.h \
   C:/Qt/6.9.1/mingw_64/include/QtCharts/qtchartsexports.h \
   C:/Qt/6.9.1/mingw_64/include/QtCharts/qvalueaxis.h \
   C:/Qt/6.9.1/mingw_64/include/QtCharts/qxyseries.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QCoreApplication \
+  C:/Qt/6.9.1/mingw_64/include/QtCore/QDataStream \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QDir \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QList \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QMargins \
@@ -531,6 +536,7 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/cmake-build-debug/ltspice_
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QPushButton \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QRadioButton \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QSlider \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QStatusBar \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QTabWidget \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QToolBar \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QVBoxLayout \
@@ -574,6 +580,7 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/cmake-build-debug/ltspice_
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qscrollarea.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qsizepolicy.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qslider.h \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qstatusbar.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qstyle.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qstyleoption.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtabbar.h \
@@ -590,7 +597,6 @@ C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/cmake-build-debug/ltspice_
   C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/PlotWindow.h \
   C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/SchematicWidget.h \
   C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/component.h \
-  C:/Users/USER/CLionProjects/ltspice_simulator_cpp_qt6/mainwindow.h \
   C:/Users/USER/CLionProjects/proj_terminal/eigen-3.4.0/Eigen/Cholesky \
   C:/Users/USER/CLionProjects/proj_terminal/eigen-3.4.0/Eigen/Core \
   C:/Users/USER/CLionProjects/proj_terminal/eigen-3.4.0/Eigen/Dense \

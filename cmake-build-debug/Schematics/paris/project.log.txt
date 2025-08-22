@@ -1,6 +1,0 @@
-.add V V2 N_6_4 N_9_4 4 horizontal 240 160
-.add R R1 N_11_4 N_14_4 1 horizontal 440 160
-.connect N_9_4 N_11_4
-.wire 360 160 440 160 N_9_4
-.ground N_6_4 240 160
-.ground N_14_4 560 160

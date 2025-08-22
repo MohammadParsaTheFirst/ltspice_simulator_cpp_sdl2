@@ -124,4 +124,18 @@ private:
 
     QDialogButtonBox *buttonBox;
 };
+
+class SubcircuitLibarary : public QDialog {
+    Q_OBJECT
+public:
+    explicit SubcircuitLibarary(Circuit* circuit, QWidget *parent = Q_NULLPTR);
+
+signals:
+        void componentSelected(const QString& componentType);
+private slots:
+        void doubleClickedOnItem(QListWidgetItem* item);
+
+private:
+    QListWidget* listWidget;
+};
 #endif //VALUEDIALOG_H

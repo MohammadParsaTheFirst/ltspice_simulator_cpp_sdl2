@@ -505,6 +505,9 @@ CMakeFiles/ltspice_simulator_cpp_qt6.dir/PlotWindow.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtCharts/qvalueaxis.h \
  C:/Qt/6.9.1/mingw_64/include/QtCharts/QLogValueAxis \
  C:/Qt/6.9.1/mingw_64/include/QtCharts/qlogvalueaxis.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCharts/QScatterSeries \
+ C:/Qt/6.9.1/mingw_64/include/QtCharts/qscatterseries.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCharts/qxyseries.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QSlider \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qslider.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qabstractslider.h \
@@ -529,4 +532,35 @@ CMakeFiles/ltspice_simulator_cpp_qt6.dir/PlotWindow.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qinputdialog.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlineedit.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qtextcursor.h \
- C:/Qt/6.9.1/mingw_64/include/QtGui/qtextformat.h
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qtextformat.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCharts/QLegendMarker \
+ C:/Qt/6.9.1/mingw_64/include/QtCharts/qlegendmarker.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QStatusBar \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qstatusbar.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QToolBar \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtoolbar.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/QAction \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qaction.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QFileDialog \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qfiledialog.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qdir.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qdirlisting.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qfiledevice.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qdatetime.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qcalendar.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qfile.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/filesystem \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_fwd.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_path.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/codecvt \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_dir.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_ops.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qfileinfo.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qtimezone.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/fstream \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/basic_file.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++io.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fstream.tcc \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QMessageBox \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qmessagebox.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qdialogbuttonbox.h

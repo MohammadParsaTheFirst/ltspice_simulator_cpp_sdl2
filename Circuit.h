@@ -11,6 +11,7 @@
 #include <QDir>
 #include <QString>
 #include <QRegularExpression>
+#include <QDataStream>
 #include "component.h"
 #include "ComponentFactory.h"
 
@@ -41,6 +42,7 @@ struct SubcircuitDefinition {
     std::vector<std::string> netlist;
     std::string port1NodeName;
     std::string port2NodeName;
+
 };
 
 double parseSpiceValue(const std::string& valueStr);
@@ -53,19 +55,14 @@ public:
     std::vector<std::string> circuitNetList;
     std::vector<std::string> allFiles;
 
-    // File Operations
-    void newProject(const std::string& projectName);
-    void saveProject() const;
-    void loadProject(const std::string& projectName);
-    QString getProjectDirectory() const;
-    // void saveSubcircuit(const SubcircuitDefinition& subDef) const;
-    // void loadSubcircuits();
+    // --- Getters for graphical data ---
     const std::vector<ComponentGraphicalInfo>& getComponentGraphics() const;
     const std::vector<WireInfo>& getWires() const;
     const std::vector<LabelInfo>& getLabels() const;
     const std::vector<GroundInfo>& getGrounds() const;
+    void saveSubcircuitToFile(const SubcircuitDefinition& subDef);
 
-    // Component and Node Management
+    // --- Component and Node Management ---
     void addComponent(const std::string&, const std::string&, const std::string&, const std::string&,
     const QPoint& startPoint, bool isHorizontal, double value, const std::vector<double>&, const std::vector<std::string>&, bool);
     void addComponent(const std::string& typeStr, const std::string&, const std::string&, const std::string&, double, const std::vector<double>&, const std::vector<std::string>&, bool);
@@ -81,35 +78,24 @@ public:
     std::shared_ptr<Component> getComponent(const std::string& name) const;
     int getNodeId(const std::string&, bool create = true);
     int getNodeId(const std::string&) const;
+    QString getCurrentProjectName() const;
     void connectNodes(const std::string&, const std::string&);
     void createSubcircuitDefinition(const std::string&, const std::string&, const std::string&);
-    //void addLabel(const std::string&, const std::string&);
-    void addLabel(const std::string& labelName, const std::string& nodeName, const QPoint& position);
+    void addLabel(const QPoint&, const std::string&, const std::string&);
+    void processLabelConnections();
 
-    // Analysis
-    // void performDCAnalysis(const std::string&, double, double, double);
-    // void performTransientAnalysis(double, double, double);
-    // void printDcSweepResults(const std::string&, const std::string&) const;
-    // std::pair<std::string, std::vector<double>> getTransientResults(const std::string& parameter);
+    // --- Analysis ---
     void runTransientAnalysis(double startTime, double stopTime, double stepTime);
-    std::map<double, double> getTransientResults(const std::vector<std::string>&) const;
+    std::map<std::string, std::map<double, double>> getTransientResults(const std::vector<std::string>&) const;
     void runACAnalysis(double startOmega, double stopOmega, int numPoints);
-    std::map<double, double> getACSweepResults(const std::string& variable) const;
+    std::map<std::string, std::map<double, double>> getACSweepResults(const std::vector<std::string>&) const;
 
     std::map<std::string, SubcircuitDefinition> subcircuitDefinitions;
 
-    void debugPrintGraphics() const;
+    void saveToFile(const QString& filePath);
+    void loadFromFile(const QString& filePath);
+
 private:
-    /* ------------------------------------------------------------------------------------------- */
-    // loggings
-    std::vector<std::string> pendingActions;
-    QString projectLogPath;  // Path to project.log.txt
-
-    //void parseAction(const std::string& line);
-    void parseAction(const std::string& line, std::ifstream& is);
-    std::string formatValue(double value) const;  // Helper to format doubles without trailing zeros
-    /* ------------------------------------------------------------------------------------------- */
-
     void buildMNAMatrix(double, double);
     void buildMNAMatrix_AC(double omega);
     Eigen::VectorXd solveMNASystem();
@@ -118,6 +104,8 @@ private:
     void mergeNodes(int sourceNodeI, int destNodeId);
     bool isGround(int nodeId) const;
     void makeComponentFromLine(const std::string& netListLine);
+    std::vector<std::string> generateNetlistFromComponents() const;
+    // void rebuildNodeMaps();
 
     // circuit data
     std::vector<std::shared_ptr<Component>> components;
@@ -139,7 +127,6 @@ private:
     int numCurrentUnknowns;
     std::map<std::string, int> componentCurrentIndices; // component name -> MNA component index
     std::map<double, Eigen::VectorXd> transientSolutions;
-    // std::map<double, Eigen::VectorXd> dcSweepSolutions;
     std::map<double, Eigen::VectorXd> acSweepSolutions;
     bool hasNonlinearComponents;
 
@@ -147,5 +134,31 @@ private:
     QString currentProjectName;
     QString projectDirectoryPath;
 };
+
+template<typename T>
+QDataStream& operator<<(QDataStream& out, const std::vector<T>& vec);
+template<typename T>
+QDataStream& operator>>(QDataStream& in, std::vector<T>& vec);
+
+QDataStream& operator<<(QDataStream& out, const std::map<std::string, int>& map);
+QDataStream& operator>>(QDataStream& in, std::map<std::string, int>& map);
+QDataStream& operator<<(QDataStream& out, const std::map<int, std::string>& map);
+QDataStream& operator>>(QDataStream& in, std::map<int, std::string>& map);
+QDataStream& operator<<(QDataStream& out, const std::set<int>& set);
+QDataStream& operator>>(QDataStream& in, std::set<int>& set);
+QDataStream& operator<<(QDataStream& out, const std::map<std::string, SubcircuitDefinition>& map);
+QDataStream& operator>>(QDataStream& in, std::map<std::string, SubcircuitDefinition>& map);
+
+QDataStream& operator<<(QDataStream& out, const ComponentGraphicalInfo& info);
+QDataStream& operator>>(QDataStream& in, ComponentGraphicalInfo& info);
+QDataStream& operator<<(QDataStream& out, const WireInfo& info);
+QDataStream& operator>>(QDataStream& in, WireInfo& info);
+QDataStream& operator<<(QDataStream& out, const LabelInfo& info);
+QDataStream& operator>>(QDataStream& in, LabelInfo& info);
+QDataStream& operator<<(QDataStream& out, const GroundInfo& info);
+QDataStream& operator>>(QDataStream& in, GroundInfo& info);
+QDataStream& operator<<(QDataStream& out, const SubcircuitDefinition& def);
+QDataStream& operator>>(QDataStream& in, SubcircuitDefinition& def);
+
 
 #endif // CIRCUIT_H

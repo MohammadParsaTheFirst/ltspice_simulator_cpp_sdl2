@@ -65,9 +65,11 @@ CMakeFiles/ltspice_simulator_cpp_qt6.dir/SchematicWidget.cpp.obj: \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/poly_hermite.tcc \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/poly_laguerre.tcc \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/riemann_zeta.tcc \
- C:/Qt/6.9.1/mingw_64/include/QtCore/QDebug \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qdebug.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qcompare.h \
+ C:\Users\USER\CLionProjects\ltspice_simulator_cpp_qt6\SchematicWidget.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QWidget \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qwidget.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qtguiglobal.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qglobal.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstddef \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stddef.h \
@@ -176,6 +178,14 @@ CMakeFiles/ltspice_simulator_cpp_qt6.dir/SchematicWidget.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qtresource.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qttranslation.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qversiontagging.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qtgui-config.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qtguiexports.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtwidgets-config.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtwidgetsexports.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qwindowdefs.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qobjectdefs.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qnamespace.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qcompare.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qstdlibdetection.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qcomparehelpers.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/q20type_traits.h \
@@ -206,26 +216,15 @@ CMakeFiles/ltspice_simulator_cpp_qt6.dir/SchematicWidget.cpp.obj: \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_bvector.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/vector.tcc \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/array \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qfloat16.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qhashfunctions.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qstring.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qchar.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qstringview.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qbytearray.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qrefcount.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qnamespace.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qtmetamacros.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qarraydata.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qpair.h \
- C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/x86_64-w64-mingw32/include/string.h \
- C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/x86_64-w64-mingw32/include/sec_api/string_s.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qarraydatapointer.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qarraydataops.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qcontainertools_impl.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qxptype_traits.h \
- C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstring \
- C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iterator \
- C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stream_iterator.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qobjectdefs_impl.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qfunctionaltools_impl.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/memory \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_raw_storage_iter.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/align.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unique_ptr.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ostream \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ios \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iosfwd \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stringfwd.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/postypes.h \
@@ -235,8 +234,7 @@ CMakeFiles/ltspice_simulator_cpp_qt6.dir/SchematicWidget.cpp.obj: \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/x86_64-w64-mingw32/include/_mingw_stat64.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/x86_64-w64-mingw32/include/swprintf.inl \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/x86_64-w64-mingw32/include/sec_api/wchar_s.h \
- C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/streambuf_iterator.h \
- C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/streambuf \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/char_traits.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/localefwd.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++locale.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/clocale \
@@ -250,7 +248,6 @@ CMakeFiles/ltspice_simulator_cpp_qt6.dir/SchematicWidget.cpp.obj: \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/atomic_word.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_classes.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/string \
- C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/char_traits.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ostream_insert.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/cxxabi_forced.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_string.h \
@@ -265,18 +262,14 @@ CMakeFiles/ltspice_simulator_cpp_qt6.dir/SchematicWidget.cpp.obj: \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/system_error \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/error_constants.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/stdexcept \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/streambuf \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/streambuf.tcc \
- C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/memory \
- C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_raw_storage_iter.h \
- C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/align.h \
- C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unique_ptr.h \
- C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ostream \
- C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ios \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_ios.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cwctype \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/x86_64-w64-mingw32/include/wctype.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_base.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/streambuf_iterator.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_inline.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets.tcc \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_ios.tcc \
@@ -289,6 +282,24 @@ CMakeFiles/ltspice_simulator_cpp_qt6.dir/SchematicWidget.cpp.obj: \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward/auto_ptr.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ranges_uninitialized.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/glue_memory_defs.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qwindowdefs_win.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qobject.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qstring.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qchar.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qstringview.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qbytearray.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qrefcount.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qarraydata.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qpair.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/x86_64-w64-mingw32/include/string.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/x86_64-w64-mingw32/include/sec_api/string_s.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qarraydatapointer.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qarraydataops.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qcontainertools_impl.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qxptype_traits.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstring \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iterator \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stream_iterator.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/q20functional.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/q20memory.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/q17memory.h \
@@ -307,11 +318,22 @@ CMakeFiles/ltspice_simulator_cpp_qt6.dir/SchematicWidget.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qstringbuilder.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qstringconverter.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qstringconverter_base.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qlist.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qhashfunctions.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/numeric \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_numeric.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/glue_numeric_defs.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qmath.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qiterator.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qbytearraylist.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qstringlist.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qalgorithms.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qstringmatcher.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qscopedpointer.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qmetatype.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qdatastream.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qiodevicebase.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qfloat16.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qmath.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qtformat_impl.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/format \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/charconv \
@@ -324,23 +346,10 @@ CMakeFiles/ltspice_simulator_cpp_qt6.dir/SchematicWidget.cpp.obj: \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets_nonio.tcc \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_conv.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/span \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qtextstream.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qiodevicebase.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qcontiguouscache.h \
- C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/climits \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qsharedpointer.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qshareddata.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qsharedpointer_impl.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qmetatype.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qdatastream.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qscopedpointer.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qiterable.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qmetacontainer.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qcontainerinfo.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qtaggedpointer.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qobjectdefs.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qobjectdefs_impl.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qfunctionaltools_impl.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qscopeguard.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/list \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_list.h \
@@ -349,6 +358,8 @@ CMakeFiles/ltspice_simulator_cpp_qt6.dir/SchematicWidget.cpp.obj: \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_tree.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_map.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_multimap.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qobject_impl.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qbindingstorage.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/chrono \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/chrono.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ratio \
@@ -359,35 +370,6 @@ CMakeFiles/ltspice_simulator_cpp_qt6.dir/SchematicWidget.cpp.obj: \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/chrono_io.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iomanip \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/quoted_string.h \
- C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/set \
- C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_set.h \
- C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_multiset.h \
- C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/unordered_set \
- C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unordered_set.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qlist.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qiterator.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qbytearraylist.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qstringlist.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qstringmatcher.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qmap.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qshareddata_impl.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qset.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qhash.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qvarlengtharray.h \
- C:\Users\USER\CLionProjects\ltspice_simulator_cpp_qt6\SchematicWidget.h \
- C:/Qt/6.9.1/mingw_64/include/QtWidgets/QWidget \
- C:/Qt/6.9.1/mingw_64/include/QtWidgets/qwidget.h \
- C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
- C:/Qt/6.9.1/mingw_64/include/QtGui/qtguiglobal.h \
- C:/Qt/6.9.1/mingw_64/include/QtGui/qtgui-config.h \
- C:/Qt/6.9.1/mingw_64/include/QtGui/qtguiexports.h \
- C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtwidgets-config.h \
- C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtwidgetsexports.h \
- C:/Qt/6.9.1/mingw_64/include/QtGui/qwindowdefs.h \
- C:/Qt/6.9.1/mingw_64/include/QtGui/qwindowdefs_win.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qobject.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qobject_impl.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qbindingstorage.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qmargins.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/q23utility.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/q20utility.h \
@@ -402,6 +384,7 @@ CMakeFiles/ltspice_simulator_cpp_qt6.dir/SchematicWidget.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qcolor.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qrgb.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qrgba64.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qshareddata.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qimage.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qpixelformat.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qtransform.h \
@@ -413,6 +396,21 @@ CMakeFiles/ltspice_simulator_cpp_qt6.dir/SchematicWidget.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qline.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qvariant.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qdebug.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qtextstream.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qcontiguouscache.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/climits \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qsharedpointer.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qsharedpointer_impl.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/set \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_set.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_multiset.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/unordered_set \
+ C:/Program\ Files/JetBrains/CLion\ 2024.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unordered_set.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qmap.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qshareddata_impl.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qset.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qhash.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qvarlengtharray.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qpalette.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qbrush.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qfont.h \
@@ -502,6 +500,8 @@ CMakeFiles/ltspice_simulator_cpp_qt6.dir/SchematicWidget.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qtimezone.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/QRegularExpression \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qregularexpression.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QDataStream \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qdatastream.h \
  C:\Users\USER\CLionProjects\ltspice_simulator_cpp_qt6\component.h \
  C:/Users/USER/CLionProjects/proj_terminal/eigen-3.4.0/Eigen/Dense \
  C:/Users/USER/CLionProjects/proj_terminal/eigen-3.4.0/Eigen/Core \
@@ -799,6 +799,9 @@ CMakeFiles/ltspice_simulator_cpp_qt6.dir/SchematicWidget.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtCharts/qvalueaxis.h \
  C:/Qt/6.9.1/mingw_64/include/QtCharts/QLogValueAxis \
  C:/Qt/6.9.1/mingw_64/include/QtCharts/qlogvalueaxis.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCharts/QScatterSeries \
+ C:/Qt/6.9.1/mingw_64/include/QtCharts/qscatterseries.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCharts/qxyseries.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QSlider \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qslider.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGridLayout \
@@ -806,4 +809,15 @@ CMakeFiles/ltspice_simulator_cpp_qt6.dir/SchematicWidget.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QMenu \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qmenu.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QColorDialog \
- C:/Qt/6.9.1/mingw_64/include/QtWidgets/qcolordialog.h
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qcolordialog.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCharts/QLegendMarker \
+ C:/Qt/6.9.1/mingw_64/include/QtCharts/qlegendmarker.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QStatusBar \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qstatusbar.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QToolBar \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtoolbar.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/QAction \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qaction.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QFileDialog \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qfiledialog.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qdir.h

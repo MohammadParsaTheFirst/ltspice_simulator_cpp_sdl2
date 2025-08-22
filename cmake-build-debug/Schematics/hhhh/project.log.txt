@@ -1,7 +1,0 @@
-.connect N_6_1 N_11_1
-.wire 240 40 440 40 N_6_1
-.connect N_11_1 N_11_4
-.wire 440 40 440 160 N_11_1
-.connect N_11_4 N_6_4
-.wire 440 160 240 160 N_11_4
-.add R R1 N_6_1 N_6_4 8 vertical 240 40
