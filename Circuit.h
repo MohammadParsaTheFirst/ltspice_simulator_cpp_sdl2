@@ -13,27 +13,48 @@
 #include <QRegularExpression>
 #include "component.h"
 #include "ComponentFactory.h"
+#include "Serialization.h"
 
 struct ComponentGraphicalInfo {
     QPoint startPoint;
     bool isHorizontal;
     std::string name;
+
+    template<class Archive>
+    void serialize(Archive& ar) {
+        ar(CEREAL_NVP(startPoint), CEREAL_NVP(isHorizontal), CEREAL_NVP(name));
+    }
 };
 
 struct WireInfo {
     QPoint startPoint;
     QPoint endPoint;
     std::string nodeName;
+
+    template<class Archive>
+    void serialize(Archive& ar) {
+        ar(CEREAL_NVP(startPoint), CEREAL_NVP(endPoint), CEREAL_NVP(nodeName));
+    }
 };
 
 struct LabelInfo {
     QPoint position;
     std::string name;
     std::string connectedNodeName;
+
+    template<class Archive>
+    void serialize(Archive& ar) {
+        ar(CEREAL_NVP(position), CEREAL_NVP(name), CEREAL_NVP(connectedNodeName));
+    }
 };
 
 struct GroundInfo {
     QPoint position;
+
+    template<class Archive>
+    void serialize(Archive& ar) {
+        ar(CEREAL_NVP(position));
+    }
 };
 
 struct SubcircuitDefinition {
@@ -41,6 +62,11 @@ struct SubcircuitDefinition {
     std::vector<std::string> netlist;
     std::string port1NodeName;
     std::string port2NodeName;
+
+    template<class Archive>
+    void serialize(Archive& ar) {
+        ar(CEREAL_NVP(name), CEREAL_NVP(netlist), CEREAL_NVP(port1NodeName), CEREAL_NVP(port2NodeName));
+    }
 };
 
 double parseSpiceValue(const std::string& valueStr);
@@ -54,8 +80,8 @@ public:
     std::vector<std::string> allFiles;
 
     // File Operations
-    void saveProjectToFile(const QString& filePath) const;
-    void loadProjectFromFile(const QString& filePath);
+    // void saveProjectToFile(const QString& filePath) const;
+    // void loadProjectFromFile(const QString& filePath);
     void newProject(const std::string& projectName);
     void saveProject() const;
     void loadProject(const std::string& projectName);
@@ -82,12 +108,12 @@ public:
     int getNodeId(const std::string&, bool create = true);
     int getNodeId(const std::string&) const;
     QString getCurrentProjectName() const;
-    const std::map<int, std::string>& getIdToNodeName() const;
+    // const std::map<int, std::string>& getIdToNodeName() const;
     void connectNodes(const std::string&, const std::string&);
     void createSubcircuitDefinition(const std::string&, const std::string&, const std::string&);
     void addLabel(const QPoint&, const std::string&, const std::string&);
     void processLabelConnections();
-    const std::vector<std::shared_ptr<Component>>& getComponentsVector() const { return components; }
+    // const std::vector<std::shared_ptr<Component>>& getComponentsVector() const { return components; }
 
     // Analysis
     void runTransientAnalysis(double startTime, double stopTime, double stepTime);
@@ -135,5 +161,19 @@ private:
     QString currentProjectName;
     QString projectDirectoryPath;
 };
+
+
+// QDataStream& operator<<(QDataStream& out, const ComponentGraphicalInfo& info);
+// QDataStream& operator>>(QDataStream& in, ComponentGraphicalInfo& info);
+//
+// template<typename K, typename V>
+// QDataStream& operator<<(QDataStream& out, const std::map<K, V>& map);
+// template<typename K, typename V>
+// QDataStream& operator>>(QDataStream& in, std::map<K, V>& map);
+//
+// template<typename T>
+// QDataStream& operator<<(QDataStream& out, const std::set<T>& set);
+// template<typename T>
+// QDataStream& operator>>(QDataStream& in, std::set<T>& set);
 
 #endif // CIRCUIT_H

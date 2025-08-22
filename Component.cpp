@@ -450,161 +450,149 @@ double ACVoltageSource::getValueAtFrequency(double omega) const {
 // -------------------------------- Get Values of independent sources --------------------------------
 
 
-// -------------------------------- Saving data with binary files with fstream --------------------------------
-void Component::save_binary(QDataStream& out) const {
-    out << static_cast<qint32>(type);
-    out << QString::fromStdString(name);
-    out << node1 << node2 << value;
-}
-
-void Resistor::save_binary(QDataStream& out) const {
-    Component::save_binary(out);
-}
-
-void Capacitor::save_binary(QDataStream& out) const {
-    Component::save_binary(out);
-    out << V_prev;
-}
-
-void Inductor::save_binary(QDataStream& out) const {
-    Component::save_binary(out);
-    out << I_prev;
-}
-
-void Diode::save_binary(QDataStream& out) const {
-    Component::save_binary(out);
-    out << Is << Vt << eta << V_prev;
-}
-
-void VoltageSource::save_binary(QDataStream& out) const {
-    Component::save_binary(out);
-    out << static_cast<qint32>(sourceType);
-    out << param1 << param2 << param3;
-}
-
-void CurrentSource::save_binary(QDataStream& out) const {
-    Component::save_binary(out);
-    out << static_cast<qint32>(sourceType);
-    out << param1 << param2 << param3;
-}
-
-void VCVS::save_binary(QDataStream& out) const {
-    Component::save_binary(out);
-    out << ctrlNode1 << ctrlNode2 << gain;
-}
-
-void VCCS::save_binary(QDataStream& out) const {
-    Component::save_binary(out);
-    out << ctrlNode1 << ctrlNode2 << gain;
-}
-
-void save_string_binary(std::ofstream& file, const std::string& str) {
-    size_t len = str.size();
-    file.write(reinterpret_cast<const char*>(&len), sizeof(len));
-    file.write(str.c_str(), len);
-}
-
-void CCVS::save_binary(QDataStream& out) const {
-    Component::save_binary(out);
-    out << QString::fromStdString(ctrlCompName);
-    out << gain;
-}
-
-void CCCS::save_binary(QDataStream& out) const {
-    Component::save_binary(out);
-    out << QString::fromStdString(ctrlCompName);
-    out << gain;
-}
-// -------------------------------- Saving data with binary files with fstream --------------------------------
-
-
-// -------------------------------- Loading data from binary files with fstream --------------------------------
-void Component::load_binary(QDataStream& in) {
-    QString nameStr;
-    in >> nameStr;
-    name = nameStr.toStdString();
-    in >> node1 >> node2 >> value;
-}
-
-void Resistor::load_binary(QDataStream& in) {
-    QString qname;
-    in >> qname >> node1 >> node2 >> value;
-    if (in.status() != QDataStream::Ok) {
-        std::cerr << "Error: Failed to read Resistor data" << std::endl;
-        return;
-    }
-    name = qname.toStdString();
-    if (name.empty() || name.find_first_not_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_") != std::string::npos) {
-        std::cerr << "Error: Invalid Resistor name: " << name << std::endl;
-        name = "";
-    }
-    std::cout << "Loaded Resistor: name=" << name << ", node1=" << node1
-              << ", node2=" << node2 << ", value=" << value << std::endl;
-}
-
-void Capacitor::load_binary(QDataStream& in) {
-    Component::load_binary(in);
-    in >> V_prev;
-}
-
-void Inductor::load_binary(QDataStream& in) {
-    Component::load_binary(in);
-    in >> I_prev;
-}
-
-void Diode::load_binary(QDataStream& in) {
-    Component::load_binary(in);
-    in >> Is >> Vt >> eta >> V_prev;
-}
-
-void VoltageSource::load_binary(QDataStream& in) {
-    Component::load_binary(in);
-    qint32 st;
-    in >> st;
-    sourceType = static_cast<SourceType>(st);
-    in >> param1 >> param2 >> param3;
-}
-
-void CurrentSource::load_binary(QDataStream& in) {
-    Component::load_binary(in);
-    qint32 st;
-    in >> st;
-    sourceType = static_cast<SourceType>(st);
-    in >> param1 >> param2 >> param3;
-}
-
-void VCVS::load_binary(QDataStream& in) {
-    Component::load_binary(in);
-    in >> ctrlNode1 >> ctrlNode2 >> gain;
-}
-
-void VCCS::load_binary(QDataStream& in) {
-    Component::load_binary(in);
-    in >> ctrlNode1 >> ctrlNode2 >> gain;
-}
-
-std::string load_string_binary(std::ifstream& file) {
-    size_t len;
-    file.read(reinterpret_cast<char*>(&len), sizeof(len));
-    char* buf = new char[len + 1];
-    file.read(buf, len);
-    buf[len] = '\0';
-    std::string str = buf;
-    delete[] buf;
-    return str;
-}
-
-void CCVS::load_binary(QDataStream& in) {
-    Component::load_binary(in);
-    QString compName;
-    in >> compName >> gain;
-    ctrlCompName = compName.toStdString();
-}
-
-void CCCS::load_binary(QDataStream& in) {
-    Component::load_binary(in);
-    QString compName;
-    in >> compName >> gain;
-    ctrlCompName = compName.toStdString();
-}
-// -------------------------------- Loading data with binary files with fstream --------------------------------
+// // -------------------------------- Saving data with binary files with fstream --------------------------------
+// void Component::save_binary(QDataStream& out) const {
+//     out << static_cast<qint32>(type);
+//     out << QString::fromStdString(name);
+//     out << node1 << node2 << value;
+// }
+//
+// void Resistor::save_binary(QDataStream& out) const {
+//     Component::save_binary(out);
+// }
+//
+// void Capacitor::save_binary(QDataStream& out) const {
+//     Component::save_binary(out);
+//     out << V_prev;
+// }
+//
+// void Inductor::save_binary(QDataStream& out) const {
+//     Component::save_binary(out);
+//     out << I_prev;
+// }
+//
+// void Diode::save_binary(QDataStream& out) const {
+//     Component::save_binary(out);
+//     out << Is << Vt << eta << V_prev;
+// }
+//
+// void VoltageSource::save_binary(QDataStream& out) const {
+//     Component::save_binary(out);
+//     out << static_cast<qint32>(sourceType);
+//     out << param1 << param2 << param3;
+// }
+//
+// void CurrentSource::save_binary(QDataStream& out) const {
+//     Component::save_binary(out);
+//     out << static_cast<qint32>(sourceType);
+//     out << param1 << param2 << param3;
+// }
+//
+// void VCVS::save_binary(QDataStream& out) const {
+//     Component::save_binary(out);
+//     out << ctrlNode1 << ctrlNode2 << gain;
+// }
+//
+// void VCCS::save_binary(QDataStream& out) const {
+//     Component::save_binary(out);
+//     out << ctrlNode1 << ctrlNode2 << gain;
+// }
+//
+// void save_string_binary(std::ofstream& file, const std::string& str) {
+//     size_t len = str.size();
+//     file.write(reinterpret_cast<const char*>(&len), sizeof(len));
+//     file.write(str.c_str(), len);
+// }
+//
+// void CCVS::save_binary(QDataStream& out) const {
+//     Component::save_binary(out);
+//     out << QString::fromStdString(ctrlCompName);
+//     out << gain;
+// }
+//
+// void CCCS::save_binary(QDataStream& out) const {
+//     Component::save_binary(out);
+//     out << QString::fromStdString(ctrlCompName);
+//     out << gain;
+// }
+// // -------------------------------- Saving data with binary files with fstream --------------------------------
+//
+//
+// // -------------------------------- Loading data from binary files with fstream --------------------------------
+// void Component::load_binary(QDataStream& in) {
+//     QString nameStr;
+//     in >> nameStr;
+//     name = nameStr.toStdString();
+//     in >> node1 >> node2 >> value;
+// }
+//
+// void Resistor::load_binary(QDataStream& in) {
+//     Component::load_binary(in);
+// }
+//
+// void Capacitor::load_binary(QDataStream& in) {
+//     Component::load_binary(in);
+//     in >> V_prev;
+// }
+//
+// void Inductor::load_binary(QDataStream& in) {
+//     Component::load_binary(in);
+//     in >> I_prev;
+// }
+//
+// void Diode::load_binary(QDataStream& in) {
+//     Component::load_binary(in);
+//     in >> Is >> Vt >> eta >> V_prev;
+// }
+//
+// void VoltageSource::load_binary(QDataStream& in) {
+//     Component::load_binary(in);
+//     qint32 st;
+//     in >> st;
+//     sourceType = static_cast<SourceType>(st);
+//     in >> param1 >> param2 >> param3;
+// }
+//
+// void CurrentSource::load_binary(QDataStream& in) {
+//     Component::load_binary(in);
+//     qint32 st;
+//     in >> st;
+//     sourceType = static_cast<SourceType>(st);
+//     in >> param1 >> param2 >> param3;
+// }
+//
+// void VCVS::load_binary(QDataStream& in) {
+//     Component::load_binary(in);
+//     in >> ctrlNode1 >> ctrlNode2 >> gain;
+// }
+//
+// void VCCS::load_binary(QDataStream& in) {
+//     Component::load_binary(in);
+//     in >> ctrlNode1 >> ctrlNode2 >> gain;
+// }
+//
+// std::string load_string_binary(std::ifstream& file) {
+//     size_t len;
+//     file.read(reinterpret_cast<char*>(&len), sizeof(len));
+//     char* buf = new char[len + 1];
+//     file.read(buf, len);
+//     buf[len] = '\0';
+//     std::string str = buf;
+//     delete[] buf;
+//     return str;
+// }
+//
+// void CCVS::load_binary(QDataStream& in) {
+//     Component::load_binary(in);
+//     QString compName;
+//     in >> compName >> gain;
+//     ctrlCompName = compName.toStdString();
+// }
+//
+// void CCCS::load_binary(QDataStream& in) {
+//     Component::load_binary(in);
+//     QString compName;
+//     in >> compName >> gain;
+//     ctrlCompName = compName.toStdString();
+// }
+// // -------------------------------- Loading data with binary files with fstream --------------------------------

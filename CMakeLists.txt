@@ -21,6 +21,8 @@ set(SOURCES
         Dialogs.cpp Dialogs.h
         PlotWindow.cpp PlotWindow.h
         resources.qrc
+        Serialization.h
+        Circuit_io.cpp
 )
 
 # Build executable
@@ -28,6 +30,7 @@ add_executable(LTspice ${SOURCES})
 
 target_include_directories(LTspice PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/eigen-3.4.0
+        ${CMAKE_CURRENT_SOURCE_DIR}/cereal/include
 )
 
 target_link_libraries(LTspice PRIVATE Qt6::Widgets Qt6::Charts)

@@ -71,6 +71,8 @@ private:
     QString getNodeNameFromPoint(const QPoint& pos) const;
     QString getNextComponentName(const QString& type);
     QString findNodeAt(const QPoint& nodePos);
+    QString findOrCreateNodeAtPoint(const QPoint& point);
+
     void placingWireMouseEvent(QMouseEvent* event);
     void placingComponentMouseEvent(QMouseEvent* event);
     bool deletingComponentMouseEvent(QMouseEvent* event);
@@ -81,14 +83,14 @@ private:
     void showSourceValueDialog(QMouseEvent* event);
     void placingOtherComp(QMouseEvent* event);
     void placingSubcircuitMouseEvent(QMouseEvent* event);
+    void selectingSubcircuitNodesMouseEvent(QMouseEvent* event);
+
     void drawGridDots(QPainter& painter);
     void drawComponents(QPainter& painter);
     void drawLabels(QPainter& painter);
     void drawWires(QPainter& painter);
     void drawGrounds(QPainter& painter);
     void drawGroundSymbol(QPainter& painer, const QPoint& pos);
-    QString findOrCreateNodeAtPoint(const QPoint& point);
-    void selectingSubcircuitNodesMouseEvent(QMouseEvent* event);
 
     const int gridSize = 40;
     InteractionMode currentMode = InteractionMode::Normal;
@@ -118,6 +120,5 @@ private:
     QString currentSubcircuitName;
     std::vector<QString> subcircuitNodes;
 };
-
 
 #endif //SCHEMATICWIDGET_H

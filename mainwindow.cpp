@@ -91,36 +91,32 @@ void MainWindow::hNewSchematic() {
 }
 
 void MainWindow::hSaveProject() {
-    QString defaultPath = circuit.getProjectDirectory() + QDir::separator() + circuit.getCurrentProjectName() + ".bin";
-    QString filePath = QFileDialog::getSaveFileName(this, "Save Project", defaultPath, "Binary Projects (*.bin)");
-    if (!filePath.isEmpty()) {
-        // Ensure the file has .bin extension
-        if (!filePath.endsWith(".bin", Qt::CaseInsensitive)) {
-            filePath += ".bin";
+    QString projectDirPath = QFileDialog::getExistingDirectory(this, "Open Project", circuit.getProjectDirectory());
+
+    if (!projectDirPath.isEmpty()) {
+        try {
+            QDir dir(projectDirPath);
+            QString projectName = dir.dirName();
+            circuit.loadProject(projectName.toStdString());
+            if (!schematic)
+                setupSchematicState();
+            else
+                schematic->reloadFromCircuit();
+            this->setWindowTitle("ParsaSpice - " + projectName);
         }
-        circuit.saveProjectToFile(filePath);
-        QMessageBox::information(this, "Save Project", "Project saved successfully.");
+        catch (const std::exception& e) {
+            QMessageBox::warning(this, "Error", QString("Failed to load project: %1").arg(e.what()));
+        }
     }
 }
 
 void MainWindow::hOpenProject() {
-    QString filePath = QFileDialog::getOpenFileName(this, "Open Project", circuit.getProjectDirectory(), "Binary Projects (*.bin)");
-    if (!filePath.isEmpty()) {
-        try {
-            circuit.loadProjectFromFile(filePath);
-            if (!schematic) {
-                setupSchematicState();
-            } else {
-                schematic->reloadFromCircuit();
-            }
-            // Extract project name from file path
-            QFileInfo fileInfo(filePath);
-            QString projectName = fileInfo.baseName();
-            this->setWindowTitle("LTspice - " + projectName);
-            QMessageBox::information(this, "Open Project", "Project loaded successfully.");
-        } catch (const std::exception& e) {
-            QMessageBox::warning(this, "Error", QString("Failed to load project: %1").arg(e.what()));
-        }
+    try {
+        circuit.saveProject();
+        QMessageBox::information(this, "Save Project", "Project saved successfully.");
+    }
+    catch (const std::exception& e) {
+        QMessageBox::warning(this, "Error", e.what());
     }
 }
 
