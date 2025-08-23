@@ -91,7 +91,6 @@ void MainWindow::setupSchematicState(const QString& projectName) {
     schematic = new SchematicWidget(&circuit, this);
     setCentralWidget(schematic);
 
-    connect(saveAction, &QAction::triggered, this, &MainWindow::hSaveProject);
     connect(runAction, &QAction::triggered, schematic, &SchematicWidget::startRunAnalysis);
     connect(configureAnalysisAction, &QAction::triggered, schematic, &SchematicWidget::startOpenConfigureAnalysis);
     connect(wireAction, &QAction::triggered, schematic, &SchematicWidget::startPlacingWire);
@@ -188,6 +187,7 @@ void MainWindow::starterWindow() {
     connect(openAction, &QAction::triggered, this, &MainWindow::hOpenProject);
     connect(quitAction, &QAction::triggered, this, &QApplication::quit);
     connect(settingsAction, &QAction::triggered, this, &MainWindow::hShowSettings);
+    connect(saveAction, &QAction::triggered, this, &MainWindow::hSaveProject);
 
     shortcutRunner();
     implementMenuBar();
